@@ -1,0 +1,127 @@
+﻿
+.zam_kvit_activ {  color:black;}
+.zam_nekvit_activ { background: red; color:black;}
+.zam_nekvit_neactiv { color:red;}
+ 
+.alarm_pred { background: yellow; color:black;}
+.alarm_krit { background: red; color:black;}
+
+
+.mnemoContent {
+    position: absolute;
+    z-index: 0;
+    right: 0px;
+    min-width: 887px;
+    left: 0px;
+    top: 53px;
+}
+.trendMenu {
+    border-radius: 2px;
+    display: none; 
+    position: fixed; 
+    bottom: 100px; 
+    top: 100px; 
+    left: 100px; 
+    right: 100px; 
+    background-color: #FFFFFF; 
+    border: 1px solid black; 
+    padding:20px 20px 20px 20px;
+    box-shadow: 0 0 10px #000;
+}
+.trendMenu_trend {
+    position: absolute;
+    padding: 20px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%; 
+    width: 80%;  
+}
+.trendMenu_control {
+    position: absolute;
+    margin: 20px;
+    display: table;
+    top:0px;
+    right: 0px;
+    /*height: 100%; */
+    width: 20%;
+    min-width: 250px;  
+}
+
+.trendMenu_control_block { 
+    padding: 10px; 
+    border-radius: 10px 10px 10px 10px; 
+    border: solid 1.5px black;
+}
+.trendMenu_control_block_label { 
+    font-size: 18px;
+    padding: 10px;
+}
+
+.row {
+    display: table-row;
+    background: #f2dede;
+    border-color: #b94a48;
+}
+
+.cell {
+    display:table-cell;
+    background: #fbeed5;
+    border-color: #c09853;
+}
+
+.bckLayer{
+   /* position: absolute;*/
+    width: 100%;
+    height: 80%;
+    bottom: 20%;
+    
+}
+.bckLayer img{
+    position: absolute;
+}
+.bckLayer div{
+    position: absolute;
+}
+
+
+.frtLayer{
+  /*   position: absolute; */
+    width: 100%;
+    height: 100%;
+}
+.frtLayer div{
+   position: absolute;
+}
+
+.pipe{
+    position: absolute;
+}
+
+.block{
+    background-color: #ffffff;padding: 0.5%;border:dashed 1px;font-size: 18px
+}
+
+.good{
+    background-color: #66EA66;border: 1px solid #000;
+}
+.al{
+    background-color: rgba(252, 255, 59, 0.84);border: 1px solid #000;
+}
+.alal{
+    background-color: #DA6666;border: 1px solid #000;
+}
+.und{
+    background-color: grey;border: 1px solid #000;
+}
+[class^="button_"] {
+    position: absolute;
+    padding: 1px 6px 3px 6px;
+    background: linear-gradient(to top left, #1e1e1e, #747474);
+    opacity: 0.75;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+[class^="button_"]:hover {
+    opacity: 1;
+}

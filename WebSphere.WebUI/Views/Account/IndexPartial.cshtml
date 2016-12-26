@@ -1,0 +1,240 @@
+﻿@using WebSphere.WebUI.Helpers;
+@using WebSphere.Domain.Entities
+@model List<User>
+
+@{
+    // переменные
+    ViewBag.change_obj = false;
+    ViewBag.delete_obj = false;
+    
+    if (User.Identity.IsAuthenticated)
+    {
+        // если есть доступ на изменение
+        if (DisplayContentBasedOnRole.IsAccess(User.Identity.Name, "Account", "Change"))
+        {
+            ViewBag.change_obj = true;
+        }
+
+        // если есть доступ на удаление
+        if (DisplayContentBasedOnRole.IsAccess(User.Identity.Name, "Account", "Delete"))
+        {
+            ViewBag.delete_obj = true;
+        }
+    }
+}
+
+<h1>&nbsp;</h1>
+<div class="grid clearL">
+
+    <div class="action Link_blue1">
+        @if (ViewBag.delete_obj)
+        {
+            <a data-ref="/Account/Delete" href="javascript:void(0)">
+                <span class="action_delete"></span>Удалить
+            </a>
+        }
+    </div>
+
+    @*<div class="pages floatR Link_blue2">
+        <div class="page_info">Всего <span class="color_orange">4</span> записи/<span class="color_orange">1</span> Страница</div>
+        <div class="page_nav_go">
+            <div class="page_nav">
+                <a class="first_page" href="?p=1" alt="1" title="First"></a>
+                <a class="pre_page" href="?p=1" alt="1" title="Previous"></a>
+                <a class="next_page" href="?p=1" alt="1" title="Next"></a>
+                <a class="last_page" href="?p=1" alt="1" title="Last"></a>
+            </div>
+            <div class="page_go">
+                <input type="text" value="1" id="id_page_num_input" class="page_num_input">
+                <a id="go_page" class="go_page" href="javascript:void(0)" title="go"></a>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="list_outBox">
+
+        <div id="id_tbl">
+
+            <div class="data-table">
+
+                <table class="table table-striped table-bordered table-condensed table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="class_select_col">
+                                <div>
+                                    <input type="checkbox" class="chk_selected_all" />
+                                </div>
+                            </th>
+                            <th>
+                                <div>Логин</div>
+                            </th>
+                            <th>
+                                <div>Имя</div>
+                            </th>
+                            <th>
+                                <div>Фамилия</div>
+                            </th>
+                            <th>
+                                <div>Отчество</div>
+                            </th>
+                            <th>
+                                <div>Группа</div>
+                            </th>
+                            <th>
+                                <div>E-mail</div>
+                            </th>
+                            <th>
+                                <div>Активный</div>
+                            </th>
+                            <th>
+                                <div>Суперпользователь</div>
+                            </th>
+                            <th>
+                                <div>Дата создания</div>
+                            </th>
+                            <th>
+                                <div>Последний вход</div>
+                            </th>
+                            <th>
+                                <div>Доп. действия</div>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @{
+                            // если модель не пуста
+                            if (Model.Count() > 0)
+                            {
+                                foreach (var user in Model)
+                                {
+                                    <tr>
+                                        <td class="class_select_col">
+                                            <div>
+                                                @{
+                                                    // выводим checkbox только, если пользователь не admin
+                                                    if(user.UserName != "admin")
+                                                    {
+                                                        <input class="select_row" type="checkbox" />
+                                                    }
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="data_link">
+                                                @if (ViewBag.change_obj)
+                                                {
+                                                    <a class="obj_edit_href" href="javascript:void(0);" data-ref="/Account/Change" data-id="@user.Id" data-obj="@user.UserName">@user.UserName</a>
+                                                }
+                                                else
+                                                {
+                                                    @user.UserName
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>@user.Name</div>
+                                        </td>
+                                        <td>
+                                            <div>@user.LastName</div>
+                                        </td>
+                                        <td>
+                                            <div>@user.MiddleName</div>
+                                        </td>
+                                        <td>
+                                            <div>
+
+                                                @{ // если не Суперпользователь, показываем роли
+                                                    if (user.IsSuperuser == 0)
+                                                    {
+
+                                                        int roleCount = 0;
+                                                        string roleSep = ", ";
+
+                                                        foreach (var role in user.Roles)
+                                                        {
+                                                            @role.Name
+                                                            if (roleCount + 1 != user.Roles.Count())
+                                                            {
+                                                                @roleSep
+                                                            }
+                                                            roleCount++;
+                                                        }
+                                                    }
+                                                }
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>@user.Email</div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                @if (user.IsActive == 1)
+                                                {
+                                                    <img src="~/Content/images/icon-yes.gif" alt="Yes" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Content/images/icon-no.gif" alt="No" />
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                @if (user.IsSuperuser == 1)
+                                                {
+                                                    <img src="~/Content/images/icon-yes.gif" alt="Yes" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Content/images/icon-no.gif" alt="No" />
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>@DateTime.Parse(user.DateJoined).ToString("dd-MM-yyyy HH:mm")</div>
+                                        </td>
+                                        <td>
+                                            <div>@DateTime.Parse(user.LastLogin).ToString("dd-MM-yyyy HH:mm")</div>
+                                        </td>
+                                        <td class="td_row_menu Link_blue1">
+                                            <div>
+                                                <ul class="ul_row_menu">
+                                                    <li>
+                                                        @if (ViewBag.change_obj)
+                                                        {
+                                                            <a class="obj_edit_href" href="javascript:void(0)" data-ref="/Account/Change" data-obj="@user.UserName">Изменить</a>
+                                                        }
+                                                    </li>
+                                                    @{
+                                                        // выводим 'удалить', если пользователь не 'admin'
+                                                        if (user.UserName != "admin")
+                                                        {
+                                                            <li>
+                                                                @if (ViewBag.delete_obj)
+                                                                {
+                                                                    <a class="obj_delete_href" data-ref="/Account/Delete" href="javascript:void(0)" data-id="@user.Id" data-obj="@user.UserName">Удалить</a>
+                                                                }
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

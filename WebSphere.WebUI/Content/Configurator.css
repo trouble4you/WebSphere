@@ -1,0 +1,321 @@
+﻿/*html, body {
+    height: 100vh;
+}*/
+/*#configuratorContainer{
+    height:80vh;
+}*/
+
+.modulePanel{
+    text-align:center;
+    background-color:green;
+}
+/*подсветка активных модулей в списке модулей*/
+.activeModule{
+background-color:#01DF74;
+}
+/*подсветка строки при нажатии в списке модулей*/
+.markedRow{
+background-color: mintcream; 
+}
+/*подсветка строки при нажатии в списке доступных модулей*/
+.highlightClickModule{
+    background-color:#98FB98;
+    font:#556B2F;
+    cursor:pointer;
+   }
+
+/*всплывающее окно с вертикльными вкладками модулей для подлкючения Уже не нужно, но пусть пока будет*/
+.tabs-left, .tabs-right {
+  border-bottom: none;
+  padding-top: 2px;
+}
+.tabs-left {
+  border-right: 1px solid #ddd;
+}
+.tabs-right {
+  border-left: 1px solid #ddd;
+}
+.tabs-left>li, .tabs-right>li {
+  float: none;
+  margin-bottom: 2px;
+}
+.tabs-left>li {
+  margin-right: -1px;
+}
+.tabs-right>li {
+  margin-left: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+}
+
+.tabs-right>li.active>a,
+.tabs-right>li.active>a:hover,
+.tabs-right>li.active>a:focus {
+  border-bottom: 1px solid #ddd;
+  border-left-color: transparent;
+}
+.tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+}
+.tabs-right>li>a {
+  border-radius: 0 4px 4px 0;
+  margin-right: 0;
+}
+/*всплывающее окно с вертикльными вкладками модулей для подлкючения*/
+.selectedModule{
+    background-color:mintcream;
+}
+/*для таблицы общих свойств*/
+/*#commonPropsTable tbody{
+    height:300px;
+    overflow:auto;
+}*/
+
+/*для окошка ожидания*/
+.wrap_back {
+    opacity: 0.8;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+}
+.loading_window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+    border: 1px solid black;
+    padding: 20px;
+    z-index: 200;
+}
+/*для оповещения пользователя об успешности и неуспешности сохранения свойств по submitу*/
+.savePropsAlertMain{
+          height:20px;
+          line-height:20px;
+}
+
+.alert-error{
+
+    background:red;
+}
+
+.forConnectionStr{
+    width:400px;
+}
+/*для оповещения пользователя об успешности и неуспешности добавления свойств*/
+#feedback-box{
+     background: url(http://subtlepatterns.com/patterns/paper_fibers.png);
+     width: 400px;
+     margin: 20px auto;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+}​
+
+#feedback-box h2{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+    font-size: 23px;
+    color: #414141;
+    margin: 0;
+}
+
+#feedback-form{
+    padding: 20px 25px;
+    border-top: 1px solid #fff;
+}
+
+#feedback-form input[type="text"], #feedback-form textarea{
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+#feedback-form textarea{
+    resize: none;
+    overflow-y: auto;
+    width: 330px;
+}
+
+#feedback-form input[type="text"]{
+    margin-left: 10px;
+}
+
+#feedback-form input[type="text"]:focus, #feedback-form textarea:focus{
+    border: 1px solid #ccc;
+}
+
+#feedback-form #send{
+    padding: 5px 20px;
+}
+
+#feedback-form .input-bloc{
+   margin-bottom: 12px;
+}
+
+#feedback-form .w1 label{
+    display: inline-block;
+    width: 40px;
+}
+
+#feedback-form .msg label{
+   display: inline-block;
+   margin-bottom: 6px;
+}
+
+.error-box{
+    color: red;
+    font-size: 12px;
+}
+
+label.error {
+	color: red;
+	font-style: italic;
+}
+input.error {
+	border: 1px dotted #f00;
+}
+/*Конфигуратор*/
+.right-boxConfig {
+    position: absolute;
+    /*/z-index: 0;*/
+    right: 0px;
+    min-width: 887px;
+    left: 300px;
+    top: 200px;
+    height:60%;
+    
+}
+.FloatLConfig{
+    height:inherit;
+}
+.left-boxConfig {
+    position: absolute;
+    /*/z-index: 1;*/
+    top: 205px;
+    width: 300px;
+    height:70%;
+    /*border:dashed;*/
+    overflow:auto;
+}
+/*отступ до табов до свойствами*/
+.tagInfo{
+    position: absolute;
+    margin-top:20px;
+    top:100px;
+    /*height:90%;*/
+
+}
+/*.tabConfigurator
+{
+  max-height: 600px;
+
+}*/
+/*переопределяю бутстраповский стиль, чтобы не было нижнего марджина у таблицы*/
+.modulesTable{
+    margin-bottom:0px;
+    width:800px;
+}
+/*переопределяю бутстраповский стиль, чтобы уменьшить высоту строки талицы с модулями*/
+#moduleConnectedTable>tbody>tr>td{
+    line-height:10px;
+}
+/*переопределяю бутстраповский стиль, чтобы уменьшить высоту строки талицы с модулями*/
+#moduleConnectedTable>thead>tr>th{
+    line-height:10px;
+}
+/*переопределяю бутстраповский стиль, чтобы уменьшить высоту чекбокса*/
+#moduleConnectedTable>tbody>tr>td>div>input[type=checkbox]{
+    margin:0px 0 0;
+
+}
+/*для скрытия по умолчанию списка модулей*/
+.tableWrap{
+    display:none;
+}
+
+.moduleActions {
+    display: inline;
+    padding: 0px 7px 5px 0px;
+}
+/*сдвиг лейблов относительно чекбокса дл удаления*/
+#commonPropTab form fieldset label{
+    margin-left:20px;
+
+}
+
+
+#commonPropTab select{
+    margin-left:8px;
+    left:0px;
+    width:200px;
+}
+#commonPropTab input:not(.deleteProp){
+    margin-left:8px;
+    left:0px;
+    width:200px;
+}
+#commonPropTab input[disabled="disabled"]{
+    margin-left:8px;
+    left:0px;
+}
+#commonPropTab form fieldset input[disabled="disabled"]{
+    margin-left:20px;
+    left:0px;
+}
+/*Делаем чекбоксы для удаления невидимыми на вкладках модулей, чтобы удалять можно было только из общей вкладки*/
+#AlarmTab .deleteProp{
+display:none;
+}
+#HistoryTab .deleteProp{
+display:none;
+}
+   /* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+ 
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+ 
+.validation-summary-errors {
+    color: #b94a48;
+}
+ 
+.validation-summary-valid {
+    display: none;
+}
+   /* styles for validation helpers */
+
+/*.tab-content {
+    
+}*/
+.pullTabProps{
+    position:relative;
+}

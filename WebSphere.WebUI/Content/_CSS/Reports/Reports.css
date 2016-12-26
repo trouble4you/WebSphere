@@ -1,0 +1,50 @@
+﻿
+
+ .table_alarms {
+    margin-bottom:0px;
+    position: relative; 
+}
+ .table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+  .div_journal {
+    cursor: default;
+    overflow: scroll;
+    border: 1px solid #848C99;
+    background-color: #C8CACE;
+    position: absolute;
+    top: 355px;
+    bottom: 1px;
+    width: 100%;
+}
+.div_daterange2_journal {
+    position: absolute;
+    left: 35%;
+    right: 80px;
+    width: 30%;
+    height: 90px;
+    top: 40px;
+    border: 0px solid black;
+}
+.div_daterange_journal {
+    position: absolute;
+    left: 1px;
+    width: 30%;
+    right: 80px;
+    top: 45px;
+    border: 0px solid black;
+}
+.div_daterange3_journal {
+    position: absolute;
+    left: 70%;
+    right: 80px;
+    width: 20%;
+    height: 90px;
+    top: 35px;
+    border: 0px solid black;
+}
+.div_lastot4_head   { box-sizing:border-box;position: absolute;top: 0;width:100%;padding-left: 50px;padding-bottom: 4px;padding-top: 4px;font-size: 16px;font-weight: bold;border: 1px #848C99 solid;background-color: #AEAEAE; }
+
+.ex_export{padding: 1px 10px 1px 10px !important; font-size: 12px !important; position: absolute; right: 4px; top: 4px;}

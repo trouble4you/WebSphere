@@ -1,0 +1,189 @@
+﻿@model WebSphere.Domain.Entities.GPRSChannelProps
+
+@if (ViewBag.Notification != null)
+{
+    if (ViewBag.Notification == 1)
+    {
+        <div class="alert alert-success">Данные успешно сохранены</div>
+    }
+    else
+    {
+        <div class="alert alert-error">Введенные данные некорректны </div>
+    }
+}
+<div class="tabs">
+    <ul class="nav nav-tabs smile-tabs">
+
+        <li class="active"><a href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="commonPropTab">
+            @using (Ajax.BeginForm("EditGPRSChannelProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnFailure = "OnFailure" }, new { @id = "GPRSChannelPropsTab" }))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    @Html.HiddenFor(m => m.Id)
+                    @Html.HiddenFor(m => m.Name)
+                    @Html.HiddenFor(m => m.special, new { @class = "ignoreValid", @id = "specialInput" })
+                    <p>
+                        @Html.LabelFor(m => m.Id, "ID")
+                        <br />
+                        @Html.TextBoxFor(m => m.Id, new { disabled = "disabled", @readonly = "readonly" })
+
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.ChannelType, "Тип")
+                        <br />
+                        @Html.TextBoxFor(m => m.ChannelType)
+                        @Html.ValidationMessageFor(m => m.ChannelType)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.InterPollPause, "InterPollPause")
+                        <br />
+                        @Html.TextBoxFor(m => m.InterPollPause)
+                        @Html.ValidationMessageFor(m => m.InterPollPause)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.MaxErrorsToSwitchChannel, "Максимальное число ошибок при включении канала")
+                        <br />
+                        @Html.TextBoxFor(m => m.MaxErrorsToSwitchChannel)
+                        @Html.ValidationMessageFor(m => m.MaxErrorsToSwitchChannel)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.MaxErrorsToBadQuality, "Максимальное число ошибок при некачественном сигнале")
+                        <br />
+                        @Html.TextBoxFor(m => m.MaxErrorsToBadQuality)
+                        @Html.ValidationMessageFor(m => m.MaxErrorsToBadQuality)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.TimeTryGoBackToPrimary, "Время переключения на основной канал")
+                        <br />
+                        @Html.TextBoxFor(m => m.TimeTryGoBackToPrimary)
+                        @Html.ValidationMessageFor(m => m.TimeTryGoBackToPrimary)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.IpAddress, "IP адрес")
+                        <br />
+                        @Html.TextBoxFor(m => m.IpAddress)
+                        @Html.ValidationMessageFor(m => m.IpAddress)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.Port, "Порт")
+                        <br />
+                        @Html.TextBoxFor(m => m.Port)
+                        @Html.ValidationMessageFor(m => m.Port)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.WriteTimeout, "Таймаут при записи")
+                        <br />
+                        @Html.TextBoxFor(m => m.WriteTimeout)
+                        @Html.ValidationMessageFor(m => m.WriteTimeout)
+                    </p>
+                    <p>
+                        @Html.LabelFor(m => m.ReadTimeout, "Таймаут при чтении")
+                        <br />
+                        @Html.TextBoxFor(m => m.ReadTimeout)
+                        @Html.ValidationMessageFor(m => m.ReadTimeout)
+                    </p>
+                    @if (ViewBag.UserProps != null)
+                    {
+                        foreach (var prop in ViewBag.UserProps)
+                        {
+
+                            var propValue = prop.Value;
+                            string propKey = prop.Key;
+
+                            var typeNameIndex = propKey.LastIndexOf("_");
+                            var typeName = propKey.Substring(typeNameIndex + 1);
+                            int typeProp = 0;
+
+                            switch (typeName)
+                            {
+                                case "byte":
+                                    typeProp = 1;
+                                    break;
+                                case "word":
+                                    typeProp = 2;
+                                    break;
+                                case "dword":
+                                    typeProp = 3;
+                                    break;
+                                case "shortInt":
+                                    typeProp = 4;
+                                    break;
+                                case "smallInt":
+                                    typeProp = 5;
+                                    break;
+                                case "longInt":
+                                    typeProp = 6;
+                                    break;
+                                case "float":
+                                    typeProp = 7;
+                                    break;
+                                case "double":
+                                    typeProp = 8;
+                                    break;
+                                case "bool":
+                                    typeProp = 9;
+                                    break;
+                                case "string":
+                                    typeProp = 10;
+                                    break;
+                            }
+                            string propForDelete = "";
+                            switch (typeName)
+                            {
+                                case "string":
+                                    propForDelete = "\"" + propKey + "\":\"" + propValue + "\"";
+                                    break;
+                                case "float":
+                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
+                                    break;
+                                case "double":
+                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
+                                    break;
+                                case "bool":
+                                    propForDelete = "\"" + propKey + "\":" + propValue.ToString().ToLower();
+                                    break;
+                                default:
+                                    propForDelete = "\"" + propKey + "\":" + propValue;
+                                    break;
+
+                            }
+                            if (typeName == "bool")
+                            {
+                                <label>@prop.Key </label>
+                                <br />
+                                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                                var boolVal = Convert.ToString(prop.Value);
+                                <input type="text" name="@prop.Key" data-type=@typeProp value=@boolVal.ToLower() data-description="userProp" />
+                                <br />
+                            }
+                            else
+                            {
+                                <label>@prop.Key </label>
+                                <br />
+                                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                                <input type="text" name="@prop.Key" data-type=@typeProp value="@Convert.ToString(prop.Value)" data-description="userProp" />
+                                <br />
+                            }
+
+                        }
+                    }
+                    <input id="saveObjPropsBtn" type="submit" class="btn btn-success" value="Сохранить" />
+                    <input id="addObjPropsBtn" type="button" class="btn btn-info" value="Добавить свойство" />
+                    <input id="deleteObjPropsBtn" type="button" class="btn btn-info" value="Удалить свойства" style="display: none;" />
+                </fieldset>
+            }
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        getAdditionalProps();
+        LoadPageOff();
+    });
+
+</script>

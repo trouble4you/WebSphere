@@ -1,0 +1,83 @@
+﻿@model WebSphere.WebUI.Models.AddPropViewModel
+           @{
+               var userPropModel= Model.userPropModel;
+               var standartPropModel=Model.standartPropModel;
+           }
+
+@*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+
+
+
+<div id="addPropModal" class="modal fade" tabindex="-1" style="top:100px;">
+    <div class=" modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">x</button>
+                <h4 class="modal-title">Добавление свойства</h4>
+            </div>
+            <div class="modal-body">
+
+                    <!-- Навигация -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#userProp"  data-toggle="tab">Пользовательское</a></li>
+                        <li><a href="#standartProp" data-toggle="tab">Стандартное</a></li>
+
+                    </ul>
+                    <!-- Содержимое вкладок -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="userProp">
+                            @Html.Partial("addUserPropPartial", userPropModel)
+                        </div>
+                        <div class="tab-pane" id="standartProp">
+                            @Html.Partial("addStandartPropPartial", standartPropModel)
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/configurator.js"></script>*@
+
+<script type="text/javascript">
+
+    $('#addPropModal').modal();
+    $(document).ready(function () {
+    
+        //$('#standartProp').click(function () {
+        //    if ($('#standartProp').is(':checked')) {
+
+        //        $('#userPropType').val("0");
+        //        $('#userPropName').empty();
+        //        $('#userPropValue').empty();
+        //        $('#userPropValue + label').remove();
+        //        $('#userPropValue').removeClass('error');
+
+        //        $('#standartPropValue').removeAttr("disabled");
+        //        $('#standartPropType').removeAttr("disabled");
+        //        $('#userPropName').attr("disabled", "disabled");
+        //        $('#userPropType').attr("disabled", "disabled");
+        //        $('#userPropValue').attr("disabled", "disabled");
+
+        //    }
+        //});
+        
+        //$('#userProp').click(function () {
+        //    if ($('#userProp').is(':checked')) {
+
+        //        $('#standartPropValue').attr("disabled", "disabled");
+        //        $('#standartPropType').attr("disabled", "disabled");
+        //        $('#userPropName').removeAttr("disabled");
+        //        $('#userPropType').removeAttr("disabled");
+        //        $('#userPropValue').removeAttr("disabled");
+
+        //        $('#standartPropType').val("0");
+        //        $('#standartPropValue').empty();
+        //        $('#standartPropValue + label').remove();
+        //        $('#standartPropValue').removeClass('error');
+        //    }
+        //});
+
+        });
+
+
+</script>

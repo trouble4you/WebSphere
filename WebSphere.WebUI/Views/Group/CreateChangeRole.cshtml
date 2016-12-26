@@ -1,0 +1,228 @@
+﻿@model WebSphere.WebUI.Models.CreateChangeRoleViewModel
+
+@{
+    // если 'Empty_cgList' не пуст
+    if (ViewBag.Empty_ctList != 0)
+    {
+        <script type="text/javascript">
+
+            // tabs
+            $(document).on('click', '#permsGroupTab a', function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            // tree
+            $('label.tree-toggler').click(function () {
+                $(this).parent().children('ul.tree').toggle(300);
+            });
+
+            // управление разрешениями
+            $(document).on('change', '.contentTypeNode', function () {
+                if ($(this).is(":checked")) {
+                    $(this).closest('li').find('.permissionNode').prop('checked', this.checked);
+                }
+                if (!$(this).is(":checked")) {
+                    $(this).closest('li').find('.permissionNode').prop('checked', this.checked);
+                }
+            });
+
+            // управление разрешениями
+            $(document).on('change', '.permissionNode', function () {
+                if ($(this).is(":checked")) {
+                    $(this).parent().parent().closest('li').find('.contentTypeNode').prop('checked', this.checked);
+
+                    // отмечаем также 'Index' (Просмотр), если есть
+                    $(this).parent().parent().find('input[value="Index"]').parent().find('.permissionNode').prop('checked', this.checked);
+                }
+                if (!$(this).is(":checked")) {
+
+                    var node = $(this).parent().parent().closest('li');
+
+                    // отключаем узел контента, т.к. все все разрешения отключены
+                    if (node.find('.permissionNode:checked').length == 0) {
+                        node.find('.contentTypeNode').prop('checked', false);
+                    }
+
+                    // отмечаем также 'Index' (Просмотр), если есть
+                    if (node.find('.permissionNode:checked').length > 0) {
+                        $(this).parent().parent().find('input[value="Index"]').parent().find('.permissionNode').prop('checked', true);
+                    }
+                }
+            });
+
+            // nav-header
+            //$(document).on('click', '.nav-header', function () {
+            //    var state = $(this).closest('li').find('> .tree').css('display');
+
+            //    if (state == "none") {
+            //        $(this).text('[-]');
+            //    } else {
+            //        $(this).text('[+]');
+            //    }
+            //});
+
+        </script>
+
+        <div class="form_help">
+            Группа представляет собой сочетание групп прав. Пользователь определенной группы имеет все права, содержащиеся в этой группе. Чтобы назначить группу пользователю, необходимо перейти на вкладку Пользователь -> Создать или изменить существующего.
+        </div>
+
+        AjaxOptions ajaxoptions = new AjaxOptions
+        {
+            HttpMethod = "POST",
+            OnBegin = "OnBegin",
+            OnSuccess = "OnSuccess",
+            OnFailure = "OnFailure"
+        };
+
+        using (Ajax.BeginForm(ViewBag.ActRes as string, ajaxoptions))
+        {
+            @Html.AntiForgeryToken()
+            <div class="account-form">
+                <div class="account-wrapper">
+
+                    <div class="update_target_id">
+
+                        @Html.ValidationSummary(true)
+
+                        <div class="form-group row">
+                            <div class="col-xs-1">
+                                <span class="color_red">*</span>
+                                @Html.LabelFor(c => c.Name, new { @class = "control-label" })
+                            </div>
+                            <div class="col-xs-10 color_gray font12 nowrap">
+                                @Html.HiddenFor(c => c.Id)
+                                @Html.TextBoxFor(c => c.Name, new { @class = "form-control", @placeholder = "Имя" })
+                                @Html.ValidationMessageFor(c => c.Name)
+                                <br />Обязательное поле. Допустимы буквы А-Я, A-Z, цифры 0-9 диапазон от 2 до 30 символов
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-1">
+                                <span class="color_red">*</span>
+                                @Html.LabelFor(c => c.ContentTypes, new { @class = "control-label" })
+                            </div>
+                            <div class="col-xs-10 color_gray font12 nowrap">
+
+                        
+                                <ul class="nav nav-tabs" id="permsGroupTab">
+                                    @{ // вывод групп типов контента
+                                
+                                       var tab_active = "active";
+                               
+                                       foreach (var i in ViewBag.cgList)
+                                       {
+                                           <li class="@tab_active">
+                                               <a href="#cg_@i.Id" data-toggle="tab">@i.Name</a>
+                                           </li>
+                                
+                                           tab_active = "";
+                                       }
+                                    }
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    @{ // вывод групп типов контента
+
+                                       var tab_content_active = "active";
+
+                                       foreach (var i in ViewBag.cgList)
+                                       {
+                                            @:<div class="tab-pane @tab_content_active" id="cg_@i.Id">
+
+                                                @:<ul class="nav nav-list">
+                                            
+                                                    // пробегаем по списку типов контента
+                                                    for (var j = 0; j < Model.ContentTypes.Count(); j++)
+                                                    {
+                                                        @:<li>
+                                                
+                                                        // поиск контента, входящего в группу
+                                                        if (i.Name == Model.ContentTypes[j].contentGroup.Name)
+                                                        {
+                                                            @Html.HiddenFor(a => a.ContentTypes[j].Id)
+                                                            @Html.HiddenFor(a => a.ContentTypes[j].Name)
+                                                            @Html.HiddenFor(a => a.ContentTypes[j].contentGroup.Id)
+                                                            @Html.HiddenFor(a => a.ContentTypes[j].contentGroup.Name)
+                                                    
+                                                            @:<label class="tree-toggler nav-header"></label>
+
+                                                            @Html.HiddenFor(a => a.ContentTypes[j].Name)
+                                                            @Html.CheckBoxFor(a => a.ContentTypes[j].Selected, new { @class = "contentTypeNode" })
+                                                            @Html.LabelFor(a => a.ContentTypes[j].Selected, Model.ContentTypes[j].Name)
+                                
+                                                            @:<ul class="nav nav-list tree">
+                                
+                                                            // выводим экшены, кот. только 'Selected'
+                                                            for (var f = 0; f < Model.ContentTypes[j].Actions.Count(); f++)
+                                                            {    
+                                                                @:<li>
+
+                                                                var Title = Model.ContentTypes[j].Actions[f];
+                                                            
+                                                                @Html.HiddenFor(a => a.ContentTypes[j].Actions[f].Name)
+                                                                @Html.HiddenFor(a => a.ContentTypes[j].Actions[f].Title)
+                                
+                                                                // 0 - это контроллер
+                                                                if (f == 0)
+                                                                {
+                                                                    @Html.CheckBoxFor(a => a.ContentTypes[j].Actions[f].Selected, new { @style = "display: none;" })
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Html.CheckBoxFor(a => a.ContentTypes[j].Actions[f].Selected, new { @class = "permissionNode" })
+                                                                    @Html.LabelFor(a => a.ContentTypes[j].Actions[f].Selected, Title.Title)
+                                                                }
+
+                                                                @:</li>
+                                                            }
+
+                                                            @:</ul>
+                                                        }
+
+                                                        @:</li>
+                                                    }
+                                        
+                                                @:</ul>
+
+                                            @:</div>
+                                
+                                            tab_content_active = "";
+                                        }
+                                    }
+
+                                </div>
+
+                                @Html.ValidationMessageFor(c => c.ContentTypes)
+                                <br />Необходимо выбрать разрешения для группы
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row edit_form_btn">
+                        <div class="col-xs-10 col-xs-offset-0">
+                            <div class="cover"><div class="load"></div></div>
+                            <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                            <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    
+    }
+    else
+    {
+        @:Невозможно добавить группу, т.к. отсутствует контент с разрешениями
+
+        <div class="form-group row edit_form_btn">
+            <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+        </div>
+    }
+}

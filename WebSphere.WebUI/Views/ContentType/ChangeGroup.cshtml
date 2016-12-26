@@ -1,0 +1,50 @@
+﻿@model WebSphere.WebUI.Models.ChangeContentTypeGroupViewModel
+
+<div class="form_help">Изменение группы контента</div>
+
+@{
+    AjaxOptions ajaxoptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+}
+
+@using (Ajax.BeginForm("ChangeGroup", ajaxoptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="account-form">
+        <div class="account-wrapper">
+
+            <div class="update_target_id">
+
+                @Html.ValidationSummary(true)
+
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(c => c.Name, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(c => c.Name, new { @class = "form-control", @placeholder = "Имя" })
+                        @Html.HiddenFor(c => c.Id)
+                        @Html.ValidationMessageFor(c => c.Name)
+                        <br />Обязательное поле. Допустимы буквы А-Я, A-Z, цифры 0-9 диапазон от 2 до 30 символов
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="form-group row edit_form_btn">
+                <div class="col-xs-10 col-xs-offset-0">
+                    <div class="cover"><div class="load"></div></div>
+                    <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                    <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

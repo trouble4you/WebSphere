@@ -1,0 +1,208 @@
+﻿@model WebSphere.WebUI.Models.LoginViewModel
+@{
+    ViewBag.Title = "Вход в систему";
+    Layout = null;
+    HtmlHelper.ClientValidationEnabled = false;
+    //HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            
+            // обложка для формы
+            function cover() {
+
+                // элемент обложки
+                var wrapper = $('#submit_button'),
+                    o = wrapper[0],
+                    o2 = $('.cover')[0];
+
+                // устанавливаем размеры обложки
+                $(o2).css({
+                    width: o.offsetWidth + 'px',
+                    height: o.offsetHeight + 'px',
+                    display: ''
+                }).fadeTo(200, 1);
+
+                // ставим одинаковые размеры как у обложки
+                $('.load').empty().css({
+                    width: o.offsetWidth + 'px',
+                    height: o.offsetHeight + 'px',
+                    display: ''
+                });
+
+                // включаем анимацию load
+                $('.load').show();
+            }
+
+            // установка формы по центру экрана
+            function redraw() {
+                var sel = $('.login-form'),
+                    wdoc = $(window).width(),
+                    hdoc = $(window).height(),
+                    werr = sel.width(),
+                    herr = sel.height(),
+                    top = (hdoc - herr) / 4 + 'px',
+                    left = (wdoc - werr) / 2 + 'px';
+                sel.css({ 'marginTop': top, 'marginLeft': left });
+            }
+
+            // при изменении размера окна
+            $(window).resize(function () { redraw(); });
+
+            // при каждой загрузке страницы
+            redraw();
+
+            // отправка формы
+            $('#submit_button').click(function () {
+                $('.login-form input').blur(); // теряем фокус у всех input
+                cover(); // ставим обложку
+            });
+
+        }); // end ready
+
+        // включение кнопки
+        function ButtonOn() {
+            $('#submit_button').attr('disabled', false);
+        }
+
+        // отключение кнопки
+        function ButtonOff() {
+            $('#submit_button').attr('disabled', true);
+        }
+
+        function OnSuccess(data) {
+            if (data.result == 'Redirect') {
+                window.location = data.url; // redirect на страницу
+            } else {
+                // обновляем валидацию формы
+                $('.update_target_id').html(data);
+                // скрываем обложку
+                $('.cover').fadeOut(300, function () {
+                    ButtonOn(); // включаем кнопку
+                });
+            }
+        }
+
+        function OnFailure(request, error) {
+            alert("Возникла ошибка при отправке формы, пожалуйста,\nпопробуйте отправить еще раз.");
+            $('.cover').hide(); // скрываем обложку
+            ButtonOn(); // включаем кнопку
+        }
+
+        function OnBegin() {
+            ButtonOff(); // отключаем кнопку
+        }
+
+    </script>
+    <style type="text/css">
+        .login-form {
+            position: absolute;
+            width: 350px;
+            margin: 0px;
+            padding: 0px;
+            z-index: 1;
+        }
+        .login-form .logo {
+            background: url(../Content/images/login-logo.png) no-repeat 50% 0;
+            height: 59px;
+            margin-bottom: 15px;
+        }
+        .login-form .form-group label {
+            margin-top: 7px;
+        }
+        .login-form .col-xs-10 {
+            width: 100%;
+        }
+        .login-form button {
+            background: #0070BA;
+            color: #ffffff !important;
+        }
+        .login-form button:hover, .login-form button:active, .login-form button:focus {
+            color: #ffffff !important;
+        }
+        .login-form button:active {
+            text-decoration: underline;
+        }
+        .login-form .update_target_id {
+            margin-bottom: 30px;
+        }
+        .cover {
+                display: none;
+                position: absolute;
+                background: url(../Content/images/g.png) repeat;
+                z-index: 82;
+            }
+        .load {
+            display: none;
+            position: absolute;
+            background: url(../Content/images/ajax-loader.gif) no-repeat 50% 50%;
+            z-index: 83;
+        }
+        .validation-summary-errors, .field-validation-error {
+            font-size: 13px;
+            color: #ff6600;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    @{
+        AjaxOptions ajaxoptions = new AjaxOptions
+        {
+            HttpMethod = "POST",
+            OnBegin = "OnBegin",
+            OnSuccess = "OnSuccess",
+            OnFailure = "OnFailure"
+        };
+    }
+
+    @using (Ajax.BeginForm("Login", ajaxoptions))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="login-form">
+            <div class="login-wrapper">
+                <div class="panel-heading row">
+                    <div class="logo"></div>
+                </div>
+                <div class="update_target_id">
+                    <div class="form-group row">
+                        <div class="col-xs-10">
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "Логин" })
+                            @Html.ValidationMessageFor(u => u.UserName)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-10">
+                            @Html.PasswordFor(u => u.Password, new { @class = "form-control", @placeholder = "Пароль" })
+                            @Html.ValidationMessageFor(u => u.Password)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-10">
+                        <div class="cover"><div class="load"></div></div>
+                        <button id="submit_button" type="submit" class="btn btn-block">Войти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>

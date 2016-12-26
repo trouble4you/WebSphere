@@ -1,0 +1,468 @@
+﻿@model WebSphere.Domain.Entities.NoTypesPropsHelp
+    @{
+        var IdName = Model.notypesforSave;
+        var NoTypeNodeModel = Model.notypesModel;
+        ViewBag.ForPartial = ViewBag.StandartProps;
+        var ff = ViewBag.ForPartial;
+    }
+<script type="text/javascript" src="http://malsup.github.com/jquery.form.js"></script>
+           @*вот если сюда включать, то нет глюков по сеттингсам*@
+@*<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+@if(false)
+{
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+@if (ViewBag.StdPropsValidityError != null)
+{
+    <input type="hidden" id="StdPropsValidityError" value='@ViewBag.StdPropsValidityError' />
+}
+
+@if (ViewBag.Notification != null)
+{
+    if (ViewBag.Notification == 1)
+    {
+        <div class="alert alert-success">Данные успешно сохранены</div>
+    }
+    else
+    {
+        <div class="alert alert-error">Введенные данные некорректны </div>
+    }
+}
+
+<div class="tabs">
+    <ul class="nav nav-tabs smile-tabs">
+        <li class="active"><a class="liTab" href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
+        @if (ViewBag.ActiveModules != null)
+        {
+            foreach (var item2 in ViewBag.ActiveModules)
+            {
+                if (item2.idModule == 2)
+                {
+                    <li><a class="liTab" href="#AlarmTab" data-toggle="tab">Тревоги</a></li>
+                }
+                if (item2.idModule == 3)
+                {
+                    <li><a class="liTab" href="#HistoryTab" data-toggle="tab">История</a></li>
+                }
+            }
+        }
+
+    </ul>
+@using (Ajax.BeginForm("EditNoTypesProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnSuccess = "CheckUserPropsValidity", OnFailure = "OnFailure" }, new { @id = "NoTypeNodePropsTab" }))
+{
+    <div class="tab-content">
+        <div class="tab-pane active" id="commonPropTab">
+            @{
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    @Html.HiddenFor(m => m.notypesforSave.Id)
+                    @Html.HiddenFor(m => m.notypesforSave.Name)
+                    @Html.HiddenFor(m => m.notypesforSave.special, new {@class="ignoreValid", @id = "specialInput" })
+
+                    <div class="DefaultProps">
+                        @Html.LabelFor(m => m.notypesforSave.Id, "ID")
+                        <br />
+                        @Html.TextBoxFor(m => m.notypesforSave.Id, new { disabled = "disabled", @readonly = "readonly" })
+                        <br />
+                    </div>
+                    @{
+                      ViewBag.ForPartial = ViewBag.StandartProps;
+                      Dictionary<string, dynamic> dictStdProps1 = ViewBag.ForPartial;
+                      List<string> propsList = new List<string>();
+
+
+                      var props = dictStdProps1.Keys;
+                      foreach (var key in props)
+                      {
+                          propsList.Add(key);
+                      }
+                      ViewBag.spisok = propsList;
+
+                    }
+
+                    @Html.Partial("NoTypeNodeHelpCommonTabPartial", Model)
+                    @*//список с пользовательскими свойствами*@
+                    @if (ViewBag.UserProps != null)
+{
+    foreach (var prop in ViewBag.UserProps)
+    {
+        var propValue = prop.Value;
+        string propKey = prop.Key;
+
+        var typeNameIndex = propKey.LastIndexOf("_");
+        var typeName = propKey.Substring(typeNameIndex + 1);
+        int typeProp = 0;
+
+        switch (typeName)
+        {
+            case "byte":
+                typeProp = 1;
+                break;
+            case "word":
+                typeProp = 2;
+                break;
+            case "dword":
+                typeProp = 3;
+                break;
+            case "shortInt":
+                typeProp = 4;
+                break;
+            case "smallInt":
+                typeProp = 5;
+                break;
+            case "longInt":
+                typeProp = 6;
+                break;
+            case "float":
+                typeProp = 7;
+                break;
+            case "double":
+                typeProp = 8;
+                break;
+            case "bool":
+                typeProp = 9;
+                break;
+            case "string":
+                typeProp = 10;
+                break;
+        }
+
+        string propForDelete = "";
+        switch (typeName)
+        {
+            case "string":
+
+                propForDelete = "\"" + propKey + "\":\"" + propValue + "\"";
+                break;
+            case "float":
+                propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
+                break;
+            case "double":
+                propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
+                break;
+            case "bool":
+                propForDelete = "\"" + propKey + "\":" + propValue.ToString().ToLower();
+                break;
+            default:
+                propForDelete = "\"" + propKey + "\":" + propValue;
+                break;
+
+        }
+        if (typeName == "bool")
+        {
+            <div class="userProp">
+                <label>@prop.Key </label>
+                <br />
+                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                @{
+                   var boolVal = Convert.ToString(prop.Value);    
+                }
+                <input type="text" name="@prop.Key" data-type=@typeProp value=@boolVal.ToLower() data-description="userProp" />
+                <br />
+            </div>
+        }
+        else
+        {
+            <div class="userProp">
+                <label>@prop.Key </label>
+                <br />
+                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                <input type="text" name="@prop.Key" data-type=@typeProp value="@Convert.ToString(prop.Value)" data-description="userProp" />
+                <br />
+            </div>
+        }
+    }
+}
+                    <br />
+                </fieldset>
+            }
+        </div>
+        @*Для вкладки тревог*@
+        @*если есть активированные модули*@
+        @*@if (ViewBag.ActiveModules != null)
+        {
+            //снова проверяем есть ли  у узла стандартные свойства
+            if (ViewBag.StandartProps != null)
+            {
+            Dictionary<string, dynamic> stdDict = ViewBag.StandartProps;
+            foreach (var module in ViewBag.ActiveModules)
+            {
+                //если это Модуль Тревог
+                if (module.idModule == 2)
+                {
+                    <div class="tab-pane" id="AlarmTab">
+                            @Html.ValidationSummary(true)
+                            <fieldset>
+                                  @{ 
+                                    List<string> alarmProps = new List<string>{"Alarm_IsPermit","HiHiText","HiText","NormalText","LoText", "LoLoText", "HiHiSeverity", "HiSeverity","LoSeverity",
+                                    "LoLoSeverity"};
+
+                                    Dictionary<string, dynamic> alarmsDict = new Dictionary<string,dynamic>();
+                                    foreach(var item in alarmProps)
+                                    {
+                                        if(stdDict.Keys.Contains(item))
+                                        {
+                                            alarmsDict.Add(item, stdDict[item]);
+                                        }
+                                    }
+                                    //отправим во вьюбеге те стандартные свойства, которые относятся к модулю тревог
+                                    ViewBag.ForPartial = alarmsDict;
+                                    }
+                                   @Html.Partial("NoTypeNodeHelpCommonTabPartial", Model)
+                            </fieldset>
+                    </div>
+                }
+                if (module.idModule == 3)
+                {
+                    <div class="tab-pane" id="HistoryTab">
+                            @Html.ValidationSummary(true)
+                            <fieldset>
+                                @{
+                                   List<string> historyProps = new List<string> { "History_IsPermit", "RegPeriod", "Deadbend" };
+   
+                                   Dictionary<string, dynamic> historyDict = new Dictionary<string, dynamic>();
+                                   foreach (var item in historyProps)
+                                   {
+                                       if (stdDict.Keys.Contains(item))
+                                       {
+                                           historyDict.Add(item, stdDict[item]);
+                                       }
+                                   }
+                                   ViewBag.ForPartial = historyDict;
+                                   @Html.Partial("NoTypeNodeHelpCommonTabPartial", Model)
+                                }
+                            </fieldset>
+                    </div>
+
+                }
+                
+
+            }
+            
+          }
+        }*@
+        <br />
+                    <input id="saveObjPropsBtn" type="submit" class="btn btn-success" value="Сохранить" />
+                    <input id="addNoTypeNodePropsBtn" type="button" class="btn btn-info" value="Добавить свойство" />
+                    <input id="deleteObjPropsBtn" type="button" class="btn btn-info" value="Удалить свойства" style="display: none;" />
+@*единая форма*@
+
+    </div>
+        }
+</div>
+@*<script src="~/Scripts/configurator.js"></script>*@
+<script type="text/javascript">
+
+    var saveFlag = 0;
+    var activeTabName;
+
+
+    var propsArr = [];
+    var propsAlarm = [];
+    var propsHistory = [];
+    function getStandartProps() {
+        $("#commonPropTab div").each(function (ind) {
+            propsArr.push(this.id);
+        });
+    }
+
+    //воспроизводит какая вкладка была открыта до перерисовки формы
+    function getAlarmProps() {
+        var alarmArr = ["Alarm_IsPermit", "HiHiText", "HiText", "NormalText", "LoText", "LoLoText", "HiHiSeverity", "HiSeverity", "LoSeverity",
+        "LoLoSeverity"];
+        propsAlarm.length = 0;
+        for (var prop in alarmArr) {
+            var nameProp = alarmArr[prop];
+            if (propsArr.indexOf(nameProp) != -1) {
+                propsAlarm.push(nameProp);
+            }
+        }
+    }
+
+    function getHistoryProps() {
+        var historyArr = ["History_IsPermit", "RegPeriod", "Deadbend"];
+        propsHistory.length = 0;
+        for (var prop in historyArr) {
+            var nameProp = historyArr[prop];
+            if (propsArr.indexOf(nameProp) != -1) {
+                propsHistory.push(nameProp);
+            }
+        }
+    }
+
+
+    $(document).ready(function () {
+        getAdditionalProps();
+
+        disableInputs("Alarm_IsPermit", '@Model.notypesModel.Alarm_IsPermit');
+        disableInputs("History_IsPermit", '@Model.notypesModel.History_IsPermit');
+
+        $("#IsSpecialTag, #Connect").on("change", function () {
+            var name = $(this).attr("id");
+            if ($(this).is(":checked")) {
+                $("#hidden" + name).val(true);
+            }
+            else {
+                $("#hidden" + name).val(false);
+            }
+        });
+        LoadPageOff();
+        getStandartProps();
+        getAlarmProps();
+        getHistoryProps();
+    });
+
+    @*$('#deleteObjPropsBtn').on("click", function () {
+            //alert("попытка массового удаления");
+            var deletePropsArr = new Array();
+            $('.deleteProp:checked').each(function (i, elem) {
+                var propName=$(this).attr("name");
+                //var propVa
+
+                //var elemForDel = new Array();
+                //elemForDel.push($(this).val());
+                deletePropsArr.push($(this).attr("name"));
+                //deletePropsArr.push(elemForDel);
+            });
+            //alert(deletePropsArr[0]);
+            $.ajax({
+                type: "POST",
+                url: '/Configurator/DeleteProps',
+                data: { deletePropsArr: deletePropsArr, id:'@Model.notypesforSave.Id' },
+                async: true,
+                success: function (data) { $('#tagInfo').html(data); },
+                error: function () {
+                    alert("Неудача при отправке аякс запроса при удалении свойства");
+                }
+            });
+            return false;
+            //alert(deletePropsArr.length);
+            //сделать аякс запрос и отправить массив
+
+        });*@
+    //$('#saveNoTypePropsBtn').click(function () {
+    //    //alert("Попытка сохранить");
+    //    $('#saveNoTypePropsBtnCommon').click();
+    //});
+    //слушатель кликов на ссылки
+    @*$(document).on("click", "a", function(e){
+            activeTabName = $(this).attr('href');
+            //если содержимое какого-либо инпута было изменено
+            if(saveFlag==1)
+            {
+                //alert("here");
+                $('#dialogToAddModule').load('@Url.Action("SaveDialog", "Configurator")');
+                //если пользователь решил сохранить
+                $(document).on("click", "#saveChangesBtn", function () {
+                    var nodeModel = {
+                        "Id": "@Model.notypesforSave.Id",
+                        "Name": "@Model.notypesforSave.Name",
+                        "special": $('#specialInput').val()
+                    };
+                    //вызываем сабмит главной формы
+                    $('#saveNoTypePropsBtnCommon').click();
+                    fadeDialogWindow();
+                    reloadTabs();
+
+                });
+                //если пользователь решил отменить сохранение
+                $(document).on("click", "#forgetChangesBtn", function () {
+                    $.ajax({
+                        type: "GET",
+                        url: '/Configurator/showTabProps',
+                        data: { id: '@Model.notypesforSave.Id' },
+                        //async: true,
+                        async: false,
+                        success: reloadTabs,
+                        error: function () {
+                            alert("Неудача при отправке аякс запроса при сохранения сод-го вкладок");
+                        }
+                    });
+                });
+                //обнуляем флаг изменения
+                saveFlag = 0;
+            }
+        });*@
+
+    //Делает недоступными iput-ы при сброшенном checkbox Разрешено
+    //function disableInputs(modName, state) {
+    //    if (modName == "Alarm_IsPermit") {
+    //        if (state == "True") {
+    //            $('#AlarmTab form input:not(#Alarm_IsPermit):not([type="submit"]):not([type="button"])').removeAttr('disabled');
+    //            $('#hiddenAlarm_IsPermit').val(true);
+
+    //        }
+    //        else {
+    //            $('#AlarmTab form input:not(#Alarm_IsPermit):not([type="submit"]):not([type="button"])').attr('disabled', 'disabled');
+    //            $('#hiddenAlarm_IsPermit').val(false);
+    //        }
+    //    }
+    //    if (modName == "chBoxHistory_IsPermit") {
+    //        if (state == "True") {
+    //            $('#HistoryTab form input:not(#History_IsPermit:not([type="submit"]):not([type="button"])').removeAttr('disabled');
+    //            $('#hiddenHistory_IsPermit').val(true);
+    //        }
+    //        else {
+    //            $('#HistoryTab form input:not(#History_IsPermit):not([type="submit"]):not([type="button"])').attr('disabled', 'disabled');
+    //            $('#hiddenHistory_IsPermit').val(false);
+    //        }
+    //    }
+    //}
+
+
+
+
+    //Слушатель изменений значений полей ввода на вкладках модулей
+    //Итак, вaddся эта муть, чтобы сохранить целостность модели.
+    //То есть, чтобы при изменении величины поля во вкладке модуля истории или тревог соотвественно менялась величина полей и на общей вкладке
+    //Механизм несовершенный. например, при изменении свойства на общей вкладке не надо производить подмену величины на вкладках модулей, потому что сабмит будет происходить для формы общих свойств
+    //но пока так
+    //$('#HistoryTab input, #AlarmTab input, #commonPropTab input').on("change", function () {
+    //    //alert("Пойманы изменения");
+    //    //при изменении инпута, выставляем флаг в 1
+    //    saveFlag = 1;
+    //    //Если тип поля НЕ checkbox, то
+    //    if ($(this).attr("type") != "checkbox") {
+    //        var id = $(this).attr("id");
+    //        var val = $(this).val();
+    //        //изменим величину свойства на всех вкладках
+    //        $('[type="text"][id=' + id + ']').each(function () {
+    //            //alert("переприсвоение величины" + val);
+    //            $(this).val(val);
+    //        });
+    //    }
+    //        //Если тип поля- checkbox,
+    //    else {
+    //        var id = $(this).attr("id");
+    //        //alert("первая" + name);
+    //        //var val = $(this).val();
+    //        ////изменим величину свойства на всех вкладках
+    //        //$('[type="checkbox"][id=' + name + ']').each(function () {
+    //        //    //alert("переприсвоение величины" + val);
+    //        //    $(this).val(val);
+    //        //});
+    //        //var name = $(this).attr("id");
+    //        if ($(this).is(":checked")) {
+    //            //alert("checked");
+    //            disableInputs(id, "True");
+    //        }
+    //        else {
+    //            //alert("notchecked");
+    //            //сделаем недоступными поля ввода
+    //            disableInputs(id, "False");
+    //        }
+    //    }
+    //    //перезапишем строку со свойствами
+    //    getAdditionalProps();
+    //});
+
+
+    @*$('#addObjPropsBtnNoTyped').click(function () {
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = currentClickId.attr('id');
+            $('#dialogToAddModule').load('@Url.Action("AddPropDialog", "Configurator")?idNode=' + currentClickId1);
+        });*@
+
+</script>

@@ -1,0 +1,88 @@
+﻿@model WebSphere.WebUI.Models.AddStandartPropModelHelp
+@{
+    var t = Model;
+    //var d = ViewBag.OpcServers;
+}
+@*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+@using (Ajax.BeginForm("AddStandartProp", new AjaxOptions { UpdateTargetId = "standartProp", OnSuccess = "checkValid", OnFailure = "alertFail" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    @*<select>
+        <option value="1" data-type="int" data-range="1/30" data-regexp="">maxError</option>
+        <option value="2" data-type="int" data-range="1/20" data-regexp="">retrCount</option>
+        <option value="3" data-type="string" data-range="" data-regexp="">connection</option>
+    </select>*@
+   
+    <div id="StandartvalueContainer" >
+        @Html.Partial("ChangeInputStandartPropPartial", Model)
+        @*@{
+                    <p>
+                        @Html.LabelFor(m => m.Opc, "OPC сервер")
+                        <br />
+                        @Html.DropDownListFor(m => m.Opc, new SelectList(ViewBag.OpcServers, "Key", "Value"))
+                    </p>
+            }*@
+    </div>
+    <br/>
+    <br/>
+    
+   <p><input id="addStandartPropBtn" type="submit" class="btn btn-success" value="Добавить" /></p>
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var modelDataJson = '@Html.Raw(Json.Encode(Model))';
+        var type = $('[data-type]').val();
+        var range = $('[data-range]').val();
+        var regexp = $('[data-regexp]').val();
+        //при изменении select со стандартными свойствами
+        $(document).on("change", "#selectValueStd", function(e){
+        //$('#selectValueStd').change(function () {
+            var selItem = $(this).find(':selected').val();
+            //alert(selItem);
+            var ee = '@Model.ParentGroup';
+            var ff = '@Model.Id';
+            //alert(ee);
+            //alert(ff);
+            //if ($('.field-validation-error').length > 0)
+            //{
+            //    alert("уже есть такое свойство"+$(this).val());
+            //    $(this).html("fsfsf");
+            //}
+            $.ajax({
+                type: "POST",
+                url: '/Configurator/ChangeStandartRegExp',
+                data: { typeNumber: selItem, parentGroup:'@Model.ParentGroup', idNode: '@Model.Id' },
+                //contentType: "application/json",
+                //data: { myObject21: modelDataJson },
+                //dataType:'json',
+                success: function (data) {
+                    $('#StandartvalueContainer').html(data);
+                },
+                async: false,
+                error: function () { alert("Неудача при отправке аякс запроса при изменении типа свойства"); }
+            });
+        });
+
+
+    });
+    function checkValid(data) {
+        //alert("Data is valid");
+        if (data.valid == true) {
+            $('#addPropModal').modal("hide");
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = currentClickId.attr('id');
+            $('#tagInfo').empty();
+            //$('#dialogToAddModule').empty();
+            //$('.modal-backdrop fade in').empty();
+            $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
+        }
+
+    };
+    function alertFail() {
+        alert("Data is not valid");
+    }
+</script>
+

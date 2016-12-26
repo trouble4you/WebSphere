@@ -1,0 +1,28 @@
+﻿._on {
+	fill: #08e815 !important;
+}
+._off {
+    fill: grey !important;
+}
+
+._start {
+    fill: blue !important;
+}
+/*._stop {
+    fill: grey !important;
+}*/
+
+._power {
+    fill: #08e815 !important;
+}
+
+.unk {
+
+}
+.remote {
+    fill: #0094ff !important;
+}
+
+.local {
+    fill: #08e815 !important;
+}

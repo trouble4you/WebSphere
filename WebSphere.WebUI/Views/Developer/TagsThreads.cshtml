@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<link rel="stylesheet" href="/Content/_CSS/jstree_style.css" />
+<link rel="stylesheet" href="/Content/_CSS/Mnemo/MnemoMass.css" />
+
+
+<script type="text/javascript" src="/_JS/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/_JS/main.js"></script>  
+<script src="/_JS/jstree/jstree.min.js"></script>
+<script src="/_JS/Template/Templates.js"></script>
+
+<div>
+    <table>
+        <tr>
+            <td valign="top"><div id="container" style="background-color: #fff;border: 1px solid #000"></div></td>
+            <td valign="top">
+                <div id="props"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    UpdateThreadsStates();
+    function UpdateThreadsStates() {
+        $.ajax({
+            type: "POST", url: "/api/Opc/GetAllOpcTagsValues", async: false, dataType: 'json', success: show });
+    }
+    
+    function show(str) {
+       var jsonData2 = JSON.parse(str);
+
+        var jsonData = [
+      {
+          id: 1,
+          text: "Folder 1",
+          state: {
+              selected: false
+          },
+          children: [
+            {
+                id: 2,
+                text: "Sub Folder 1",
+                state: {
+                    selected: false
+                },
+            },
+            {
+                id: 3,
+                text: "Sub Folder 2",
+                state: {
+                    selected: false
+                },
+            }
+          ]
+      },
+      {
+          id: 4,
+          text: "Folder 2",
+          state: {
+              selected: true
+          },
+          children: []
+      }
+        ];
+        var str2 = JSON.stringify(jsonData);
+         $('#container').jstree({
+            'core': {
+                'data': [str],
+                "plugins": ["contextmenu", "state", "json_data"],
+                "contextmenu":
+                {
+                    "items": function ($node) {
+
+                        if ($node.id[0]==="r") {
+                            return { "Create": { "label": "Добавить шаблон", "action": function() { AddTemplateJs($node.id); } } };
+                        }
+                        return { "Delete": { "label": "Удалить шаблон", "action": function () { DeleteTemplateJs($node.id); } } };
+                    }
+                }
+            }});
+
+        $('#container').bind("select_node.jstree", function (e, data) {
+            var id = data.instance.get_node(data.selected[0]).id;
+            TemplateSelected(id);
+        });
+    };
+</script>
+
+<div class="wrap_back" style="display: none;" id='loading'><div class="loading_window"><img src='/_Img/loading.gif' /></div></div>

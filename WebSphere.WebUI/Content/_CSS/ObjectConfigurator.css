@@ -1,0 +1,314 @@
+﻿.objWnd {
+    position: fixed;
+    color: #000;
+    top: 100px;
+    left: 400px;
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ddd;
+    box-shadow: 3px 3px 10px #000000;
+}
+
+.objWnd_header {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+._table {
+    padding:5px; 
+    width: 60px;
+    height: 50px;
+    box-sizing:border-box;
+    border: 2px solid blue;
+}
+.objWnd_table {
+    width: 100%;
+    font-size: 16px;
+    white-space: nowrap;
+    border-spacing: 5px 20px;
+    border-collapse: separate;
+}
+
+.objWnd_itemName {
+    text-align: right;
+    font-weight: bold;
+    width: 15%
+}
+
+.objWnd_itemVal {
+    text-align: left;
+    width: 85%
+}
+
+.objWnd_inputText {
+    display: none;
+    width: 200px;
+    font: inherit;
+    cursor: text;
+}
+
+.objWnd_inputLabel {
+    width: 200px;
+    font: inherit;
+}
+
+.objWnd_comboBox {
+    width: 200px;
+}
+
+.subMenu {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.subMenuItem {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #99f;
+    cursor: pointer;
+    font: inherit;
+    width: 135px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+.subMenuItem:hover {
+    background-color: #77d;
+}
+
+
+.pipeTable{
+    border-collapse: separate;
+    border: 1px solid #999;
+    border-spacing: 1px;
+}
+.pipeTable td{
+    border-bottom: 1px solid #777;
+    padding: 1px;
+}
+.pipesArea {
+    max-height: 300px;
+    overflow-x: no-display;
+    overflow-y: scroll;
+    border: 2px solid #fff;
+}
+
+
+.otvTable{
+    border-collapse: separate;
+    border: 1px solid #999;
+    border-spacing: 1px;
+}
+.otvTable td{
+    border-bottom: 1px solid #777;
+    padding: 1px;
+}
+.otvsArea {
+    max-height: 130px;
+    overflow-x: no-display;
+    overflow-y: scroll;
+    border: 2px solid #fff;
+}
+
+.ktpnTable{
+    border-collapse: separate;
+    border: 1px solid #999;
+    border-spacing: 1px;
+}
+.ktpnTable td{
+    border-bottom: 1px solid #777;
+    padding: 1px;
+}
+.ktpnsArea {
+    max-height: 200px;
+    overflow-x: no-display;
+    overflow-y: scroll;
+    border: 2px solid #fff;
+}
+
+
+
+.propTable {
+    font-size: 14px;
+    white-space: nowrap;
+    border-spacing: 0 10px;
+    border-collapse: collapse;
+    border-bottom: 3px solid #777;
+}
+
+.propTable_rowH {
+    width: 100%;
+    border-bottom: 3px solid #777;
+}
+
+.propTable_col1H {
+    min-width: 350px;
+    text-align: right;
+    cursor: default;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 15px;
+}
+
+.propTable_col2H {
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.propTable_row {
+    width: 100%;
+    border-bottom: 1px solid #777;
+}
+
+.propTable_name {
+    min-width: 350px;
+    font-weight: bold;
+    text-align: right;
+    cursor: default;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-right: 1px solid #777;
+}
+
+.propTable_valueE {
+    min-width: 50px;
+    font: inherit;
+    text-align: left;
+    cursor: text;
+    padding-left: 5px;
+}
+
+.propTable_valueN {
+    min-width: 50px;
+    font: inherit;
+    font-style: italic;
+    text-align: left;
+    color: #333;
+    cursor: default;
+    padding-left: 5px;
+}
+
+.propTable_input {
+    min-width: 50px;
+    max-height: 22px;
+    font: inherit;
+    text-align: left;
+}
+
+.propTable_text {
+    min-width: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: inherit;
+    background-color: inherit;
+    color: inherit;
+}
+
+.propTable_help {
+    min-width: 20px;
+    font: inherit;
+    padding-left: 10px;
+}
+
+.propTable_helpContent {
+    cursor: help;
+    width: 20px;
+    height: 20px;
+    background-image: url('/_Img/help.png');
+    background-position: center;
+    background-size: 100%;
+}
+
+.objMenuContainer {
+    display: block;
+    background-color: #fff;
+    width: 150px;
+    padding: 1px;
+}
+
+.objMenuItems {
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 150px;
+    padding: 1px;
+    align-self: center;
+    height: 85%;
+    overflow: auto;
+    margin: 10px;
+    border: 1px solid #777;
+}
+
+.objMenuItem {
+    cursor: pointer;
+}
+.objMenuItem:hover {
+    background-color: #e7f4f9;
+    box-shadow: 0 0 2px #e0eaee;
+}
+.objMenuItemSel {
+    background-color: #beebff;
+    box-shadow: 0 0 2px #b4d5e4;
+}
+
+.objBut {
+    background: linear-gradient(to top left, #1e1e1e, #747474);
+    height: 22px;
+    color: #fff;
+    opacity: 0.75;
+    cursor: pointer;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+.objBut:hover {
+    opacity: 1;
+}
+
+.objButSng {
+    background: linear-gradient(to top left, #1e1e1e, #747474);
+    height: 22px;
+    color: #fff;
+    opacity: 0.75;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 5px;
+    max-width: 150px;
+}
+.objButSng:hover {
+    opacity: 1;
+}
+
+.visualsArea {
+    display: none;
+    position: fixed;
+    left: 155px;
+    top: 50px;
+    width: calc(100% - 155px);
+    height: calc(100% - 50px);
+    background-color:  rgba(255,255,255,.7);
+}
+
+
+[class^="button_"] {
+    position: absolute;
+    padding: 1px 6px 3px 6px;
+    background: linear-gradient(to top left, #1e1e1e, #747474);
+    opacity: 0.75;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+[class^="button_"]:hover {
+    opacity: 1;
+}

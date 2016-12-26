@@ -1,0 +1,65 @@
+﻿@model WebSphere.WebUI.Models.DeleteContentTypeViewModel
+
+<div class="form_help">Удалить выбранные</div>
+
+@{
+    AjaxOptions ajaxoptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+}
+
+@using (Ajax.BeginForm("Delete", ajaxoptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="account-form">
+        <div class="account-wrapper">
+
+            <div class="update_target_id">
+
+                @Html.ValidationSummary(true)
+
+                <div class="objs_for_op">
+                    Группа(ы):
+
+                    @{
+                        int count = 0;
+                        foreach (var i in Model.contenttypes)
+                        {
+                            if (count + 1 != Model.contenttypes.Count)
+                            {
+                                @i.Name@:;
+                            }
+                            else
+                            {
+                                @i.Name
+                            }
+                            count++;
+                        }
+
+                        // данные модели в hidden
+                        for (var i = 0; i < Model.contenttypes.Count(); i++)
+                        {
+                            @Html.HiddenFor(c => c.contenttypes[i].Id)
+                            @Html.HiddenFor(c => c.contenttypes[i].Name)
+                        }
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="form-group row edit_form_btn">
+                <div class="col-xs-10 col-xs-offset-0">
+                    <div class="cover"><div class="load"></div></div>
+                    <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                    <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

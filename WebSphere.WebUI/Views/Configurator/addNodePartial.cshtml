@@ -1,0 +1,131 @@
+﻿@model int
+
+<div id="addNodeModal" class="modal fade" tabindex="-1" style="top:100px;">
+    <div class=" modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">x</button>
+                <h4 class="modal-title">Создание нового узла</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="nodeName" class="col-sm-2 control-label">Название узла</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nodeName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nodeType" class="col-sm-2 control-label">Тип узла</label>
+                        <div class="col-sm-10">
+                            @*<div class="col-sm-10 selectContainer">*@
+                                <select class="form-control" name="size" id="nodeType">
+                                    @*<option value="0">Выберите тип</option>*@
+                                    @*<option value="1">OPC-сервер</option>
+                <option value="2">Скважина</option>
+                <option value="3">АГЗУ</option>
+                <option value="4">БДР</option>
+                <option value="5">Радио канал</option>
+                <option value="6">GPRS канал</option>
+                <option value="7">PollingGroup</option>
+                <option value="8">Тег</option>
+                <option value="9">Группа</option>
+                <option value="10">Другое</option>*@
+                                    <option value="1">OPC-сервер</option>
+                                    <option value="2">КТПН дальний</option>
+                                    <option value="3">АГЗУ</option>
+                                    @*<option value="4">БДР</option>*@
+                                    <option value="5">Радио канал</option>
+                                    <option value="6">GPRS канал</option>
+                                    <option value="7">PollingGroup</option>
+                                    <option value="8">Тег</option>
+                                    <option value="9">Папка</option>
+                                    <option value="10">Пользовательский</option>
+                                </select>
+
+                            </div>
+                    </div>
+                    <div class="form-group" id="containerForDefaultNode" style="display:none;">
+                        <label for="nodeType" class="col-sm-2 control-label">Тип объекта</label>
+                        <div class="col-sm-10 selectContainer">
+                            @Html.DropDownList("defNodeObjType", new SelectList(ViewBag.ForDefaultNode, "Key", "Value"), new { @class = "form-control" })
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success" id="addNewNode">Добавить</button>
+                            </div>
+                        </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#addNodeModal').modal();
+
+    //хранит тип объекта при создании нетипизированного узла
+
+    $(document).ready(function () {
+        var defNodeObjType = 0;
+        defNodeObjType = $('#defNodeObjType').val();
+        //если выбран тип узла пользовательский, то показываем селект для типа объекта
+        $('#nodeType').change(function () {
+            if ($(this).val() == 10)
+            {
+                $('#containerForDefaultNode').show();
+            }
+            else
+                $('#containerForDefaultNode').hide();
+            //alert("смена типа узла");
+        });
+        //забираем сам тип объекта для пользовательского узла
+        $('#defNodeObjType').change(function () {
+            defNodeObjType = $(this).val();
+        });
+
+
+        $('#addNewNode').click(function () {
+
+            defNodeObjType = parseInt(defNodeObjType);
+            //var nodeName=$('#nodeName').val();
+            //var nodeType = parseInt($('#nodeType').val());
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = parseInt(currentClickId.attr('id'));
+            var addNodeModel = {
+                Name: $('#nodeName').val(),
+                nodeType: parseInt($('#nodeType').val()),
+                idNodeToAdd:currentClickId1,
+                userNodeObjType:defNodeObjType
+            };
+            //alert("nodeName " + nodeName + "/ nodeType " + nodeType + "/ currentClickId1" + currentClickId1 + "/ defNodeObjType " + defNodeObjType);
+            //alert(nodeType);
+            //alert(currentClickId1);
+            //alert(defNodeObjType);
+            //alert(typeof(nodeName));
+            //alert("nodeType "+typeof(nodeType));
+            //alert("currentClickId1 " + typeof (currentClickId1));
+            //alert("defNodeObjType " + typeof (defNodeObjType));
+            $('#addNodeModal').modal("hide");
+            LoadPageOn();
+            $.ajax({
+                type: "POST",
+                url: '/Configurator/AddNode',
+                contentType: 'application/json',
+                //dataType: "json",
+                data: JSON.stringify(addNodeModel),
+                //data: { newNodeName: nodeName, newNodeType: nodeType, idNodeToAdd: currentClickId1, defNodeObjType: defNodeObjType },
+                //data: { idPasteParentElem: idPasteParentElem, idCopyParentElem: idCopyParentElemSaver, nameOPC: nameOPC },
+                async: true,
+                success: pageAddTemplate,
+                error: function () {
+                    alert("Неудача при отправке аякс запроса при создании узла11");
+                }
+            });
+
+            return false;
+        });
+
+    });
+
+    </script>

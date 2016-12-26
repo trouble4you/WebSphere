@@ -1,0 +1,893 @@
+﻿@using WebSphere.WebUI.Models
+@model WebSphere.Domain.Entities.NoTypesPropsHelp
+
+@{
+    Dictionary<string, dynamic> dictStdProps = ViewBag.ForPartial;
+    var stdPropsNames = dictStdProps.Keys;
+    var stdPropsModel = Model.notypesModel;
+
+
+}
+
+
+@foreach (var prop in stdPropsNames)
+{
+    switch (prop)
+    {
+        case "Opc":
+            {
+                <div id="Opc">
+                    @Html.LabelFor(m => m.notypesModel.Opc, "OPC сервер")
+                    <br />
+                    @{
+                     int OPCID = (int)Model.notypesModel.Opc;
+                     var OPCserver = ViewBag.OPCservers;
+                     string OPCserverName = OPCserver[OPCID];
+                     string propForDelete = "\"Opc\":" + Model.notypesModel.Opc;
+                    }
+
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+
+                    @Html.TextBox("Opc", OPCserverName, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.HiddenFor(m => m.notypesModel.Opc)
+                    <br />
+                    @*@Html.DropDownListFor(m => m.notypesModel.Opc, new SelectList(ViewBag.OpcServers, "Key", "Value"))*@
+                </div>
+                break;
+            }
+        case "Connection":
+            {
+                <div id="Connection">
+                    @Html.LabelFor(m => Model.notypesModel.Connection, "Connection")
+                    <br />
+                    @{
+                      string propForDelete = "\"Connection\":\"" + Model.notypesModel.Connection + "\"";
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => Model.notypesModel.Connection)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Connection)
+                    <br />
+                </div>
+                      break;
+            }
+        case "Alarm_IsPermit":
+            {
+                <div id="Alarm_IsPermit">
+                    @Html.LabelFor(m => m.notypesModel.Alarm_IsPermit, "Alarm_IsPermit")
+                    <br />
+                    @{
+                       var Alarm_IsPermit = (bool)Model.notypesModel.Alarm_IsPermit;
+                       string propForDelete = "\"Alarm_IsPermit\":\"" + Alarm_IsPermit.ToString().ToLower();
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.CheckBoxFor(m => Alarm_IsPermit, new { @id = "Alarm_IsPermit", @name = "Alarm_IsPermit" })
+                    @Html.HiddenFor(m => m.notypesModel.Alarm_IsPermit, new { id = "hiddenAlarm_IsPermit" })
+                    <br />
+                </div>
+                       break;
+            }
+        case "HiHiText":
+            {
+                <div id="HiHiText">
+                    @Html.LabelFor(m => m.notypesModel.HiHiText, "HiHiText")
+                    <br />
+                    @{
+                string propForDelete = "\"HiHiText\":\"" + Model.notypesModel.HiHiText + "\"";
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.HiHiText)
+                    @Html.ValidationMessageFor(m => m.notypesModel.HiHiText)
+                    <br />
+                </div>
+                break;
+            }
+        case "HiText":
+            {
+                <div id="HiText">
+                    @Html.LabelFor(m => m.notypesModel.HiText, "HiText")
+                    <br />
+                    @{
+                string propForDelete = "\"HiText\":\"" + Model.notypesModel.HiText + "\"";
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.HiText)
+                    @Html.ValidationMessageFor(m => m.notypesModel.HiText)
+                    <br />
+                </div>
+                break;
+            }
+        case "NormalText":
+            {
+                <div id="NormalText">
+                    @Html.LabelFor(m => m.notypesModel.NormalText, "NormalText")
+                    <br />
+                    @{
+                string propForDelete = "\"NormalText\":\"" + Model.notypesModel.NormalText + "\"";
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.NormalText)
+                    @Html.ValidationMessageFor(m => m.notypesModel.NormalText)
+                    <br />
+                </div>
+                break;
+            }
+        case "LoText":
+            {
+                <div id="LoText">
+                    @Html.LabelFor(m => m.notypesModel.LoText, "LoText")
+                    <br />
+                    @{
+                string propForDelete = "\"LoText\":\"" + Model.notypesModel.LoText + "\"";  
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.LoText)
+                    @Html.ValidationMessageFor(m => m.notypesModel.LoText)
+                    <br />
+                </div>
+                break;
+            }
+        case "LoLoText":
+            {
+                <div id="LoLoText">
+                    @Html.LabelFor(m => m.notypesModel.LoLoText, "LoLoText")
+                    <br />
+                    @{
+                string propForDelete = "\"LoLoText\":\"" + Model.notypesModel.LoLoText + "\"";      
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.LoLoText)
+                    @Html.ValidationMessageFor(m => m.notypesModel.LoLoText)
+                    <br />
+                </div>
+                break;
+            }
+        case "HiHiSeverity":
+            {
+                <div id="HiHiSeverity">
+                    @Html.LabelFor(m => stdPropsModel.HiHiSeverity, "HiHiSeverity")
+                    <br />
+                    @{
+                string propForDelete = "\"HiHiSeverity\":" + Model.notypesModel.HiHiSeverity;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => stdPropsModel.HiHiSeverity)
+
+                    @Html.ValidationMessageFor(m => stdPropsModel.HiHiSeverity)
+                    <br />
+                </div>
+                break;
+            }
+        case "HiSeverity":
+            {
+                <div id="HiSeverity">
+                    @Html.LabelFor(m => stdPropsModel.HiSeverity, "HiSeverity")
+                    <br />
+                    @{
+                string propForDelete = "\"HiSeverity\":" + Model.notypesModel.HiSeverity;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => stdPropsModel.HiSeverity)
+                    @Html.ValidationMessageFor(m => stdPropsModel.HiSeverity)
+                    <br />
+                </div>
+                break;
+            }
+        case "LoSeverity":
+            {
+                <div id="LoSeverity">
+                    @Html.LabelFor(m => stdPropsModel.LoSeverity, "LoSeverity")
+                    <br />
+                    @{
+                string propForDelete = "\"LoSeverity\":" + Model.notypesModel.HiSeverity;
+                    }
+
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => stdPropsModel.LoSeverity)
+                    @Html.ValidationMessageFor(m => stdPropsModel.LoSeverity)
+                    <br />
+                </div>
+                break;
+            }
+        case "LoLoSeverity":
+            {
+                <div id="LoLoSeverity">
+                    @Html.LabelFor(m => m.notypesModel.LoLoSeverity, "LoLoSeverity")
+                    <br />
+                    @{
+                string propForDelete = "\"LoLoSeverity\":" + Model.notypesModel.HiSeverity;
+                    }
+
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.LoLoSeverity)
+                    @Html.ValidationMessageFor(m => m.notypesModel.LoLoSeverity)
+                    <br />
+                </div>
+                break;
+            }
+
+        case "ControllerType":
+            {
+                Dictionary<int, string> realTypes = new Dictionary<int, string>
+                { {0,"Null"},
+                {1, "Boolean"},
+                {2, "SByte"},
+                {3, "Byte"},
+                {4, "Int16"},
+                {5, "UInt16"},
+                {6, "Int32"},
+                {7, "UInt32"},
+                {8, "Int64"},
+                {9, "UInt64"},
+                {10, "Float"},
+                {11,"Double"},
+                {12, "String"},
+                {13, "DateTime"},
+                {14, "Guid"},
+                {15, "ByteString"},
+                {16, "XmlElement"},
+                {17, "NodeId"},
+                {18, "ExpandedNodeId"},
+                {19, "StatusCode"},
+                {20, "QualifiedName"},
+                {21,"LocalizedText"},
+                {22, "ExtensionObject"},
+                {23, "DataValue"},
+                {24, "Variant"},
+                {25, "DiagnosticInfo"},
+                {26, "Number"},
+                {27, "Integer"},
+                {28, "UInteger"},
+                {29, "Enumeration"}
+
+                };
+                <div id="ControllerType">
+                    @Html.LabelFor(m => m.notypesModel.ControllerType, "ControllerType")
+                    <br />
+                    @{
+                string propForDelete = "\"ControllerType\":" + Model.notypesModel.ControllerType;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.ControllerType, new SelectList(realTypes, "Key", "Value"))
+                    <br />
+                </div>
+                break;
+            }
+        case "RealType":
+            {
+                Dictionary<int, string> realTypes = new Dictionary<int, string>
+                { {0,"Null"},
+                {1, "Boolean"},
+                {2, "SByte"},
+                {3, "Byte"},
+                {4, "Int16"},
+                {5, "UInt16"},
+                {6, "Int32"},
+                {7, "UInt32"},
+                {8, "Int64"},
+                {9, "UInt64"},
+                {10, "Float"},
+                {11,"Double"},
+                {12, "String"},
+                {13, "DateTime"},
+                {14, "Guid"},
+                {15, "ByteString"},
+                {16, "XmlElement"},
+                {17, "NodeId"},
+                {18, "ExpandedNodeId"},
+                {19, "StatusCode"},
+                {20, "QualifiedName"},
+                {21,"LocalizedText"},
+                {22, "ExtensionObject"},
+                {23, "DataValue"},
+                {24, "Variant"},
+                {25, "DiagnosticInfo"},
+                {26, "Number"},
+                {27, "Integer"},
+                {28, "UInteger"},
+                {29, "Enumeration"}
+
+                };
+
+                <div id="RealType">
+                    @Html.LabelFor(m => m.notypesModel.RealType, "RealType")
+                    <br />
+                    @{
+                string propForDelete = "\"RealType\":" + Model.notypesModel.RealType;    
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.RealType, new SelectList(realTypes, "Key", "Value"))
+                    <br />
+                </div>
+                break;
+            }
+
+        case "Register":
+            {
+                <div id="Register">
+                    @Html.LabelFor(m => m.notypesModel.Register, "Register")
+                    <br />
+                    @{
+                string propForDelete = "\"Register\":\"" + Model.notypesModel.Register + "\"";      
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Register)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Register)
+                    <br />
+                </div>
+                break;
+            }
+        case "AccessType":
+            {
+                var accessTypeDict = new Dictionary<int, string>
+        {
+          {1, "запись"},
+          {2, "чтение"},
+          {3, "запись и чтение"}
+        };
+                <div id="AccessType">
+                    @Html.LabelFor(m => m.notypesModel.AccessType, "Права доступа")
+                    <br />
+                    @{
+                string propForDelete = "\"ControllerType\":" + Model.notypesModel.RealType;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.AccessType, new SelectList(accessTypeDict, "Key", "Value"))
+                    <br />
+                </div>
+                break;
+            }
+        case "Order":
+            {
+                <div id="Order">
+                    @Html.LabelFor(m => m.notypesModel.Order, "Order")
+                    <br />
+                    @{
+                string propForDelete = "\"Order\":" + Model.notypesModel.Order;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Order)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Order)
+                    <br />
+                </div>
+                break;
+            }
+        case "InMin":
+            {
+                <div id="InMin">
+                    @Html.LabelFor(m => m.notypesModel.InMin, "InMin")
+                    <br />
+                    @{
+                string propForDelete = "\"InMin\":" + Model.notypesModel.InMin;   
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.InMin)
+                    @Html.ValidationMessageFor(m => m.notypesModel.InMin)
+                    <br />
+                </div>
+                break;
+            }
+        case "InMax":
+            {
+                <div id="InMax">
+                    @Html.LabelFor(m => m.notypesModel.InMax, "InMax")
+                    <br />
+                    @{
+                string propForDelete = "\"InMax\":" + Model.notypesModel.InMax;        
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.InMax)
+                    @Html.ValidationMessageFor(m => m.notypesModel.InMax)
+                    <br />
+                </div>
+                break;
+            }
+        case "OutMin":
+            {
+                <div id="OutMin">
+                    @Html.LabelFor(m => m.notypesModel.OutMin, "OutMin")
+                    <br />
+                    @{
+                string propForDelete = "\"OutMin\":" + Model.notypesModel.OutMin;                 
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.OutMin)
+                    @Html.ValidationMessageFor(m => m.notypesModel.OutMin)
+                    <br />
+                </div>
+                break;
+            }
+        case "OutMax":
+            {
+                <div id="OutMax">
+                    @Html.LabelFor(m => m.notypesModel.OutMax, "OutMax")
+                    <br />
+                    @{
+                string propForDelete = "\"OutMax\":" + Model.notypesModel.OutMax;    
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.OutMax)
+                    @Html.ValidationMessageFor(m => m.notypesModel.OutMax)
+                    <br />
+                </div>
+                break;
+            }
+
+        case "History_IsPermit":
+            {
+                <div id="History_IsPermit">
+                    @Html.LabelFor(m => m.notypesModel.History_IsPermit, "History_IsPermit")
+                    <br />
+                    @{
+                var History_IsPermit = (bool)Model.notypesModel.History_IsPermit;
+                string propForDelete = "\"History_IsPermit\":" + History_IsPermit.ToString().ToLower();
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.CheckBoxFor(m => History_IsPermit, new { @id = "History_IsPermit" })
+
+                    @Html.HiddenFor(m => m.notypesModel.History_IsPermit, new { id = "hiddenHistory_IsPermit" })
+                    <br />
+                </div>
+                break;
+            }
+        case "RegPeriod":
+            {
+                <div id="RegPeriod">
+                    @Html.LabelFor(m => m.notypesModel.RegPeriod, "RegPeriod")
+                    <br />
+                    @{
+                string propForDelete = "\"RegPeriod\":" + Model.notypesModel.RegPeriod;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.RegPeriod)
+                    @Html.ValidationMessageFor(m => m.notypesModel.RegPeriod)
+                    <br />
+                </div>
+                break;
+            }
+        case "Deadbend":
+            {
+                <div id="Deadbend">
+                    @Html.LabelFor(m => m.notypesModel.Deadbend, "Deadbend")
+                    <br />
+                    @{
+                string propForDelete = "\"Deadbend\":" + Model.notypesModel.Deadbend;      
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Deadbend)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Deadbend)
+                    <br />
+                </div>
+                break;
+            }
+        case "IsSpecialTag":
+            {
+                <div id="IsSpecialTag">
+                    @Html.LabelFor(m => m.notypesModel.IsSpecialTag, "IsSpecialTag")
+                    <br />
+                    @{
+                var IsSpecialTag = (bool)Model.notypesModel.IsSpecialTag;
+                string propForDelete = "\"IsSpecialTag\":" + IsSpecialTag.ToString().ToLower();
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.CheckBoxFor(m => IsSpecialTag, new { @id = "IsSpecialTag"})
+                    @Html.HiddenFor(m => m.notypesModel.IsSpecialTag, new { id = "hiddenIsSpecialTag" })
+                    @*Dictionary<bool, string>boolTypes = new Dictionary<bool, string>
+                        { {true,"true"},
+                        {false, "false"}};
+                        @Html.DropDownListFor(m => m.notypesModel.IsSpecialTag, new SelectList(boolTypes, "Key", "Value"))*@
+                    @Html.ValidationMessageFor(m => m.notypesModel.IsSpecialTag)
+                    <br />
+                </div>
+                break;
+            }
+
+        case "ChannelType":
+            {
+                var channelType = new Dictionary<int, string>
+                    {
+                      {1, "tcp"},
+                      {2, "tcp"}
+                    };
+                <div id="ChannelType">
+                    @Html.LabelFor(m => m.notypesModel.ChannelType, "ChannelType")
+                    <br />
+                    @{
+                string propForDelete = "\"ChannelType\":" + Model.notypesModel.ChannelType;        
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.ChannelType, new SelectList(channelType, "Key", "Value"))
+                    <br />
+                </div>
+                break;
+            }
+        case "InterPollPause":
+            {
+                <div id="InterPollPause">
+                    @Html.LabelFor(m => m.notypesModel.InterPollPause, "InterPollPause")
+                    <br />
+                    @{
+                string propForDelete = "\"InterPollPause\":" + Model.notypesModel.InterPollPause;                
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.InterPollPause)
+                    @Html.ValidationMessageFor(m => m.notypesModel.InterPollPause)
+                    <br />
+                </div>
+                break;
+            }
+        case "MaxErrorsToSwitchChannel":
+            {
+                <div id="MaxErrorsToSwitchChannel">
+                    @Html.LabelFor(m => m.notypesModel.MaxErrorsToSwitchChannel, "MaxErrorsToSwitchChannel")
+                    <br />
+                    @{
+                string propForDelete = "\"MaxErrorsToSwitchChannel\":" + Model.notypesModel.MaxErrorsToSwitchChannel;        
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.MaxErrorsToSwitchChannel)
+                    @Html.ValidationMessageFor(m => m.notypesModel.MaxErrorsToSwitchChannel)
+                    <br />
+                </div>
+                break;
+            }
+        case "MaxErrorsToBadQuality":
+            {
+                <div id="MaxErrorsToBadQuality">
+                    @Html.LabelFor(m => m.notypesModel.MaxErrorsToBadQuality, "MaxErrorsToBadQuality")
+                    <br />
+                    @{
+                string propForDelete = "\"MaxErrorsToBadQuality\":" + Model.notypesModel.MaxErrorsToBadQuality;               
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.MaxErrorsToBadQuality)
+                    @Html.ValidationMessageFor(m => m.notypesModel.MaxErrorsToBadQuality)
+                    <br />
+                </div>
+                break;
+            }
+        case "TimeTryGoBackToPrimary":
+            {
+                <div id="TimeTryGoBackToPrimary">
+                    @Html.LabelFor(m => m.notypesModel.TimeTryGoBackToPrimary, "TimeTryGoBackToPrimary, сек")
+                    <br />
+                    @{
+                string propForDelete = "\"TimeTryGoBackToPrimary\":" + Model.notypesModel.TimeTryGoBackToPrimary;       
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.TimeTryGoBackToPrimary)
+                    @Html.ValidationMessageFor(m => m.notypesModel.TimeTryGoBackToPrimary)
+                    <br />
+                </div>
+                break;
+            }
+        case "IpAddress":
+            {
+                <div id="IpAddress">
+                    @Html.LabelFor(m => m.notypesModel.IpAddress, "IpAddress")
+                    <br />
+                    @{
+                string propForDelete = "\"IpAddress\":\"" + Model.notypesModel.IpAddress + "\"";         
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.IpAddress)
+                    @Html.ValidationMessageFor(m => m.notypesModel.IpAddress)
+                    <br />
+                </div>
+                break;
+            }
+        case "Port":
+            {
+                <div id="Port">
+                    @Html.LabelFor(m => m.notypesModel.Port, "Port")
+                    <br />
+                    @{
+                string propForDelete = "\"Port\":" + Model.notypesModel.Port;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Port)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Port)
+                    <br />
+                </div>
+                break;
+            }
+        case "ReadTimeout":
+            {
+                <div id="ReadTimeout">
+                    @Html.LabelFor(m => m.notypesModel.ReadTimeout, "ReadTimeout, мсек")
+                    <br />
+                    @{
+                string propForDelete = "\"IpAddress\":\"" + Model.notypesModel.IpAddress + "\"";       
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.ReadTimeout)
+                    @Html.ValidationMessageFor(m => m.notypesModel.ReadTimeout)
+                    <br />
+                </div>
+                break;
+            }
+        case "WriteTimeout":
+            {
+                <div id="WriteTimeout">
+                    @Html.LabelFor(m => m.notypesModel.WriteTimeout, "WriteTimeout, мсек")
+                    <br />
+                    @{
+                string propForDelete = "\"IpAddress\":\"" + Model.notypesModel.IpAddress + "\"";
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.WriteTimeout)
+                    @Html.ValidationMessageFor(m => m.notypesModel.WriteTimeout)
+                    <br />
+                </div>
+                break;
+            }
+
+        case "PortName":
+            {
+                <div id="PortName">
+                    @Html.LabelFor(m => m.notypesModel.PortName, "PortName")
+                    <br />
+                    @{
+                string propForDelete = "\"PortName\":\"" + Model.notypesModel.PortName + "\"";
+                var portDict = new Dictionary<string, string>
+                        {
+                        {"COM0", "COM0"},
+                        {"COM1", "COM1"},
+                        {"COM2", "COM2"}
+                        };
+
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.PortName, new SelectList(portDict, "Key", "Value"))
+                    @Html.ValidationMessageFor(m => m.notypesModel.PortName)
+                        <br />
+                </div>
+                break;
+            }
+        case "BaudRate":
+            {
+                <div id="BaudRate">
+                    @Html.LabelFor(m => m.notypesModel.BaudRate, "BaudRate")
+                    <br />
+                    @{
+                string propForDelete = "\"BaudRate\":" + Model.notypesModel.BaudRate;        
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.BaudRate)
+                    @Html.ValidationMessageFor(m => m.notypesModel.BaudRate)
+                    <br />
+                </div>
+                break;
+            }
+        case "Parity":
+            {
+                <div id="Parity">
+                    @Html.LabelFor(m => m.notypesModel.Parity, "Parity")
+                    <br />
+                    @{
+                string propForDelete = "\"Parity\":" + Model.notypesModel.Parity;
+                var parityDict = new Dictionary<int, string>
+                        {
+                        {0, "Не установлен"},
+                        {1, "Установлен"}
+                        };    
+                    }
+
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.Parity, new SelectList(parityDict, "Key", "Value"))
+                    @Html.ValidationMessageFor(m => m.notypesModel.Parity)
+                        <br />
+                </div>
+                break;
+            }
+        case "StopBits":
+            {
+                <div id="StopBits">
+                    @Html.LabelFor(m => m.notypesModel.StopBits, "StopBits")
+                    <br />
+                    @{
+                string propForDelete = "\"StopBits\":" + Model.notypesModel.StopBits;     
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.StopBits)
+                    @Html.ValidationMessageFor(m => m.notypesModel.StopBits)
+                    <br />
+                </div>
+                break;
+            }
+        case "Address":
+            {
+                <div id="Address">
+                    @Html.LabelFor(m => m.notypesModel.Address, "Address")
+                    <br />
+                    @{
+                string propForDelete = "\"Address\":" + Model.notypesModel.Address;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Address)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Address)
+                    <br />
+                </div>
+                break;
+            }
+            @*case 40:
+                {
+                @Html.LabelFor(m => m.Address, "Значение")
+                <br />
+                @Html.EditorFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address)
+                    break;
+                }*@
+        case "Driver":
+            {
+                <div id="Driver">
+                    @Html.LabelFor(m => m.notypesModel.Driver, "Driver")
+                    <br />
+                    @{
+                string propForDelete = "\"Driver\":\"" + Model.notypesModel.Driver + "\"";          
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Driver)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Driver)
+                    <br />
+                </div>
+                break;
+            }
+        case "RetrCount":
+            {
+                <div id="RetrCount">
+                    @Html.LabelFor(m => m.notypesModel.RetrCount, "RetrCount")
+                    <br />
+                    @{
+                string propForDelete = "\"RetrCount\":" + Model.notypesModel.RetrCount;         
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.RetrCount)
+                    @Html.ValidationMessageFor(m => m.notypesModel.RetrCount)
+                    <br />
+                </div>
+                break;
+            }
+        case "ParentGroup":
+            {
+                <div id="ParentGroup">
+                    @*//предусмотреть фнкционал по перестройке дерева и изменения базы*@
+                    @Html.LabelFor(m => m.notypesModel.ParentGroup, "ParentGroup")
+                    <br />
+                    @{
+                string propForDelete = "\"ParentGroup\":" + Model.notypesModel.ParentGroup;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.ParentGroup)
+                    @Html.ValidationMessageFor(m => m.notypesModel.ParentGroup)
+                    <br />
+                </div>
+                break;
+            }
+        case "PrimaryChannel":
+            {
+                <div id="PrimaryChannel">
+                    @Html.LabelFor(m => m.notypesModel.PrimaryChannel, "PrimaryChannel")
+                    <br />
+                    @{
+                string propForDelete = "\"PrimaryChannel\":" + Model.notypesModel.PrimaryChannel;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    var gg = ViewBag.SelectChannel;
+                    @Html.DropDownListFor(m => m.notypesModel.PrimaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"))
+                    @Html.ValidationMessageFor(m => m.notypesModel.PrimaryChannel)
+                    <br />
+                </div>
+                break;
+            }
+        case "SecondaryChannel":
+            {
+                <div id="SecondaryChannel">
+                    @Html.LabelFor(m => m.notypesModel.SecondaryChannel, "SecondaryChannel")
+                    <br />
+                    @{
+                string propForDelete = "\"SecondaryChannel\":" + Model.notypesModel.SecondaryChannel;          
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.SecondaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"))
+                    @Html.ValidationMessageFor(m => m.notypesModel.SecondaryChannel)
+                    <br />
+                </div>
+                break;
+            }
+        case "Start":
+            {
+                <div id="Start">
+                    @Html.LabelFor(m => m.notypesModel.Start, "Start")
+                    <br />
+                    @{
+                string propForDelete = "\"Start\":" + Model.notypesModel.Start;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Start)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Start)
+                    <br />
+                </div>
+                break;
+            }
+        case "Count":
+            {
+                <div id="Count">
+                    @Html.LabelFor(m => m.notypesModel.Count, "Count")
+                    <br />
+                    @{
+                string propForDelete = "\"Count\":" + Model.notypesModel.Count;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Count)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Count)
+                    <br />
+                </div>
+                break;
+            }
+        case "Function":
+            {
+                <div id="Function">
+                    @Html.LabelFor(m => m.notypesModel.Function, "Function")
+                    <br />
+                    @{
+                string propForDelete = "\"Function\":" + Model.notypesModel.Function;
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.TextBoxFor(m => m.notypesModel.Function)
+                    @Html.ValidationMessageFor(m => m.notypesModel.Function)
+                    <br />
+                </div>
+                break;
+            }
+        case "Type":
+            {
+                <div id="Type">
+                    @Html.LabelFor(m => m.notypesModel.Type, "Type")
+                    <br />
+                    @{
+                string propForDelete = "\"Type\":\"" + Model.notypesModel.Type + "\"";
+                var typeOPCDictionary = new Dictionary<string, string>
+                        {
+                        {"UA","UA"},
+                        {"DA","DA"}
+                        };
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.DropDownListFor(m => m.notypesModel.Type, new SelectList(typeOPCDictionary, "Key", "Value"))
+                    @Html.ValidationMessageFor(m => m.notypesModel.Type)
+                        <br />
+                </div>
+                break;
+            }
+
+
+        case "Connect":
+            {
+                <div id="Connect">
+                    @Html.LabelFor(m => m.notypesModel.Connect, "Connect")
+                    <br />
+                    @{
+                    var Connect = (bool)Model.notypesModel.Connect;
+                    string propForDelete = "\"Connect\":" + Connect.ToString().ToLower();
+                    }
+                    @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
+                    @Html.CheckBoxFor(m => Connect, new { @id = "Connect" })
+                    @Html.HiddenFor(m => m.notypesModel.Connect, new { id = "hiddenConnect" })
+                    @Html.ValidationMessageFor(m => m.notypesModel.Connect)
+                    <br />
+                </div>
+                break;
+            }
+
+
+
+
+
+    }
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+</script>

@@ -1,0 +1,197 @@
+﻿ 
+ 
+
+<!-- Styles --> 
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/zerozam.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" /> 
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' /> 
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
+<!-- END -->
+<!-- Scripts   
+<script type="text/javascript" src="/Content/_JS/jquery/jquery-1.11.0.min.js"></script>-->  
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/grid.locale-ru.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/alarms.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/datetimepicker/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/jquery.jqGrid.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script> 
+
+   
+<div id='alarms_div_head' class='div_lastmess_head' style=" position: absolute; z-index: 0; right: 0px; min-width: 887px; left: 0px; top: 203px; bottom: 10px;">
+    Журнал тревог
+    <input type="button" value="Квитировать все" class=" kvit_it_all" onclick="kvitirovanie_all()" />
+</div>
+<div id='mess_div' style=" position: absolute; z-index: 0; right: 0px; min-width: 887px; left: 2px; top: 233px; bottom: 10px;">
+    <table style='margin-bottom:0px;'   id='lastalarms_table'></table>
+</div>
+  
+
+<script type="text/javascript">
+    $(function () {
+
+        $('#lastalarms_table').jqGrid({
+            caption: "",
+            datatype: 'local',
+            colNames: ['id', 'tag', 'ack', 'active', 'Начало события', 'Время начала', 'Конец события', 'Тревога', 'Время окончания', 'Время квитирования',"Длительность"],
+            colModel: [{ name: 'Id', index: 'Id', hidden: true },
+                { name: 'Tag', index: 'Tag', hidden: true },
+                { name: 'Ack', index: 'Ack', hidden: true },
+                { name: 'Active', index: 'Active', hidden: true },
+                { name: 'StartReason', index: 'StartReason', width: '150%', sortable: false, classes: 'lambda_zam_col', },
+                {
+                    name: 'StartTime', index: 'StartTime', width: '40%', sortable: true, classes: 'lambda_zam_col',
+                    sorttype: 'datetime', formatter: "date", formatoptions: { srcformat: "Y-m-d H:i:s", newformat: "d.m.Y  H:i:s" }
+                },
+                { name: 'EndReason', index: 'EndReason', width: '150%', sortable: false, classes: 'lambda_zam_col',  },
+                { name: 'Message', index: 'Message', width: '150%', sortable: false, classes: 'lambda_zam_col', hidden: true },
+                {name: 'EndTime', index: 'EndTime', width: '40%', align: 'center', sortable: true, sorttype: 'date',
+                    formatter: "date", formatoptions: { srcformat: "Y-m-d H:i:s", newformat: "d.m.Y  H:i:s" }, classes: 'lambda_zam_col',
+                },
+                {name: 'AckTime', index: 'AckTime', width: '40%', align: 'center', sortable: true, sorttype: 'date', classes: 'lambda_zam_col',
+                    formatter: "date", formatoptions: { srcformat: "Y-m-d H:i:s", newformat: "d.m.Y  H:i:s" },
+                },
+                { name: 'Duration', index: 'Duration', width: '40%', sortable: false, classes: 'lambda_zam_col' }
+
+            ],
+
+            viewrecords: true,
+            height: '100%',
+            width: '900px',
+            scroll: true,
+            sortname: ' StartTime',
+            sortorder: "asc",
+            rowattr: function (rd) {
+                //Раскрашиваем алармы
+                //if (rd.Tag.indexOf("Work") > -1 && rd.Ack == false && rd.Active == true) { return { "class": "well_nekvit_activ" }; }
+                //else if (rd.Tag.indexOf("Work") > -1 && rd.Ack == true && rd.Active == true) { return { "class": "well_kvit_activ" }; }
+
+                //else if (rd.Ack == false && rd.Active == true) { return { "class": "zam_nekvit_activ" }; }
+                //else if (rd.Ack == true && rd.Active == true) { return { "class": "zam_kvit_activ" }; }
+                //else { return { "class": "zam_nekvit_neactiv" }; }
+
+               // if (rd.StartReason.indexOf("предельный") > -1 && rd.Ack == false && rd.Active == true) { return { "class": "alarm_pred" }; }
+               // else if (rd.StartReason.indexOf("критический") > -1 && rd.Ack == false && rd.Active == true) { return { "class": "alarm_krit" }; }
+               //
+               // else if (rd.Ack == true && rd.Active == true) { return { "class": "zam_kvit_activ" }; }
+               // else { return { "class": "zam_nekvit_neactiv" }; }
+                if ((rd.StartReason == -1 || rd.StartReason == 1) && rd.Ack == false && (rd.Active == true || rd.Active == 1)) { return { "class": "alarm_pred" }; }
+                else if ((rd.StartReason == -2 || rd.StartReason == 2) && rd.Ack == false && (rd.Active == true || rd.Active == 1)) { return { "class": "alarm_krit" }; }
+                     
+                else if (rd.Ack == true  && (rd.Active == true || rd.Active == 1)) { return { "class": "zam_kvit_activ" }; }
+                else { return { "class": "zam_nekvit_neactiv" }; }
+
+            }
+        });
+
+        var lastalarmsW = document.getElementById('mess_div').offsetWidth;
+        var lastalarmsH = document.getElementById('mess_div').offsetHeight;
+        $("#lastalarms_table").setGridWidth(lastalarmsW - 19);
+        $("#lastalarms_table").setGridHeight(lastalarmsH - 30);
+
+        //Квитирование по двойному клику
+        $("#lastalarms_table").jqGrid('setGridParam', {
+            ondblClickRow: function (rowid, iRow, iCol, e) {
+                var rowData = jQuery(this).getRowData(rowid);
+                var id = rowData['Id'];
+                var tag = rowData['Tag'];
+                var ack = rowData['Ack'];
+                var active = rowData['Active'];
+                kvitirovanie(rowid, id, tag, ack, active);
+            }
+        });
+
+    });
+     
+    function errkvit() {
+      ErrMessage("Не квитировано");
+    }
+    function getlastalarms() {
+        //читаем алармы
+        $.ajax({ type: "POST", url: "/api/Alarms/GetCurrentAlarms", async: true, success: page_drawAlarms });
+    }
+    getlastalarms();
+    setInterval('getlastalarms()',30000);
+
+    function page_drawAlarms(data) {
+        //рисуем алармы
+        var scrollPosition;
+        scrollPosition = jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop();
+        $("#lastalarms_table").jqGrid('clearGridData');
+        var countmess = data.length;
+        //  $("#lastalarms_table").setGridParam({ data: data });
+
+        for (var i = data.length - 1; i >= 0 ; i--) {
+            if (data[i].Ack == true || data[i].Ack == 1)  data[i].Ack = true; 
+            else data[i].Ack = false;
+            if (data[i].Active == true || data[i].Active == 1)  data[i].Active = true; 
+            else data[i].Active = false;
+            if (data[i].Active == false ) { data[i].Message = 'Была тревога: ' + data[i].Message; }
+            if (data[i].Active == true ) { data[i].EndTime = ''; }
+            if (data[i].Ack == false ) { data[i].AckTime = ''; }
+            $('#lastalarms_table').jqGrid('addRowData', data[i].Id,
+            {
+                Id: data[i].Id,
+                StartReason: data[i].StartReason,
+                EndReason: data[i].EndReason,
+                Message: data[i].Message,
+                StartTime: data[i].StartTime,
+                EndTime: data[i].EndTime,
+                Ack: data[i].Ack,
+                AckTime: data[i].AckTime,
+                Active: data[i].Active,
+                Duration: data[i].Duration
+            });
+
+            /*  if (data[i].Ack == false && data[i].Active == true)
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_nekvit_activ");
+              else if (data[i].Ack == true && data[i].Active == true)
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_kvit_activ");
+              else
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_nekvit_neactiv");
+          */}
+
+        // $("#lastalarms_table").setGridParam({ rowNum: countmess }).trigger("reloadGrid");
+
+        jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop(scrollPosition);
+    }
+    function kvitirovanie(rowid, id, tag, ack, active) {
+        //if (!ack)
+        //$.ajax({ type: "POST", url: '@Url.Action("SetAlarmAck", "Alarms")?id=' + id, async: true, success: getlastalarms, error: errkvit });
+        
+
+     //  $.ajax({
+     //      type: "POST", url: "/api/Alarms/CheckPermission", data: { a: PERMISSION_RIGHT_Kvit }, async: false,
+     //      success: function (_data) { data = _data; }
+     //  });
+     //  var kvit = data;
+      //if (kvit) {
+          if (active == 'true') {
+              //getlastalarms();
+                  $.ajax({ type: "POST", url: "/api/Alarms/KvitAlarm", data: { Tag: tag, Id: id }, async: true, success: getlastalarms });
+          }
+          else {
+              $.ajax({ type: "POST", url: "/api/Alarms/KvitAlarm", data: { Tag: tag, Id: id }, async: true });
+              $('#lastalarms_table').delRowData(rowid);
+              getlastalarms();
+          }
+      // } else ErrMessage("Нет прав на квитирование");
+    }
+    function kvitirovanie_all() {
+        
+        $.ajax({ type: "POST", url: '@Url.Action("SetAlarmAckAll", "Alarms")', async: true, success: getlastalarms, error: getlastalarms });
+        //$.ajax({
+       //    type: "POST", url: "/api/Alarms/CheckPermission", data: { a: PERMISSION_RIGHT_Kvit }, async: false,
+       //    success: function (_data) { data = _data; }
+       //});
+       //var kvit = data;
+       //if (kvit) {
+       //    $.ajax({ type: "POST", url: "/api/Alarms/KvitAll", data: {}, async: true, success: getlastalarms });
+       //
+       //} else ErrMessage("Нет прав на квитирование");
+
+    }
+
+</script>
+

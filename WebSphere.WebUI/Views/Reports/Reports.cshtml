@@ -1,0 +1,256 @@
+﻿ 
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/Reports.css" />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
+<!-- END -->
+<!-- Scripts-->
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/grid.locale-ru.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/jquery.jqGrid.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/Reports.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/datetimepicker/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script>
+
+
+<table border="0" style="height: 100%; width: 100%; "> 
+    <tr>
+        <td id="journal" style="position:relative; height:100%; ">
+            @using (Html.BeginForm("GetExcel", "Reports"))
+            {   <div id='lastot4_head' class='div_lastot4_head'> Отчеты
+                <div id='auto_div' style="position:absolute;right:150px;top:3px">
+                    <input type="checkbox" onclick="checkbox_auto_update()" id="auto_update">Автообновление
+                </div>
+                <input type='submit' class="ex_export" onclick="" value='Выгрузка в Excel' />
+
+            </div>
+
+                <div class="div_daterange_journal" style="margin-left: 3%;">
+                   
+                    <br />
+                    <select id="journals" name="journals"   style="width:215px; font-weight: bold; font-size: 15px; position: relative; align-self:center;top: 0px; color:#336666 ">
+                          
+    @*<option value="15">Скважины в нерабочих режимах</option>
+    <option value="14">Журнал неопределенных состояний скважин</option>
+    <option value="13">Наработка скважин</option>
+    <option value="12">История импорта режимов работы скважин</option>*@
+                    </select>
+
+                    <br />
+                   
+                </div>
+
+                <div class="div_daterange2_journal">
+                    <span style="position:absolute ; width:55%;height:23px">
+                        Начало периода: <input style="position:absolute ; width:130px; right:10px" id="datetimepicker_start" name="datetimepicker_start" type="text">
+                    </span>
+                    <br />
+                    <span style="position:absolute ; width:55%;height:23px;top:23px ">
+                        Конец  периода:
+                        <input style="position:absolute ; width:130px; right:10px" id="datetimepicker_end" name="datetimepicker_end" type="text" onchange="Period()">
+                    </span>
+                    <br />
+
+                    <span style="position:absolute ; width:55%; height:23px;top:46px">
+                        <input type="checkbox" onclick="check_this(this)" id="ch_time"> текущее время
+                        <select id="period" onchange="Period()" style="  width:96px; font-weight: bold; font-size: 15px; position: absolute; right: 10px; color:#336666 ">
+                            <option value="1">Сутки</option>
+                            <option value="2">2 суток</option>
+                            <option value="7">7 суток</option>
+                            <option value="30">30 суток</option>
+                            <option value="60">60 суток</option>
+                            <option value="0">Вручную</option>
+                        </select>
+                    </span>
+                    <br />
+
+                    <span style="position:absolute ; width:55%; height:23px;top:64px">
+                        <input type="checkbox" onclick="check_this(this)" id="ch_time2"> выровнять по началу суток
+                    </span>
+                </div>
+                 
+            }
+            <input type="button" id="obnov" style="width:90px; height:55px;right: 0px; top:35px;position: absolute" value="Обновить" onclick="Get_Journal()" />
+
+            
+
+
+
+        </td>
+    </tr>
+</table>
+
+
+<div id='journal_div' class='div_journal'>
+    <!--Таблица отчетов-->
+    <table style='margin-bottom:0px;' class='table_alarms table' id='journal_table'></table>
+</div>
+ 
+<script language="javascript">
+  
+    //Перевод даты
+    function Perevod(string) {
+        var dt = new Date();
+        var month = string.getMonth() + 1;
+        if (month < 10) month = '0' + month;
+        var day = string.getDate();
+        if (day < 10) day = '0' + day;
+        var year = string.getFullYear();
+        var hours = string.getHours();
+        var minutes = string.getMinutes();
+        var seconds = string.getSeconds();
+        if (hours <= 9) hours = '0' + hours;
+        if (minutes <= 9) minutes = '0' + minutes;
+        return day + '-' + month + '-' + year + ' ' + hours + ':' + minutes;
+    }
+    function parseDate(date) {
+        return new Date(date.replace(/^(\d+)\.(\d+)\.(\d+)/, '$3-$2-$1'));
+    }
+    function Period() {
+        if (document.getElementById("period").value == 0) {
+            document.getElementById("datetimepicker_start").style.backgroundColor = 'white';
+            jQuery("#datetimepicker_start").datetimepicker({ timepicker: true, datepicker: true });
+            jQuery("#datetimepicker_start").attr('readonly', false);
+        }
+        else {
+            document.getElementById("datetimepicker_start").style.backgroundColor = '#E6E6E6';
+            jQuery("#datetimepicker_start").datetimepicker({ timepicker: false, datepicker: false });
+            jQuery("#datetimepicker_start").attr('readonly', true);
+
+            var d = new Date(document.getElementById("datetimepicker_end").value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+
+            var d2 = new Date();
+            d2 = new Date(document.getElementById("datetimepicker_end").value);
+            // d2 = new Date(d2.replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1'));
+            var period = document.getElementById("period").value;
+            d.setDate(d.getDate() - period);
+            d2.setDate(d2.getDate() + period)
+            // document.getElementById("datetimepicker_start").value=d;
+            document.getElementById("datetimepicker_start").value = Perevod(d);
+        }
+
+    }
+    var date = new Date();
+    document.getElementById("datetimepicker_start").value = Perevod(date);
+    //Period(); 
+    //чекбоксы на периоды
+    function check_this(el) {
+        if (el.checked == false)
+            el.checked == false; 
+        else {
+            el.checked = true;
+            if (el == document.getElementById('ch_time')) {
+                document.getElementById('ch_time2').checked = false;
+                var date = new Date();
+                document.getElementById("datetimepicker_end").value = Perevod(date);
+                Period();
+            } else {
+                document.getElementById('ch_time').checked = false;
+                var string = new Date();
+                var month = string.getMonth() + 1;
+                if (month < 10) month = '0' + month;
+                var day = string.getDate();
+                if (day < 10) day = '0' + day;
+                var year = string.getFullYear();
+                var date = day + '-' + month + '-' + year + ' 00:00';
+                document.getElementById("datetimepicker_end").value = date;
+                Period();
+            }
+        }
+
+    }
+
+</script>
+
+  
+<!--Журналы-->
+<script language="javascript">
+    var fl = 0;
+    //дейтпикеры
+    jQuery('#datetimepicker_start').datetimepicker({ lang: 'ru', format: 'd-m-Y H:i' });
+    jQuery('#datetimepicker_end').datetimepicker({ lang: 'ru', format: 'd-m-Y H:i' });
+
+    
+    //обновление и смена журнала
+ 
+    function Get_Excell() {  
+        var journal = document.getElementById("journals").value;  
+        var datetimepickerStart = document.getElementById("datetimepicker_start").value;
+        var datetimepickerEnd = document.getElementById("datetimepicker_end").value; 
+          
+            var parametrs = '{"StartDate":"' + datetimepickerStart + '","EndDate":"' + datetimepickerEnd + '"}';
+        $.ajax({
+            type: "POST", url: '@Url.Action("GetExcel", "Reports")?name=' + journal + '&parametrs=' + parametrs, async: false
+        });
+
+    }
+    function Get_Journal () {
+
+        var report = document.getElementById("journals").value;
+        $("#journal_table").jqGrid('setGridWidth', $("#journal_div").width() - 10);
+        $("#journal_table").jqGrid('setGridHeight', $("#journal_div").height() - ($("#gbox_journal_table").height() - $('#gbox_journal_table .ui-jqgrid-bdiv').height()));
+
+        var datetimepickerStart = document.getElementById("datetimepicker_start").value;
+        var datetimepickerEnd = document.getElementById("datetimepicker_end").value; 
+        var parametrs = '{"StartDate":"' + datetimepickerStart + '","EndDate":"' + datetimepickerEnd + '"}';
+         $.ajax({
+             type: "POST", url: '@Url.Action("GetReport", "Reports")?id=' + report + '&parametrs=' + parametrs, async: false,
+
+             success: page_ 
+         });
+
+    }
+    function page_drawAlarms(data) {
+        //рисуем алармы
+        var scrollPosition;
+        scrollPosition = jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop();
+        $("#lastalarms_table").jqGrid('clearGridData');
+        var countmess = data.length;
+        //  $("#lastalarms_table").setGridParam({ data: data });
+
+        for (var i = data.length - 1; i > 0 ; i--) {
+            if (data[i].Ack == true || data[i].Ack == 1) data[i].Ack = true;
+            else data[i].Ack = false;
+            if (data[i].Active == true || data[i].Active == 1) data[i].Active = true;
+            else data[i].Active = false;
+            if (data[i].Active == false) { data[i].Message = 'Была тревога: ' + data[i].Message; }
+            if (data[i].Active == true) { data[i].EndTime = ''; }
+            if (data[i].Ack == false) { data[i].AckTime = ''; }
+            $('#lastalarms_table').jqGrid('addRowData', data[i].Id,
+            {
+                Id: data[i].Id,
+                StartReason: data[i].StartReason,
+                EndReason: data[i].EndReason,
+                Message: data[i].Message,
+                StartTime: data[i].StartTime,
+                EndTime: data[i].EndTime,
+                Ack: data[i].Ack,
+                AckTime: data[i].AckTime,
+                Active: data[i].Active,
+            });
+
+            /*  if (data[i].Ack == false && data[i].Active == true)
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_nekvit_activ");
+              else if (data[i].Ack == true && data[i].Active == true)
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_kvit_activ");
+              else
+                  $('#lastalarms_table').jqGrid('setRowData', data[i].Id, false, "zam_nekvit_neactiv");
+          */}
+
+        // $("#lastalarms_table").setGridParam({ rowNum: countmess }).trigger("reloadGrid");
+
+        jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop(scrollPosition);
+    }
+    function Get_Journal_List() {
+         
+        $.ajax({type: "POST", url: '@Url.Action("GetListJournal", "Reports")', async: false,success: journal_list_});
+
+    }
+
+    Get_Journal_List();
+</script>
+
+

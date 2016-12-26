@@ -1,0 +1,66 @@
+﻿@model WebSphere.WebUI.Models.AddNodeModel
+
+@*@using (Ajax.BeginForm("AddNode1", null, new AjaxOptions { UpdateTargetId = "nodeAddForm", OnSuccess = "checkPaste", OnFailure="FailFail" }, new { @class = "form-horizontal" }))*@
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "AddNodeModelForm", @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.idNodeToAdd)
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, "Название узла", new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.nodeType, "Тип узла", new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+
+     @{     
+    Dictionary<int, string> nodeNameDict = new Dictionary<int, string> {
+                                                                   {1, "OPC-сервер"},
+                                                                   {2, "КТПН дальний"},
+                                                                   {3, "АГЗУ"},
+                                                                   {5, "Радио канал"},
+                                                                   {6, "GPRS канал"},
+                                                                   {7, "Группа опроса"},
+                                                                   {8, "Тег"},
+                                                                   {9, "Папка"},
+                                                                   {10, "Пользовательский"}
+
+                                                               };
+                                                               }
+            @Html.DropDownListFor(m => m.nodeType, new SelectList(nodeNameDict, "Key", "Value"), new { @class = "form-control", @id = "nodeType" })
+
+        </div>
+    </div>
+
+    <div class="form-group" id="containerForDefaultNode" style="display:none;">
+        @Html.LabelFor(m => m.userNodeObjType, "Тип объекта", new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10 selectContainer">
+            @Html.DropDownListFor(m => m.userNodeObjType, new SelectList(ViewBag.ForDefaultNode, "Key", "Value"), new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" id="addNewNode">Добавить</button>
+        </div>
+    </div>
+
+}
+
+<script>
+
+    function checkPaste(data) {
+        alert("success");
+        $("#nodeAddForm").html(data);
+    };
+
+    function FailFail()
+    {
+        alert("fail");
+    }
+</script>

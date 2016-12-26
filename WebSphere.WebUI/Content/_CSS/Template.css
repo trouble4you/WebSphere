@@ -1,0 +1,180 @@
+﻿.topMenu {
+    cursor: default;
+}
+
+.letter {
+    color: #597da3;
+    padding-left: 5px;
+}
+
+[class^=signalText_] {
+    position: absolute;
+    min-width: 60px;
+    min-height: 20px;
+    white-space: nowrap;
+}
+
+[class^=signalText2_] {
+    position: absolute;
+    min-width: 60px;
+    min-height: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+[class^=signalAnalog_] {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #BBBBBB;
+    padding: 2px 8px 2px 8px;
+    min-width: 60px;
+    min-height: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+[class^=signalAnalog2_] {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #BBBBBB;
+    padding: 2px 8px 2px 8px;
+    min-width: 350px;
+    min-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+[class^=signalDigital_] {
+    position: absolute;
+    border-spacing: 5px;    
+    border-collapse: separate; 
+    font-weight: bold;
+}
+
+[class^=inputText_] {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #BBBBBB;
+    min-height: 20px;
+}
+
+[class^=inputCombo_] {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #BBBBBB;
+    min-height: 24px;
+}
+
+[class^=inputBut_] {
+    position: absolute;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+[class^=inputRad_] {
+    position: absolute;
+    white-space: nowrap;
+}
+
+[class^=othEl_] {
+    position: absolute;
+}
+
+[class^=m2table_] {
+    position: absolute;
+    border-collapse: separate;
+    border-spacing: 0 2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+[class^=t2cell_] {
+    background: #dddddd;
+    min-width: 40px;
+    min-height: 15px;
+    align-content: center;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+[class^=t2cellI_] {
+    background: #dddddd;
+    white-space: nowrap;
+    min-width: 90px;
+    min-height: 15px;
+    align-content: center;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+[class^=mtable_] {
+    position: absolute;
+    border-collapse: separate;
+    border-spacing: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    width:85%;
+}
+
+[class^=cell_] {
+    background: #ffffff;
+    border: 1px solid #777;
+    min-width: 90px;
+    min-height: 15px;
+    align-content: center;
+    text-align: center;
+
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+[class^=cellI_] {
+    background: #ffffff;
+    border: 1px solid #777;
+    white-space: nowrap;
+    min-width: 90px;
+    min-height: 15px;
+    align-content: center;
+    text-align: center;
+  
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+[class^=floatMenu_] {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 10px #000080;
+}
+
+[class^=floatMenu_] Item {
+    background: #ddd;
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+[class^=floatMenu_] Item:hover {
+    background: #999;
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 10px;
+}

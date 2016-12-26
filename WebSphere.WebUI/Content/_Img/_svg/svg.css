@@ -1,0 +1,51 @@
+﻿/* css */
+
+.pointer {
+    cursor: pointer;
+}
+
+.default {
+    fill: white !important;
+}
+
+ 
+
+.bad {
+    fill: #ff0000 !important;
+}
+
+.good {
+    fill: #08e815 !important;
+
+}.warn {
+    fill: #ffff00 !important;
+}
+
+.off {
+    fill: #ffff00 !important;
+}
+
+.on {
+	fill: #08e815 !important;
+}
+
+.local {
+    fill: blue !important;
+}
+
+.remote {
+    fill: #08e815 !important;
+}
+
+
+
+.hal {
+    fill: #ff0000 !important;
+}
+.hwl {
+    fill: grey !important;
+}
+.lal {
+    fill: #ffa9a9 !important;
+}
+

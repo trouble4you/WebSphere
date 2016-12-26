@@ -1,0 +1,162 @@
+﻿ @{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <!-- Scripts --> 
+<script type="text/javascript" src="/Scripts/_JS/common/OpcReadWrite.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/SVGFunctions.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jquery/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/common/MyTime.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+
+<div style="height:100%">
+    <div class="wrap_back" style="display: none;" id='loading'>
+        <div class="loading_window"><img src='/Content/_Img/loading.gif' /></div>
+    </div>
+    <div id='pdf' style="position: relative;width: 100%;height: 100%;">
+        <object id='svg' data="/Content/_Img/_svg/RK.svg" type="image/svg+xml" width="100%" height="100%"></object>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+    window.addEventListener("load", function() {
+
+
+        var parent = getSVGById('SvgjsUse28385');
+        var child = parent.path.first;
+        child.setAttribute("fill", "blue");
+        parent.childNodes[3].setAttribute("fill", "blue");
+        parent.childNodes[5].setAttribute("fill", "blue");
+
+    });
+         
+ 
+    /*
+        function PrepareTags() {
+            GM_OPC_TAGS.push("bik.deb");
+            GM_OPC_TAGS.push("bik.den");
+            GM_OPC_TAGS.push("bik.heattemp");
+            GM_OPC_TAGS.push("bik.moise");
+            GM_OPC_TAGS.push("bik.press");
+            GM_OPC_TAGS.push("bik.temp");
+            GM_OPC_TAGS.push("l1.press");
+            GM_OPC_TAGS.push("l1.temp");
+            GM_OPC_TAGS.push("l2.press");
+            GM_OPC_TAGS.push("l2.temp");
+            GM_OPC_TAGS.push("m1.debmass");
+            GM_OPC_TAGS.push("m1.debvol");
+            GM_OPC_TAGS.push("m1.den");
+            GM_OPC_TAGS.push("m1.masssum");
+            GM_OPC_TAGS.push("m1.temp");
+            GM_OPC_TAGS.push("m1.volsum");
+            GM_OPC_TAGS.push("m2.debmass");
+            GM_OPC_TAGS.push("m2.debvol");
+            GM_OPC_TAGS.push("m2.den");
+            GM_OPC_TAGS.push("m2.masssum");
+            GM_OPC_TAGS.push("m2.temp");
+            GM_OPC_TAGS.push("m2.volsum");
+            GM_OPC_TAGS.push("tpu.pressin");
+            GM_OPC_TAGS.push("tpu.pressout");
+            GM_OPC_TAGS.push("tpu.tempin");
+            GM_OPC_TAGS.push("tpu.tempout");
+
+            GM_OPC_TAGS.push("rep.l1.FluM_cday");
+            GM_OPC_TAGS.push("rep.l2.FluM_cday");
+
+            GM_OPC_TAGS.push("rep.l1.FluV_cday");
+            GM_OPC_TAGS.push("rep.l2.FluV_cday");
+
+            GM_OPC_TAGS.push("res.presscol");
+        }
+*/
+        /* REQUEST OPC UPDATE */
+        var GM_OPC_VALS;
+        function RequestOPC(id) {
+            var a = {}; for (var i = 0; i < GM_OPC_TAGS.length; i++) a[i] = GM_OPC_TAGS[i];
+            $.ajax({
+                type: "POST",
+                url: "/api/Opc/GetOpcTagsValues",
+                data: { Tags: a, TagsCount: GM_OPC_TAGS.length, Sender: id },
+                async: true,
+                success: s_RequestOPC,
+                error: e_RequestOPC
+            });
+        }
+
+        function s_RequestOPC(data) {
+            for (var i = 0; i < data.length; i++) {
+                var e = data.length;
+                var b = getSVGSByClassName(data[i].Tag.TagName);
+                for (var j=0; j<b.length; j++)
+                {
+
+                    //var z = getSVGById(data[i].Tag.TagName);
+                    var z = b[j];
+                    if (z.getAttribute("textbox"))
+                    // if (z.getAttribute("textbox"))
+                        update_textbox(z,data[i]);
+                    //{if (!isNaN(val)) SetInnerTextSVG( tag, val);}
+                    else if (z.getAttribute("image_discrete"))
+
+
+                        update_image(z,data[i]);
+                    //{if (!isNaN(val)) SetInnerTextSVG( tag, val);}
+                    // }
+                    // else SetInnerTextSVG( data[i].Tag, DHS);
+                    // var e = document.getElementById("svg");
+                    // var b = e.contentDocument.getElementById("bik.heattemp");
+                }
+            }
+        }
+
+
+        function getMess(object) {
+            return object.tag.tagName;
+        }
+
+        function update_textbox(svg,object) {
+            var val = object.LastAnalogValue;
+            if (!isNaN(val))
+                svg.textContent = val; //SetInnerTextSVG(object.Tag.TagName, val);
+            else svg.textContent = DHS; //SetInnerTextSVG(object.Tag.TagName, DHS);
+            svg.setAttribute("onmouseover", "top.OkMessage('" + object.Tag.TagName.toString() + "';'" + object.LastLogged.toString() + "')");
+        }
+        function update_image(svg, object) {
+
+            var val = object.LastAnalogValue;
+            if (val>50)
+                svg.setAttribute("visibility", "hidden");
+            else
+                svg.setAttribute("visibility", "visible");
+        }
+
+        function e_RequestOPC() { ErrMessage("Не удалось получить значения OPC тегов."); }
+        /* END */
+        var OBJ_I = 0;
+        var DHS = "---";
+
+ 
+        function UpdateMnemo() {
+
+            var a = ProcFl(GM_OPC_VALS["bik.heattemp"], 2);
+            if (!isNaN(a)) SetInnerTextSVG("svg", "bik.heattemp", a, GetStyleSVG(GM_OPC_LIMIT, "bik.heattemp", a));
+            else SetInnerTextSVG("svg", "bik.heattemp", DHS);
+
+            var e = document.getElementById("svg");
+            var b = e.contentDocument.getElementById("bik.heattemp");
+            //alert(b.true("animate"));
+            //svg.children("#"+ei).attr("fill", f ? "black" : "red").attr("stroke", f ? "red" : "black");
+            //
+            //     if (b.hasAttribute("animate"))
+            //             OkMessage("Ehd.");
+            //         //b.textContent = t;
+            //
+            // else
+            //         ErrMessage("Ehd.");
+        }
+        </script> 

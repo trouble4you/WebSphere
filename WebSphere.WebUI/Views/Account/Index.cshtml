@@ -1,0 +1,124 @@
+﻿@using WebSphere.WebUI.Helpers;
+@{
+    ViewBag.Title = "Web Telemetry System «WebSphere» - Пользователь";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    // переменные
+    ViewBag.add_obj = false;
+    
+    if (User.Identity.IsAuthenticated)
+    {
+        // если есть доступ на добавление
+        if (DisplayContentBasedOnRole.IsAccess(User.Identity.Name, "Account", "Register"))
+        {
+            ViewBag.add_obj = true;
+        }
+    }
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        LoadPageOn(); // загрузка страницы
+
+        // список пользователей
+        $.ajax({
+            type: 'post',
+            url: '/Account/Index',
+            data: {},
+            async: false,
+            error: function (num) {
+                LoadPageOff(); // скрываем загрузку страницы
+                alert(num);
+            },
+            success: function (data) {
+                // загружаем данные в контейнер
+                $('#id_datalist').html(data);
+                LoadPageOff(); // скрываем загрузку страницы
+            }
+        });
+
+    });
+
+</script>
+
+<div class="left-box left-box-add">
+
+    <div id="id_model_extend" class="noUnderl">
+
+        <div class="left-box-top font13">
+
+            <ul class="Link_blue2">
+
+                <li id="id__add">
+                    <div class="left_bottom_line">
+                        @if (ViewBag.add_obj)
+                        {
+                            <a href="javascript:void(0)" data-ref="/Account/Register">
+                                <span class="action__add"></span>Добавить
+                            </a>
+                        }
+                        @*@Ajax.ActionLink("Добавить", "Register", new { }, new AjaxOptions
+                           {
+                               UpdateTargetId = "edit-container",
+                               OnBegin = "OnBegin",
+                               OnComplete = "OnComlete",
+                               OnSuccess = "OnSuccess",
+                               HttpMethod = "GET"
+                           }, new { @class = "action__add" }
+                        )*@
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        @*<div class="left-box-middle font13">
+                <ul class="Link_blue2">
+
+                    <li>
+                        <div class="left_bottom_line">
+                            <a href="javascript:void(0)">
+                                <span class="action__import"></span>Импорт
+                            </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="left_bottom_line">
+                            <a href="javascript:void(0)">
+                                <span class="action__export"></span>Экспорт
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="left-box-bottom font13">
+
+            </div>*@
+
+    </div>
+
+</div>
+<div class="right-box">
+
+    <div class="portlet floatL" id="id_main_div">
+
+        <div class="div_inline" id="id_datalist_main">
+            <div class="div_ListAndFilter">
+
+                <div id="id_datalist" class="div-box clearB"></div>
+
+                <div id="edit-container"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

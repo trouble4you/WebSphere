@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+<style>
+    .eButton {
+        display: block;
+        width: 200px;
+        height: 30px;
+        text-align: center;
+        padding: 5px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #88f;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .eButton:hover {
+        background-color: #66e;
+    }
+</style > 
+<div onclick=ShowDeveloperPage1() class="eButton" >
+     <span > Отчеты</span > 
+</div > 
+<div onclick=ShowDeveloperPage2() class="eButton">
+    <span> Состояние OPC</span>
+</div> 
+<div onclick=ShowDeveloperPage3() class="eButton">
+    <span> Состояние настроек тревог</span>
+</div> 
+<div onclick=ShowDeveloperPage4() class="eButton">
+    <span> Состояние тревог</span>
+</div> 
+<div onclick=alarm() class="eButton">
+    <span> Состояние тревог</span>
+</div> 
+
+<script type="text/javascript" >
+    function ShowDeveloperPage1() {
+        location .replace("/Developer/ReportCheck");
+    }
+
+    function ShowDeveloperPage2() {
+        location.replace("/Developer/OpcStates");
+    }
+
+    function ShowDeveloperPage3() {
+        location.replace("/Developer/AlarmCfgStates");
+    }
+
+    function ShowDeveloperPage4() {
+        location.replace("/Developer/AlarmStates");
+        
+    }   
+ function alarm() {
+        var el = screen.height;
+        $("#tree_objects").height=el-380;
+        
+    }
+</script>

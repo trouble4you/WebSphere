@@ -1,0 +1,77 @@
+﻿@model WebSphere.WebUI.Models.AddUserPropModel
+@{
+    var t = Model;
+}
+@*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+
+@using (Ajax.BeginForm("AddUserProp", new AjaxOptions { UpdateTargetId = "userProp", OnSuccess = "checkValid" }))
+{
+
+        @Html.ValidationSummary(true)
+        <br />
+        @Html.LabelFor(m => m.Name, "Название")
+        <br />
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+        <br />
+        
+           Dictionary<int, string>standartPropTypes = new Dictionary<int, string>
+                { {1,"Byte"},
+                {2, "Word"},
+                {3, "DWord"},
+                {4, "ShortInt"},
+                {5, "SmallInt"},
+                {6, "LongInt"},
+                {7, "Float"},
+                {8, "Double"},
+                {9, "Bool"},
+                {10,"String"} };
+        
+                <p>
+                    @Html.LabelFor(m => m.selectValue, "Тип свойства")
+                    <br />
+                    @Html.DropDownListFor(m => m.selectValue, new SelectList(standartPropTypes, "Key", "Value"), new { @class = "form-control" })
+                </p>
+                @Html.HiddenFor(m=>m.Id)
+                <div id="valueContainer">
+                    @Html.Partial("ChangeInputUserPropPartial", Model)
+                </div>
+                <br/>
+                <p><input id="addUserPropBtn" type="submit" class="btn btn-success" value="Добавить" /></p>
+ 
+}
+
+<script type="text/javascript">
+    function checkValid(data) {
+
+        if (data.valid == true) {
+
+            $('#addPropModal').modal("hide");
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = currentClickId.attr('id');
+            $('#tagInfo').empty();
+            $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
+        }
+
+    };
+    $(document).ready(function () {
+        //при изменении select со стандартными свойствами
+        $('#selectValue').change(function () {
+            var selItem = $(this).find(':selected').val();
+            $.ajax({
+                type: "POST",
+                url: '/Configurator/ChangeRegExp',
+                data: { typeNumber: selItem },
+                success: function (data) {
+                    $('#valueContainer').html(data);
+                },
+                async: false,
+                error: function () {
+                    alert("Неудача при отправке аякс запроса при изменении типа свойства");
+                }
+            });
+        });
+
+
+    });
+</script>

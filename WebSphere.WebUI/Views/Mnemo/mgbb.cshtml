@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}   <!-- Scripts -->
+<link href="~/Content/_CSS/Reports/zerozam.css" rel="stylesheet" />
+<link href="~/Content/_CSS/Mnemo/MnemoSingle.css" rel="stylesheet" /> 
+<script type="text/javascript" src="/Scripts/_JS/common/OpcReadWrite.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/SVGFunctions.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jquery/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/common/MyTime.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script type="text/javascript" src="/Scripts/snap/snap.svg.js"></script>
+<script type='text/javascript' src='/Scripts/_JS/Trends/jquery.flot.js'></script>
+<script type='text/javascript' src='/Scripts/_JS/Trends/jquery.flot.time.js'></script>
+ 
+    <object id='svg' data="/Content/_Img/_svg/mgbb.svg" type="image/svg+xml" width="100%" height="100%"></object>
+
+ 
+<script type="text/javascript">
+
+    var TrendPanelTagsName = null;
+
+    var kvit;
+    
+    var GM_OPC_TAGS = new Array();
+
+    /* REQUEST OPC UPDATE */
+    var GM_OPC_VALS;
+    var ControlWind = null;
+    var HeatPanel = null; 
+    var ControlPanelTagsName = null;
+    var ZDPanelTagsName = null;
+    var KLPanelTagsName = null;
+
+    function RequestOPC(id) {
+        var a = {};
+        for (var i = 0; i < GM_OPC_TAGS.length; i++) a[i] = GM_OPC_TAGS[i];
+        $.ajax({
+            type: "POST",
+            url: "/api/Opc/GetOpcTagsVals",
+            data: { Tags: a, TagsCount: GM_OPC_TAGS.length, Sender: id },
+            async: true,
+            success: s_RequestOPC,
+            error: e_RequestOPC
+        });
+    }
+
+    function s_RequestOPC(data) {
+        GM_OPC_VALS = new Array();
+        for (var i = 0; i < data.length; i++)
+            if (data[i].OpcVals!=null)
+                GM_OPC_VALS[data[i].Tag] = data[i].OpcVals.LastValue;
+            else GM_OPC_VALS[data[i].Tag] = null;
+        UpdateMnemo();
+    }
+    function e_RequestOPC() { ErrMessage("Не удалось получить значения OPC тегов."); }
+
+    /* END */
+    var OBJ_I = 0;
+    var DHS = "---";
+
+    function getElementsByAttribute(attribute, context) {
+
+        var svg = Snap('#svg');
+        //var group = element.select("#" + element.node.getElementsByClassName("gStateAlarm")[0].id);
+        var nodeList = svg.node.getElementsByTagName('*');
+        var nodeArray = [];
+        var iterator = 0;
+        var node = null;
+
+        while (node = nodeList[iterator++]) {
+            if (node.getAttribute(attribute)) nodeArray.push(node);
+        }
+
+        return nodeArray;
+    }
+    var tags = new Array();
+    window.addEventListener("load", function () {
+
+        var datatag = getElementsByAttribute('data-tag', 'svg');
+        for (var i = 0; i < datatag.length; i++) {
+            var el = {};
+
+            el.tag = datatag[i].getAttribute('data-tag');
+            el.type = datatag[i].getAttribute('data-type');
+            el.id = datatag[i].id;
+            if (tags.includes(el))
+                alert(tag);
+            else {
+                tags.push(el);
+            }
+        }
+
+        PrepareTags(tags);
+        RequestOPC(OBJ_I);
+        setInterval(function () { RequestOPC(OBJ_I); }, 2000);
+        //setInterval(function () {if (showTrend) UpdateTrend();}, 1000);
+
+    });
+
+    function UpdateMnemo() {
+        UpdateTags();  /*
+        for (var i = 0; i < tags.length; i++) {
+            switch (tags[i].type) {
+                case "valve":
+                    animateZD(tags[i].id, tags[i].tag);
+                    break;
+                case "analog":
+                    SetText(tags[i].id, ProcFl(GM_OPC_VALS[tags[i].tag], 2));
+                    break;
+                case "discrete":
+                    SetDiscrete(tags[i].id, ParseToBool(GM_OPC_VALS[tags[i].tag]));
+                    break;
+
+                case "visible":
+                    SetVis(tags[i].id, ParseToBool(GM_OPC_VALS[tags[i].tag]));
+                    break;
+                default:
+                    SetText(tags[i].id, ProcFl(GM_OPC_VALS[tags[i].tag], 2));
+                    break;
+            }
+        }
+        */
+        if (HeatPanel != null)
+            AnimateHeatPanel( HeatPanel);
+        if (ControlWind != null)
+            AnimateWindPanel( ControlWind);
+        if (ZDPanelTagsName != null)
+            animateZD("ZDPanel", ZDPanelTagsName);
+        if (KLPanelTagsName != null)
+            animateKL("KLPanel", KLPanelTagsName);
+    }
+
+</script>

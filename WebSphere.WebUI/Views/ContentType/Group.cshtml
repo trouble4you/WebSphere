@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere» - Режим разработчика";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        LoadPageOn(); // загрузка страницы
+
+        // список пользователей
+        $.ajax({
+            type: 'post',
+            url: '/ContentType/Group',
+            data: {},
+            async: false,
+            error: function (num) {
+                LoadPageOff(); // скрываем загрузку страницы
+                alert('Ошибка.');
+            },
+            success: function (data) {
+                // загружаем данные в контейнер
+                $('#id_datalist').html(data);
+                LoadPageOff(); // скрываем загрузку страницы
+            }
+        });
+
+    }); // end ready
+
+</script>
+
+<div class="left-box left-box-add">
+
+    <div id="id_model_extend" class="noUnderl">
+
+        <div class="left-box-top font13">
+
+            <ul class="Link_blue2">
+
+                <li id="id__add">
+                    <div class="left_bottom_line">
+                        <a href="javascript:void(0)" data-ref="/ContentType/CreateGroup">
+                            <span class="action__add"></span>Добавить
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="right-box">
+
+    <div class="portlet floatL" id="id_main_div">
+
+        <div class="div_inline" id="id_datalist_main">
+            <div class="div_ListAndFilter">
+
+                <div id="id_datalist" class="div-box clearB"></div>
+
+                <div id="edit-container"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

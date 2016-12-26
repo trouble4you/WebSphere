@@ -1,0 +1,251 @@
+﻿@model WebSphere.Domain.Entities.TagProps
+@{
+    var serversName = ViewBag.OPCservers;
+    string serverName = serversName[Model.Opc];
+}
+@{
+    List<string> dictStdProps = ViewBag.ForPartial;
+    //var stdPropsNames = dictStdProps.Keys;
+    //var stdPropsModel = Model;
+
+
+}
+
+@*@foreach (var prop in dictStdProps)
+{
+    switch (prop)
+    {*@
+
+                <div id="Opc">
+                    @Html.LabelFor(m => m.Opc, "OPC сервер")
+                    <br />
+                    @{
+                        int OPCID = (int)Model.Opc;
+                        var OPCserver = ViewBag.OPCservers;
+                        string OPCserverName = OPCserver[OPCID];                
+                    }
+
+                    @Html.TextBox("Opc", OPCserverName, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.HiddenFor(m => m.Opc)
+                    <br />
+                </div>
+
+        <div id="Connection">
+            @Html.LabelFor(m => Model.Connection, "Connection")
+            <br />
+            @Html.TextBoxFor(m => Model.Connection)
+            @Html.ValidationMessageFor(m => Model.Connection)
+            <br />
+        </div>
+
+        <div id="Alarm_IsPermit">
+            @Html.LabelFor(m => Model.Alarm_IsPermit, "Alarm_IsPermit")
+            <br />
+            @Html.CheckBoxFor(m => m.Alarm_IsPermit, new { @id = "Alarm_IsPermit", @name = "chBoxAlarm_IsPermit" })
+            <br />
+        </div>
+
+        <div id="HiHiText">
+            @Html.LabelFor(m => Model.HiHiText, "HiHiText")
+            <br />
+            @Html.TextBoxFor(m => Model.HiHiText)
+            @Html.ValidationMessageFor(m => Model.HiHiText)
+            <br />
+        </div>
+
+        <div id="HiText">
+            @Html.LabelFor(m => Model.HiText, "HiText")
+            <br />
+            @Html.TextBoxFor(m => Model.HiText)
+            @Html.ValidationMessageFor(m => Model.HiText)
+            <br />
+        </div>
+
+        <div id="NormalText">
+            @Html.LabelFor(m => Model.NormalText, "NormalText")
+            <br />
+            @Html.TextBoxFor(m => Model.NormalText)
+            @Html.ValidationMessageFor(m => Model.NormalText)
+            <br />
+        </div>
+
+        <div id="LoText">
+            @Html.LabelFor(m => Model.LoText, "LoText")
+            <br />
+            @Html.TextBoxFor(m => Model.LoText)
+            @Html.ValidationMessageFor(m => Model.LoText)
+            <br />
+        </div>
+
+        <div id="LoLoText">
+            @Html.LabelFor(m => Model.LoLoText, "LoLoText")
+            <br />
+            @Html.TextBoxFor(m => Model.LoLoText)
+            @Html.ValidationMessageFor(m => Model.LoLoText)
+            <br />
+        </div>
+
+        <div id="HiHiSeverity">
+            @Html.LabelFor(m => Model.HiHiSeverity, "HiHiSeverity")
+            <br />
+            @Html.TextBoxFor(m => Model.HiHiSeverity)
+            @Html.ValidationMessageFor(m => Model.HiHiSeverity)
+            <br />
+        </div>
+
+        <div id="HiSeverity">
+            @Html.LabelFor(m => Model.HiSeverity, "HiSeverity")
+            <br />
+            @Html.TextBoxFor(m => Model.HiSeverity)
+            @Html.ValidationMessageFor(m => Model.HiSeverity)
+            <br />
+        </div>
+
+        <div id="LoSeverity">
+            @Html.LabelFor(m => Model.LoSeverity, "LoSeverity")
+            <br />
+            @Html.TextBoxFor(m => Model.LoSeverity)
+            @Html.ValidationMessageFor(m => Model.LoSeverity)
+            <br />
+        </div>
+
+        <div id="LoLoSeverity">
+            @Html.LabelFor(m => m.LoLoSeverity, "LoLoSeverity")
+            <br />
+            @Html.TextBoxFor(m => m.LoLoSeverity)
+            @Html.ValidationMessageFor(m => m.LoLoSeverity)
+            <br />
+        </div>
+
+@{
+    Dictionary<int, string> realTypes = new Dictionary<int, string>
+                { {0,"Null"},
+                {1, "Boolean"},
+                {2, "SByte"},
+                {3, "Byte"},
+                {4, "Int16"},
+                {5, "UInt16"},
+                {6, "Int32"},
+                {7, "UInt32"},
+                {8, "Int64"},
+                {9, "UInt64"},
+                {10, "Float"},
+                {11,"Double"},
+                {12, "String"},
+                {13, "DateTime"},
+                {14, "Guid"},
+                {15, "ByteString"},
+                {16, "XmlElement"},
+                {17, "NodeId"},
+                {18, "ExpandedNodeId"},
+                {19, "StatusCode"},
+                {20, "QualifiedName"},
+                {21,"LocalizedText"},
+                {22, "ExtensionObject"},
+                {23, "DataValue"},
+                {24, "Variant"},
+                {25, "DiagnosticInfo"},
+                {26, "Number"},
+                {27, "Integer"},
+                {28, "UInteger"},
+                {29, "Enumeration"}
+
+                };
+}
+
+
+        <div id="RealType">
+            @Html.LabelFor(m => m.RealType, "RealType")
+            <br />
+            @Html.DropDownListFor(m => m.RealType, new SelectList(realTypes, "Key", "Value"))
+            <br />
+        </div>
+
+        <div id="Register">
+            @Html.LabelFor(m => m.Register, "Register")
+            <br />
+            @Html.TextBoxFor(m => m.Register)
+            @Html.ValidationMessageFor(m => m.Register)
+            <br />
+        </div>
+
+@{
+    var accessTypeDict = new Dictionary<int, string>
+        {
+          {1, "запись"},
+          {2, "чтение"},
+          {3, "запись и чтение"}
+        };
+}
+        <div id="AccessType">
+            @Html.LabelFor(m => m.AccessType, "Права доступа")
+            <br />
+            @Html.DropDownListFor(m => m.AccessType, new SelectList(accessTypeDict, "Key", "Value"))
+            <br />
+        </div>
+
+        <div id="Order">
+            @Html.LabelFor(m => m.Order, "Order")
+            <br />
+            @Html.TextBoxFor(m => m.Order)
+            @Html.ValidationMessageFor(m => m.Order)
+            <br />
+        </div>
+
+        <div id="InMin">
+            @Html.LabelFor(m => m.InMin, "InMin")
+            <br />
+            @Html.TextBoxFor(m => m.InMin)
+            @Html.ValidationMessageFor(m => m.InMin)
+            <br />
+        </div>
+
+        <div id="InMax">
+            @Html.LabelFor(m => m.InMax, "InMax")
+            <br />
+            @Html.TextBoxFor(m => m.InMax)
+            @Html.ValidationMessageFor(m => m.InMax)
+            <br />
+        </div>
+
+        <div id="OutMin">
+            @Html.LabelFor(m => m.OutMin, "OutMin")
+            <br />
+            @Html.TextBoxFor(m => m.OutMin)
+            @Html.ValidationMessageFor(m => m.OutMin)
+            <br />
+        </div>
+
+        <div id="OutMax">
+            @Html.LabelFor(m => m.OutMax, "OutMax")
+            <br />
+            @Html.TextBoxFor(m => m.OutMax)
+            @Html.ValidationMessageFor(m => m.OutMax)
+            <br />
+        </div>
+
+        <div id="History_IsPermit">
+            @Html.LabelFor(m => m.History_IsPermit, "History_IsPermit")
+            <br />
+            @Html.CheckBoxFor(m => m.History_IsPermit, new { @id = "History_IsPermit" })
+            <br />
+        </div>
+
+        <div id="RegPeriod">
+            @Html.LabelFor(m => m.RegPeriod, "RegPeriod")
+            <br />
+            @Html.TextBoxFor(m => m.RegPeriod)
+            @Html.ValidationMessageFor(m => m.RegPeriod)
+            <br />
+        </div>
+
+        <div id="Deadbend">
+            @Html.LabelFor(m => m.Deadbend, "Deadbend")
+            <br />
+            @Html.TextBoxFor(m => m.Deadbend)
+            @Html.ValidationMessageFor(m => m.Deadbend)
+            <br />
+        </div>
+
+
+

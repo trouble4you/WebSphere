@@ -1,0 +1,52 @@
+﻿
+.zam_kvit_activ {  color:black;}
+.zam_nekvit_activ { background: red; color:black;}
+.zam_nekvit_neactiv { color:red;}
+ 
+.alarm_pred { background: yellow; color:black;}
+.alarm_krit { background: red; color:black;} 
+  
+
+
+ 
+.tab_modules { position:relative; width:20%; margin:0px; padding:0px; padding-bottom:4px; padding-left:14px; } 
+.tab_modules li { list-style:none; display:inline; padding:4px 14px 4px 14px; } 
+.tab_modules li span { color:#000000; padding:4px 14px 4px 14px; border:1px solid #555555; text-decoration:none; background-color:#dddddd;border-radius:5px 0 0 5px;}
+ 
+.tab_modules li span:hover {background-color:#ffffff;}
+ 
+.tab_modules li span.tab_select {border-right:1px solid #ffffff;background-color:#ffffff;}
+
+.lambda_zam_col { padding-left: 5px !important;text-align: center;font-weight: bold !important;font-size: 14px !important;}
+.div_alarms_head {display: none; padding-left: 30px; padding-bottom: 4px; padding-top: 4px; font-size: 16px; font-weight: bold; border: 1px #848C99 solid; background-color:#AEAEAE; position: fixed;  bottom: 127px; left: 226px; right: 4px; }
+.div_alarms {display: none; overflow: scroll; border: 1px #848C99 solid; background-color:#C8CACE; position: fixed; height:128px; bottom: 4px; left: 226px; right: 2px; }
+
+.div_alarms2 {overflow: scroll; border: 1px #848C99 solid; background-color:#C8CACE; position: fixed; top: 44px; bottom: 60px; left: 236px; right: 14px; }
+.div_alarms_head2 {position: fixed; left: 236px; right: 14px; padding-left: 30px; padding-bottom: 4px; padding-top: 4px; font-size: 16px; font-weight: bold; border: 1px #848C99 solid; background-color:#AEAEAE; }
+.div_alarms_bot2 {position: fixed; left: 236px; right: 14px; bottom: 15px; border: 0px solid black}
+
+
+.azaza {width:100%;}
+.div_lastmess {  overflow: hidden; border: 1px #848C99 solid;background-color:#C8CACE;position: absolute; top:31px;bottom:1px; width:100%; }
+
+
+.well_nekvit_activ { background: #99f; color:black;}
+.well_nekvit_neactiv { color:#99f;}
+
+.div_lastmess_head  { position: absolute;top: 0;width:100%;padding-left: 4px; padding-bottom: 4px;padding-top: 4px;font-size: 16px;font-weight: bold;border: 1px #848C99 solid;background-color: #AEAEAE;}
+.kvit_it_all_true {background: white; text-decoration-color: red;}
+.kvit_it_all_false { background: red; color:black;}
+.neutral_msg_true { background: white; color:black;}
+.neutral_msg_false { background: gray; color:black;}
+.zam_light_blue { background: lightgrey; color:black;}
+.zam_blue { background: gray; color:black;} 
+.zam_green { background: #9fff3f; color:black;}
+.zam_null { background: white; color:black;}
+.zam_red { background: red; color:black;}
+
+.zam_range {padding: 1px 10px 1px 10px !important; font-size: 12px !important; position: fixed; right: 65px; top: 341px;}
+.zam_param {padding: 1px 10px 1px 10px !important; font-size: 12px !important; position: absolute; right: 4px; top: 4px;}
+.kvit_it_all {padding: 1px 10px 1px 10px !important; font-size: 12px !important; position: absolute; right: 4px; top: 4px;}
+.kvit_it_all2 {padding: 1px 10px 1px 10px !important; font-size: 12px !important; position:relative; left: 1215px; bottom: 133px;} 
+.div_lastzam {cursor:default; overflow: hidden; border: 1px #848C99 solid; background-color:#C8CACE; position: absolute; top:51px;bottom:1px; width:100%; }
+.div_lastzam_head {  position: absolute;top: 20px;width:100%;padding-left: 4px;padding-bottom: 4px;padding-top: 4px;font-size: 16px;font-weight: bold;border: 1px #848C99 solid;background-color: #AEAEAE;}

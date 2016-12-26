@@ -1,0 +1,122 @@
+﻿<div id="addModuleModal" class="modal fade" tabindex="-1" style="top:100px;">
+    <div class=" modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal">x</button>
+            <h4 class="modal-title">Доступные модули</h4>
+        </div>
+        <div class="modal-body">
+            
+                @{
+                    int counter = 0;
+    var checkExistance = ViewBag.ModulesToAdd;
+    if (checkExistance[0].idModule != -1)
+    {
+        int forRowSpan=checkExistance.Count;
+            <table id="moduleToConnectTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th @*class="class_select_col"*@>
+                            @*<div>
+                            <input type="checkbox" class="chk_selected_all" />
+                        </div>*@
+                        </th>
+                        <th>Название модуля</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    @foreach (var mod in ViewBag.ModulesToAdd)
+                    {
+
+                        counter++;
+                        if(counter==1)
+                        {
+                             <tr >
+                                 <td class="class_select_col">
+                                     <div>
+                                         <input class="select_mod" data-idmodule="@mod.idModule" type="checkbox" />
+                                         <input type="hidden" data-helpidmodule="@mod.idModule" value="@mod.descrModule" />
+                                     </div>
+                                 </td>
+                                 <td class="class_select_module selectedModule" data-idmodule="@mod.idModule">@mod.nameModule</td>
+                                <td id="descriptionModule" rowspan=@forRowSpan.ToString()>                             
+                                 @mod.descrModule</td>
+                            </tr>
+                        }
+                        else
+                        {
+                             <tr>
+                                <td class="class_select_col">
+                                    <div>
+                                        <input class="select_mod" data-idmodule="@mod.idModule" type="checkbox" />
+                                        <input type="hidden" data-helpidmodule="@mod.idModule" value="@mod.descrModule" />
+                                    </div>
+                                </td>
+                              <td class="class_select_module" data-idmodule="@mod.idModule">@mod.nameModule</td>
+                            </tr>
+                        }
+
+
+                       
+
+                    }
+                </tbody>
+            </table>
+            <input id="submitAddModule" class="btn btn-success" type="button" value="Добавить" />
+
+
+    }
+    else
+    {
+                        <div> Все модули добавлены! </div>
+                    }
+                }
+
+
+            </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $('#addModuleModal').modal();
+    $(document).ready(function () {
+        // подсветка строки при щелчке
+        $('tr .class_select_module').click(function () {
+            $('.selectedModule').removeClass('selectedModule');
+            $(this).addClass('selectedModule');
+            var modId = $(this).attr('data-idmodule');
+
+            var modDescr = $('[data-helpidmodule=' + modId + ']').val();
+            $('#descriptionModule').empty().text(modDescr);
+
+        });
+    //проверка какие модули добавлены
+        var checkedModsList = new Array();
+        $('#submitAddModule').click(function () {
+            var modToAddStr = "";
+            var checkedMods;
+            $('.select_mod').each(function () {
+                if ($(this).is(':checked')) {
+                    //alert($(this).attr('data-idmodule'));
+                    checkedMods = $(this).attr('data-idmodule');
+                    modToAddStr += checkedMods;
+                    checkedModsList.push(checkedMods);
+                }
+            });
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = currentClickId.attr('id');
+            $('#ModuleInfo').load('@Url.Action("addModule", "Configurator")?idModStr=' + checkedModsList, function () {
+                $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
+            });
+            @*$('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);*@
+            $('#addModuleModal').modal("hide");
+        });
+
+
+
+    });
+
+    </script>
+@*<script src="~/Scripts/configurator.js"></script>*@

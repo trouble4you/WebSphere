@@ -1,0 +1,1579 @@
+<svg id="svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="-250 0 1524 768" preserveAspectRatio="xMidYMid meet" style="background: url(&quot;http://localhost:1356/Content/logo8.png&quot;) 0% 0% / auto no-repeat scroll padding-box border-box rgba(0, 0, 0, 0);">
+  <defs id="defs">
+    <symbol id="tank" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1009" width="1" height="0.5" x="0" y="0" rx=".1" ry=".25" stroke="none">
+      </rect>
+    </symbol>
+    <symbol id="valve" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1011" width="0.5" height="0.5" x="0" y="0" fill="none">
+      </rect>
+      <path id="SvgjsPath1012" d="M0.1 0.1L0.1 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1013" d="M0.9 0.1L0.9 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1014" d="M0.5 0V1 " stroke="#000000" stroke-width=".1">
+      </path>
+    </symbol>
+    <symbol id="valve_rd" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1016" width="1" height="1" x="0" y="0" fill="black">
+      </rect>
+      <path id="SvgjsPath1017" d="M0 0.5L1 0L1 1Z " stroke="none">
+      </path>
+    </symbol>
+    <symbol id="valve_no" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1019" width="0.5" height="0.5" x="0" y="0" fill="none">
+      </rect>
+      <path id="SvgjsPath1020" d="M0.1 0.1L0.1 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1021" d="M0.9 0.1L0.9 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+    </symbol>
+    <symbol id="plate" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1023" width="1" height="0.33" x="0" y="0" fill="#c0c0c0" stroke="none">
+      </rect>
+      <rect id="SvgjsRect1024" width="1" height="0.33" x="0" y=".33" fill="#c0c0c0" stroke="#9a9893" stroke-width=".01">
+      </rect>
+      <rect id="SvgjsRect1025" width="1" height="0.33" x="0" y=".66" fill="#c0c0c0" stroke="none">
+      </rect>
+    </symbol>
+    <symbol id="text" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1027" width="1" height="1" x="0" y="0" fill="none" stroke="none">
+      </rect>
+    </symbol>
+    <symbol id="holder" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1029" d="M0 0L0.4 0L0.4 1L0 1Z " fill="none" stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1030" d="M0.4 0.5L1 0.5L1 0.6L0.4 0.6Z " fill="none" stroke="black" stroke-width=".02">
+      </path>
+      <path id="SvgjsPath1031" d="M0.6 0.4L0.7 0.4L0.7 0.7L0.6 0.7Z " fill="#7b3700" stroke="black" stroke-width=".05">
+      </path>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1033" d="M0.5 0.4L0.6 0.1L0.7 0.4L0.65 0.4L0.65 0.9L0.55 0.9L0.55 0.4Z " stroke="black" stroke-width=".02">
+      </path>
+    </symbol>
+    <symbol id="vtube" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1035" width="1" height="1" x="0" y="0">
+      </rect>
+      <line id="SvgjsLine1036" x1="0" y1="0" x2="0" y2="1" x="0" y="0" fill="none" stroke="black" stroke-width=".3">
+      </line>
+      <line id="SvgjsLine1037" x1="1" y1="0" x2="1" y2="1" x="0" y="0" fill="none" stroke="black" stroke-width=".3">
+      </line>
+    </symbol>
+    <symbol id="htube" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1039" width="1" height="1" x="0" y="0">
+      </rect>
+      <line id="SvgjsLine1040" x1="0" y1="0" x2="1" y2="0" x="0" y="0" fill="none" stroke="black" stroke-width=".3">
+      </line>
+      <line id="SvgjsLine1041" x1="0" y1="1" x2="1" y2="1" x="0" y="0" fill="none" stroke="black" stroke-width=".3">
+      </line>
+    </symbol>
+    <symbol id="ctube" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1043" d="M0 0L1 0A1 1 0 0 1 0 1Z ">
+      </path>
+      <path id="SvgjsPath1044" d="M0.92 0A0.92 0.92 0 0 1 0 0.92 " stroke="black" stroke-width=".15">
+      </path>
+      <rect id="SvgjsRect1045" width="0.02" height="0.02" x="0" y="0" fill="none" stroke="black" stroke-width=".25">
+      </rect>
+    </symbol>
+    <symbol id="ttube" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1047" width="1" height="1" x="0" y="0">
+      </rect>
+      <polygon id="SvgjsPolygon1048" points="0,0 0.5,0.5 1,0" transform="rotate(90, .5, .5)">
+      </polygon>
+      <line id="SvgjsLine1049" x1="0" y1="0" x2="0" y2="1" x="0" y="0" fill="none" stroke="black" stroke-width=".3">
+      </line>
+    </symbol>
+    <symbol id="xtube" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1051" width="1" height="1" x="0" y="0">
+      </rect>
+      <polygon id="SvgjsPolygon1052" points="0,0 0.5,0.5 1,0" transform="rotate(90, .5, .5)">
+      </polygon>
+      <polygon id="SvgjsPolygon1053" points="0,0 0.5,0.5 1,0" transform="rotate(270, .5, .5)">
+      </polygon>
+    </symbol>
+    <symbol id="unit" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <circle id="SvgjsCircle1055" r="0.5" cx="0.5" cy="0.5" x="0" y="0" fill="black">
+      </circle>
+      <line id="SvgjsLine1056" x1="0.2" y1="0.2" x2="0.8" y2="0.8" x="0" y="0" stroke="white" stroke-width=".05">
+      </line>
+      <line id="SvgjsLine1057" x1="0.8" y1="0.2" x2="0.2" y2="0.8" x="0" y="0" stroke="white" stroke-width=".05">
+      </line>
+    </symbol>
+    <symbol id="frame" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1059" width="1" height="1" x="0" y="0" fill="none" stroke="black" stroke-width=".01" stroke-dasharray=".02">
+      </rect>
+    </symbol>
+    <symbol id="info_field" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1061" width="1" height="1" x="0" y="0" stroke="#000000" stroke-width=".02">
+      </rect>
+    </symbol>
+    <symbol id="radio" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <circle id="SvgjsCircle1063" r="0.5" cx="0.5" cy="0.5" x="0" y="0" stroke="#000000" stroke-width=".02">
+      </circle>
+    </symbol>
+    <symbol id="button" viewBox="0 0 1 1" preserveAspectRatio="none">
+      <rect id="SvgjsRect1066" width="1" height="1" x="0" y="0" stroke="#000000" stroke-width=".02">
+      </rect>
+    </symbol>
+    <symbol id="ball_valve" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1068" d="M0.2 0.3L0.3 0.3L0.5 0.45L0.3 0.6L0.2 0.6Z " stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1069" d="M0.3 0.3L0.3 0.6 " stroke="#000000" stroke-width=".005" fill="none">
+      </path>
+      <path id="SvgjsPath1070" d="M0.8 0.3L0.7 0.3L0.5 0.45L0.7 0.6L0.8 0.6Z " stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1071" d="M0.7 0.3L0.7 0.6 " stroke="#000000" stroke-width=".005" fill="none">
+      </path>
+    </symbol>
+    <symbol id="elliptic_curve" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1073" d="M0 0.2A0.1 0.2 0 0 1 0 0.8 " stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1074" d="M0 0.225A0.1 0.215 0 0 1 0 0.775 " fill="#1d7670" stroke="black" stroke-width=".005">
+      </path>
+    </symbol>
+    <symbol id="pointer" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1076" d="M0.1 0.1L0.9 0.5L0.1 0.9Z " stroke="#700170" stroke-width=".02">
+      </path>
+    </symbol>
+    <symbol id="filter" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1078" d="M0.33 0.075L0.36 0.075L0.36 0.1L0.33 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1079" d="M0.39 0.075L0.42 0.075L0.42 0.1L0.39 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1080" d="M0.45 0.075L0.48 0.075L0.48 0.1L0.45 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1081" d="M0.52 0.075L0.55 0.075L0.55 0.1L0.52 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1082" d="M0.58 0.075L0.61 0.075L0.61 0.1L0.58 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1083" d="M0.64 0.075L0.67 0.075L0.67 0.1L0.64 0.1Z " fill="black">
+      </path>
+      <path id="SvgjsPath1084" d="M0.3 0.1L0.7 0.1L0.7 0.15L0.3 0.15Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1085" d="M0.4 0.15L0.6 0.15L0.6 0.2L0.4 0.2Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1086" d="M0.3 0.2L0.7 0.2L0.7 0.7L0.3 0.7Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1087" d="M0.3 0.7A0.5 0.5 0 0 0 0.7 0.7 " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1088" d="M0.25 0.25L0.3 0.25L0.3 0.35L0.25 0.35Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1089" d="M0.7 0.25L0.75 0.25L0.75 0.35L0.7 0.35Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1090" d="M0.2 0.175L0.25 0.175L0.25 0.425L0.2 0.425Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1091" d="M0.75 0.175L0.8 0.175L0.8 0.425L0.75 0.425Z " stroke="black" stroke-width=".009">
+      </path>
+    </symbol>
+    <symbol id="valve_ch" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1093" d="M0.35 0.1L0.45 0.1L0.45 0.425L0.35 0.425Z " stroke="black" stroke-width=".009">
+      </path>
+      <ellipse id="SvgjsEllipse1094" rx="0.15" ry=".02" cx=".4" cy=".2" stroke="black" stroke-width=".009">
+      </ellipse>
+      <path id="SvgjsPath1095" d="M0.35 0.18A0.3 0.5 0 0 0 0.45 0.18 " fill="black" stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1096" d="M0.225 0.35L0.575 0.35L0.575 0.425L0.225 0.425Z " fill="#a30000" stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1097" d="M0.3 0.425L0.5 0.425L0.5 0.7L0.3 0.7Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1098" d="M0.3 0.7A0.3 0.5 0 0 0 0.5 0.7 " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1099" d="M0.2 0.55L0.3 0.55L0.3 0.7L0.2 0.7Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1100" d="M0.5 0.55L0.6 0.55L0.6 0.7L0.5 0.7Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1101" d="M0.125 0.45L0.2 0.45L0.2 0.8L0.125 0.8Z " fill="#a30000" stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1102" d="M0.6 0.45L0.675 0.45L0.675 0.8L0.6 0.8Z " fill="#a30000" stroke="black" stroke-width=".009">
+      </path>
+    </symbol>
+    <symbol id="valve_big_ch" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1104" d="M0.3 0.115L0.38 0.115L0.38 0.26L0.3 0.26Z " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <circle id="SvgjsCircle1105" r="0.025" cx=".34" cy=".18" fill="none" stroke="black" stroke-width=".002">
+      </circle>
+      <path id="SvgjsPath1106" d="M0.38 0.15L0.62 0.15L0.62 0.25L0.38 0.25Z " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <circle id="SvgjsCircle1107" r="0.0625" cx=".525" cy=".115" fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </circle>
+      <circle id="SvgjsCircle1108" r="0.03" cx=".525" cy=".115" fill="none" stroke="black" stroke-width=".002">
+      </circle>
+      <path id="SvgjsPath1109" d="M0.4 0.25L0.6 0.25L0.6 0.3L0.4 0.3Z " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1110" d="M0.475 0.3L0.525 0.3L0.525 0.6L0.51 0.7L0.49 0.7L0.475 0.6Z " stroke="black" stroke-width=".002" fill="#c5c5c5">
+      </path>
+      <circle id="SvgjsCircle1111" r="0.11" cx=".58" cy=".225" fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </circle>
+      <circle id="SvgjsCircle1112" r="0.09" cx=".58" cy=".225" fill="none" stroke="black" stroke-width=".002">
+      </circle>
+      <circle id="SvgjsCircle1113" r="0.02" cx=".58" cy=".225" fill="none" stroke="black" stroke-width=".002">
+      </circle>
+      <path id="SvgjsPath1114" d="M0.576 0.135L0.576 0.205 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1115" d="M0.584 0.135L0.584 0.205 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1116" d="M0.6 0.23L0.665 0.26 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1117" d="M0.595 0.238L0.66 0.27 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1118" d="M0.562 0.23L0.5 0.26 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1119" d="M0.565 0.24L0.504 0.274 " fill="#ddcfb2" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1120" d="M0.425 0.7A0.3 0.65 0 0 1 0.575 0.7 " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1121" d="M0.35 0.75L0.4 0.75L0.4 0.95L0.35 0.95Z " fill="#d34646" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1122" d="M0.4 0.8L0.425 0.8L0.425 0.9L0.4 0.9Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1123" d="M0.4 0.7L0.6 0.7L0.6 0.74L0.4 0.74Z " fill="#d34646" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1124" d="M0.425 0.74L0.575 0.74L0.575 0.9L0.425 0.9Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1125" d="M0.575 0.8L0.6 0.8L0.6 0.9L0.575 0.9Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1126" d="M0.6 0.75L0.65 0.75L0.65 0.95L0.6 0.95Z " fill="#d34646" stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1127" d="M0.425 0.9A0.3 0.65 0 0 0 0.575 0.9 " stroke="black" stroke-width=".002">
+      </path>
+    </symbol>
+    <symbol id="round_button" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <circle id="SvgjsCircle1129" r="0.5" cx="0.5" cy="0.5" stroke="black" stroke-width=".002">
+      </circle>
+      <line id="SvgjsLine1130" x1="0.2" y1="0.2" x2="0.8" y2="0.8" x="0" y="0" stroke="yellow" stroke-width=".09">
+      </line>
+      <line id="SvgjsLine1131" x1="0.8" y1="0.2" x2="0.2" y2="0.8" x="0" y="0" stroke="yellow" stroke-width=".09">
+      </line>
+    </symbol>
+    <symbol id="electric_motor" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1133" d="M0.2 0.25L0.25 0.25L0.25 0.225L0.725 0.225L0.725 0.65L0.25 0.65L0.25 0.625L0.2 0.625Z " stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1134" d="M0.725 0.25L0.775 0.3L0.775 0.575L0.725 0.625Z " stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1135" d="M0.775 0.35L0.825 0.35L0.825 0.525L0.775 0.525Z " fill="black" stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1136" d="M0.325 0.65L0.7 0.65L0.7 0.7L0.325 0.7LNaN NaN " fill="black" stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1137" d="M0.375 0.475L0.525 0.475L0.525 0.675L0.375 0.675Z " fill="#bfbfbf" stroke="black" stroke-width=".005">
+      </path>
+      <path id="SvgjsPath1138" d="M0.4 0.55L0.5 0.55L0.5 0.64L0.4 0.64Z " fill="#bfbfbf" stroke="#686868" stroke-width=".005">
+      </path>
+    </symbol>
+    <symbol id="door" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1140" d="M0.29 0.09L0.76 0.09L0.76 0.71L0.29 0.71Z " fill="#b4b4b4" stroke="#fcfcfb" stroke-width=".01">
+      </path>
+      <path id="SvgjsPath1141" d="M0.3 0.1L0.75 0.1L0.75 0.7L0.3 0.7Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1142" d="M0.28 0.175L0.32 0.175L0.32 0.275L0.28 0.275Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1143" d="M0.31 0.225L0.33 0.225L0.33 0.24L0.31 0.24Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1144" d="M0.28 0.51L0.32 0.51L0.32 0.62L0.28 0.62Z " stroke="black" stroke-width=".009">
+      </path>
+      <path id="SvgjsPath1145" d="M0.31 0.56L0.33 0.56L0.33 0.575L0.31 0.575Z " stroke="black" stroke-width=".009">
+      </path>
+      <line id="SvgjsLine1146" x1="0.625" y1="0.425" x2="0.7" y2="0.425" stroke="black" stroke-width=".01">
+      </line>
+      <line id="SvgjsLine1147" x1="0.64" y1="0.39" x2="0.64" y2="0.45" stroke="black" stroke-width=".01">
+      </line>
+    </symbol>
+    <symbol id="platform" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1149" d="M0.4 0.075A0.3 0.5 0 0 1 0.6 0.075 " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1150" d="M0.375 0.075L0.625 0.075L0.625 0.1L0.375 0.1Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1151" d="M0.4 0.1L0.6 0.1L0.6 0.8L0.4 0.8Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1152" d="M0.6 0.8L0.55 0.95L0.45 0.95L0.4 0.8Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1153" d="M0.375 0.2L0.4 0.2L0.4 0.25L0.375 0.25Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1154" d="M0.6 0.2L0.625 0.2L0.625 0.25L0.6 0.25Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1155" d="M0.4 0.65L0.4 0.7L0.375 0.7L0.375 0.65Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1156" d="M0.6 0.65L0.625 0.65L0.625 0.7L0.6 0.7Z " stroke="black" stroke-width=".002">
+      </path>
+    </symbol>
+    <symbol id="booth" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1158" d="M0.5 0.4L0.9 0.4L0.9 0.9L0.5 0.9Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1159" d="M0.35 0.25L0.5 0.4L0.5 0.9L0.35 0.75Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1160" d="M0.35 0.25L0.75 0.25L0.9 0.4L0.5 0.4Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1161" d="M0.6 0.45L0.8 0.45L0.8 0.85L0.6 0.85Z " fill="white" stroke="black" stroke-width=".004">
+      </path>
+    </symbol>
+    <symbol id="big_booth" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1163" d="M0.35 0.4L0.5 0.55L0.5 0.9L0.35 0.75Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1164" d="M0.35 0.4L0.8 0.4L0.95 0.55L0.5 0.55Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1165" d="M0.5 0.55L0.95 0.55L0.95 0.9L0.5 0.9Z " stroke="black" stroke-width=".004">
+      </path>
+      <path id="SvgjsPath1166" d="M0.65 0.575L0.8 0.575L0.8 0.875L0.65 0.875Z " fill="white" stroke="black" stroke-width=".004">
+      </path>
+      <line id="SvgjsLine1167" x1="0.45" y1="0.45" x2="0.45" y2="0.2" stroke="black" stroke-width=".004">
+      </line>
+      <line id="SvgjsLine1168" x1="0.45" y1="0.2" x2="0.6" y2="0.2" stroke="black" stroke-width=".004">
+      </line>
+      <line id="SvgjsLine1169" x1="0.5" y1="0.2" x2="0.575" y2="0.125" stroke="black" stroke-width=".004">
+      </line>
+      <line id="SvgjsLine1170" x1="0.5" y1="0.2" x2="0.575" y2="0.275" stroke="black" stroke-width=".004">
+      </line>
+      <line id="SvgjsLine1171" x1="0.55" y1="0.2" x2="0.6" y2="0.15" stroke="black" stroke-width=".004">
+      </line>
+      <line id="SvgjsLine1172" x1="0.55" y1="0.2" x2="0.6" y2="0.25" stroke="black" stroke-width=".004">
+      </line>
+      <path id="SvgjsPath1173" d="M0.65 0.6L0.725 0.6L0.725 0.8L0.7 0.825L0.7 0.88L0.68 0.88L0.68 0.825L0.65 0.8Z " stroke="black" stroke-width=".004">
+      </path>
+      <line id="SvgjsLine1174" x1="0.65" y1="0.63" x2="0.69" y2="0.63" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1175" x1="0.65" y1="0.66" x2="0.69" y2="0.66" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1176" x1="0.65" y1="0.69" x2="0.69" y2="0.69" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1177" x1="0.65" y1="0.72" x2="0.69" y2="0.72" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1178" x1="0.65" y1="0.75" x2="0.69" y2="0.75" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1179" x1="0.65" y1="0.78" x2="0.69" y2="0.78" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1180" x1="0.69" y1="0.61" x2="0.69" y2="0.875" stroke="red" stroke-width=".01">
+      </line>
+    </symbol>
+    <symbol id="direct" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1182" d="M0.25 0.25L0.75 0.25L0.75 0.3L0.25 0.3Z " stroke="black" stroke-width=".002">
+      </path>
+      <path id="SvgjsPath1183" d="M0.25 0.75L0.5 0.3L0.75 0.75Z " stroke="black" stroke-width=".002">
+      </path>
+    </symbol>
+    <symbol id="pressure_sensor" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <circle id="SvgjsCircle1176" r=".3" cx=".5" cy=".4" stroke="black" stroke-width=".02">
+      </circle>
+      <path id="SvgjsPath1177" d="M0.35 0.55L0.65 0.25Z " stroke="black" stroke-width=".02">
+      </path>
+      <path id="SvgjsPath1178" d="M0.55 0.3L0.65 0.25Z " stroke="black" stroke-width=".02">
+      </path>
+      <path id="SvgjsPath1179" d="M0.6 0.35L0.65 0.25Z " stroke="black" stroke-width=".02">
+      </path>
+      <path id="SvgjsPath1180" d="M0.475 0.7L0.525 0.7L0.525 0.875L0.475 0.875Z " fill="black">
+      </path>
+      <path id="SvgjsPath1181" d="M0.2 0.875L0.8 0.875L0.8 0.925L0.2 0.925Z " fill="black">
+      </path>
+    </symbol>
+    <symbol id="flame" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1183" d="M0.55 0.075C0.6 0.35 0.9 0.65 0.55 0.925C0.55 0.65 0.275 0.425 0.55 0.075 " stroke="black" stroke-width=".01">
+      </path>
+      <path id="SvgjsPath1184" d="M0.3 0.425C0.5 0.6 0.525 0.8 0.5 0.95C0.35 0.9 0.2 0.7 0.3 0.425 " stroke="black" stroke-width=".01">
+      </path>
+      <path id="SvgjsPath1185" d="M0.7 0.15C0.85 0.3 0.95 0.65 0.65 0.9C0.85 0.65 0.65 0.35 0.7 0.15 " stroke="black" stroke-width=".01">
+      </path>
+    </symbol>
+    <symbol id="thermometer" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1187" d="M0.65 0.6L0.725 0.6L0.725 0.8L0.7 0.825L0.7 0.88L0.68 0.88L0.68 0.825L0.65 0.8Z " stroke="black" stroke-width=".004">
+      </path>
+      <line id="SvgjsLine1188" x1="0.65" y1="0.63" x2="0.69" y2="0.63" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1189" x1="0.65" y1="0.66" x2="0.69" y2="0.66" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1190" x1="0.65" y1="0.69" x2="0.69" y2="0.69" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1191" x1="0.65" y1="0.72" x2="0.69" y2="0.72" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1192" x1="0.65" y1="0.75" x2="0.69" y2="0.75" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1193" x1="0.65" y1="0.78" x2="0.69" y2="0.78" stroke="black" stroke-width=".008">
+      </line>
+      <line id="SvgjsLine1194" x1="0.69" y1="0.61" x2="0.69" y2="0.875" stroke="red" stroke-width=".01">
+      </line>
+    </symbol>
+    <symbol id="door_opened" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1196" d="M0.2 0.05L0.8 0.05L0.8 0.8L0.2 0.8Z " stroke="black" stroke-width=".02">
+      </path>
+      <path id="SvgjsPath1197" d="M0.2 0.05L0.65 0.2L0.65 0.95L0.2 0.8Z " stroke="black" stroke-width=".02">
+      </path>
+      <line id="SvgjsLine1198" x1="0.55" y1="0.57" x2="0.6" y2="0.585" stroke="black" stroke-width=".02">
+      </line>
+    </symbol>
+    <symbol id="door_closed" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <path id="SvgjsPath1200" d="M0.2 0.05L0.8 0.05L0.8 0.95L0.2 0.95Z " stroke="black" stroke-width=".02">
+      </path>
+      <line id="SvgjsLine1201" x1="0.6" y1="0.5" x2="0.7" y2="0.5" stroke="black" stroke-width=".02">
+      </line>
+    </symbol>
+    <symbol id="valve_l" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1203" width="0.5" height="0.5" x="0" y="0" fill="none">
+      </rect>
+      <path id="SvgjsPath1204" d="M0.1 0.1L0.1 0.9L0.5 0.5Z " fill="green" stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1205" d="M0.9 0.1L0.9 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+    </symbol>
+    <symbol id="valve_r" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet">
+      <rect id="SvgjsRect1207" width="0.5" height="0.5" x="0" y="0" fill="none">
+      </rect>
+      <path id="SvgjsPath1208" d="M0.1 0.1L0.1 0.9L0.5 0.5Z " stroke="black" stroke-width=".05">
+      </path>
+      <path id="SvgjsPath1209" d="M0.9 0.1L0.9 0.9L0.5 0.5Z " fill="green" stroke="black" stroke-width=".05">
+      </path>
+    </symbol>
+    <linearGradient id="SvgjsLinearGradient22355" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop22356" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop22357" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop22358" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient29064" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop29065" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop29066" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop29067" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient29081" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop29082" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop29083" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop29084" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient29098" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop29099" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop29100" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop29101" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient29115" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop29116" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop29117" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop29118" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient34544" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop34545" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop34546" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop34547" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient52029" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop52030" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop52031" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop52032" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient52981" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop52982" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop52983" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop52984" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient66385" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop66386" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop66387" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop66388" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient66391" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop66392" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop66393" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop66394" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient79234" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop79235" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop79236" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop79237" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient79251" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop79252" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop79253" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop79254" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient80203" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop80204" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop80205" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop80206" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient80220" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop80221" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop80222" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop80223" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient91622" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop91623" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop91624" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop91625" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <radialGradient id="SvgjsRadialGradient98778" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop98779" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop98780" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop98781" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient98795" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop98796" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop98797" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop98798" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient98812" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop98813" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop98814" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop98815" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient98829" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop98830" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop98831" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop98832" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <linearGradient id="SvgjsLinearGradient103076" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop103077" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop103078" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop103079" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient103104" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop103105" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop103106" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop103107" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient103121" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop103122" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop103123" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop103124" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient103138" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop103139" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop103140" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop103141" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient103155" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop103156" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop103157" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop103158" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient110179" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop110180" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop110181" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop110182" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient112550" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop112551" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop112552" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop112553" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient112578" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop112579" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop112580" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop112581" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient112595" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop112596" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop112597" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop112598" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient112755" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop112756" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop112757" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop112758" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </linearGradient>
+    <radialGradient id="SvgjsRadialGradient138032" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop138033" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop138034" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop138035" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient138049" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop138050" stop-opacity="1" stop-color="#a5a022" offset="0">
+      </stop>
+      <stop id="SvgjsStop138051" stop-opacity="1" stop-color="#e5e129" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop138052" stop-opacity="1" stop-color="#a5a022" offset="1">
+      </stop>
+    </radialGradient>
+    <linearGradient id="SvgjsLinearGradient1219" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop1251" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop1252" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop1253" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2488" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2489" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2490" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2491" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2758" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2759" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2760" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2761" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient3028" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop3029" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop3030" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop3031" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient3221" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop3222" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop3223" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop3224" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient3810" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop3811" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop3812" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop3813" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient3827" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop3828" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop3829" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop3830" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2513" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2552" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2553" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2554" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2579" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2580" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2581" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2582" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2596" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2597" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2598" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2599" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2613" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2614" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2615" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2616" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2630" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2631" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop2632" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2633" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient5561" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop5562" stop-opacity="1" stop-color="#00a7a7" offset="0">
+      </stop>
+      <stop id="SvgjsStop5563" stop-opacity="1" stop-color="#00eaea" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop5564" stop-opacity="1" stop-color="#006b6b" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient5598" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop5599" stop-opacity="1" stop-color="#00a7a7" offset="0">
+      </stop>
+      <stop id="SvgjsStop5600" stop-opacity="1" stop-color="#00eaea" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop5601" stop-opacity="1" stop-color="#006b6b" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient5602" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop5603" stop-opacity="1" stop-color="#00a7a7" offset="0">
+      </stop>
+      <stop id="SvgjsStop5604" stop-opacity="1" stop-color="#00eaea" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop5605" stop-opacity="1" stop-color="#006b6b" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient6872" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop6873" stop-opacity="1" stop-color="#767676" offset="0">
+      </stop>
+      <stop id="SvgjsStop6874" stop-opacity="1" stop-color="#b9b9b9" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop6875" stop-opacity="1" stop-color="#6d6d6d" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2614" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2662" stop-opacity="1" stop-color="#522f2a" offset="0">
+      </stop>
+      <stop id="SvgjsStop2663" stop-opacity="1" stop-color="#94544d" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2664" stop-opacity="1" stop-color="#462724" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2711" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2712" stop-opacity="1" stop-color="#522f2a" offset="0">
+      </stop>
+      <stop id="SvgjsStop2713" stop-opacity="1" stop-color="#94544d" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2714" stop-opacity="1" stop-color="#462724" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient2717" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop2718" stop-opacity="1" stop-color="#522f2a" offset="0">
+      </stop>
+      <stop id="SvgjsStop2719" stop-opacity="1" stop-color="#94544d" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop2720" stop-opacity="1" stop-color="#462724" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient33932" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop33933" stop-opacity="1" stop-color="#767676" offset="0">
+      </stop>
+      <stop id="SvgjsStop33934" stop-opacity="1" stop-color="#b9b9b9" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop33935" stop-opacity="1" stop-color="#6d6d6d" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient34180" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop34181" stop-opacity="1" stop-color="#767676" offset="0">
+      </stop>
+      <stop id="SvgjsStop34182" stop-opacity="1" stop-color="#b9b9b9" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop34183" stop-opacity="1" stop-color="#6d6d6d" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient34197" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop34198" stop-opacity="1" stop-color="#767676" offset="0">
+      </stop>
+      <stop id="SvgjsStop34199" stop-opacity="1" stop-color="#b9b9b9" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop34200" stop-opacity="1" stop-color="#6d6d6d" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient36149" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop36150" stop-opacity="1" stop-color="#744141" offset="0">
+      </stop>
+      <stop id="SvgjsStop36151" stop-opacity="1" stop-color="#916968" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop36152" stop-opacity="1" stop-color="#6b3533" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient36153" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop36154" stop-opacity="1" stop-color="#744141" offset="0">
+      </stop>
+      <stop id="SvgjsStop36155" stop-opacity="1" stop-color="#916968" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop36156" stop-opacity="1" stop-color="#6b3533" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient36157" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop36158" stop-opacity="1" stop-color="#744141" offset="0">
+      </stop>
+      <stop id="SvgjsStop36159" stop-opacity="1" stop-color="#916968" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop36160" stop-opacity="1" stop-color="#6b3533" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient156837" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop156838" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop156839" stop-opacity="1" stop-color="#a78382" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop156840" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient156841" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop156842" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop156843" stop-opacity="1" stop-color="#bdbdbd" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop156844" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient156845" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop156846" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop156847" stop-opacity="1" stop-color="#a78382" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop156848" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient158686" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop158687" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop158688" stop-opacity="1" stop-color="#a78382" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop158689" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient160538" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop160539" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop160540" stop-opacity="1" stop-color="#a78382" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop160541" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient162379" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop162380" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop162381" stop-opacity="1" stop-color="#a78382" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop162382" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient162383" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop162384" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop162385" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop162386" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166303" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166304" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166305" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166306" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166307" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166308" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166309" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166310" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166311" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166312" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166313" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166314" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166315" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166316" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166317" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166318" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166319" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166320" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166321" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166322" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166323" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166324" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166325" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166326" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166327" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166328" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166329" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166330" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient166331" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop166332" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop166333" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop166334" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient168381" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop168382" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop168383" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop168384" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient168385" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop168386" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop168387" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop168388" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient168389" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop168390" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop168391" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop168392" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient168393" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop168394" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop168395" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop168396" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient168397" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop168398" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop168399" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop168400" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </linearGradient>
+    <radialGradient id="SvgjsRadialGradient172196" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop172197" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop172198" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop172199" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient173971" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop173972" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop173973" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop173974" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient175746" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop175747" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop175748" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop175749" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient177521" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop177522" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop177523" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop177524" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient179318" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop179319" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop179320" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop179321" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient179322" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop179323" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop179324" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop179325" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient181130" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop181131" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop181132" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop181133" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient181134" gradientTransform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop181135" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop181136" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop181137" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient182964" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop182965" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop182966" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop182967" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient182968" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop182969" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop182970" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop182971" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient184842" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop184843" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop184844" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop184845" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient184846" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop184847" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop184848" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop184849" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient184850" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop184851" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop184852" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop184853" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <radialGradient id="SvgjsRadialGradient184854" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="1">
+      <stop id="SvgjsStop184855" stop-opacity="1" stop-color="#88443b" offset="0">
+      </stop>
+      <stop id="SvgjsStop184856" stop-opacity="1" stop-color="#a5807e" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop184857" stop-opacity="1" stop-color="#915d57" offset="1">
+      </stop>
+    </radialGradient>
+    <linearGradient id="SvgjsLinearGradient15607" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop15698" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop15699" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop15700" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient33109" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop33110" stop-opacity="1" stop-color="#8c8c8c" offset="0">
+      </stop>
+      <stop id="SvgjsStop33111" stop-opacity="1" stop-color="#e5e5e5" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop33112" stop-opacity="1" stop-color="#727272" offset="1">
+      </stop>
+    </linearGradient>
+    <linearGradient id="SvgjsLinearGradient77641" gradientTransform="matrix(1,0,0,1,0,0)" cx="0" cy="0" r="0">
+      <stop id="SvgjsStop77734" stop-opacity="1" stop-color="#ffcf87" offset="0">
+      </stop>
+      <stop id="SvgjsStop77735" stop-opacity="1" stop-color="#e52600" offset="0.5">
+      </stop>
+      <stop id="SvgjsStop77736" stop-opacity="1" stop-color="#fa8500" offset="1">
+      </stop>
+    </linearGradient>
+  </defs>
+  <text id="SvgjsText1064" font-family="Arial" x="144.2917183637619" y="108.50389099121094" width="100" height="25" cursor="move" class="ctrl" font-size="18" text-anchor="middle" font-weight="bold" fill="#8A0886">Площадка устройства</text>
+  <text id="SvgjsText1076" font-family="Arial" x="103.77352142333984" y="126.60456466674805" width="100" height="25" cursor="move" class="ctrl" font-size="18" text-anchor="middle" font-weight="bold" fill="#8A0886">запуска СОД</text>
+  <text id="SvgjsText1100" font-family="Arial" x="142.76106071472168" y="75.5370135307312" width="100" height="25" cursor="move" class="ctrl" font-size="22" text-anchor="middle" font-weight="bold" fill="navy">НСП "Чегодаево"</text>
+  <text id="SvgjsText1112" font-family="Arial" x="542.3596801757812" y="57.44401931762695" width="100" height="25" cursor="move" class="ctrl" font-size="25" text-anchor="middle" font-weight="bold" fill="#A52a2a">Нефтепровод</text>
+  <text id="SvgjsText1124" font-family="Arial" x="551.1224670410156" y="86.1920166015625" width="100" height="25" cursor="move" class="ctrl" font-size="25" text-anchor="middle" font-weight="bold" fill="#A52a2a">НСП "Чегодаево" - ПОН "Шкапово"</text>
+  <g id="SvgjsG3858">
+    <rect id="SvgjsRect3857" width="217" height="54" fill="none" stroke="gray" stroke-width="2" cursor="move" class="ctrl" x="14" y="662">
+    </rect>
+  </g>
+  <text id="SvgjsText4140" font-family="Arial" x="123.24185562133789" y="683.9818916320801" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" fill="black">Подсказка по отображению</text>
+  <text id="SvgjsText4152" font-family="Arial" x="127.28092956542969" y="705.256290435791" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" fill="black">сигналов задвижек</text>
+  <text id="SvgjsText4246" font-family="Arial" x="881.4907836914062" y="642.4952011108398" width="100" height="25" cursor="move" class="ctrl" font-size="22" text-anchor="middle" font-weight="bold" fill="navy">ТСП нефти ПОН</text>
+  <text id="SvgjsText4282" font-family="Arial" x="891.3637084960938" y="669.0914115905762" width="100" height="25" cursor="move" class="ctrl" font-size="18" text-anchor="middle" font-weight="bold" fill="#8A0886">Площадка устройства</text>
+  <text id="SvgjsText4294" font-family="Arial" x="850.2499389648438" y="690.352954864502" width="100" height="25" cursor="move" class="ctrl" font-size="18" text-anchor="middle" font-weight="bold" fill="#8A0886">приема СОД</text>
+  <g id="SvgjsG7413">
+  </g>
+  <g id="SvgjsG7426">
+    <rect id="SvgjsRect7425" width="121.26315789473685" height="25.52908587257618" fill="#31B404" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="108.49589538574219" y="306.34906005859375">
+    </rect>
+  </g>
+  <g id="SvgjsG7439">
+    <rect id="SvgjsRect7438" width="125.51800554016621" height="24.465373961218837" fill="#31B404" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="451.0138244628906" y="310.6038818359375">
+    </rect>
+  </g>
+  <g id="SvgjsG7452">
+    <rect id="SvgjsRect7451" width="119.13573407202216" height="23.401662049861496" fill="#31B404" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="781.8283081054688" y="312.73126220703125">
+    </rect>
+  </g>
+  <g id="SvgjsG7896">
+    <rect id="SvgjsRect7895" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="199.97784423828125" y="463.7784423828125">
+    </rect>
+  </g>
+  <g id="SvgjsG7909">
+    <rect id="SvgjsRect7908" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="535.0470581054688" y="464.84210205078125">
+    </rect>
+  </g>
+  <g id="SvgjsG7922">
+    <rect id="SvgjsRect7921" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="871.179931640625" y="464.84210205078125">
+    </rect>
+  </g>
+  <g id="SvgjsG8870">
+    <rect id="SvgjsRect8869" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="398.89764404296875" y="365.9169616699219">
+    </rect>
+  </g>
+  <g id="SvgjsG8883">
+    <rect id="SvgjsRect8882" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="58.495819091796875" y="369.1080017089844">
+    </rect>
+  </g>
+  <g id="SvgjsG8896">
+    <rect id="SvgjsRect8895" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="205.2934112548828" y="370.1715087890625">
+    </rect>
+  </g>
+  <g id="SvgjsG8909">
+    <rect id="SvgjsRect8908" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="547.8115844726562" y="365.9168395996094">
+    </rect>
+  </g>
+  <g id="SvgjsG8935">
+    <rect id="SvgjsRect8934" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="744.6067504882812" y="552.0662231445312">
+    </rect>
+  </g>
+  <g id="SvgjsG8948">
+    <rect id="SvgjsRect8947" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="65.94630813598633" y="548.8750610351562">
+    </rect>
+  </g>
+  <g id="SvgjsG8961">
+    <rect id="SvgjsRect8960" width="52" height="29" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="409.5289306640625" y="548.8751220703125">
+    </rect>
+  </g>
+  <text id="SvgjsText10096" font-family="Arial" x="169.73114013671875" y="325.5079765319824" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Задвижка №1</text>
+  <text id="SvgjsText10108" font-family="Arial" x="514.6761474609375" y="327.61572647094727" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Задвижка №2</text>
+  <text id="SvgjsText10120" font-family="Arial" x="838.5162353515625" y="329.79802322387695" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Задвижка №3</text>
+  <text id="SvgjsText10782" font-family="Arial" x="436.2869873046875" y="359.55013275146484" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText10794" font-family="Arial" x="94.7413101196289" y="363.7909355163574" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText10806" font-family="Arial" x="239.87466430664062" y="364.88536071777344" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText10818" font-family="Arial" x="582.4659423828125" y="358.5093994140625" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText10830" font-family="Arial" x="268.30126953125" y="485.0546760559082" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">В</text>
+  <text id="SvgjsText10842" font-family="Arial" x="601.5885009765625" y="484.0018196105957" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">В</text>
+  <text id="SvgjsText10854" font-family="Arial" x="937.26025390625" y="481.87745666503906" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">В</text>
+  <text id="SvgjsText14057" font-family="Arial" x="768.3809204101562" y="549.936092376709" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Т, °C</text>
+  <text id="SvgjsText14069" font-family="Arial" x="91.37361907958984" y="542.509407043457" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Т, °C</text>
+  <text id="SvgjsText14081" font-family="Arial" x="434.89166259765625" y="544.6004943847656" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Т, °C</text>
+  <text id="SvgjsText14093" font-family="Arial" x="582.3131713867188" y="386.1434631347656" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16196" font-family="Arial" x="770.440673828125" y="572.2800788879395" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16208" tempState_text="true" font-family="Arial" x="91.0416488647461" y="570.1678199768066" width="100" height="25" cursor="move" class="ctrl Mitsubishi.BIK.Deb" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="Mitsubishi.BIK.HeatTemp" textbox="true" font-family="Arial" x="94.45746612548828" y="388.2408142089844" width="100" height="25" cursor="move" class=" Mitsubishi.BIK.HeatTemp show_press" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16232" font-family="Arial" x="437.3721008300781" y="571.2563285827637" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16277" font-family="Arial" x="227.98992919921875" y="485.06153869628906" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16289" font-family="Arial" x="560.81640625" y="483.9899711608887" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText16301" font-family="Arial" x="897.190673828125" y="482.9295845031738" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText19019" font-family="Arial" x="434.8565673828125" y="386.1146011352539" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="Mitsubishi.BIK.Deb" textbox="true" font-family="Arial" x="238.89617919921875" y="388.27429962158203" width="100" height="25" cursor="move" class="show_press Mitsubishi.BIK.Deb" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <g id="SvgjsG22359">
+    <use id="SvgjsUse22354" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vtube" x="15" y="182" width="7.063711166381836" height="273" cursor="move" fill="url(#SvgjsLinearGradient168381)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG24869">
+    <rect id="SvgjsRect24868" width="12.299169540405273" height="3.199432373046875" fill="#ffb66c" stroke="#953100" stroke-width="1" cursor="move" class="ctrl" x="11.700830459594727" y="263.8005676269531">
+    </rect>
+  </g>
+  <g id="SvgjsG27379">
+    <rect id="SvgjsRect27378" width="12.3" height="3.2" fill="#ffb66c" stroke="#953100" stroke-width="1" cursor="move" class="ctrl" x="11.70083236694336" y="266.9916687011719">
+    </rect>
+  </g>
+  <g id="SvgjsG29068">
+    <use id="SvgjsUse29063" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vtube" x="-27.650970458984375" y="67" width="6.650970458984375" height="167.1269989013672" cursor="move" fill="url(#SvgjsLinearGradient160538)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG29102">
+    <use id="SvgjsUse29097" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#htube" x="21" y="455.2742614746094" width="988" height="6.789459228515625" cursor="move" fill="url(#SvgjsLinearGradient166303)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG52033">
+    <use id="SvgjsUse52028" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#htube" x="-57" y="232" width="72.00000190734863" height="7.063725471496582" cursor="move" fill="url(#SvgjsLinearGradient166311)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG66389">
+    <use id="SvgjsUse66384" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#htube" x="-22" y="60.63713073730469" width="32.191200256347656" height="7.4265899658203125" cursor="move" fill="url(#SvgjsLinearGradient166315)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG98782">
+    <use id="SvgjsUse98777" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ctube" x="-49.25055694580078" y="49.9810791015625" width="8.101322174072266" height="8.705341339111328" cursor="move" class="ctrl" fill="url(#SvgjsRadialGradient182964)" transform="matrix(-0.9997806834748451,-0.020942419883356607,0.020942419883356607,-0.9997806834748451,-70.36456054962323,117.34067753353807)">
+    </use>
+  </g>
+  <g id="SvgjsG98799">
+    <use id="SvgjsUse98794" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ctube" x="-17.480012893676758" y="456.9366455078125" width="8.452180862426758" height="7.480862140655518" cursor="move" class="ctrl" fill="url(#SvgjsRadialGradient182968)" transform="matrix(-0.026176948307872608,0.9996573249755574,-0.9996573249755574,-0.026176948307872608,478.6106111703736,483.6583311167307)">
+    </use>
+  </g>
+  <g id="SvgjsG103080">
+    <use id="SvgjsUse103075" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vtube" x="1008.404296875" y="461" width="6.595703125" height="104" cursor="move" fill="url(#SvgjsLinearGradient168393)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG112582">
+    <use id="SvgjsUse112577" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#htube" x="1024.360107421875" y="678" width="32.639892578125" height="7.462646484375" cursor="move" fill="url(#SvgjsLinearGradient166327)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG112599">
+    <use id="SvgjsUse112594" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#htube" x="1014" y="505" width="70.80879974365234" height="7" cursor="move" fill="url(#SvgjsLinearGradient166331)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG112759">
+    <use id="SvgjsUse112754" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vtube" x="1056" y="511" width="7.063724517822266" height="167" cursor="move" fill="url(#SvgjsLinearGradient168397)" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG133474">
+    <rect id="SvgjsRect133473" width="12.3" height="3.2" fill="#ffb66c" stroke="#953100" stroke-width="2" cursor="move" class="ctrl" x="1005.207763671875" y="477.6066589355469">
+    </rect>
+  </g>
+  <g id="SvgjsG133487">
+    <rect id="SvgjsRect133486" width="12.3" height="3.2" fill="#ffb66c" stroke="#953100" stroke-width="2" cursor="move" class="ctrl" x="1005.207763671875" y="473.35182189941406">
+    </rect>
+  </g>
+  <g id="SvgjsG138036">
+    <use id="SvgjsUse138031" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ctube" x="1027.9363098144531" y="429.5181884765625" width="8.377324104309082" height="7.4761962890625" cursor="move" class="ctrl" fill="url(#SvgjsRadialGradient184850)" transform="matrix(-0.005235963831419735,-0.9999862922474269,0.9999862922474269,-0.005235963831419735,584.081958799231,1492.6383808801613)">
+    </use>
+  </g>
+  <g id="SvgjsG138053">
+    <use id="SvgjsUse138048" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ctube" x="1055.4903564453125" y="677.3738403320312" width="7.3740234375" height="8.24383544921875" cursor="move" class="ctrl" fill="url(#SvgjsRadialGradient184854)">
+    </use>
+  </g>
+  <g id="SvgjsG2492">
+    <use id="SvgjsUse2487" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="-16.58582901954651" y="213.48548698425293" width="33" height="35" fill="url(#SvgjsLinearGradient2488)" cursor="move" class="ctrl" transform="matrix(1,0,0,1,0,0)">
+    </use>
+  </g>
+  <g id="SvgjsG2762">
+    <use id="SvgjsUse2757" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="-29.32969379425049" y="8.153106212615967" width="33" height="35" fill="url(#SvgjsLinearGradient2758)" cursor="move" class="ctrl" transform="matrix(-0.006981260297961374,-0.9999756307053947,0.9999756307053947,-0.006981260297961374,-54.71843450509405,135.6622449565221)">
+    </use>
+  </g>
+  <g id="SvgjsG3814">
+    <use id="SvgjsUse3809" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="1023.0263061523438" y="486.548583984375" width="33" height="35" fill="url(#SvgjsLinearGradient3810)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG3831">
+    <use id="SvgjsUse3826" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="419.5761203765869" y="430.2296848297119" width="33" height="35" fill="url(#SvgjsLinearGradient3827)" cursor="move" class="ctrl" transform="matrix(0.008726535498374136,0.9999619230641705,-0.9999619230641705,0.008726535498374136,1508.0828635565645,159.62062677081212)">
+    </use>
+  </g>
+  <g id="SvgjsG2583">
+    <use id="SvgjsUse2578" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_big_ch" x="122.32441711425781" y="404.2104187011719" width="90" height="65" fill="url(#SvgjsLinearGradient2596)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG2600">
+    <use id="SvgjsUse2595" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_big_ch" x="463.7783889770508" y="403.14686584472656" width="90" height="65" fill="url(#SvgjsLinearGradient2596)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG2617">
+    <use id="SvgjsUse2612" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_big_ch" x="794.5928192138672" y="403.14678955078125" width="90" height="65" fill="url(#SvgjsLinearGradient2613)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG2665">
+    <use id="SvgjsUse2613" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#platform" x="-55.03738784790039" y="30.327682495117188" width="148" height="170" fill="url(#SvgjsLinearGradient2614)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG2721">
+    <use id="SvgjsUse2716" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#platform" x="511.1981658935547" y="437.9072952270508" width="148" height="170" fill="url(#SvgjsLinearGradient2717)" cursor="move" class="ctrl" transform="matrix(-0.9999253696604522,0.012217000835246423,-0.012217000835246423,-0.9999253696604522,1604.7917834082432,1146.403165754963)">
+    </use>
+  </g>
+  <g id="SvgjsG7568">
+    <circle id="SvgjsCircle7567" r="9" cx="138.27992248535156" cy="439.3128967285156" fill="#00FF00" stroke="black" stroke-width="1" cursor="move" class="ctrl">
+    </circle>
+  </g>
+  <g id="SvgjsG7581">
+    <circle id="SvgjsCircle7580" r="9" cx="485.0526428222656" cy="437.1856384277344" fill="red" stroke="black" stroke-width="1" cursor="move" class="ctrl">
+    </circle>
+  </g>
+  <g id="SvgjsG7594">
+    <circle id="SvgjsCircle7593" r="9" cx="811.6121826171875" cy="439.3131103515625" fill="#00FF00" stroke="black" stroke-width="1" cursor="move" class="ctrl">
+    </circle>
+  </g>
+  <text id="SvgjsText13484" font-family="Arial" x="138.20023345947266" y="445.7005729675293" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="#">U</text>
+  <text id="SvgjsText13496" font-family="Arial" x="485.32745361328125" y="443.6013069152832" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">U</text>
+  <text id="SvgjsText13508" font-family="Arial" x="811.5341796875" y="445.7184410095215" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">U</text>
+  <g id="SvgjsG28591">
+    <use id="SvgjsUse28590" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#big_booth" x="729.7124328613281" y="493.5621337890625" width="200" height="100" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG28604">
+    <use id="SvgjsUse28603" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#big_booth" x="51.052345275878906" y="490.3706970214844" width="200" height="100" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG28617">
+    <use id="SvgjsUse28616" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#big_booth" x="394.6345977783203" y="490.37091064453125" width="200" height="100" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG34184">
+    <use id="SvgjsUse34179" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pointer" x="-63.82271194458008" y="221.252197265625" width="21" height="28" fill="url(#SvgjsLinearGradient36153)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG34201">
+    <use id="SvgjsUse34196" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pointer" x="1073.2852478027344" y="494.6260452270508" width="21" height="28" fill="url(#SvgjsLinearGradient36157)" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG41142">
+    <rect id="SvgjsRect41141" width="2" height="9.34906005859375" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="191.88917541503906" y="461.65087890625">
+    </rect>
+  </g>
+  <g id="SvgjsG41155">
+    <rect id="SvgjsRect41154" width="10" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="191.76177978515625" y="470.16070556640625">
+    </rect>
+  </g>
+  <g id="SvgjsG41168">
+    <rect id="SvgjsRect41167" width="13" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="189.7617645263672" y="479.73406982421875">
+    </rect>
+  </g>
+  <g id="SvgjsG41181">
+    <rect id="SvgjsRect41180" width="2" height="9.063720703125" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="189.8254852294922" y="481.936279296875">
+    </rect>
+  </g>
+  <g id="SvgjsG41194">
+    <rect id="SvgjsRect41193" width="16.8670654296875" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="182.95840454101562" y="491">
+    </rect>
+  </g>
+  <g id="SvgjsG41207">
+    <rect id="SvgjsRect41206" width="12.73956298828125" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="185.08590698242188" y="495.063720703125">
+    </rect>
+  </g>
+  <g id="SvgjsG41220">
+    <rect id="SvgjsRect41219" width="8.612152099609375" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="187.2133331298828" y="499.063720703125">
+    </rect>
+  </g>
+  <g id="SvgjsG72957">
+    <rect id="SvgjsRect72956" width="2" height="9.34906005859375" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="524.4099731445312" y="461.65093994140625">
+    </rect>
+  </g>
+  <g id="SvgjsG72959">
+    <rect id="SvgjsRect72958" width="2" height="8" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="524.409912109375" y="482">
+    </rect>
+  </g>
+  <g id="SvgjsG72961">
+    <rect id="SvgjsRect72960" width="10" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="526" y="469.096923828125">
+    </rect>
+  </g>
+  <g id="SvgjsG72963">
+    <rect id="SvgjsRect72962" width="11" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="525" y="480.79779052734375">
+    </rect>
+  </g>
+  <g id="SvgjsG72965">
+    <rect id="SvgjsRect72964" width="8.728561401367188" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="521" y="497.81707763671875">
+    </rect>
+  </g>
+  <g id="SvgjsG72967">
+    <rect id="SvgjsRect72966" width="14" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="518" y="493.5624084472656">
+    </rect>
+  </g>
+  <g id="SvgjsG72969">
+    <rect id="SvgjsRect72968" width="17.983352661132812" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="516" y="489.3074645996094">
+    </rect>
+  </g>
+  <g id="SvgjsG112351">
+    <rect id="SvgjsRect112350" width="13" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="857.1744384765625" y="468.03326416015625">
+    </rect>
+  </g>
+  <g id="SvgjsG112353">
+    <rect id="SvgjsRect112352" width="11" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="859.1744384765625" y="480.79779052734375">
+    </rect>
+  </g>
+  <g id="SvgjsG112355">
+    <rect id="SvgjsRect112354" width="18.814434051513672" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="851.302001953125" y="491.4349670410156">
+    </rect>
+  </g>
+  <g id="SvgjsG112357">
+    <rect id="SvgjsRect112356" width="13.687114715576172" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="854.302001953125" y="495.68975830078125">
+    </rect>
+  </g>
+  <g id="SvgjsG112359">
+    <rect id="SvgjsRect112358" width="9.432170867919922" height="2" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="856.4293212890625" y="499.9446716308594">
+    </rect>
+  </g>
+  <g id="SvgjsG112361">
+    <rect id="SvgjsRect112360" width="2" height="8.349029541015625" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="856.2881469726562" y="461.6509704589844">
+    </rect>
+  </g>
+  <g id="SvgjsG112363">
+    <rect id="SvgjsRect112362" width="2" height="9.20220947265625" fill="black" stroke="none" stroke-width="4" cursor="move" class="ctrl" x="859.4795532226562" y="482.92510986328125">
+    </rect>
+  </g>
+  <text id="SvgjsText49573" font-family="Arial" x="19.593311190605164" y="111.70083236694336" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">УЗ</text>
+  <text id="SvgjsText49597" font-family="Arial" x="1013.766845703125" y="641.4337158203125" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">УП</text>
+  <text id="SvgjsText80641" font-family="Arial" x="184.4215087890625" y="209.57836532592773" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <g id="SvgjsG120051">
+    <rect id="SvgjsRect120050" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="730.7700805664062" y="368.0442810058594">
+    </rect>
+  </g>
+  <g id="SvgjsG120064">
+    <rect id="SvgjsRect120063" width="70" height="30" fill="black" stroke="white" stroke-width="2" cursor="move" class="ctrl" x="880.7535400390625" y="366.98089599609375">
+    </rect>
+  </g>
+  <text id="SvgjsText123453" font-family="Arial" x="915.6342163085938" y="389.3184509277344" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText123465" font-family="Arial" x="764.5776977539062" y="389.3441390991211" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="white">####</text>
+  <text id="SvgjsText148106" font-family="Arial" x="764.8133544921875" y="364.84685134887695" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText148118" font-family="Arial" x="918.9156494140625" y="364.890079498291" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Р, МПа</text>
+  <text id="SvgjsText4789" font-family="Arial" x="252.94728088378906" y="520.181468963623" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Загазованность, %</text>
+  <g id="SvgjsG4868">
+    <rect id="SvgjsRect4867"  gasState_color="true" width="52" height="29" fill="#00FF00" stroke="black" stroke-width="1" cursor="move" class="ctrl Mitsubishi.BIK.Deb" x="203.16897583007812" y="551.0028076171875">
+    </rect>
+  </g>
+  <g id="SvgjsG10310">
+    <use id="SvgjsUse10309" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_no" x="148.07202911376953" y="370.38780975341797" fill="#007b00" width="40" height="30" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG13183">
+    <use id="SvgjsUse13182" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_no" x="490.5872611999512" y="368.26036071777344" fill="#007b00" width="40" height="30" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG13196">
+    <use id="SvgjsUse13195" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_no" x="821.4016456604004" y="369.32411193847656" fill="#007b00" width="40" height="30" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <text id="SvgjsText32986" font-family="Arial" x="589.0999145507812" y="524.4255638122559" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Загазованность, %</text>
+  <g id="SvgjsG32999">
+    <rect id="SvgjsRect32998" width="52" height="29" fill="#00FF00" stroke="black" stroke-width="1" cursor="move" class="ctrl" x="548.9661254882812" y="550.7632446289062" transform="matrix(0.9999984769132872,0.0017453283658981614,-0.0017453283658981614,0.9999984769132872,0.896684765167322,-0.7630723701777242)">
+    </rect>
+  </g>
+  <g id="SvgjsG33012">
+    <rect id="SvgjsRect33011" width="52" height="29" fill="#00FF00" stroke="black" stroke-width="1" cursor="move" class="ctrl" x="883.9447021484375" y="552.0664672851562">
+    </rect>
+  </g>
+  <text id="SvgjsText33189" font-family="Arial" x="921.8607177734375" y="522.2719268798828" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">Загазованность, %</text>
+  <text id="SvgjsText70832" font-family="Arial" x="599.3087768554688" y="322.328800201416" width="100" height="25" cursor="move" class="ctrl" font-size="35" text-anchor="middle" font-weight="bold" fill="red">(!)</text>
+  <g id="SvgjsG15701">
+    <use id="SvgjsUse15606" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="212.38621520996094" y="419.6250305175781" width="33" height="35" fill="url(#SvgjsLinearGradient15607)" cursor="move" class="ctrl" transform="matrix(-0.006981260297961145,0.9999756307053945,-0.9999756307053945,-0.006981260297961145,461.08722479693085,-14.715991428010085)">
+    </use>
+  </g>
+  <text id="SvgjsText21422" gasState_text="true" font-family="Arial" x="229.95889282226562" y="574.4156494140625" width="100" height="25" cursor="move" class="ctrl Mitsubishi.BIK.Deb" font-size="15.8125" text-anchor="middle" font-weight="bold" fill="black">&lt; 20</text>
+  <text id="SvgjsText24294" font-family="Arial" x="908.8536376953125" y="571.2278289794922" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">&lt; 20</text>&gt;<text id="SvgjsText24306" font-family="Arial" x="571.6012573242188" y="572.2872180938721" width="100" height="25" cursor="move" class="ctrl" font-size="16" text-anchor="middle" font-weight="bold" fill="black">&lt; 20</text>
+  <g id="SvgjsG33113">
+    <use id="SvgjsUse33108" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#valve_ch" x="215.79978466033936" y="585.8815441131592" width="33" height="35" fill="url(#SvgjsLinearGradient33109)" cursor="move" class="ctrl" transform="matrix(0.01570731731182083,-0.9998766324816606,0.9998766324816606,0.01570731731182083,400.6973910424367,754.4708701319898)">
+    </use>
+  </g>
+  <g id="SvgjsG1389">
+    <use id="SvgjsUse1388" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="70.8480453491211" y="425.3437194824219" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG2977">
+    <use id="SvgjsUse2976" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="217.6425323486328" y="424.7843933105469" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG3001">
+    <use id="SvgjsUse3000" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="418.6871032714844" y="425.34332275390625" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG3025">
+    <use id="SvgjsUse3024" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="553.7808837890625" y="425.08306884765625" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG4479">
+    <use id="SvgjsUse4478" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="745.251708984375" y="425.2105407714844" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG4503">
+    <use id="SvgjsUse4502" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pressure_sensor" x="889.9190673828125" y="425.15216064453125" width="40" height="33" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG69944">
+    <use id="SvgjsUse69943" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#door_opened" x="151.04950332641602" y="543.5653533935547" width="40" height="45" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG71497">
+    <text id="SvgjsText71496" font-family="Arial" x="251.47232055664062" y="322.31543350219727" width="100" height="25" cursor="move" class="ctrl" font-size="35" text-anchor="middle" font-weight="bold" fill="red">(!)</text>
+  </g>
+  <g id="SvgjsG73006">
+    <use id="SvgjsUse73005" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#door_closed" x="834.8162231445312" y="541.1239624023438" width="34" height="51" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG73019">
+    <use id="SvgjsUse73018" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#door_closed" x="499.74163818359375" y="538.9965515136719" width="34" height="51" fill="white" cursor="move" class="ctrl">
+    </use>
+  </g>
+  <g id="SvgjsG77737">
+    <use id="Flame"  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#flame" x="489.95721435546875" y="249.828369140625" width="55" height="55" fill="url(#SvgjsLinearGradient77641)" cursor="move"   image_discrete=" textbox image_discrete">
+ 
+  </use>
+  </g>
+</svg>

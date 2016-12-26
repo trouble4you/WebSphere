@@ -1,0 +1,68 @@
+﻿@model WebSphere.WebUI.Models.DeleteViewModel
+
+<div class="form_help">Удалить выбранные</div>
+
+@{
+    AjaxOptions ajaxoptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+}
+
+@using (Ajax.BeginForm("Delete", ajaxoptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="account-form">
+        <div class="account-wrapper">
+
+            <div class="update_target_id">
+
+                @Html.ValidationSummary(true)
+
+                <div class="objs_for_op">
+                    Пользователь(и):
+
+                    @{
+                        int userCount = 0;
+                        foreach (var i in Model.users)
+                        {
+                            // маленькая хитрость с Name и UserName, чтобы можно было использовать и для групп, связку Id - Name, вместо Id - UserName
+                            i.UserName = i.Name;
+                            i.Name = "";
+                            
+                            if (userCount + 1 != Model.users.Count)
+                            {
+                                 @i.UserName@:;
+                            }
+                            else
+                            {
+                                @i.UserName
+                            }
+                            userCount++;
+                        }
+                        
+                        // данные модели в hidden
+                        for (var i = 0; i < Model.users.Count(); i++)
+                        {
+                            @Html.HiddenFor(u => u.users[i].Id)
+                            @Html.HiddenFor(u => u.users[i].UserName)
+                        }
+                    }
+                    
+                </div>
+            </div>
+
+            <div class="form-group row edit_form_btn">
+                <div class="col-xs-10 col-xs-offset-0">
+                    <div class="cover"><div class="load"></div></div>
+                    <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                    <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

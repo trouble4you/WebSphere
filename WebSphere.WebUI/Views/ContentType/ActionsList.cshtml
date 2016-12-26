@@ -1,0 +1,18 @@
+﻿@model WebSphere.WebUI.Models.ActionsListViewModel
+
+<ul>
+    @for (var i = 0; i < Model.Actions.Count(); i++)
+    {
+        var permission = Model.Actions[i];
+        <li>
+            @Html.HiddenFor(c => c.Actions[i].Name)
+            @Html.CheckBoxFor(c => c.Actions[i].Selected)
+            @Html.LabelFor(c => c.Actions[i].Selected, permission.Name)
+            <span class="color_red">*</span>
+            @Html.TextBoxFor(c => c.Actions[i].Title)
+        </li>
+    }
+</ul>
+
+
+

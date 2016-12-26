@@ -1,0 +1,142 @@
+﻿@model WebSphere.WebUI.Models.AddNodeModel
+
+
+
+<div id="addNodeModal" class="modal fade" tabindex="-1" style="top:100px;">
+    <div class=" modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">x</button>
+                <h4 class="modal-title">Создание нового узла</h4>
+            </div>
+            <div class="modal-body">
+                <div id="nodeAddForm">
+                    @*@Html.Partial("AddNodePartial2", Model)*@
+                    @*@using (Html.BeginForm("AddNode1", "Configurator", FormMethod.Post, new { @id = "AddNodeModelForm", @class = "form-horizontal" }))*@
+                    @using (Ajax.BeginForm("AddNode1", null, new AjaxOptions { UpdateTargetId = "nodeAddForm", OnSuccess = "pageAddTemplate" }, new { @class = "form-horizontal" }))
+
+                      {
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m => m.idNodeToAdd)
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name, "Название узла", new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.nodeType, "Тип узла", new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+
+                                @{
+                        Dictionary<int, string> nodeNameDict = new Dictionary<int, string> {
+                                                                   {1, "OPC-сервер"},
+                                                                   {2, "КТПН дальний"},
+                                                                   {3, "АГЗУ"},
+                                                                   {5, "Радио канал"},
+                                                                   {6, "GPRS канал"},
+                                                                   {7, "Группа опроса"},
+                                                                   {8, "Тег"},
+                                                                   {9, "Папка"},
+                                                                   {10, "Пользовательский"}
+
+                                                               };
+                                }
+                                @Html.DropDownListFor(m => m.nodeType, new SelectList(nodeNameDict, "Key", "Value"), new { @class = "form-control", @id = "nodeType" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="containerForDefaultNode" style="display:none;">
+                            @Html.LabelFor(m => m.userNodeObjType, "Тип объекта", new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10 selectContainer">
+                                @Html.DropDownListFor(m => m.userNodeObjType, new SelectList(ViewBag.ForDefaultNode, "Key", "Value"), new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success" id="addNewNode">Добавить</button>
+                            </div>
+                        </div>
+
+                    }
+                    @*</form>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/configurator.js"></script>*@
+<script type="text/javascript">
+    $('#addNodeModal').modal();
+
+    function checkPaste(data) {
+        alert(data);
+        //alert(data.valid);
+        if (data.valid == true) {
+
+            $('#addNodeModal').modal("hide");
+            pageAddTemplate();
+        }
+        else
+        {
+            $('#nodeAddForm').html(data);
+        }
+
+    };
+
+    //хранит тип объекта при создании нетипизированного узла
+
+    $(document).ready(function () {
+        var defNodeObjType = 0;
+        //если выбран тип узла пользовательский, то показываем селект для типа объекта
+        $('#nodeType').change(function () {
+            if ($(this).val() == 10) {
+                $('#containerForDefaultNode').show();
+            }
+            else
+                $('#containerForDefaultNode').hide();
+            //alert("смена типа узла");
+        });
+        //забираем сам тип объекта для пользовательского узла
+        $('#defNodeObjType').change(function () {
+            defNodeObjType = $(this).val();
+        });
+
+
+        @*$('#addNewNode').click(function () {
+
+            //alert(nodeName);
+            //alert(nodeType);
+            //alert(currentClickId1);
+            //alert(defNodeObjType);
+            var jsModel = {
+                Name: '@Model.Name',
+                idNodeToAdd: '@Model.idNodeToAdd',
+                Name: '@Model.nodeType',
+                idNodeToAdd: '@Model.userNodeObjType'
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '/Configurator/AddNode1',
+                //data: { newNodeName: nodeName, newNodeType: nodeType, idNodeToAdd: currentClickId1, defNodeObjType: defNodeObjType },
+                //data: { idPasteParentElem: idPasteParentElem, idCopyParentElem: idCopyParentElemSaver, nameOPC: nameOPC },
+                data: $('#AddNodeModelForm').serialize(),
+                async: true,
+                //success: pageAddTemplate,
+                success: checkPaste,
+                error: function () {
+                    alert("Неудача при отправке аякс запроса при создании узла22");
+                }
+            });
+        });*@
+
+    });
+
+</script>

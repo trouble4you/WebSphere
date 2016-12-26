@@ -1,0 +1,208 @@
+﻿
+    .jstree-default .jstree-myicon {
+        background: url("/_Img/object2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-ktpnl {
+        background: url("/_Img/ktpnl.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-mass {
+        background: url("/_Img/mass.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-skj {
+        background: url("/_Img/skj2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-ktpnf {
+        background: url("/_Img/ktpnf.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default-small .jstree-myicon { background: url("/_Img/object2.png"); }
+    .jstree-default-large .jstree-myicon { background: url("/_Img/object2.png"); }
+    .jstree-default-responsive .jstree-myicon { background: url("/_Img/object2.png"); }
+
+    .jstree-default .jstree-tmpl {
+        background: url("/_Img/template_icon.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-agzu {
+        background: url("/_Img/agzu2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+        
+    }
+
+    .jstree-default .jstree-esp {
+        background: url("/_Img/ecn2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-cdng {
+        background: url("/_Img/cdng5.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-channel {
+        background: url("/_Img/channel.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-gsm-modem {
+        background: url("/_Img/sim.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 2px;
+        left: 2px;
+        position: relative;
+    }    
+    /*Proton*/
+
+     .jstree-proton .jstree-myicon {
+        background: url("/_Img/object2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+    .jstree-proton-small .jstree-myicon { background: url("/_Img/object2.png"); }
+    .jstree-proton-large .jstree-myicon { background: url("/_Img/object2.png"); }
+    .jstree-proton-responsive .jstree-myicon { background: url("/_Img/object2.png"); }
+
+    .jstree-proton .jstree-tmpl {
+        background: url("/_Img/template_icon.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 0px;
+        left: 0px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-ktpnl {
+        background: url("/_Img/ktpnl.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-mass {
+        background: url("/_Img/mass.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-skj {
+        background: url("/_Img/skj2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-ktpnf {
+        background: url("/_Img/ktpnf.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-agzu {
+        background: url("/_Img/agzu2.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 0px;
+        left: 0px;
+        position: relative;
+        
+    }
+
+    .jstree-proton .jstree-esp {
+        background: url("/_Img/ecn2.png");
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        top: 0px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-cdng {
+        background: url("/_Img/cdng5.png");
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        top: 0px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-proton .jstree-channel {
+        background: url("/_Img/channel.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+.jstree-anchor {
+    font-size: 13px;
+    font-weight: bold;
+}
+    
+.jstree-proton {
+  font-family: sans-serif, Arial, sans-serif;
+}

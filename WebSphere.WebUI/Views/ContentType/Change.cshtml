@@ -1,0 +1,155 @@
+﻿@model WebSphere.WebUI.Models.ChangeContentTypeViewModel
+
+@{
+    // экземпляр для списка контроллеров
+    List<SelectListItem> controllerListItems = new List<SelectListItem>();
+
+    // наполнение списка контроллеров
+    foreach (var i in ViewBag.caList)
+    {
+        // если есть совпадение в модели, то выделяем 'selected'
+        if (Model.Controller == i.Controller)
+        {
+            controllerListItems.Add(new SelectListItem
+            {
+                Text = i.Controller,
+                Value = i.Controller,
+                Selected = true
+            });
+        }
+        else
+        {
+            controllerListItems.Add(new SelectListItem
+            {
+                Text = i.Controller,
+                Value = i.Controller
+            });
+        }
+    }
+
+    // экземпляр списка групп типа контентов
+    List<SelectListItem> contentGroupListItems = new List<SelectListItem>();
+
+    foreach (var i in ViewBag.ContentGroupList)
+    {
+        // если есть совпадение в модели, то выделяем 'selected'
+        if (Model.contentGroup.Id == i.Id)
+        {
+            contentGroupListItems.Add(new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString(),
+                Selected = true
+            });
+        }
+        else
+        {
+            contentGroupListItems.Add(new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+        }
+    }
+}
+
+<div class="form_help">Изменение типа контента</div>
+
+@{
+    AjaxOptions ajaxoptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+}
+
+@using (Ajax.BeginForm("Change", ajaxoptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="account-form">
+        <div class="account-wrapper">
+
+            <div class="update_target_id">
+
+                @Html.ValidationSummary(true)
+
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(c => c.Name, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(c => c.Name, new { @class = "form-control", @placeholder = "Тип контента" })
+                        @Html.HiddenFor(c => c.Id, new { @id = "contentTypeId" })
+                        @Html.ValidationMessageFor(c => c.Name)
+                        <br />Обязательное поле. Допустимы буквы А-Я, A-Z, цифры 0-9 диапазон от 2 до 30 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(c => c.contentGroup, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.DropDownListFor(c => c.contentGroup.Id, contentGroupListItems, new { @class = "form-control" })
+                        @Html.ActionLink("Добавить новую...", "Group", "ContentType", new { @style = "text-decoration: underline;" })
+                        @Html.ValidationMessageFor(c => c.contentGroup)
+                        <br />Укажите группу для данного типа контента
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(c => c.Controller, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.DropDownListFor(c => c.Controller, controllerListItems, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.Controller)
+                        <br />Выберите из списка необходимый контроллер
+                    </div>
+                </div>
+                @{
+                    <div class="form-group row">
+                        <div class="col-xs-1">
+                            <span class="color_red">*</span>
+                            @Html.LabelFor(c => c.Actions, new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-10 user_groups" id="id_groups">
+
+                            <ul>
+                                @for (var i = 0; i < Model.Actions.Count(); i++)
+                                {
+                                    var permission = Model.Actions[i];
+                                    <li>
+                                        @Html.HiddenFor(c => c.Actions[i].Name)
+                                        @Html.CheckBoxFor(c => c.Actions[i].Selected)
+                                        @Html.LabelFor(c => c.Actions[i].Selected, permission.Name)
+                                        <span class="color_red">*</span>
+                                        @Html.TextBoxFor(c => c.Actions[i].Title)
+                                    </li>
+                                }
+                            </ul>
+
+                        </div>
+                    </div>
+                }
+
+                @Html.HiddenFor(c => c.caList)
+
+            </div>
+
+            <div class="form-group row edit_form_btn">
+                <div class="col-xs-10 col-xs-offset-0">
+                    <div class="cover"><div class="load"></div></div>
+                    <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                    <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+}

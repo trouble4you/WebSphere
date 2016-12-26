@@ -1,0 +1,76 @@
+﻿    
+    /*/////////////////////////ИНФОРМАЦИОННЫЕ ЭЛЕМЕНТЫ////////////////////////////////*/    
+    .agzu_name_style{ position: absolute; top: 50px; left: 240px; font-weight: bold; font-size: 20px; }     /*АГЗУ*/    
+    .map_link{ position: absolute; top: 80px; left: 240px; }                                                /*Посмотреть на карте*/    
+    .trade{ position: absolute; top: 140px; left: 240px; }                                                  /*Промысел*/    
+    .curr_otv{ position: absolute; top: 180px; left: 240px; }                                               /*Текущий отвод*/    
+    .pres{ position: absolute; top: 430px; left: 320px; }                                                   /*Давление, кг/см2*/    
+    .pressure{ position: absolute; top: 285px; left: 300px; width: 200px; height: 50px; }                    /*Датчик давления*/ 
+                                          
+    .opros{ position: absolute; top: 365px; left: 1237px; } /*top 405*/
+    .version{position: absolute; top: 210px; left: 240px}
+    .rtu{position: absolute; top: 240px; left: 240px}
+
+    .call_disp{position: absolute; top: 365px; left: 1650px; font-weight: bold}/*top 400*/
+    .pressure_min{ position:absolute; top: 400px; left: 250px; font-weight: bold } 
+    .pressure_max{ position: absolute; top: 400px; left: 430px; font-weight: bold } 
+
+    .rejim_text{ position:absolute; top: 70px; left: 1235px; font-weight: bold } 
+    .rejim{ position:absolute; top: 70px; left: 1450px; font-weight: bold } 
+
+    /*/////////////////////////ДИСКРТНЫЕ СИГНАЛЫ////////////////////////////////*/
+    .table_conf_disc_door_kp{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}             /*дискретный "АГЗУ на связи"*/
+    .table_conf_disc_door_switchboard{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}   /*дискретный "Дверь в щитовую закрыта"*/
+    .table_conf_disc_door_techblock{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}     /*дискретный "Дверь в технологический блок закрыта"*/
+    .table_conf_disc_gas20{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}              /*дискретный "Загазованность 20%"*/
+    .table_conf_disc_gas50{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}              /*дискретный "Загазованность 50%"*/
+    .table_conf_disc_gazFail{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}                /*дискретный "Вентилятор выключен"*/
+    .table_conf_disc_fire{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}               /*дискретный "Нет пожара"*/
+    .table_conf_disc_pump_reagent{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}              /*дискретный "Питание есть"*/
+    .table_conf_disc_level_reagent{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+    .table_conf_disc_nagrev_kp{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+    .table_conf_disc_napr_kp{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+
+    .table_conf_disc_errorSwitchGP{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}        
+    .table_conf_disc_su_onGP{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}              
+    .table_conf_disc_maskError_MDVV1{border-spacing: 5px;    border-collapse: separate;font-weight: bold;}         
+    .table_conf_disc_maskError_AI6_1{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+    .table_conf_disc_call_disp{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+
+    .table_conf_disc_dostup_BDR_door{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}         
+    .table_conf_disc_sig_davl_collektor{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+    .table_conf_disc_state_pump_reagent{border-spacing: 5px;    border-collapse: separate; font-weight: bold;}
+
+    /*/////////////////////////АНАЛОГОВЫЕ СИГНАЛЫ////////////////////////////////*/
+    .anal1_cdng_name {position: absolute; background: #ffffff; padding: 3px 15px 3px 15px; min-width: 60px;     /*Имя промысла*/ 
+                      min-height: 20px; font-weight: bold; border: 1px solid #BBBBBB; text-align: center;}
+    .anal1_current_bend {position: absolute; background: #ffffff; padding: 3px 15px 3px 15px; min-width: 60px;  /*Текущий отвод*/
+                         min-height: 20px; font-weight: bold; border: 1px solid #BBBBBB; text-align: center;}
+    .anal1_version {position: absolute; background: #ffffff; padding: 3px 15px 3px 15px; min-width: 60px;  /*Текущий отвод*/
+                         min-height: 20px; font-weight: bold; border: 1px solid #BBBBBB; text-align: center;}
+    .anal1_rtu {position: absolute; background: #ffffff; padding: 3px 15px 3px 15px; min-width: 60px;  /*Текущий отвод*/
+                         min-height: 20px; font-weight: bold; border: 1px solid #BBBBBB; text-align: center;}
+    /*/////////////////////////БЛОЧНЫЕ ТАБЛИЦЫ////////////////////////////////*/  
+    .table_current_bend{ position: absolute; top: 45px; left: 950px }               /*Текущий замер по отводу*/      
+    .debit_norm {position: absolute; top: 90px; left: 960px}                       /*Дебиты при нормальных условиях*/
+    .agzu_table_1100 { width: 85%; position: absolute; top: 500px; left: 240px }     /*Главный блок, содержащий мнемосхему с сигналами по каждому отводу*/
+
+    .manage_agzu {position: absolute; top: 110px; left: 1230px}
+
+    .time_zam1 {position: absolute; top: 900px; left: 260px} 
+    .time_zam2 {position: absolute; top: 900px; left: 360px} 
+    .time_zam3 {position: absolute; top: 900px; left: 465px} 
+    .time_zam4 {position: absolute; top: 900px; left: 570px} 
+    .time_zam5 {position: absolute; top: 900px; left: 675px} 
+    .time_zam6 {position: absolute; top: 900px; left: 780px} 
+    .time_zam7 {position: absolute; top: 900px; left: 890px} 
+    .time_zam8 {position: absolute; top: 900px; left: 1000px} 
+    .time_zam9 {position: absolute; top: 900px; left: 1100px} 
+    .time_zam10 {position: absolute; top: 900px; left: 1200px} 
+    .time_zam11 {position: absolute; top: 900px; left: 1310px} 
+    .time_zam12 {position: absolute; top: 900px; left: 1410px} 
+    .time_zam13 {position: absolute; top: 900px; left: 1515px} 
+    .time_zam14 {position: absolute; top: 900px; left: 1620px} 
+
+                          
+                 
