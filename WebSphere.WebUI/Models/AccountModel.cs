@@ -161,15 +161,5 @@ namespace WebSphere.WebUI.Models
         public List<Role> roles { get; set; }
     }
 
-    public class MyTrendPage
-    {
-        public string object_type_str = "";
-        public string object_name = "";
 
-        public int object_id = 0;
-        public UInt64 start_date = 0;
-        public UInt64 end_date = 0;
-
-        public List<OrderedDictionary> signals = new List<OrderedDictionary>();
-    }
 }

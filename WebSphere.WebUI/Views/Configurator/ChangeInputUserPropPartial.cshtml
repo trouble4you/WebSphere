@@ -1,91 +1,72 @@
 ﻿@model WebSphere.WebUI.Models.AddUserPropModel
-@if(Model.BoolenType == true)
+@if (Model.BoolenType == true)
 {
     @Html.HiddenFor(m => m.BoolenType)
     @Html.LabelFor(m => m.BoolenValue, "Значение")
-    <br />
     @Html.CheckBoxFor(m => m.BoolenValue, new { @class = "form-control" })
+    @Html.Label("если флажок включен, то значение свойства - true")
     @Html.ValidationMessageFor(m => m.BoolenValue)
-    <br />
 }
-@if(Model.ByteType == true)
+@if (Model.ByteType == true)
 {
     @Html.HiddenFor(m => m.ByteType)
     @Html.LabelFor(m => m.ByteValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.ByteValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.ByteValue)
-    <br />
 }
-@if(Model.DoubleType == true)
+@if (Model.DoubleType == true)
 {
     @Html.HiddenFor(m => m.DoubleType)
     @Html.LabelFor(m => m.DoubleValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.DoubleValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.DoubleValue)
-    <br />
 }
 @if (Model.DWordType == true)
 {
     @Html.HiddenFor(m => m.DWordType)
     @Html.LabelFor(m => m.DWordValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.DWordValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.DWordValue)
-    <br />
 }
 @if (Model.FloatType == true)
 {
     @Html.HiddenFor(m => m.FloatType)
     @Html.LabelFor(m => m.FloatValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.FloatValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.FloatValue)
-    <br />
 }
 @if (Model.LongIntType == true)
 {
     @Html.HiddenFor(m => m.LongIntType)
     @Html.LabelFor(m => m.LongIntValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.LongIntValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.LongIntValue)
-    <br />
 }
 @if (Model.ShortIntType == true)
 {
     @Html.HiddenFor(m => m.ShortIntType)
     @Html.LabelFor(m => m.ShortIntValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.ShortIntValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.ShortIntValue)
-    <br />
 }
 @if (Model.SmallIntType == true)
 {
     @Html.HiddenFor(m => m.SmallIntType)
     @Html.LabelFor(m => m.SmallIntValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.SmallIntValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.SmallIntValue)
-    <br />
 }
 @if (Model.StringType == true)
 {
     @Html.HiddenFor(m => m.StringType)
     @Html.LabelFor(m => m.StringValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.StringValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.StringValue)
-    <br />
 }
 @if (Model.WordType == true)
 {
     @Html.HiddenFor(m => m.WordType)
     @Html.LabelFor(m => m.WordValue, "Значение")
-    <br />
     @Html.TextBoxFor(m => m.WordValue, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.WordValue)
-    <br />
 }

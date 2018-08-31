@@ -12,44 +12,53 @@ using WebSphere.Domain.Abstract;
 using WebSphere.Domain.Concrete;
 using WebSphere.Domain.Entities;
 
-namespace WebSphere.WebUI.Controllers.API  
+namespace WebSphere.WebUI.Controllers.API
 {
+    public class TagProp
+    {
+        public string TagName;
+        public string Property;
+        public string Opc;
+        public string Connection;
+    }
+
+
     [Authorize]
     public class OpcController : ApiController
     {
         private static Logging logger = new Logging();
 
-         
-        IJSON _json=new JSON();
- 
+
+        IJSON _json = new JSON();
+
         private EFDbContext context = new EFDbContext();
 
         [HttpPost]
         public void SetOpcTagsValues(FormDataCollection data)
         {
-            var result = data.Get("Tag"); 
-            
-                 var jss = new JavaScriptSerializer();
+            var result = data.Get("Tag");
+
+            var jss = new JavaScriptSerializer();
             var dict = jss.Serialize(result);
             Console.WriteLine(dict);
         }
         [HttpPost]
-        public List< TagValueContainer> GetOpcTagsValues(FormDataCollection data)
+        public List<TagValueContainer> GetOpcTagsValues(FormDataCollection data)
         {
-             
-     var result = new List< TagValueContainer>();
-             if (data == null) return (result);
-                
-                 var strTagCount = data.Get("TagsCount");
-                 var tagCount = Convert.ToInt32(strTagCount);
-                 var tags = new List<string>();
+
+            var result = new List<TagValueContainer>();
+            if (data == null) return (result);
+
+            var strTagCount = data.Get("TagsCount");
+            var tagCount = Convert.ToInt32(strTagCount);
+            var tags = new List<string>();
             List<string> z;
             for (var tagIndex = 0; tagIndex < tagCount; tagIndex++)
             {
-                var tag = data.Get("Tags[" + tagIndex + "]"); 
+                var tag = data.Get("Tags[" + tagIndex + "]");
                 var custs = from Object in context.Objects.Where(x => x.Name == tag)
-                    join to in context.Properties.Where(x => x.PropId == 0) on Object.Id equals to.ObjectId
-                    select to.Value;
+                            join to in context.Properties.Where(x => x.PropId == 0) on Object.Id equals to.ObjectId
+                            select to.Value;
                 if (custs.FirstOrDefault() != null)
                 {
                     var dict = _json.Deserialize(custs.FirstOrDefault());
@@ -57,16 +66,16 @@ namespace WebSphere.WebUI.Controllers.API
                     if (dict != null)
                     {
                         try
-                        { 
-                           // var tvd = 
-                               // MvcApplication.OpcPoller.ReadTag(new TagId( new TagId{PollerId =dict["Opc"],TagName =dict["Connection"] })); 
-                          //  if (tvd != null) result.Add(tvd);
+                        {
+                            // var tvd = 
+                            // MvcApplication.OpcPoller.ReadTag(new TagId( new TagId{PollerId =dict["Opc"],TagName =dict["Connection"] })); 
+                            //  if (tvd != null) result.Add(tvd);
                         }
                         catch (Exception ex)
                         {
                             result.Add(new TagValueContainer
                             {
-                                Tag = new TagId {PollerId = 0, TagName = tag},
+                                Tag = new TagId { PollerId = 0, TagName = tag },
                                 LastValue = ex.Message
                             });
                             logger.Logged("Error", "No key in Json " + tag, "OpcController", "Opc");
@@ -80,50 +89,54 @@ namespace WebSphere.WebUI.Controllers.API
                 {
                     result.Add(new TagValueContainer
                     {
-                        Tag = new TagId {PollerId = 0, TagName = tag},
+                        Tag = new TagId { PollerId = 0, TagName = tag },
                         LastValue = "No properties"
                     });
-                logger.Logged("Error", "No   Json " + tag, "OpcController", "Opc");
+                    logger.Logged("Error", "No   Json " + tag, "OpcController", "Opc");
+                }
             }
-        }
 
-            return result ; 
+            return result;
         }
 
         [HttpPost]
         public IEnumerable<TagValueDto> GetOpcTagsVals(FormDataCollection data)
         {
-
             var jss = new JavaScriptSerializer();
             var result = new List<TagValueDto>();
-            if (data == null) return (result); 
+            if (data == null) return (result);
             var strTagCount = Convert.ToInt32(data.Get("TagsCount"));
+            var tags = new List<string>();
 
             for (var tagIndex = 0; tagIndex < strTagCount; tagIndex++)
             {
-                var tag = data.Get("Tags[" + tagIndex + "]");
-                var json = from Object in context.Objects.Where(x => x.Name == tag)
-                    join to in context.Properties.Where(x => x.PropId == 0) on Object.Id equals to.ObjectId
-                    select to.Value;
-                result.Add(new TagValueDto {Tag = tag, Json = json.FirstOrDefault()});
+                tags.Add(data.Get("Tags[" + tagIndex + "]"));
             }
 
+            var all_tags = (from ta in context.Objects.Where(x => x.Type == 2 && tags.Contains(x.Name))
+                            join to in context.Properties.Where(x => x.PropId == 0) on ta.Id equals to.ObjectId
+
+                            select new TagValueDto { Tag = ta.Name, Json = to.Value });//  select  ta.Name, to.Valu;
+
+            result = all_tags.ToList();
+
             foreach (var tag in result)
-            { 
-            if (tag.Json != null)
+            {
+                if (tag.Json != null)
                 {
-                    var dict = jss.Deserialize<Dictionary<string, dynamic>>(tag.Json); 
+                    var dict = jss.Deserialize<Dictionary<string, dynamic>>(tag.Json);
                     if (dict != null)
-                    { try
+                    {
+                        try
                         {
                             var tvd =
-                               MvcApplication.OpcPoller.ReadTag(new TagId { PollerId = dict["Opc"], TagName = dict["Connection"] }); 
-                            if (tvd != null) 
-                                tag.OpcVals=tvd;
+                               MvcApplication.OpcPoller.ReadTag(new TagId { PollerId = dict["Opc"], TagName = dict["Connection"] });
+                            if (tvd != null)
+                                tag.OpcVals = tvd;
                         }
                         catch (Exception ex)
                         {
-                            tag.OpcVals=(new TagValueContainer
+                            tag.OpcVals = (new TagValueContainer
                             {
                                 Tag = new TagId { PollerId = 0, TagName = tag.Tag },
                                 LastValue = "No 'Opc', 'Connection' key in Json "
@@ -144,10 +157,23 @@ namespace WebSphere.WebUI.Controllers.API
                     });
                     logger.Logged("Error", "No   Json " + tag.Tag, "OpcController", "Opc");
                 }
-            } 
+            }
             return result;
         }
- 
+
+        [HttpPost]
+        public IEnumerable<TagValueDto> GetFullTagValues(FormDataCollection data)
+        {
+            var result = new List<TagValueDto>();
+            if (data == null) return (result);
+            var strTagCount = Convert.ToInt32(data.Get("TagsCount"));
+
+            for (var tagIndex = 0; tagIndex < strTagCount; tagIndex++)
+            {
+                result.Add(new TagValueDto { Tag = data.Get("Tags[" + tagIndex + "]"), OpcVals = MvcApplication.OpcPoller.ReadTag(data.Get("Tags[" + tagIndex + "]")) });
+            }
+            return result;
+        }
         [HttpPost]
         public bool WriteOpcTagValue(FormDataCollection data)
         {
@@ -157,8 +183,8 @@ namespace WebSphere.WebUI.Controllers.API
             var value = data.Get("value");
 
             var custs = from Object in context.Objects.Where(x => x.Name == tag)
-                join to in context.Properties.Where(x => x.PropId == 0) on Object.Id equals to.ObjectId
-                select to.Value;
+                        join to in context.Properties.Where(x => x.PropId == 0) on Object.Id equals to.ObjectId
+                        select to.Value;
             if (custs.FirstOrDefault() != null)
             {
                 var dict = jss.Deserialize<Dictionary<string, dynamic>>(custs.FirstOrDefault());
@@ -169,33 +195,56 @@ namespace WebSphere.WebUI.Controllers.API
                     {
                         return MvcApplication.OpcPoller.WriteTag(new TagId { PollerId = dict["Opc"], TagName = dict["Connection"] },
                                value);
-                        
+
                     }
                     catch (Exception ex)
                     {
-                        logger.Logged("Error", "Cant Write " + tag + "bacause :"+ex.Message, "OpcController", "WriteTag");
+                        logger.Logged("Error", "Cant Write " + tag + "bacause :" + ex.Message, "OpcController", "WriteTag");
                         return false;
                     }
-                } logger.Logged("Error", "No Json " + tag +" in DB", "OpcController", "WriteTag"); return false;
-            }  logger.Logged("Error", "No  " + tag +" in DB", "OpcController", "WriteTag"); return false;
-                
+                }
+                logger.Logged("Error", "No Json " + tag + " in DB", "OpcController", "WriteTag"); return false;
+            }
+            logger.Logged("Error", "No  " + tag + " in DB", "OpcController", "WriteTag"); return false;
+
         }
-
-
         [HttpPost]
-        public  List<TagValueContainer> GetAllOpcTagsValues(FormDataCollection data)
+        public bool WriteFullOpcTagValue(FormDataCollection data)
         {
 
+            var jss = new JavaScriptSerializer();
+            var tag = data.Get("tag");
+            var value = data.Get("value");
+
+             
+                    try
+                    {
+                        return MvcApplication.OpcPoller.WriteTag(new TagId { PollerId = 2, TagName = tag },
+                               value);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Logged("Error", "Cant Write " + tag + "bacause :" + ex.Message, "OpcController", "WriteTag");
+                        return false;
+                    } 
+
+        }
+
+        [HttpPost]
+        public List<TagValueContainer> GetAllOpcTagsValues(FormDataCollection data)
+        {
             return MvcApplication.OpcPoller.ReadTags();
         }
+
         [HttpPost]
         public string GetOpcTag(FormDataCollection data)
         {
             var result = data.Get("Tag");
             return MvcApplication.OpcPoller.OnReadOpcTag(result);
-        }  
+        }
 
-            
+
         [HttpPost]
         public List<Dictionary<string, dynamic>> GetOpcServersInfo(FormDataCollection data)
         {
@@ -203,6 +252,7 @@ namespace WebSphere.WebUI.Controllers.API
 
             return z;
         }
+
         [HttpPost]
         public bool ReConnectServer(FormDataCollection data)
         {
@@ -210,7 +260,7 @@ namespace WebSphere.WebUI.Controllers.API
             var z = MvcApplication.OpcPoller.Reinicialize(pollerId);
 
             return z;
-        } 
+        }
         /*
         [HttpPost]
         public string GetOpcTagsValues1(FormDataCollection data)

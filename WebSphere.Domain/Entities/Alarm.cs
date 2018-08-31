@@ -36,3 +36,21 @@ namespace WebSphere.Domain.Entities
         public int? Ack { get; set; }
     }
 }
+
+public class Event
+{
+    [Key]
+    [Required]
+    public int Id { get; set; }
+
+    [Required]
+    public int TagId { get; set; }
+
+    [Required]
+    public float Value { get; set; }
+
+    [Required]
+    public DateTime Time { get; set; }
+     
+     
+}

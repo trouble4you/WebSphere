@@ -39,11 +39,17 @@ namespace WebSphere.WebUI.Helpers
             string[] acceptedControllers = controllers.Trim().Split(',').Distinct().ToArray();
 
             #region param
-            string queryParam = HttpContext.Current.Request.QueryString["mnemo"];
+            string queryParam = HttpContext.Current.Request.QueryString["mnemo"];  
+            string queryParam2 = HttpContext.Current.Request.QueryString["objname"]; 
             string currentParameter = "";
+            string currentParameter2 = "";
             if (queryParam != null)
             {
                 currentParameter = queryParam.ToString();
+            }
+            if (queryParam2 != null)
+            {
+                currentParameter2 = queryParam2.ToString();
             }
             if (String.IsNullOrEmpty(param))
             {
@@ -52,7 +58,7 @@ namespace WebSphere.WebUI.Helpers
             string[] acceptedParams = param.Trim().Split(',').Distinct().ToArray();
             #endregion
 
-            return acceptedActions.Contains(currentAction) && acceptedControllers.Contains(currentController) && acceptedParams.Contains(currentParameter) ?
+            return acceptedActions.Contains(currentAction) && acceptedControllers.Contains(currentController) && acceptedParams.Contains(currentParameter) && acceptedParams.Contains(currentParameter2) ?
                 cssClass : String.Empty;
         }
     }

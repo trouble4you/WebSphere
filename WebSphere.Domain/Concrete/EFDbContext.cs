@@ -11,6 +11,7 @@ namespace WebSphere.Domain.Concrete
     public class EFDbContext : DbContext
     {
         public DbSet<Alarm> Alarms { get; set; }
+        public DbSet<Event> Events { get; set; }
 
         public DbSet<Objects> Objects { get; set; }
 

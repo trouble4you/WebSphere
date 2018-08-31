@@ -6,332 +6,243 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title</title>
-        <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <link href="~/Content/reset.css" rel="stylesheet" />
-        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-        <link href="~/Content/style.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-        <script src="~/Scripts/script.js"></script>
-        <script src="~/Scripts/_JS/AdditionalFunctions.js"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/_JS/AdditionalFunctions.js"></script>
+</head>
+<body style="background-color: #ccc;">
 
-        <div id="id_page_load">
-            <div class="div_page_load">
-                <div class="div_load_img">
-                    <img src="~/Content/images/loadpage.gif">
-                </div>
-                <div class="div_load_msg">Обработка. Пожалуйста, подождите...</div>
-                <div class="clear displayN"></div>
+    <div id="id_page_load">
+        <div class="div_page_load">
+            <div class="div_load_img">
+                <img src="~/Content/images/loadpage.gif">
             </div>
+            <div class="div_load_msg">Обработка. Пожалуйста, подождите...</div>
             <div class="clear displayN"></div>
         </div>
+        <div class="clear displayN"></div>
+    </div>
 
-        <input type="hidden" id="id_user" value="admin">
+    <input type="hidden" id="id_user" value="admin">
 
-        <div class="container-fluid">
+    <div class="container-fluid">
 
-            <div class="head-box">
-                <div class="head-right">
+        <div class="head-box">
+            <div class="head-right">
 
-                    <div class="head-logo">
+                <div class="head-logo">
 
-                        <div class="head-top-right">
+                    <div class="head-top-right">
 
-                            <div class="head-logo-img"></div>
+                        <div class="head-logo-img"></div>
 
-                            <div class="head-top-left">
+                        <div class="head-top-left">
 
-                                <ul class="Link_hui font12 noUnderl">
-                                    <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "Meteli") borderR nowrap">
-                                        @Html.ActionLink("ГСУ Метели", "Mnemo", "Mnemo", new { mnemo = "Meteli" }, null)
-                                        <span class="sep"></span>
+                            <ul class="Link_hui font12 noUnderl">
+                                <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "Main") borderR nowrap">
+                                    @Html.ActionLink("Главная", "Mnemo", "Mnemo", new { mnemo = "Main" }, null)
+                                    <span class="sep"></span>
+                                </li> 
+
+                                <li class="@Html.IsSelected(actions: "MnemoObj", controllers: "Mnemo", param: "zd_shkapovo,Задвижка №14") borderR nowrap ">
+                                    @Html.ActionLink("Задвижка №14", "MnemoObj", "Mnemo", new { mnemo = "zd_chegodaevo", objname = "Задвижка №14" }, null)
+                                    <span class="sep"></span>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "MnemoObj", controllers: "Mnemo", param: "zd_shkapovo,Задвижка №15") borderR nowrap">
+                                    @Html.ActionLink("Задвижка №15", "MnemoObj", "Mnemo", new { mnemo = "zd_chegodaevo", objname = "Задвижка №15" }, null)
+                                    <span class="sep"></span>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "MnemoObj", controllers: "Mnemo", param: "zd_shkapovo,Задвижка №18") borderR nowrap">
+                                    @Html.ActionLink("Задвижка №18", "MnemoObj", "Mnemo", new { mnemo = "zd_chegodaevo", objname = "Задвижка №18" }, null)
+                                    <span class="sep"></span>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "Trends", controllers: "Trends", param: "2") borderR nowrap">
+                                    @Html.ActionLink("Тренды", "Trends", "Trends", new { id = 2 }, null)
+                                    <span class="sep"></span>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "Alarms", controllers: "Alarms") borderR nowrap">
+                                    @Html.ActionLink("Тревоги", "Alarms", "Alarms")
+                                    <span class="sep"></span>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "Events", controllers: "Alarms") borderR nowrap">
+                                    @Html.ActionLink("События", "Events", "Alarms")
+                                    <span class="sep"></span>
+                                </li> 
+                                  <li class="@Html.IsSelected(actions: "Reports", controllers: "Reports") borderR nowrap head-top-left-r">
+                                        @Html.ActionLink("Журналы", "Reports", "Reports")
                                     </li>
+                                
+                            </ul>
 
-                                    <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "pg_5") borderR nowrap">
-                                        @Html.ActionLink("ПГ5", "Mnemo", "Mnemo", new { mnemo = "pg_5" }, null)
-                                        <span class="sep"></span>
-                                    </li>
+                        </div>
 
-                                    <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "mgbb") borderR nowrap">
-                                        @Html.ActionLink("МГББ", "Mnemo", "Mnemo", new { mnemo = "mgbb" }, null)
-                                        <span class="sep"></span>
-                                    </li>
-
-                                    <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "puzg") borderR nowrap">
-                                        @Html.ActionLink("ПУЗГ", "Mnemo", "Mnemo", new { mnemo = "puzg" }, null)
-                                        <span class="sep"></span>
-                                    </li>
-
-                                    <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "pk") borderR nowrap">
-                                        @Html.ActionLink("ПК", "Mnemo", "Mnemo", new { mnemo = "pk" }, null)
-                                        <span class="sep"></span>
-                                    </li>
-                                    <li class="@Html.IsSelected(actions: "Trends", controllers: "Trends", param: "7") borderR nowrap">
-                                        @Html.ActionLink("Тренды", "Trends", "Trends", new { id = 7 }, null)
-                                        <span class="sep"></span>
-                                    </li>
-                                  
-                                    <li class="@Html.IsSelected(actions: "Alarms", controllers: "Alarms") borderR nowrap">
-                                        @Html.ActionLink("Тревоги", "Alarms", "Alarms")
-                                        <span class="sep"></span>
-                                    </li> 
-                                    <li class="@Html.IsSelected(actions: "Reports", controllers: "Reports") borderR nowrap head-top-left-r">
-                                        @Html.ActionLink("Отчеты", "Reports", "Reports")
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                            <div class="head-top-right-t">
-                                <ul class="Link_hui font12 noUnderl">
-                                    <li class="head-welcome-info">
-                                        <span class="glyphicon glyphicon-user icon"></span>
-                                        <strong>
-                                            @if (Request.IsAuthenticated)
-                                            {
-                                                @Html.Encode(User.Identity.Name)
-                                            }
-                                            else
-                                            {
-                                                <span>Guest</span>
-                                            }
-                                        </strong>
-                                        <span class="sep"></span>
-                                    </li>
+                        <div class="head-top-right-t">
+                            <ul class="Link_hui font12 noUnderl">
+                                <li class="head-welcome-info">
+                                    <span class="glyphicon glyphicon-user icon"></span>
+                                    <strong>
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            @Html.Encode(User.Identity.Name)
+                                        }
+                                        else
+                                        {
+                                            <span>Guest</span>
+                                        }
+                                    </strong>
+                                    <span class="sep"></span>
+                                </li>
+								
+                                       
+                                @*
                                     <li class="@Html.IsSelected(actions: "Index", controllers: "Configurator")">
                                         @Html.ActionLink("Конфигуратор", "Index", "Configurator")
                                     </li>
-                                    <li class="@Html.IsSelected(actions: "Index", controllers: "Account")">
-                                        <span class="glyphicon glyphicon-cog icon"></span>
-                                        @Html.ActionLink("Система", "Index", "Account")
-                                        <span class="sep"></span>
-                                    </li>
-                                    <li>
-                                        <span class="glyphicon glyphicon-off icon"></span>
-                                        @if (Request.IsAuthenticated)
-                                        {
-                                            @Html.ActionLink("Выйти", "Logout", "Account")
-                                        }
-                                    </li>
-                                </ul>
-                            </div>
-
+                                *@
+                                <li class="@Html.IsSelected(actions: "Index", controllers: "Account")">
+                                    <span class="glyphicon glyphicon-cog icon"></span>
+                                    @Html.ActionLink("Система", "Index", "Account")
+                                    <span class="sep"></span>
+                                </li>
+                                <li class="@Html.IsSelected(actions: "Index", controllers: "Information")">
+                                    <span class="glyphicon glyphicon-info-sign icon"></span>
+                                    @Html.ActionLink("Справка", "Index", "Information")
+                                    <span class="sep"></span>
+                                </li>
+                                <li>
+                                    <span class="glyphicon glyphicon-off icon"></span>
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        @Html.ActionLink("Выйти", "Logout", "Account")
+                                    }
+                                </li>
+                            </ul>
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
+        </div>
 
-            <div class="tab-body">
-                <div class="tabs-out-box">
-                    <ul id="id_app_menu" class="Link_tabs font12 noUnderl">
+        <div class="tab-body">
+            <div class="tabs-out-box">
+                <ul id="id_app_menu" class="Link_tabs font12 noUnderl">
 
-                        @{  // текущий контроллер
-                            var controller = @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
-                        }
+                    @{  // текущий контроллер
+                        var controller = @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+                    }
 
-                        @if (controller.ToLower() == "contenttype")
-                        {
-                            // если это контроллер 'ContenttType', то для него свое меню
-                        
-                            <li class="@Html.IsSelected(actions: "Index", controllers: "ContentType") tabs_li tabs_contant">
-                                <div class="tbac">
-                                    @Html.ActionLink("Тип контента", "Index", "ContentType")
-                                </div>
-                            </li>
+                    @if (controller.ToLower() == "contenttype")
+                    {
+                        // если это контроллер 'ContenttType', то для него свое меню
+
+                        <li class="@Html.IsSelected(actions: "Index", controllers: "ContentType") tabs_li tabs_contant">
+                            <div class="tbac">
+                                @Html.ActionLink("Тип контента", "Index", "ContentType")
+                            </div>
+                        </li>
                             <li class="@Html.IsSelected(actions: "Group", controllers: "ContentType") tabs_li tabs_contant">
                                 <div class="tbac">
                                     @Html.ActionLink("Группа контента", "Group", "ContentType")
                                 </div>
                             </li>
-                        }
-                        else if (controller.ToLower() == "account" || controller.ToLower() == "group")
-                        {
-                            <li class="@Html.IsSelected(actions: "Index", controllers: "Group") tabs_li tabs_contant">
-                                <div class="tbac">
-                                    @Html.ActionLink("Группа", "Index", "Group")
-                                </div>
-                            </li>
-                            <li class="@Html.IsSelected(actions: "Index", controllers: "Account") tabs_li tabs_contant">
-                                <div class="tbac">
-                                    @Html.ActionLink("Пользователь", "Index", "Account")
-                                </div>
-                            </li>
-                        }
+                    }
+                    else if (controller.ToLower() == "account" || controller.ToLower() == "group" || controller.ToLower() == "configurator" || controller.ToLower() == "contenttype")
+                    {
+                        <li class="@Html.IsSelected(actions: "Index", controllers: "Group") tabs_li tabs_contant">
+                            <div class="tbac">
+                                @Html.ActionLink("Группа", "Index", "Group")
+                            </div>
+                        </li>
+                        <li class="@Html.IsSelected(actions: "Index", controllers: "Account") tabs_li tabs_contant">
+                            <div class="tbac">
+                                @Html.ActionLink("Пользователь", "Index", "Account")
+                            </div>
+                        </li>
+                        <li class="@Html.IsSelected(actions: "Index", controllers: "Configurator") tabs_li tabs_contant">
+                            <div class="tbac">
+                                @Html.ActionLink("Конфируратор сигналов", "Index", "Configurator")
+                            </div>
+                        </li>
+                        <li class="@Html.IsSelected(actions: "Index", controllers: "ContentType") tabs_li tabs_contant">
+                            <div class="tbac">
+                                @Html.ActionLink("Контент", "Index", "ContentType")
+                            </div>
+                        </li>
 
-                    </ul>
-                </div>
+                        <li class="@Html.IsSelected(actions: "Mnemo", controllers: "Mnemo", param: "diag") tabs_li tabs_contan">
+                            <div class="tbac">
+                                @Html.ActionLink("Диагностика связи", "Mnemo", "Mnemo", new { mnemo = "diag" }, null)
+                            </div> 
+</li>
+                    }
+
+                </ul>
             </div>
+        </div>
 
-            <div class="left-box">
-                <div class="left-top">
-                    <span class="left-time"></span>
-                </div>
+        <div class="left-box">
+            <div class="left-top">
+                <span class="left-time"></span>
             </div>
-            <div class="right-box">
-                <div id="id_first_content" class="hide">
-
-                </div>
-            </div>
-
-            <div class="content">
-                @Html.Partial("_SvgTopMenu")
-                @RenderBody()
+        </div>
+        <div class="right-box">
+            <div id="id_first_content" class="hide">
 
             </div>
+        </div>
+
+        <div class="content">
+            @RenderBody()
 
         </div>
 
-    </body>
+    </div>
+
+</body>
 </html>
+
+
+<div id="AlertMenu" style="display: none; overflow-y: auto; position: absolute; left: 30%; top: 30%; width: 40%; height: 20%; ">
+    <div class="alert-danger" style="padding:15px;border:1px solid transparent;border-radius:4px;">
+        <span class="glyphicon glyphicon-warning-sign icon" style="color: red;"></span>
+        <a href="#" onclick="AckAll()" style=" float:right; font-weight:700; color:#000; text-shadow:0 1px 0 #fff; filter:alpha(opacity=20);" data-dismiss="alert" aria-label="close">Квитировать все</a>
+        <strong>Внимание! Обнаружена тревога!</strong>
+    </div>
+</div>
+
+<audio type="text" id="audiofile" size="80" src="~/Content/Sound2.mp3"></audio>
 <script>
-    
+
     var GM_OPC_TAGS = new Array();
-    function top_PrepareTags() {
-        GM_OPC_TAGS.push("ast501a");
-        GM_OPC_TAGS.push("ast502a");
-        GM_OPC_TAGS.push("ast503a");
-        GM_OPC_TAGS.push("ast504a");
-        GM_OPC_TAGS.push("ast505a");
-        GM_OPC_TAGS.push("ast506a");
-        GM_OPC_TAGS.push("ast507a");
-        GM_OPC_TAGS.push("ast508a");
-        GM_OPC_TAGS.push("ast509a");
-        GM_OPC_TAGS.push("ast510a");
-        GM_OPC_TAGS.push("ast511a");
-
-        GM_OPC_TAGS.push("fireAlarmMGBB");
-        GM_OPC_TAGS.push("fireAlarmPG");
-        GM_OPC_TAGS.push("fireAlarmKIP");
-
-        GM_OPC_TAGS.push("kip_Access");
-    }
 
     /* REQUEST OPC UPDATE */
     var GM_OPC_VALS;
-    top_PrepareTags();
-    RequestTopOPC();
-    setInterval(function () {
-        RequestTopOPC();
-        RequestSoundAlarm();
-    }, 2000);
-    function RequestTopOPC(id) {
-        var a = {}; for (var i = 0; i < GM_OPC_TAGS.length; i++) a[i] = GM_OPC_TAGS[i];
-        $.ajax({
-            type: "POST",
-            url: "/api/Opc/GetOpcTagsVals",
-            data: { Tags: a, TagsCount: GM_OPC_TAGS.length, Sender: id },
-            async: true,
-            success: s_RequestTop,
-            error: e_RequestTop
-        });
-    }
-    function RequestSoundAlarm() { 
-        $.ajax({
-            type: "POST",
-            url: "/api/Alarms/SoundAlarm", 
-            async: false,
-            success: playAudio
-        });
-    }
-    function s_RequestTop(data) {
+    //setInterval(function () {RequestSoundAlarm();}, 2000);
+     function RequestSoundAlarm() {
 
-        GM_OPC_VALS = new Array(); for (var i = 0; i < data.length; i++)
-
-            if (data[i].OpcVals != null)
-                GM_OPC_VALS[data[i].Tag] = data[i].OpcVals.LastValue;
-            else GM_OPC_VALS[data[i].Tag] = null;
-         
-        UpdateTop();
+        $.ajax({ type: "POST", url: "/Alarms/SoundAlarm", async: true, success: set_alert });
 
     }
-    function e_RequestTop() { ErrMessage("Не удалось получить значения OPC тегов."); }
     /* END */
-
-      
-
-    function UpdateTop() {
-        // line 1
-        var a = ProcFl(GM_OPC_VALS["ast501a"], 2);
-        var b = ProcFl(GM_OPC_VALS["ast502a"], 2);
-        var c = ProcFl(GM_OPC_VALS["ast503a"], 2);
-        var d = ProcFl(GM_OPC_VALS["ast504a"], 2);
-        if ((a) > 50 || (b) > 50 || (c) > 50 || (d) > 50) SetStyle("puzg_g50", "alarm_krit");
-        else
-         if ((a) > 20 || (b) > 20 || (c) > 20 || (d) > 20) SetStyle("puzg_g20", "alarm_pred");
-        else 
-            SetStyle("puzg_g20", "zam_kvit_activ");
-        
-
-         a = ProcFl(GM_OPC_VALS["ast505a"], 2);
-         b = ProcFl(GM_OPC_VALS["ast506a"], 2);
-        if ((a) > 50 || (b) > 50) SetStyle("pk_g50", "alarm_krit");
-        else
-            SetStyle("pk_g50", "zam_kvit_activ");
-        if ((a) > 20 || (b) > 20) SetStyle("pk_g20", "alarm_pred");
-        else 
-            SetStyle("pk_g20", "zam_kvit_activ");
-        
-        a = ProcFl(GM_OPC_VALS["ast507a"], 2);
-        b = ProcFl(GM_OPC_VALS["ast508a"], 2);
-        if ((a) > 50 || (b) > 50) SetStyle("mgbb_g50", "alarm_krit");
-        else
-            SetStyle("mgbb_g50", "zam_kvit_activ");
-        if ((a) > 20 || (b) > 20) SetStyle("mgbb_g20", "alarm_pred");
-        else 
-            SetStyle("mgbb_g20", "zam_kvit_activ");
-        
-
-        a = ProcFl(GM_OPC_VALS["ast509a"], 2);
-        b = ProcFl(GM_OPC_VALS["ast510a"], 2);
-        if ((a) > 50 || (b) > 50) SetStyle("pg_g50", "alarm_krit");
-        else
-            SetStyle("pg_g50", "zam_kvit_activ");
-        if ((a) > 20 || (b) > 20) SetStyle("pg_g20", "alarm_pred");
-        else 
-            SetStyle("pg_g20", "zam_kvit_activ");
-        
-
-         a = ProcFl(GM_OPC_VALS["ast511a"], 2); 
-        if ((a) > 50) SetStyle("ppds_g50", "alarm_krit");
-        else
-            SetStyle("ppds_g50", "zam_kvit_activ");
-        if ((a) > 20) SetStyle("ppds_g20", "alarm_pred");
-        else 
-            SetStyle("ppds_g20", "zam_kvit_activ");
-
-        a = ParseToBool(GM_OPC_VALS["fireAlarmPG"]);
-        if (a) SetStyle("pg_fire", "alarm_krit");
-        else
-            SetStyle("pg_fire", "zam_kvit_activ");
-         
-        a = ParseToBool(GM_OPC_VALS["fireAlarmMGBB"]);
-        if (a) SetStyle("mgbb_fire", "alarm_krit");
-        else
-            SetStyle("mgbb_fire", "zam_kvit_activ");
-         
-        a = ParseToBool(GM_OPC_VALS["fireAlarmKIP"]);
-        if (a) SetStyle("kip_fire", "alarm_krit");
-        else
-            SetStyle("kip_fire", "zam_kvit_activ");
-         
-
-        a = ParseToBool(GM_OPC_VALS["kip_Access"]);
-        if (a) 
-            SetStyle("kip_door", "zam_kvit_activ");
-        else SetStyle("kip_door", "alarm_krit");
-
-    }
-
-    var currentFile = "";
+      var currentFile = "";
     function playAudio(data) {
          var cmd = false;
         if (data)  cmd = true;
@@ -339,18 +250,105 @@
         if (window.HTMLAudioElement) {
             try {
                 var oAudio = document.getElementById('audiofile');
-
                 if ((oAudio.paused||oAudio.ended) && cmd) {
-                    oAudio.play(); 
+                    oAudio.play();
                 }
                 else if (!oAudio.paused && !cmd) {
-                    oAudio.pause(); 
+                    oAudio.pause();
                 }
             }
-            catch (e) { 
+            catch (e) {
                 if (window.console && console.error("Error:" + e));
             }
         }
     }
 
+    function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    function setCookie(name, value, options) {
+        options = options || {};
+
+        var expires = options.expires;
+
+        if (typeof expires == "number" && expires) {
+            var d = new Date();
+            d.setTime(d.getTime() + expires * 1000);
+            expires = options.expires = d;
+        }
+        if (expires && expires.toUTCString) {
+            options.expires = expires.toUTCString();
+        }
+
+        value = encodeURIComponent(value);
+
+        var updatedCookie = name + "=" + value;
+
+        for (var propName in options) {
+            updatedCookie += "; " + propName;
+            var propValue = options[propName];
+            if (propValue !== true) {
+                updatedCookie += "=" + propValue;
+            }
+        }
+
+        document.cookie = updatedCookie;
+    }
+    $('#hideAlert').click(function () { set_alert(); return false; });
+    check_alert();
+    function check_alert()
+    {
+        var result = getCookie('alertwindos');
+    }
+    function set_alert(data) {
+        var element = document.getElementById("AlertMenu");
+
+        if (0 < data.length) {
+            playAudio(true);
+            //ElVis("AlertMenu", true);
+            //for (i = 0; i < data.length; i++) {
+            //    var z = element.getElementsByClassName("AlertAlarm_" + data[i].Id);
+            //    if (z.length != 0) continue;
+            //    div = document.createElement('div');
+            //    div.id = "AlertAlarm_" + data[i].Id;
+            //    div.className = "alert-danger AlertAlarm_" + data[i].Id;
+            //    div.style = "padding: 15px;border: 1px solid transparent;border-radius: 4px;"
+            //    div.innerHTML +=
+            //        "<span class=\"glyphicon glyphicon-warning-sign icon\" style=\"color: red;\"></span> " +
+            //        "<a href=\"#\" onclick=\"Ack(" + data[i].Id + "); return false;\"  style=\"float: right;font-weight: 700;color: #000;text-shadow: 0 1px 0 #fff;filter: alpha(opacity=20); \" data-dismiss=\"alert\" aria-label=\"close\">Квитировать</a>" +
+            //        "<strong>Внимание!  " + data[i].Message + ". </strong>";
+            //    document.getElementById("AlertMenu").appendChild(div);
+            //}
+        }
+        else { playAudio(false); ElVis("AlertMenu", false); }
+    }
+    function Ack(id) {
+
+        var element = document.getElementById("AlertAlarm_" +id);
+        element.parentNode.removeChild(element);
+        $.ajax({
+            type: "POST", url: '@Url.Action("SetAlarmAck", "Alarms")?id=' + id, async: true, success: AckGood, error: AckFalse
+        });
+        }
+    function AckAll() {
+        ElVis("AlertMenu", false);
+
+        $.ajax({
+            type: "POST", url: '@Url.Action("SetAlarmAckAll", "Alarms")', async: true, success: AckGood, error: AckFalse
+        });
+    }
+    function AckGood(data)
+    {
+        if (data)
+            OkMessage("Тревога квитирована");
+        else
+        ErrMessage("Тревога не квитирована");
+    }
+   function AckFalse()
+   {
+           ErrMessage("Ошибка!Тревога не квитирована");
+   }
 </script>

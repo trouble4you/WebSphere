@@ -1,0 +1,119 @@
+﻿ 
+ 
+
+<!-- Styles --> 
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" /> 
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" /> 
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/Reports.css" />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' /> 
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
+<!-- END -->
+<!-- Scripts-->  
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/grid.locale-ru.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/jquery.jqGrid.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/alarms.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/datetimepicker/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script> 
+
+<div id="journal" class="container " style="width: 100%;">
+    <div class="row">
+        <div class="col-md-10">
+            <h4>Журнал событий</h4>
+        </div>
+        <div class="col-md-1">
+            <h4>
+                <select class="form-control" id="agzu" name="agzu">
+                    <option value="">Все</option>
+                        <option value="136">Задвижка №14</option>
+                        <option value="4274">Задвижка №15</option>
+                        <option value="4307">Задвижка №18</option>
+                </select>
+            </h4>
+        </div>
+        <div class="col-md-1">
+            <h4>
+                <input type="button" class="btn btn-default" id="obnov" style=" width 100%;" value="Обновить" onclick="getlastevents()" />
+            </h4>
+        </div>
+    </div>
+    <div id='mess_div' class="row div_events">
+        <table style='margin-bottom:0px;' id='lastalarms_table'></table>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $('#lastalarms_table').jqGrid({
+                caption: "",
+                datatype: 'local',
+                colNames: ['id', 'tag', 'Время ', 'Cобытие'],
+                colModel: [{ name: 'Id', index: 'Id', hidden: true },
+                    { name: 'Tag', index: 'Tag', hidden: true },
+                    {
+                        name: 'Time', index: 'Time', width: '40%', sortable: true, classes: 'lambda_zam_col',
+                        sorttype: 'datetime', formatter: "date", formatoptions: { srcformat: "Y-m-d H:i:s", newformat: "d.m.Y  H:i:s" }
+                    },
+                    { name: 'Message', index: 'Message', width: '150%', sortable: false, classes: 'lambda_zam_col', }
+                ],
+
+                viewrecords: true,
+                height: '100%',
+                width: '900px',
+                scroll: true,
+                sortname: ' Time',
+                sortorder: "asc",
+            });
+
+            var lastalarmsW = document.getElementById('mess_div').offsetWidth;
+            var lastalarmsH = document.getElementById('mess_div').offsetHeight;
+            var journal = document.getElementById('journal').offsetWidth;
+            $("#lastalarms_table").setGridWidth(journal - 5);
+            //$("#lastalarms_table").setGridWidth(lastalarmsW);
+            //$("#lastalarms_table").setGridHeight(lastalarmsH - 30);
+
+
+        });
+
+        function getlastevents(AgzuId) { 
+                if (AgzuId == undefined) { 
+                    AgzuId = document.getElementById("agzu").value;
+                }
+                else if (AgzuId != 0)
+                    document.getElementById("agzu").value = AgzuId;
+            LoadPageOn(); 
+            //читаем алармы
+            $.ajax({ type: "POST", url: "/Alarms/GetCurrentEvents", data: { id: AgzuId }, async: true, success: page_drawEvents, error: page_nodraw });
+        }
+        getlastevents(@Html.Raw(ViewBag.id));
+        setInterval('getlastevents()', 30000);
+
+        function page_drawEvents(data) {
+            //рисуем алармы
+            var scrollPosition;
+            scrollPosition = jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop();
+            $("#lastalarms_table").jqGrid('clearGridData');
+            var countmess = data.length;
+            //  $("#lastalarms_table").setGridParam({ data: data });
+
+            for (var i = data.length - 1; i >= 0 ; i--) {
+                $('#lastalarms_table').jqGrid('addRowData', data[i].Id,
+                {
+                    Id: data[i].Id,
+                    Time: data[i].Time,
+                    Message: data[i].Message,
+                });
+            }
+            jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop(scrollPosition);
+            
+            LoadPageOff();
+        }
+        
+        function page_nodraw(data) {
+            ErrMessage("Не удалось обновить события");
+            LoadPageOff();
+        }
+    </script>
+

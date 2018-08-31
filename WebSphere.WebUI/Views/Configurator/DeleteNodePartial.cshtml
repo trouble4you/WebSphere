@@ -1,0 +1,43 @@
+﻿@model Dictionary<int,string>
+@{
+    var h = Model;
+}
+
+<div id="addNodeModal" class="modal fade" tabindex="-1" style="top:100px;">
+    <div class=" modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">x</button>
+                <h4 class="modal-title">Внимание!</h4>
+            </div>
+            <div class="modal-body">
+                <p><label> Прежде чем удалить данный канал, переназначьте свойства PrimaryChannel или SecondaryChannel для следующих объектов:</label></p>
+                <div id="scrollTable">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Имя</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    <tr><td>@item.Key</td><td>@item.Value</td></tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/Scripts/configurator.js"></script>*@
+<script type="text/javascript">
+    $('#addNodeModal').modal();
+
+
+    //хранит тип объекта при создании нетипизированного узла
+</script>

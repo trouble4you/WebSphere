@@ -68,10 +68,10 @@ namespace WebSphere.WebUI.Controllers
                 foreach (var j in ctAll)
                 {
                     // удаляем из 'caList' занятые контроллеры с экшенами
-                    if (i.Controller == j.Controller && j.Actions[0].Selected)
-                    {
-                        caList.Remove(i);
-                    }
+                    //if (i.Controller == j.Controller && j.Actions[0].Selected)
+                    //{
+                    //    caList.Remove(i);
+                    //}
                 }
             }
 
@@ -312,7 +312,7 @@ namespace WebSphere.WebUI.Controllers
                     model.Actions = actions;
                 }
             }
-            
+
             return PartialView(model);
         }
 
@@ -468,7 +468,7 @@ namespace WebSphere.WebUI.Controllers
             }
 
             ModelState.AddModelError("", "Ошибка, пожалуйста проверьте данные");
-            
+
             return PartialView(model);
         }
 
@@ -644,7 +644,7 @@ namespace WebSphere.WebUI.Controllers
 
             return PartialView(model);
         }
-        
+
         // удаление группы типа контента
         [HttpGet]
         public ActionResult DeleteGroup(string json_string)

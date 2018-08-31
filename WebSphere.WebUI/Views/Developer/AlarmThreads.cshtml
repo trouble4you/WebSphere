@@ -4,18 +4,18 @@
 }   <!-- Styles -->
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
 <link type="text/css" rel="stylesheet" href="/Content/_CSS/Developer/Index.css" />
-<!--  
+<!--
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.css' />
     END -->
 <!-- Scripts -->
 <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/Scripts/_JS/main.js"></script>  
-<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script>  
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script>
 
 <!--<input type="button" onclick=UpdateThreadsStates() value="update"/>-->
 <div onclick=restartalarms() class="eButton">
     <span> Write</span>
-</div> 
+</div>
 <div id="threadStateTableId"></div>
 <style>
     .eButton {
@@ -38,7 +38,7 @@
 <script type="text/javascript">
     function restartalarms() {
         //читаем алармы
-        $.ajax({ type: "POST", url: "/api/Alarms/RestartAlarms", async: true, success: OkMessage("Ok") });
+        $.ajax({ type: "POST", url: "/Alarms/RestartAlarms", async: true, success: OkMessage("Ok") });
     }
     CreateThreadStateTable("threadStateTableId");
     var threadStateTableElement;
@@ -103,7 +103,7 @@
     }
 
     function UpdateThreadsStates() {
-        $.ajax({ type: "POST", url: "/api/alarms/GetAlarmsCfgStates", async: true, success: after_UpdateOpcStates });
+        $.ajax({ type: "POST", url: "/alarms/GetAlarmsCfgStates", async: true, success: after_UpdateOpcStates });
     }
 
     function after_UpdateOpcStates(data) {
@@ -138,7 +138,7 @@
                 data[dataIndex].LoloSeverity
                 );
         }
-        
+
     }
 
 

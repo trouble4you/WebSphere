@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
@@ -17,274 +19,369 @@ namespace WebSphere.WebUI.Controllers
         IJSTree jstree;
         ITagConfigurator tagConfigurator;
         IJSON json;
-        IFileWork filework;
+        public static List<moduleCondition> connectedModules;
+        public static Dictionary<int, string> OPCServersName;
+        public static bool isCopyNow;
+        //public static List<ConfiguratorState> configuratorState = new List<ConfiguratorState>();
 
-        public ConfiguratorController(IJSTree jstree, ITagConfigurator tagConfigurator, IJSON json, IFileWork filework)
+        public ConfiguratorController(IJSTree jstree, ITagConfigurator tagConfigurator, IJSON json)
         {
             this.jstree = jstree;
             this.tagConfigurator = tagConfigurator;
             this.json = json;
-            this.filework = filework;
         }
-
-        //
-        // GET: /Configurator/
         public ActionResult Index()
         {
-            ViewBag.JStreeStr = jstree.CreateJsTree(0);
-            var df = tagConfigurator.GetConnectedModules();
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return View();
+            int rootNodeId = jstree.getRootNodeId();
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            ViewBag.JStreeStr = jstree.CreateJsTreeHelp(rootNodeId);
+
+            sw.Stop();
+            connectedModules = tagConfigurator.GetModules();
+            OPCServersName = tagConfigurator.getOpcServersName();
+            List<moduleCondition> ActiveModules = connectedModules.Where(c => c.isConnected == true).ToList();
+            return View("Index", ActiveModules);
         }
 
+        //public ActionResult WatchUserManipulation(int nodeId)
+        //{
+        //    //if(nodeId!=0)//если на момент вызова ajax запроса пользователем уже был выбран какой-то узел
+        //    //{
+        //        if (ConfiguratorStateList.configuratorStateList.Count == 0)
+        //        {
+        //            ConfiguratorStateList.AddConfNode(nodeId, User.Identity.Name);
+        //        }
+        //        else
+        //        {
+        //            ConfiguratorStateList.CheckPropsChanges(nodeId, User.Identity.Name);
 
-       
-        //Выполняет подмену input'a при добавлении стандартного свойства
-        [HttpPost]
-        public ActionResult ChangeStandartRegExp(string typeNumber, int parentGroup, int idNode)
+        //            //ConfiguratorState nodeState = configuratorState.Where(c => c.NodeId == nodeId).FirstOrDefault();
+        //            //if (nodeState.flags.ChangeProps == true)//если есть изменения свойств 
+        //            //{
+        //            //    bool stateUserNotification = nodeState.Users.First(u => u.UserName == User.Identity.Name).NeedShowNews;
+        //            //    nodeState.Users.First(u => u.UserName == User.Identity.Name).NeedShowNews = false;//выставим для текущего пользователя флаг NeedShowNews в false
+        //            //    if (!nodeState.Users.Any(u => u.NeedShowNews))//проверим есть ли еще пользователи, у которых NeedShowNews true
+        //            //        nodeState.flags.ChangeProps = false;//если нет, то установим флаг ChangeProps в false для узла
+        //            //    if (stateUserNotification == true)//если пользователю нужно показать уведомление
+        //            //        return PartialView("notificationToUserPartial");
+        //            //    else
+        //            //        return Json(new { valid = true }, JsonRequestBehavior.AllowGet);
+        //            //}
+        //            //else
+        //            //    return Json(new { valid = true }, JsonRequestBehavior.AllowGet);
+        //        }
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    return Json(new { valid = true }, JsonRequestBehavior.AllowGet);
+        //    //}
+
+        //}
+
+        [HttpGet]
+        public ActionResult CopyControllerNode(int nodeId)//вспомогательный метод при копировании/вставке узла-контроллера
         {
-            ViewBag.OpcServers = tagConfigurator.getOpcServersName();
-            ViewBag.SelectChannel = tagConfigurator.getChannels();
-            //var connectionStr = jstree.getConnectionProp(idNode);
-            var OPCId = jstree.getOPCID();
-
-            var fff = new AddStandartPropModelHelp();
-            fff.selectValueStd = Convert.ToInt32(typeNumber);
-            fff.ParentGroup = parentGroup;
-            fff.Id = idNode;
-            fff.Opc = OPCId;
-            return PartialView("ChangeInputStandartPropPartial", fff);
-        }
-        //Выполняет подмену input'a при добавлении пользовательского свойства
-        [HttpPost]
-        public ActionResult ChangeRegExp(string typeNumber)
-        {
-            var model = new AddUserPropModel();
-            model.BoolenType = false;
-            model.ByteType = false;
-            model.WordType = false;
-            model.DWordType = false;
-            model.ShortIntType = false;
-            model.SmallIntType = false;
-            model.LongIntType = false;
-            model.FloatType = false;
-            model.DoubleType = false;
-            model.StringType = false;
-
-
-            switch (typeNumber)
+            //if (isCopyNow)//если он уже копируется
+            //    return PartialView("copyBanPartial");
+            //else
+            //{
+            if (jstree.CheckNodeExists(nodeId))//проверим-ка есть ли копируемый узел в базе
             {
-                case "1":
-                    {
-                        model.ByteType = true;
-                        break;
-                    }
-                case "2":
-                    {
-                        model.WordType = true;
-                        break;
-                    }
-                case "3":
-                    {
-                        model.DWordType = true;
-                        break;
-                    }
-                case "4":
-                    {
-                        model.ShortIntType = true;
-                        break;
-                    }
-                case "5":
-                    {
-                        model.SmallIntType = true;
-                        break;
-                    }
-                case "6":
-                    {
-                        model.LongIntType = true;
-                        break;
-                    }
-                case "7":
-                    {
-                        model.FloatType = true;
-                        break;
-                    }
-                case "8":
-                    {
-                        model.DoubleType = true;
-                        break;
-                    }
-                case "9":
-                    {
-                        model.BoolenType = true;
-                        break;
-                    }
-                case "10":
-                    {
-                        model.StringType = true;
-                        break;
-                    }
+                return PartialView("copyControllerPartial");//если существует, то выводим окно об указании имени вставляемого узла
             }
-            return PartialView("ChangeInputUserPropPartial", model);
+            else
+                return PartialView("copyBanPartial", false);//либо выводим окно об отсутствии узла
+            //}
+
+
+
         }
 
-        //Проверка на существование название узла
-        //[HttpGet]
-        //public JsonResult CheckNameNode(string propName)
-        //{
-        //    var data = tagConfigurator.checkExistingNodeName(propName);
-        //    return Json(data, JsonRequestBehavior.AllowGet);
-        //}
+
+        //Добавление узла
+        [HttpGet]
+        public ActionResult AddNode(int idParentElem)
+        {
+
+            if (isCopyNow)
+                return PartialView("copyBanPartial", true);
+            else
+            {
+                var model = new AddNodeModel();
+                if (jstree.CheckNodeExists(idParentElem))
+                {
+
+                    model.idNodeToAdd = idParentElem;
+                    model.nodeType2 = 1;
+                    model.typeParentNode = tagConfigurator.GetNodeType(idParentElem);
+                    return PartialView("addNodePartial", model);
+                }
+                else
+                {
+                    return PartialView("copyBanPartial", false);
+                }
+
+
+            }
+
+        }
 
 
         [HttpPost]
-        public ActionResult DeleteProps(List<string> deletePropsArr, int id)
+        public ActionResult AddNode(AddNodeModel model)
         {
-            tagConfigurator.deleteProps(id, deletePropsArr);
-            return showTabProps(id);
+            if (ModelState.IsValid)
+            {
+                int newNodeId = jstree.addNode(model.Name, model.nodeType2, model.idNodeToAdd);
+                var data = new
+                {
+                    valid = true,
+                    id = newNodeId,
+                    name = model.Name,
+                    type = model.nodeType2
+                };
+                //List<string> userNames = configuratorState.SelectMany(c => c.Users.Select(e => e.UserName)).ToList();//возьмем всех пользователей из configuratorState
+
+                //userNames.Distinct();
+                //userNames.Remove(User.Identity.Name);
+
+                //ConfiguratorState confState = new ConfiguratorState
+                //{
+                //    NodeId = newNodeId,
+                //    Users = new List<ConfiguratorUser> { new ConfiguratorUser { UserName = User.Identity.Name, IsNeedReboot = false, NeedShowNews = false } },
+                //    flags = new Flags { AddNodes = true, ChangeProps = false, DeleteNodes = false }
+                //};
+                //foreach (var item in userNames)//добавим остальных пользователей с выставленным флагом обновления
+                //{
+                //    confState.Users.Add(new ConfiguratorUser { UserName = item, IsNeedReboot = true, NeedShowNews = false });
+                //}
+
+                //configuratorState.Add(confState);
+
+                if (model.nodeType2 == 1)
+                {
+                    OPCServersName.Add(newNodeId, model.Name);
+                }
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return PartialView("addNodeForm", model);
+            }
         }
 
-        //[HttpPost]
-        //public ActionResult DeleteProp(int nodeId, string propForDelete1)
-        //{
-        //    tagConfigurator.deleteProp(nodeId, propForDelete1);
-        //    return showTabProps(nodeId);
-        //}
+        //вставка узла
+        [HttpPost]
+        public ActionResult PasteNode(int idPasteParentElem, int idCopyParentElem, string newContName)
+        {
+            if (isCopyNow)
+                return PartialView("copyBanPartial", true);
+            else
+            {
 
+                if (jstree.CheckNodeExists(idPasteParentElem) && jstree.CheckNodeExists(idCopyParentElem))
+                {
+                    isCopyNow = true;
+                    string newPartOfTree = jstree.pasteNodeRoot(idPasteParentElem, idCopyParentElem, newContName);
 
-        //[HttpPost]
-        ////при добавлении стандартных свойств не учитывается их тип,то есть что писать в json строку "1" или 1
-        //public ActionResult AddProp(string propName, string propValue, int propType, int typeNode, int nodeId)
-        //{
+                    isCopyNow = false;
+                    return Content(newPartOfTree);
+                }
+                else
+                    return PartialView("copyBanPartial", false);
+            }
+        }
 
-        //    tagConfigurator.addProp(propName, propValue, propType, nodeId);
-        //    if (typeNode == 1)
-        //    {
-        //        ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-        //        var tagProps = tagConfigurator.getTagProps(nodeId);
-        //        return PartialView("TagPartial", tagProps);
-        //    }
-        //    if (typeNode == 2)
-        //    {
-        //        var RadioChannelProps = tagConfigurator.getRadioChannelProps(nodeId);
-        //        return PartialView("RadioChannelPartial", RadioChannelProps);
-        //    }
-        //    if (typeNode == 3)
-        //    {
-        //        var GPRSChannelProps = tagConfigurator.getGPRSChannelProps(nodeId);
-        //        return PartialView("GPRSChannelPartial", GPRSChannelProps);
-        //    }
-        //    if (typeNode == 4)
-        //    {
-        //        var ObjectProps = tagConfigurator.getObjectProps(nodeId);
-        //        return PartialView("ObjectPartial", ObjectProps);
-        //    }
-        //    if (typeNode == 5)
-        //    {
-        //        var PollingGroupProps = tagConfigurator.getPollingGroupProps(nodeId);
-        //        return PartialView("PollingGroupPartial", PollingGroupProps);
-        //    }
-        //    if (typeNode == 6)
-        //    {
-        //        var OPCProps = tagConfigurator.getOPCProps(nodeId);
-        //        return PartialView("OPCPartial", OPCProps);
-        //    }
-        //    else
-        //    {
-        //        var noTypeNodeProps = tagConfigurator.getNoTypeNodeProps(nodeId);
-        //        var userProps = tagConfigurator.getUserProps(nodeId);
-        //        var standartProps = tagConfigurator.getStandartProps(nodeId);
-        //        ViewBag.StandartProps = standartProps;
-        //        ViewBag.UserProps = userProps;
-        //        return PartialView("NoTypeNodePartial", noTypeNodeProps);
-        //    }
+        //удаление узла
+        [HttpPost]
+        public void DeleteNode(int idDeleteElem)
+        {
+            List<int> IdToDeleteList = jstree.deleteJsTreeNodeRoot(idDeleteElem);//получим список ID всех объектов, подлежащих удалению.
+            if (IdToDeleteList.Count != 0)
+            {
+                jstree.deleteJsTreeNodeBulk(IdToDeleteList);//Непосредственно удаление
+                if (OPCServersName.Keys.Contains(idDeleteElem))//вдруг удалили OPC сервер.Тогда извлечем его из списка
+                {
+                    OPCServersName.Remove(idDeleteElem);
+                }
+            }
 
-        //}
+        }
+
+        //удаление узла канала
+        [HttpPost]
+        public ActionResult DeleteChannelNode(int channelId, int folderId)
+        {
+            List<int> idDeleteElems = new List<int>();
+            List<int> objectsId = jstree.findObjectNodes();
+
+            List<ObjectProps> objects = new List<ObjectProps>();
+            foreach (var item in objectsId)
+            {
+                objects.Add(tagConfigurator.getObjectProps(item));
+            }
+            if (channelId != 0 && folderId == 0)//если удаляется отдельно узел
+            {
+                idDeleteElems.Add(channelId);
+            }
+            else//если удаляется папка с узлами каналов связи
+            {
+                idDeleteElems = tagConfigurator.getChannelsInFolder(folderId);
+            }
+            //получим те узлы(объекты), которые используют эти каналы
+            List<ObjectProps> busyChannels1 = objects.Where(o => idDeleteElems.Contains(o.PrimaryChannel) || idDeleteElems.Contains(o.SecondaryChannel)).ToList();
+
+            Dictionary<int, string> objectsForView = new Dictionary<int, string>();
+            foreach (var item in busyChannels1)//если есть задействованные узлы, то вернем словарь
+            {
+                objectsForView.Add(item.Id, item.Name);
+            }
+            if (objectsForView.Count != 0)
+            {
+                return PartialView("DeleteNodePartial", objectsForView);
+            }
+            else//если нет, то JSON
+            {
+                var data = new { valid = true };
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         //переименование узла
         [HttpGet]
         public void RenameNode(int idRenameNode, string newNodeName)
         {
-
             var id = idRenameNode;
 
-            int typeProp = tagConfigurator.GetPropType(id);
+            int typeProp = tagConfigurator.GetNodeType(id);
             jstree.renameNode(idRenameNode, newNodeName, typeProp);
-
         }
-        //редактирование нетипизированного узла
-        [HttpPost]
-        public ActionResult EditNoTypesProps(NoTypesPropsHelp model)
+
+        //отображает свойства по клику на узел
+        [HttpGet]
+        public ActionResult showTabProps(int id)
         {
-            //проблема с определением типа во вью. Везде видит инт64 как бы не выходит так тонко провалидировать пользовательские свойства
-            //json строка с польз свойствами
-            string specialProp = model.notypesforSave.special;
-            string forSerialize = "";
-            //если есть пользовательске свойства
-             if (!string.IsNullOrEmpty(specialProp))
-            {
-                forSerialize = "{" + specialProp.Remove(0, 1) + "}";
-            }
+            //получим тип узла по id. В соответствии с типом отобразим  нужное представление
+            List<moduleCondition> ActiveModules = connectedModules.Where(c => c.isConnected == true).ToList();
+            //var node=configuratorState.FirstOrDefault(n => n.NodeId == id);
+            //if(node==null)//если такого узла в просматриваемых нет, то добавим его
+            //{
+            //    ConfiguratorState confState = new ConfiguratorState()
+            //    {
+            //        NodeId = id,
+            //        flags = new Flags { AddNodes = false, ChangeProps = false, DeleteNodes = false },
+            //        Users = new List<ConfiguratorUser>() { new ConfiguratorUser { UserName = User.Identity.Name, NeedShowNews = false, IsNeedReboot = false } }
+            //    };
+            //}
+            //else//если он есть проверим просматривает ли его кто-то другой
+            //{
+            //    var checkUserWatchNode = node.Users.Where(u => u.UserName == User.Identity.Name);//может этот пользователь был списке, потому что пользователь повторно кликнул на узел
+            //    if(!checkUserWatchNode.Any())//если такого просматривающего узел пользователя не было, то добавим его в список пользователей узла
+            //    {
+            //        ConfiguratorUser confUser = new ConfiguratorUser() { UserName = User.Identity.Name, IsNeedReboot = false, NeedShowNews = false };//создадим заготовку нового пользователя узла
+            //        var node2 = configuratorState.FirstOrDefault(x => x.Users.Any(y => y.UserName == User.Identity.Name));//проверим, просматривал ли он до этого другие узлы
+            //        if(node2!=null)//если просмативал
+            //        {
+            //            var user=configuratorState.Select(x => x.Users.First(y => y.UserName == User.Identity.Name)).ToArray();//получим этого пользователя
+            //            //var user2 = configuratorState.Where(x => x.Users.First(y => y.UserName == User.Identity.Name)).ToArray();//получим этого пользователя
+            //            node2.Users.Remove(user[0]);//и удалим из списка
+            //        }
+            //        node.Users.Add(confUser);//добавим этого пользователя в список пользователей этого узла
+            //    }
+            //    var addedNode = configuratorState.Select(n => n.flags.AddNodes == true);
+            //    if(addedNode.Any())
+            //    {
 
-            //собираем сюда возможные ошибки
-            List<ErrorUserProp> test = tagConfigurator.checkUserPropsValidity(forSerialize);
-            //если польз свойства не валидны
-            if (test.Count > 0)
-            {
-                var callBackString = json.Serialize(test);
-                ViewBag.StdPropsValidityError = callBackString;
-            }
+            //    }
 
-            var IdForSave = model.notypesforSave.Id;
+            //}
+            ViewBag.ActiveModules = ActiveModules;
+            int typeProp = tagConfigurator.GetNodeType(id);
+            switch (typeProp)
+            {
+
+                //OPC
+                case 1:
+                    var OPCProps = tagConfigurator.getOPCProps(id);
+                    return PartialView("OPCPartial", OPCProps);
+                //тег 
+                case 2:
+                    ViewBag.OPCservers = OPCServersName;
+                    var tagProps = tagConfigurator.getTagProps(id);
+                    if (tagProps.Alarms == null)
+                    {
+                        WebSphere.Domain.Entities.Alarms alarms = new WebSphere.Domain.Entities.Alarms();
+                        alarms.Permit = false;
+                        tagProps.Alarms = alarms;
+                    }
+                    return PartialView("TagPartial", tagProps);
+                //контроллер
+                case 5:
+                    var ObjectProps = tagConfigurator.getObjectProps(id);
+                    ViewBag.SelectChannel = tagConfigurator.getChannels(id);
+                    return PartialView("ObjectPartial", ObjectProps);
+                //GPRSChannel
+                case 17:
+                    var GPRSChannelProps = tagConfigurator.getGPRSChannelProps(id);
+                    return PartialView("GPRSChannelPartial", GPRSChannelProps);
+                //RadioChannel
+                case 18:
+                    var RadioChannelProps = tagConfigurator.getRadioChannelProps(id);
+                    return PartialView("RadioChannelPartial", RadioChannelProps);
+                //корневой элемент дерева
+                case 23:
+                //узел без свойства(обычная папка)
+                case 21:
+                    return PartialView("NoPropsPartial");
+                //PollingGroup
+                case 22:
+                    var PollingGroupProps = tagConfigurator.getPollingGroupProps(id);
+                    return PartialView("PollingGroupPartial", PollingGroupProps);
+                default:
+                    return PartialView("NoNodePartial");
+            }
+        }
+
+
+        //редактирование узла типа Tag
+        [HttpPost]
+        public ActionResult EditTagProps(TagProps model)
+        {
             if (ModelState.IsValid)
             {
-                //даже если модель, включающая стандартные свойства валидна, смотрим есть ли ошибки в польз-х свойствах
-                if (test.Count > 0)
-                {
-                    ViewBag.Notification = 0;
-                    //перетираем строку модели в соответствии с ошибками
-                }
-                else
-                {
-                    //если валидны и польз и стандратные, то сохраняем
-                    tagConfigurator.saveNoTypesProps1(model);
-                    ViewBag.Notification = 1;
-                }
+                //если валидны и польз и стандратные, то сохраняем
+                var IdForSave = model.Id;
+                tagConfigurator.saveTagProps(model, IdForSave);
+                ViewBag.Notification = 1;
+
+                //ConfiguratorState confState = configuratorState.Where(c => c.NodeId == model.Id).FirstOrDefault();//найдем состояние для данного узла
+                //confState.flags.ChangeProps = true;//установим для узла флаг изменений
+                //for (int i = 0; i < confState.Users.Count; i++)
+                //{
+                //    if (confState.Users[i].UserName != User.Identity.Name)
+                //    {
+                //        confState.Users[i].NeedShowNews = true;
+                //    }
+                //}
+
             }
             else
             {
                 ViewBag.Notification = 0;
             }
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            ViewBag.OPCservers = tagConfigurator.getOpcServersName();
-
-            //здесь собраны станд свойства,полученные с формы (а не из БД) по результатам изменения пользователем
-            //ибо если пользователь исправит  одно из невалидных значений,а другое по результатам исправлений останется невалидным,
-            //то при возвращении формы с ошибками снова вернутся старые значения
-            //и только когда все валидно произойдет сохранение
-            Dictionary<string, dynamic> userProps=new Dictionary<string,dynamic>();
-            if (!string.IsNullOrEmpty(specialProp))
-            {
-                userProps = tagConfigurator.getUserPropsAfterValidate(specialProp);
-            }
-            //var userProps = tagConfigurator.getUserProps(IdForSave);
-            ViewBag.SelectChannel = tagConfigurator.getChannels();
-            ViewBag.UserProps = userProps;
-            var standartProps = tagConfigurator.getStandartProps(IdForSave);
-            ViewBag.StandartProps = standartProps;
-            //если не создать объект класса NoTypeNodeHelp, то при null значении вью дает NullPointerException
-            if(model.notypesModel==null)
-            {
-                var stdProp = new NoTypeNodeHelp();
-                model.notypesModel = stdProp;
-            }
-            return PartialView("NoTypeNodePartial", model);
-            //return PartialView("NoTypeNodePartial");
+            List<moduleCondition> ActiveModules = connectedModules.Where(m => m.isConnected == true).ToList();
+            ViewBag.ActiveModules = ActiveModules;
+            ViewBag.OPCservers = OPCServersName;
+            ViewBag.SelectChannel = tagConfigurator.getChannels(model.Id);
+            return PartialView("TagPartial", model);
         }
 
         //редактирование узла типа Object
+        //[ValidateAntiForgeryToken]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult EditObjectProps(ObjectProps model)
         {
             if (ModelState.IsValid)
@@ -296,35 +393,12 @@ namespace WebSphere.WebUI.Controllers
             else
             {
                 ViewBag.Notification = 0;
-                //ModelState.AddModelError("", "Введены некорректные данные!");
             }
+            List<moduleCondition> ActiveModules = connectedModules.Where(m => m.isConnected == true).ToList();
+            ViewBag.ActiveModules = ActiveModules;
 
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
-            ViewBag.SelectChannel = tagConfigurator.getChannels();
+            ViewBag.SelectChannel = tagConfigurator.getChannels(model.Id);
             return PartialView("ObjectPartial", model);
-        }
-
-        //редактирование узла типа Tag
-        [HttpPost]
-        public ActionResult EditTagProps(TagProps model)
-        {
-            if (ModelState.IsValid)
-            {
-                var IdForSave = model.Id;
-                tagConfigurator.saveTagProps(model, IdForSave);
-                ViewBag.Notification = 1;
-            }
-            else
-            {
-                ViewBag.Notification = 0;
-            }
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
-            ViewBag.OPCservers = tagConfigurator.getOpcServersName();
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("TagPartial", model);
         }
 
         //редактирование узла типа OPC
@@ -341,9 +415,6 @@ namespace WebSphere.WebUI.Controllers
             {
                 ViewBag.Notification = 0;
             }
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
             return PartialView("OPCPartial", model);
         }
 
@@ -361,9 +432,6 @@ namespace WebSphere.WebUI.Controllers
             {
                 ViewBag.Notification = 0;
             }
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
             return PartialView("PollingGroupPartial", model);
         }
         //редактирование узла типа RadioChannel
@@ -380,9 +448,6 @@ namespace WebSphere.WebUI.Controllers
             {
                 ViewBag.Notification = 0;
             }
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
             return PartialView("RadioChannelPartial", model);
         }
         //редактирование узла типа GPRSChannel
@@ -399,431 +464,129 @@ namespace WebSphere.WebUI.Controllers
             {
                 ViewBag.Notification = 0;
             }
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            ViewBag.UserProps = userProps;
             return PartialView("GPRSChannelPartial", model);
         }
 
 
-        //отображает свойства по клику на узел
-        [HttpGet]
-        public ActionResult showTabProps(int id)
-        {
-            //получим тип узла по id. В соответствии с типом отобразим  нужное представление
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            int typeProp = tagConfigurator.GetPropType(id);
-            switch (typeProp)
-            {
-                //тег 
-                case 2:
-                    ViewBag.OPCservers = tagConfigurator.getOpcServersName();
-                    var userPropsTag = tagConfigurator.getUserProps(id);
-                    ViewBag.UserProps = userPropsTag;
-                    var tagProps = tagConfigurator.getTagProps(id);
-                    return PartialView("TagPartial", tagProps);
-                case 7:
-                case 5:
-                    var ObjectProps = tagConfigurator.getObjectProps(id);
-                    //словарь с пользовательскими свойствами
-                    var userPropsObject = tagConfigurator.getUserProps(id);
-                    ViewBag.driversName = filework.getDriversName(); 
-                    ViewBag.UserProps = userPropsObject;
-                    ViewBag.SelectChannel = tagConfigurator.getChannels();
-                    return PartialView("ObjectPartial", ObjectProps);
-                //OPC
-                case 1:
-                    var userPropsOPC = tagConfigurator.getUserProps(id);
-                    ViewBag.UserProps = userPropsOPC;
-                    var OPCProps = tagConfigurator.getOPCProps(id);
-                    return PartialView("OPCPartial", OPCProps);
-                //узел без свойства(обычная папка)
-                case 21:
-                return PartialView("NoPropsPartial");
-                //PollingGroup
-                case 22:
-                var PollingGroupProps = tagConfigurator.getPollingGroupProps(id);
-                var userPropsPollingGroup = tagConfigurator.getUserProps(id);
-                ViewBag.UserProps = userPropsPollingGroup;
-                return PartialView("PollingGroupPartial", PollingGroupProps);
-                //RadioChannel
-                case 18:
-                var RadioChannelProps = tagConfigurator.getRadioChannelProps(id);
-                var userPropsRadioChannel = tagConfigurator.getUserProps(id);
-                ViewBag.UserProps = userPropsRadioChannel;
-                return PartialView("RadioChannelPartial", RadioChannelProps);
-                //GPRSChannel
-                case 17:
-                var GPRSChannelProps = tagConfigurator.getGPRSChannelProps(id);
-                var userPropsGPRSChannel = tagConfigurator.getUserProps(id);
-                ViewBag.UserProps = userPropsGPRSChannel;
-                return PartialView("GPRSChannelPartial", GPRSChannelProps);
-                //пользовательский узел
-                default:
-                //получаем 2 типа для передачи. 
-                //словарь типа динамик
-                //получаем стандартные свойства
-                NoTypeNodeHelp noTypeNodeProps = tagConfigurator.getNoTypeNodeProps(id);
-                //получаем объект, содержащий строковое поле для пользовательских свойств, а также поля Id, Name
-                NoTypesProps noTypeNodeIdName = tagConfigurator.getNoTypeNodePropsIdName(id);
-                //объект для передачи в частичное представление
-                NoTypesPropsHelp model = new NoTypesPropsHelp();
+        ////диалогое окно с модулями для подключения
+        //[HttpGet]
+        //public ActionResult showModulesToConnect()
+        //{
 
-                //получим узлы типа канал(радио, жпрс)
-                ViewBag.SelectChannel = tagConfigurator.getChannels();
-                //получим узлы типа OPC-сервер
-                ViewBag.OPCservers = tagConfigurator.getOpcServersName();
-                //строка подключения
-                //string ConnString =jstree.getConnectionProp(id);
-                int OPCid=jstree.getOPCID();
-                noTypeNodeProps.Opc = OPCid;
+        //    List<moduleCondition> avaibleModules = tagConfigurator.modulesToConnect();
+        //    //return PartialView("addModulePartial", avaibleModules);
+        //    return PartialView("addModulePartial", connectedModules);
+        //}
 
-                model.notypesforSave = noTypeNodeIdName;
-                model.notypesModel = noTypeNodeProps;
-
-
-                //словарь с пользовательскими свойствами
-                var userProps = tagConfigurator.getUserProps(id);
-                //словарь со стандартными свойствами
-                var standartProps = tagConfigurator.getStandartProps(id);
-                ViewBag.StandartProps = standartProps;
-                ViewBag.UserProps = userProps;
-
-                return PartialView("NoTypeNodePartial", model);
-            }
-        }
-        //диалогое окно с модулями для подключения
-        [HttpGet]
-        public ActionResult showModulesToConnect()
-        {
-            List<moduleCondition> avaibleModules = tagConfigurator.modulesToConnect();
-            return PartialView("addModulePartial", avaibleModules);
-        }
         //меняет состояние модуля (активен/нет)
         [HttpGet]
-        public ActionResult ChangeStatus(int id, string moduleStatus)
+        public ActionResult ChangeModuleStatus(int id, string moduleStatus)
         {
-            tagConfigurator.changeStatus(id, moduleStatus);
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("ModulesListPartial");
+            tagConfigurator.ChangeModuleStatus(id, moduleStatus);
+            moduleCondition module = connectedModules.Where(m => m.idModule == id).FirstOrDefault();
+            module.isRun = moduleStatus;
+            List<moduleCondition> ActiveModules = connectedModules.Where(m => m.isConnected == true).ToList();
+            return PartialView("ModulesListPartial", ActiveModules);
+        }
+
+        //Диалоговое окно для добавления модуля
+        [HttpGet]
+        public ActionResult AddModule()
+        {
+            //ViewBag.ModulesToAdd = tagConfigurator.AddModuleDialog();
+            List<moduleCondition> modules = tagConfigurator.GetModules();
+            List<moduleCondition> model = modules.Where(m => m.isConnected == false).ToList();
+            return PartialView("addModulePartial", model);
+        }
+
+        [HttpPost]
+        public ActionResult AddModule(List<moduleCondition> model)
+        {
+            //добавить фунцию для отправки данных и посмотреть закрывается ли диалог окно
+            List<int> connectedBefore = connectedModules.Select(m => m.idModule).ToList();
+            List<int> connectedAfter = model.Where(m => m.isConnected == true).Select(m => m.idModule).ToList();
+            List<int> connectNewModuleHelp = connectedBefore.Union(connectedAfter).ToList();//получим ID модулей, которые являются подключенными
+            List<int> connectNewModule = connectNewModuleHelp.Except(connectedBefore).ToList();
+            if (connectNewModule.Count() != 0) //если появились модули, которых нет в глобальном статическом списке, то надо их туда добавить
+            {
+                List<moduleCondition> connectedAfterModules = model.Where(m => connectNewModule.Contains(m.idModule)).ToList();
+                foreach (moduleCondition item in connectedAfterModules)
+                {
+                    connectedModules.Add(item);
+                }
+            }
+            //поменяем состояние модуля на подключено
+            foreach (var item in connectedAfter)
+            {
+                moduleCondition module = connectedModules.Where(m => m.idModule == item).FirstOrDefault();
+                module.isConnected = true;
+            }
+            //connectedModules = model;
+            tagConfigurator.AddModule(connectedAfter);
+            List<moduleCondition> ActiveModules = connectedModules.Where(m => m.isConnected == true).ToList();
+            return PartialView("ModulesListPartial", ActiveModules);
+
         }
         //удаление модуля
         [HttpGet]
         public ActionResult DeleteModule(int id)
         {
+            moduleCondition module = connectedModules.Find(m => m.idModule == id);
+            module.isConnected = false;
             tagConfigurator.deleteModule(id);
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("ModulesListPartial");
-
+            List<moduleCondition> ActiveModules = connectedModules.Where(m => m.isConnected == true).ToList();
+            return PartialView("ModulesListPartial", ActiveModules);
         }
-        //добавление стандартного свойства
+
         [HttpPost]
-        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult AddStandartProp(AddStandartPropModelHelp model)
+        public PartialViewResult AddEvent(TagProps model) //вспомогательный метод для добавления событий тегу
         {
-            //имя свойства
-            var propName = ModelState.Keys.ElementAt(2);
-            //список уже существующих стандратных свойств
-            var standartProps = tagConfigurator.getStandartProps(model.Id);
-            if (standartProps.ContainsKey(propName))
+            var newEvent = new WebSphere.Domain.Entities.EventValMessage { Value = 0, Message = "Сообщение сигнала с ID=" + model.Id };
+            if (model.Events.EventMessages == null)
             {
-                ModelState.AddModelError("selectValueStd", "Свойство уже добавлено");
+                var evMsgList = new List<WebSphere.Domain.Entities.EventValMessage>();
+                model.Events.EventMessages = new List<WebSphere.Domain.Entities.EventValMessage>();
+
             }
+            model.Events.EventMessages.Add(newEvent);
 
-            if (ModelState.IsValid)
-            {
-                var dsdds = ModelState.Values.ElementAt(2).Value.AttemptedValue;
-                PropertyInfo pi = model.GetType().GetProperty(propName);
-                string value = "";
-                //подготовим данные для записи в json строку
-                if (pi.PropertyType == typeof(string))
-                {
-                    value = "\"" + dsdds + "\"";
-                }
-                else if (pi.PropertyType == typeof(bool))
-                {
-                    switch (model.selectValueStd)
-                    {
-                        case 3:
-                            {
-                                var boolExp = model.Alarm_IsPermit;
-                                value = "\"" + boolExp.ToString().ToLower() + "\"";
-                                break;
-                            }
-                        case 22:
-                            {
-                                var boolExp = model.History_IsPermit;
-                                value = "\"" + boolExp.ToString().ToLower() + "\"";
-                                break;
-                            }
-                        case 25:
-                            {
-                                var boolExp = model.IsSpecialTag;
-                                value = "\"" + boolExp.ToString().ToLower() + "\"";
-                                break;
-                            }
-                        case 49:
-                            {
-                                var boolExp = model.Connect;
-                                value = "\"" + boolExp.ToString().ToLower() + "\"";
-                                break;
-                            }
-                    }
-                }
-                else
-                {
-                    value = dsdds;
-                }
-                string forWrite = ",\"" + propName + "\":" + value;
-                tagConfigurator.addProp(forWrite, model.Id);
-
-                //отправим в onSuccess функцию данные с результатом true, чтобы обновилась
-                //страница с перечнем свойств и закрылось окно добавления свойств
-                var data = new { valid = true };
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return PartialView("addStandartPropPartial", model);
-            }
-
-
+            return PartialView("AddEventPartial", model);
         }
 
-
-
-
-        //Добавление пользовательского свойства
-        [HttpPost]
-        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult AddUserProp(AddUserPropModel model)
-        {
-            //Название совпадает со стандартным
-            List<string> propsNames = new List<string>{
-            
-            "special","Id","Name","Opc","Connection", "Alarm_IsPermit","HiHiText","HiText","NormalText","LoText", "LoLoText", "HiHiSeverity", "HiSeverity","LoSeverity",
-            "LoLoSeverity", "ControllerType","RealType", "RealType","Register","AccessType", "Order","InMin", "InMax", "OutMin", "OutMax",
-            "History_IsPermit","RegPeriod",  "Deadbend", "IsSpecialTag", "ChannelType", "InterPollPause", "MaxErrorsToSwitchChannel",
-            "MaxErrorsToBadQuality", "TimeTryGoBackToPrimary","IpAddress", "Port", "ReadTimeout", "WriteTimeout","PortName", "BaudRate","Parity",
-            "StopBits", "Address","Driver", "RetrCount", "ParentGroup","PrimaryChannel", "SecondaryChannel","Start","Count", "Function", "Type","Connect"
-            };
-
-            if (propsNames.IndexOf(model.Name) != -1)
-            {
-                ModelState.AddModelError("Name", "Совпадает с названием стандартного свойства");
-            }
-            if(model.selectValue==10)
-            {
-                var validString = tagConfigurator.checkUserStrProp(model.StringValue);
-                if(validString==false)
-                {
-                    ModelState.AddModelError("StringValue", "Строка содержит запрещенные символы");
-                }
-            }
-            Dictionary<int, string> standartPropTypes = new Dictionary<int, string>
-                { {1,"byte"},
-                {2, "word"},
-                {3, "dword"},
-                {4, "shortInt"},
-                {5, "smallInt"},
-                {6, "longInt"},
-                {7, "float"},
-                {8, "double"},
-                {9, "bool"},
-                {10,"string"} };
-
-            var userProps = tagConfigurator.getUserProps(model.Id);
-            //var standartProps = tagConfigurator.getStandartProps(model.Id);
-            var upgradeName = model.Name + "_" + standartPropTypes[model.selectValue];
-            if (!String.IsNullOrEmpty(model.Name))
-            {
-                if (userProps.ContainsKey(upgradeName))
-                {
-                    ModelState.AddModelError("Name", "Свойство с таким названием уже добавлено");
-                }
-            }
-
-            if (ModelState.IsValid)
-            {
-                var propName = model.Name;
-                //var stdTypeName = ModelState.Keys.Last();
-                var propValue = ModelState.Values.Last().Value.AttemptedValue;
-
-                //PropertyInfo pi = model.GetType().GetProperty(stdTypeName);
-
-                string value = "";
-                //подготовим свойство для записи в строку в зависимости от типа, который выбрал пользователь
-                switch (model.selectValue)
-                {
-                        //строковое
-                    case 10:
-                        value = "\"" + propValue + "\"";
-                        break;
-                    //булево
-                    case 9:
-                        value = (model.BoolenValue).ToString().ToLower();
-                        break;
-                    //float double
-                    case 7:
-                    case 8:
-                        value = propValue.Replace(",", ".");
-                        break;
-                        //value = propValue.Replace(",", ".");
-                        //break;
-                    default:
-                        value = propValue;
-                        break;
-                }
-                //в дополнение к имени, которое вписал пользователь, будет прописан тип, выбранный юзером
-                //дабы суметь валидировать измененное значение
-                string forWrite = ",\"" + propName + "_" + standartPropTypes[model.selectValue] + "\":" + value;
-                //пишем в базу
-                tagConfigurator.addProp(forWrite, model.Id);
-                //даем знать странице, что диалоговое окно надо надо закрыть, контейнер со свойствами перерисовать
-                //улетает в checkValid
-                var data = new { valid = true };
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return PartialView("addUserPropPartial", model);
-            }
-        }
-        //отображение диалогового окна добавления свойств
-        [HttpGet]
-        public ActionResult AddPropDialog(int idNode)
-        {
-            //получим OPC сервера
-            var OpcServers = tagConfigurator.getOpcServersName();
-            ViewBag.OpcServers = OpcServers;
-            //строка подключения
-            //var connectionStr = jstree.getConnectionProp(idNode);
-            //ID сервера к которому относится узел
-            var OPCId = jstree.getOPCID();
-            //получим родительский узел
-            var parentGroup = tagConfigurator.getParentGroup(idNode);
-            //каналы
-            ViewBag.SelectChannel = tagConfigurator.getChannels();
-            var model = new AddPropViewModel();
-            var userModel = new AddUserPropModel();
-            var standartModel = new AddStandartPropModelHelp();
-            //проинициализируем объекты пользовательских и стандартных свойств
-            userModel.selectValue = 9;
-            userModel.BoolenType = true;
-            userModel.Id = idNode;
-            standartModel.selectValueStd = 1;
-            standartModel.ParentGroup = parentGroup;
-            standartModel.Id = idNode;
-            standartModel.Opc = OPCId;
-
-            model.userPropModel = userModel;
-            model.standartPropModel = standartModel;
-            //ViewBag.ModulesToAdd = tagConfigurator.AddModuleDialog();
-            //ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("addPropPartial", model);
-        }
-        //показывает окно добавления свойств для типизированных узлов(могут быть добавлены только пользовательские свойства)
-        [HttpGet]
-        public ActionResult AddPropDialogTypedNode(int idNode)
-        {
-            var OpcServers = tagConfigurator.getOpcServersName();
-            var parentGroup = tagConfigurator.getParentGroup(idNode);
-            ViewBag.OpcServers = OpcServers;
-            ViewBag.SelectChannel = tagConfigurator.getChannels();
-            ViewBag.ParentGroup = parentGroup;
-            var userModel = new AddUserPropModel();
-
-            userModel.selectValue = 9;
-            userModel.BoolenType = true;
-            userModel.Id = idNode;
-            return PartialView("addPropPartialTypedNode", userModel);
-        }
-        //выводит диалог для сохранения при переключения на другую вкладку при имеющихся несохраненных свойствах
-        [HttpGet]
-        public ActionResult SaveDialog()
-        {
-            return PartialView("SaveDialogPartial");
-        }
-        //Диалоговое окно для добавления модуля
-        [HttpGet]
-        public ActionResult AddModuleDialog()
-        {
-            ViewBag.ModulesToAdd = tagConfigurator.AddModuleDialog();
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("addModulePartial");
-        }
-        //Не удалять!!! не получилось, надо проанализировать почему
         //[HttpGet]
-        //public ActionResult AddNode1(int idParentElem)
+        //public string СheckTreeUpdates()//при клике на узел проверим проводились ли манипуляции с деревом
         //{
-        //    var model = new AddNodeModel();
-        //    model.idNodeToAdd = idParentElem;
-        //    model.nodeType = 1;
-        //    ViewBag.ForDefaultNode = jstree.findObjForDefaultNode();
-        //    return PartialView("addNodeAigPartial", model);
+        //    //список на случай если 2 пользователя что-то добавили или удалили
+        //    //List<ConfiguratorState> treeUpdate = configuratorState.Where(c => c.flags.AddNodes == true || c.flags.DeleteNodes == true).ToList();
+        //    //если изменения были таки
+        //    //if (treeUpdate != null)
+        //    //{
+        //    //    foreach (var item in treeUpdate)
+        //    //    {
+        //    //        List<string> treeUpdateUsers = item.Users.Select(u => u.UserName).ToList();
+        //    //        //проверка на случай если сейчас пользователь которого либо добавили до изменений либо пользователь не был в конфигураторе на момент изменений
+        //    //        if (treeUpdateUsers.Contains(User.Identity.Name))
+        //    //        {
+        //    //            item.Users.First(u => u.UserName == User.Identity.Name).IsNeedReboot = false;
+        //    //        }
+        //    //        var lala = item.Users.Select(t => t.IsNeedReboot == true);//проверим у всех ли пользователей перезагрузилось дерево
+        //    //        if (lala == null)//если у всех теперь IsNeedReboot=true
+        //    //            item.flags.AddNodes = false;
+
+        //    //    }
+        //    //    int rootNodeId = jstree.getRootNodeId();
+        //    //    string newTree = jstree.CreateJsTreeHelp(rootNodeId);
+
+        //    //    return newTree;
+
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    return "0";
+        //    //}
+
         //}
-       
-
-        //[HttpPost]
-        //public ActionResult AddNode1(AddNodeModel model)
-        //{
-        //    var existName = tagConfigurator.checkExistingNodeName(model.Name);
-
-        //    if (existName == true)
-        //    {
-        //        ModelState.AddModelError("Name", "Узел с таким названием уже существует");
-        //    }
-        //    if(ModelState.IsValid)
-        //    {
-        //        jstree.addNode(model.Name, model.nodeType, model.idNodeToAdd, model.userNodeObjType);
-        //        var data = new { valid = true };
-        //        return Json(data, JsonRequestBehavior.AllowGet);
-
-        //    }
-        //    else
-        //    {
-        //        ViewBag.ForDefaultNode = jstree.findObjForDefaultNode();
-        //        return PartialView("addNodePartial1", model);
-        //    }
-        //}
-
-        //диалоговое окно добавления узла
-        [HttpGet]
-        public ActionResult AddNodeDialog(int idParentElem)
-        {
-
-            ViewBag.ForDefaultNode = jstree.findObjForDefaultNode();
-            return PartialView("addNodePartial", idParentElem);
-
-        }
-        //запись в базу нового узла
-        [HttpPost]
-        public void AddNode(AddNodeModel model)
-        {
-            jstree.addNode(model.Name, model.nodeType, model.idNodeToAdd, model.userNodeObjType);
-        }
-
-        [HttpGet]
-        public ActionResult AddModule(List<string> idModStr)
-        {
-            //добавить фунцию для отправки данных и посмотреть закрывается ли диалог окно 
-            tagConfigurator.AddModule(idModStr);
-            ViewBag.ActiveModules = tagConfigurator.GetConnectedModules();
-            return PartialView("ModulesListPartial");
-
-        }
-        //вставка узла
-        [HttpPost]
-        public void PasteNode(int idPasteParentElem, int idCopyParentElem)
-        {
-            jstree.pasteNode(idPasteParentElem, idCopyParentElem);
-        }
-        //удаление узла
-        [HttpPost]
-        public void DeleteNode(int idDeleteElem)
-        {
-            jstree.deleteJsTreeNode(idDeleteElem);
-        }
 
     }
 }

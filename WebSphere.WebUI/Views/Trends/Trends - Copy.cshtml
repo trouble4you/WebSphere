@@ -1,0 +1,348 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model WebSphere.WebUI.Models.MyTrendPage
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<script src='/Scripts/_JS/MyTime.js' type='text/javascript'></script>
+<script type="text/javascript" src="/Scripts/_JS/datetimepicker/jquery.datetimepicker.js"></script>
+
+<script src='/Scripts/_JS/Trends/jquery.flot.js' type='text/javascript'></script>
+<script src='/Scripts/_JS/Trends/jquery.flot.selection.js' type='text/javascript'></script>
+<script src='/Scripts/_JS/Trends/jquery.flot.canvas.js' type='text/javascript'></script>
+<script src='/Scripts/_JS/Trends/jquery.flot.crosshair.js' type='text/javascript'></script>
+<script src='/Scripts/_JS/Trends/jquery.flot.time.js' type='text/javascript'></script>
+<script src='/Scripts/_JS/Trends/jquery.flot.legendoncanvas.js.js' type='text/javascript'></script>
+
+<script src="/Scripts/_JS/Trends/trends.js"></script>
+<script src="/Scripts/_JS/AdditionalFunctions.js"></script>
+
+
+<script type="text/javascript">
+
+    var global_object_id = @Model.object_id;
+    var start_date = @Model.start_date;
+    var end_date = @Model.end_date;
+    var  object_type_str= '@Model.object_type_str';
+    var  object_name = '@Model.object_name';
+
+    var signals_array = {
+        @{
+            int i = 0;
+            foreach (var a in Model.signals)
+            {
+                if(i > 0) { <text>, </text> }
+                @:@a["signal_id"]: "@a["signal_name"]"
+                                i++;
+            }
+        }
+
+    };
+    var p1=0, p2=0, p3=0, p4=0, p5=0, p6=0;
+  function  change_signal(p)
+    {
+        switch (p) {
+        case 1:
+            if (p1 != 0)
+                RemoveTrendFromPlot(p1);
+        case 2:
+            if (p2 != 0)
+                RemoveTrendFromPlot(p2);
+        case 3:
+            if (p3 != 0)
+                RemoveTrendFromPlot(p3);
+        case 4:
+            if (p4 != 0)
+                RemoveTrendFromPlot(p4);
+        case 5:
+            if (p5 != 0)
+                RemoveTrendFromPlot(p5);
+        case 6:
+            if (p6 != 0)
+                RemoveTrendFromPlot(p6);
+        }
+      var el = document.getElementById("del_trend_" + p);
+      var tr = document.getElementById("trend_" + p + "s");
+
+      AddClick(tr.value);
+          if(p==1)p1=tr.value;
+          if(p==2)p2=tr.value;
+          if(p==3)p3=tr.value;
+          if(p==4)p4=tr.value;
+          if(p==5)p5=tr.value;
+          if(p==6)p6=tr.value;
+      el.setAttribute("onclick", "DelClick("+tr.value+","+p+")");
+      var color = document.getElementsByName("trend_color_" + p);
+      color[0].id="trend_color_"+tr.value;
+      var value = document.getElementsByName("trend_value_" + p);
+      value[0].id="trend_value_"+tr.value;
+      el.style.display="block";
+
+
+  }
+  function  change_signal_mask()
+  {
+      var el = document.getElementById("signal_mask");
+      var journal = @Model.object_id;
+
+          $.ajax({
+              type: "POST", url: '@Url.Action("GetMaskSignals", "Trends")?id=' + journal + '&signs=' + el.value, async: false,
+              success: update__signals
+          });
+
+  }
+    function update__signals(data){
+
+
+        for(  var j = 1;j<=6;j++){
+            var combo= '#trend_'+j+'s';
+            var tr = document.getElementById("trend_" + j + "s");
+            if ( tr.value>0)
+                continue;
+            $(combo).empty();
+            var option_clean = document.createElement("option");
+            option_clean.text = '' ;
+            option_clean.value = 0;
+            $(combo).append($(option_clean));
+            for(  var i = 0;i<data.length;i++){
+                var option = document.createElement("option");
+                option.text = data[i].signal_name ;
+                option.value = data[i].signal_id;
+                $(combo).append($(option));
+            }
+
+
+        }
+    }
+
+</script>
+
+<div style=" position absolute; z-index 0; right 0px; min-width 887px; left 0px; top 205px; bottom 0px;">
+    <table width="100%" height="100%" style="box-sizing:border-box;border: 2px solid blue;">
+
+        <tr>
+            <td id="report_menu" style="box-sizing:border-box;border: 2px solid blue;position:relative;width:300px;height:100%;padding:10px; border-width:2px; top:0px; left:0px; ">
+                <table id="report_menu_table" style="position:relative;width:100%;height:100%;  border-width:2px; top:0px; left:0px">
+                    <tr>
+                        <td>
+                            <span style="position:absolute;width:100%;height:10%; border-width:2px; top:0px; left:0px;vertical-align:middle">
+                                <span style="width:100%; font-weight: bold; font-size: 14px; position: relative; align-self:center;top: 0px; color:#336666;margin-top:5px">@Model.object_type_str: <a href="/">@Model.object_name</a></span><br />
+                                <b>Выбор сигнала</b><br />
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span style="position:absolute;width:100%;height:10%; border-width:2px; top:40px; left:0px;vertical-align:middle">
+                                <span style="width:100%; font-weight: bold; font-size: 14px; position: relative; align-self:center;top: 0px; color:#336666;margin-top:5px">
+                                    Фильтр:
+                                    <select id="signal_mask" name="signal_mask" onchange="change_signal_mask()" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                        <option value="0"></option>
+                                        <option value='"МГББ.'>МГББ</option>
+                                        <option value='"МГББ.КШ'>МГББ.КШ</option>
+                                        <option value='"ПК.'>ПК</option>
+                                        <option value='"ПУЗГ.'>ПУЗГ</option>
+                                        <option value='"ПГ5.'>ПГ5</option>
+
+                                    </select>
+
+
+                                </span><br />
+
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <div style="position:absolute;width:100%;height:90%; border-width:2px; top:10%; left:0px; overflow-y:auto;overflow-x:hidden">
+                                <table>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_1' name='trend_color_1' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_1s" name="trend_1s" onchange="change_signal(1)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_1" name="trend_value_1" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_1" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_2' name='trend_color_2' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_2s" name="trend_2s" onchange="change_signal(2)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_2" name="trend_value_2" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_2" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_3' name='trend_color_3' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_3s" name="trend_3s" onchange="change_signal(3)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_3" name="trend_value_3" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_3" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_4' name='trend_color_4' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_4s" name="trend_4s" onchange="change_signal(4)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_4" name="trend_value_4" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_4" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_5' name='trend_color_5' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_5s" name="trend_5s" onchange="change_signal(5)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_5" name="trend_value_5" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_5" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td valign='middle'>
+                                            <div id='trend_color_6' name='trend_color_6' class='trend_color'>
+                                            </div>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <select id="trend_6s" name="trend_6s" onchange="change_signal(6)" style="width: 160px; height: 24px; font-weight: bold; font-size: 15px; position: relative; align-self: center; top: 0px; color: #336666">
+
+                                                <option value="0"></option>
+                                                @foreach (var b in Model.signals)
+                                                {
+                                                    <option value="@b["signal_id"]">@b["signal_name"]</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <input type="text" id="trend_value_6" name="trend_value_6" style="position: relative; width: 80%; height: 24px; max-height: 28px; ">
+                                        </td>
+                                        <td class='trends_names' valign='middle' style="font-size: 12px">
+                                            <img id="del_trend_6" src="/Content/_Img/delete.png" style="position: relative; height: 18px; cursor: pointer; display: none; " />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td id="report_content" style="position:relative;height:100%; padding:10px; box-sizing:border-box;border: 2px solid blue; ">
+                <!-- Меню управление -->
+                <div style="position:relative; width:100%; height:100%;">
+
+
+                    <div style="position:absolute; width:100%; height:10%;align-self:center">
+                        <input type="button" onclick="Last5Mins()" value="Последние 5 минут" />
+                        <input type="button" onclick="Range60mins()" value="1 час" />
+                        <input type="button" onclick="RangeDay()" value="День" />
+                        <input type="button" onclick="RangeWeek()" value="Неделя" />
+                        От: <input id="datetimepicker_start" type="text" style=" width:15%; "> до: <input id="datetimepicker_end" type="text" style=" width:15%; ">
+                        <input type="button" value=">" onclick="PeriodRange()" />
+                        <input type="text" id="y_value" value="0" style="position:relative; width:10%; height:100%;max-height:28px;" />
+                        <input src="/Content/_Img/goleft.png" style="width: 20%;vertical-align:middle; max-width:28px; padding: 2px; " type="image" onclick="RangeLeft()" value="" />
+                        <input src="/Content/_Img/goright.png" style="width: 20%;vertical-align:middle;max-width:28px; padding: 2px; " type="image" onclick="RangeRight()" value="" />
+                        <input src="/Content/_Img/zoomin.png" style="width: 20%;vertical-align:middle;max-width:28px; padding: 2px; " type="image" onclick="RangePlus()" value="" />
+                        <input src="/Content/_Img/zoomout.png" style="width: 20%;vertical-align:middle;max-width:28px; padding: 2px; " type="image" onclick="RangeMinus()" value="" />
+                        <input src="/Content/_Img/arrow_vert2.png" style="width: 20%;vertical-align:middle;max-width:28px; padding: 2px; " type="image" onclick="Switch_Y()" value="" />
+                        <input src="/Content/_Img/print.png" style="width: 20%;vertical-align:middle;max-width:28px; padding: 2px; " type="image" onclick="Print()" value="" />
+
+                    </div>
+                </div>
+                <div style="position:absolute; top:5%;width:90%; height:90%; margin:auto;">
+                    <div id="placeholder" style=" width:100%; height:100%; margin:auto;"></div>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="wrap_back" style="display: none;" id='loading'>
+    <div class="loading_window"><img src='/Content/_Img/loading.gif' /></div>
+</div>
+
+
+
+
+
+
+
+

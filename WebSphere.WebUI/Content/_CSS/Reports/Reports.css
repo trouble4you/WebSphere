@@ -12,10 +12,18 @@
   .div_journal {
     cursor: default;
     overflow: scroll;
-    border: 1px solid #848C99;
-    background-color: #C8CACE;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(215, 200, 200, 0.35) 50%,hsla(0, 16%, 81%, 0.35) 50%,rgba(254,254,254,1) 100%);
     position: absolute;
-    top: 355px;
+    top: 155px;
+    bottom: 1px;
+    width: 100%;
+} 
+   .div_events {
+    cursor: default;
+    overflow: scroll;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(215, 200, 200, 0.35) 50%,hsla(0, 16%, 81%, 0.35) 50%,rgba(254,254,254,1) 100%);
+    position: absolute;
+    top: 105px;
     bottom: 1px;
     width: 100%;
 }
@@ -30,11 +38,11 @@
 }
 .div_daterange_journal {
     position: absolute;
-    left: 1px;
+   /* left: 1px;
     width: 30%;
     right: 80px;
+    border: 0px solid black;*/
     top: 45px;
-    border: 0px solid black;
 }
 .div_daterange3_journal {
     position: absolute;
@@ -45,6 +53,6 @@
     top: 35px;
     border: 0px solid black;
 }
-.div_lastot4_head   { box-sizing:border-box;position: absolute;top: 0;width:100%;padding-left: 50px;padding-bottom: 4px;padding-top: 4px;font-size: 16px;font-weight: bold;border: 1px #848C99 solid;background-color: #AEAEAE; }
+.div_lastot4_head   { border: 1px #848C99 solid;background-color: #AEAEAE; }
 
 .ex_export{padding: 1px 10px 1px 10px !important; font-size: 12px !important; position: absolute; right: 4px; top: 4px;}

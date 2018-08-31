@@ -4,33 +4,46 @@ namespace WebSphere.WebUI.Controllers
 {
     public class DeveloperController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
-        { 
-            return View("Developer");
+        {
+            return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(string users = "")
+        {
+            return PartialView("OpcThreads");
+        }
+
 
         public ActionResult ThreadsStates()
-        { 
+        {
             return View("TagsThreads");
         }
-
-        public ActionResult OpcStates()
-        { 
-            return View("OpcThreads");
+        public ActionResult Summ()
+        {
+            return View();
         }
-
+        [HttpGet]
+        public ActionResult OpcThreads()
+        {
+            return PartialView();
+        }
+        [HttpGet]
         public ActionResult AlarmCfgStates()
-        { 
-            return View("AlarmThreads");
+        {
+            return PartialView("AlarmThreads");
         }
-
+        [HttpGet]
         public ActionResult AlarmStates()
-        { 
-            return View("Alarms");
+        {
+            return PartialView("Alarms");
         }
+        [HttpGet]
         public ActionResult ReportCheck()
         {
-            return View("ReportCheck");
+            return PartialView();
         }
     }
 }

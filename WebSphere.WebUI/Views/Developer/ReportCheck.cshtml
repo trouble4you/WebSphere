@@ -1,15 +1,12 @@
-﻿@{
-    ViewBag.Title = "Web Telemetry System «WebSphere»";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}  <!-- Styles -->
+﻿ <!-- Styles -->
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
 <link type="text/css" rel="stylesheet" href="/Content/_CSS/Developer/Index.css" />
-<!-- 
+<!--
     <link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.css' />
     END -->
 <!-- Scripts -->
 <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/Scripts/_JS/main.js"></script>  
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
 
 <style>
     .eButton {
@@ -34,7 +31,7 @@
 
 <div onclick=WriteTag() class="eButton">
     <span> Write</span>
-</div>  
+</div>
 <script type="text/javascript">
     CreateThreadStateTable("threadStateTableId");
     var threadStateTableElement;
@@ -68,7 +65,7 @@
         cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = value; cell.style.width = "100px";
         cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = time; cell.style.width = "100px";
         cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = qual; cell.style.width = "100px";
-        
+
     }
 
     function AddThreadStateTableItem(opc, tag, value, time, qual) {
@@ -80,7 +77,7 @@
         cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = value;
         cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = time;
         cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = qual;
-        
+
     }
 
     function UpdateThreadsStates() {
@@ -117,5 +114,5 @@
         }
     }
 
-    
+
 </script>

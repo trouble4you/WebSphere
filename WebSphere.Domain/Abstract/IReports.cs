@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using WebSphere.Domain.Concrete;
 using WebSphere.Domain.Entities;
 
@@ -14,14 +14,22 @@ namespace WebSphere.Domain.Abstract
         public int Id;
         public string Name;
         public string StoredP;
-        public List<string> Head; 
-        public List<List<string>> Rows; 
+        public List<string> Head;
+        public List<List<string>> Rows;
+    }
+    public class AGZUObject
+    {
+        public int Id;
+        public string Name;
+        public int? ParentId;
     }
     public interface IReportServer
     {
         List<Report> ReportList();
         Report GetReport(int id, Dictionary<string, dynamic> parameters);
         MemoryStream GetExcel(int id, Dictionary<string, dynamic> parameters, out string journal);
+        List<AGZUObject> ObjectList();
+        List<AGZUObject> ChildList(int parentId);
     }
-  
+
 }

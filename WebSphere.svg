@@ -1,0 +1,4879 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="100%"
+   height="100%"
+   viewBox="-250 0 1524 768"
+   id="svg"><metadata
+   id="metadata820">
+  <rdf:RDF>
+    <cc:Work
+       rdf:about="">
+      <dc:format>image/svg+xml</dc:format>
+      <dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      <dc:title></dc:title>
+    </cc:Work>
+  </rdf:RDF>
+</metadata>
+<defs
+   id="defs">
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="tank">
+    <rect
+       width="1"
+       height="0.5"
+       rx="0.1"
+       ry="0.25"
+       x="0"
+       y="0"
+       id="SvgjsRect1009"
+       style="stroke:none" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve">
+    <rect
+       width="0.5"
+       height="0.5"
+       x="0"
+       y="0"
+       id="SvgjsRect1011"
+       style="fill:none" />
+    <path
+       d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+       id="SvgjsPath1012"
+       style="stroke:#000000;stroke-width:0.05" />
+    <path
+       d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+       id="SvgjsPath1013"
+       style="stroke:#000000;stroke-width:0.05" />
+    <path
+       d="M 0.5,0 V 1"
+       id="SvgjsPath1014"
+       style="stroke:#000000;stroke-width:0.1" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_rd">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1016"
+       style="fill:#000000" />
+    <path
+       d="M 0,0.5 1,0 1,1 z"
+       id="SvgjsPath1017"
+       style="stroke:none" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_no">
+    <rect
+       width="0.5"
+       height="0.5"
+       x="0"
+       y="0"
+       id="SvgjsRect1019"
+       style="fill:none" />
+    <path
+       d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+       id="SvgjsPath1020"
+       style="stroke:#000000;stroke-width:0.05" />
+    <path
+       d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+       id="SvgjsPath1021"
+       style="stroke:#000000;stroke-width:0.05" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="plate">
+    <rect
+       width="1"
+       height="0.33000001"
+       x="0"
+       y="0"
+       id="SvgjsRect1023"
+       style="fill:#c0c0c0;stroke:none" />
+    <rect
+       width="1"
+       height="0.33000001"
+       x="0"
+       y="0.33000001"
+       id="SvgjsRect1024"
+       style="fill:#c0c0c0;stroke:#9a9893;stroke-width:0.01" />
+    <rect
+       width="1"
+       height="0.33000001"
+       x="0"
+       y="0.66000003"
+       id="SvgjsRect1025"
+       style="fill:#c0c0c0;stroke:none" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="text">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1027"
+       style="fill:none;stroke:none" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="holder">
+    <path
+       d="M 0,0 0.4,0 0.4,1 0,1 z"
+       id="SvgjsPath1029"
+       style="fill:none;stroke:#000000;stroke-width:0.05" />
+    <path
+       d="m 0.4,0.5 0.6,0 0,0.1 -0.6,0 z"
+       id="SvgjsPath1030"
+       style="fill:none;stroke:#000000;stroke-width:0.02" />
+    <path
+       d="m 0.6,0.4 0.1,0 0,0.3 -0.1,0 z"
+       id="SvgjsPath1031"
+       style="fill:#7b3700;stroke:#000000;stroke-width:0.05" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="arrow">
+    <path
+       d="m 0.5,0.4 0.1,-0.3 0.1,0.3 -0.05,0 0,0.5 -0.1,0 0,-0.5 z"
+       id="SvgjsPath1033"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="vtube">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1035" />
+    <line
+       id="SvgjsLine1036"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       x="0"
+       y="0"
+       style="fill:none;stroke:#000000;stroke-width:0.02" />
+    <line
+       id="SvgjsLine1037"
+       x1="1"
+       y1="0"
+       x2="1"
+       y2="1"
+       x="0"
+       y="0"
+       style="fill:none;stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="htube">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1039" />
+    <line
+       id="SvgjsLine1040"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       x="0"
+       y="0"
+       style="fill:none;stroke:#000000;stroke-width:0.02" />
+    <line
+       id="SvgjsLine1041"
+       x1="0"
+       y1="1"
+       x2="1"
+       y2="1"
+       x="0"
+       y="0"
+       style="fill:none;stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="ctube">
+    <path
+       d="M 0,0 1,0 A 1,1 0 0 1 0,1 z"
+       id="SvgjsPath1043" />
+    <path
+       d="M 0.92,0 A 0.92,0.92 0 0 1 0,0.92"
+       id="SvgjsPath1044"
+       style="stroke:#000000;stroke-width:0.1" />
+    <rect
+       width="0.02"
+       height="0.02"
+       x="0"
+       y="0"
+       id="SvgjsRect1045"
+       style="fill:none;stroke:#000000;stroke-width:0.1" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="ttube">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1047" />
+    <polygon
+       points="0.5,0.5 1,0 0,0 "
+       transform="matrix(0,1,-1,0,1,0)"
+       id="SvgjsPolygon1048" />
+    <line
+       id="SvgjsLine1049"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       x="0"
+       y="0"
+       stroke-width=".3"
+       stroke="black"
+       fill="none"
+       style="fill:none;stroke:#000000;stroke-width:0.30000001" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="xtube">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1051" />
+    <polygon
+       points="0.5,0.5 1,0 0,0 "
+       transform="matrix(0,1,-1,0,1,0)"
+       id="SvgjsPolygon1052" />
+    <polygon
+       points="0.5,0.5 1,0 0,0 "
+       transform="matrix(0,-1,1,0,0,1)"
+       id="SvgjsPolygon1053" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="unit">
+    <circle
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       id="SvgjsCircle1055"
+       style="fill:#000000" />
+    <line
+       id="SvgjsLine1056"
+       x1="0.2"
+       y1="0.2"
+       x2="0.80000001"
+       y2="0.80000001"
+       x="0"
+       y="0"
+       stroke-width=".05"
+       stroke="white"
+       style="stroke:#ffffff;stroke-width:0.05" />
+    <line
+       id="SvgjsLine1057"
+       x1="0.80000001"
+       y1="0.2"
+       x2="0.2"
+       y2="0.80000001"
+       x="0"
+       y="0"
+       stroke-width=".05"
+       stroke="white"
+       style="stroke:#ffffff;stroke-width:0.05" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="frame">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1059"
+       style="fill:none;stroke:#000000;stroke-width:0.01;stroke-dasharray:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="info_field">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1061"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="radio">
+    <circle
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       id="SvgjsCircle1063"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="none"
+     id="button">
+    <rect
+       width="1"
+       height="1"
+       x="0"
+       y="0"
+       id="SvgjsRect1066"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="ball_valve">
+    <path
+       d="m 0.2,0.3 0.1,0 0.2,0.15 -0.2,0.15 -0.1,0 z"
+       id="SvgjsPath1068"
+       style="stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.3,0.3 0,0.3"
+       id="SvgjsPath1069"
+       style="fill:none;stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.8,0.3 -0.1,0 -0.2,0.15 0.2,0.15 0.1,0 z"
+       id="SvgjsPath1070"
+       style="stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.7,0.3 0,0.3"
+       id="SvgjsPath1071"
+       style="fill:none;stroke:#000000;stroke-width:0.005" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="elliptic_curve">
+    <path
+       d="M 0,0.2 A 0.15,0.3 0 0 1 0,0.8"
+       id="SvgjsPath1073"
+       style="stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0,0.225 a 0.12790698,0.275 0 0 1 0,0.55"
+       id="SvgjsPath1074"
+       style="fill:#1d7670;stroke:#000000;stroke-width:0.005" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="pointer">
+    <path
+       d="M 0.1,0.1 0.9,0.5 0.1,0.9 z"
+       id="SvgjsPath1076"
+       style="stroke:#700170;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="filter">
+    <path
+       d="m 0.33,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1078"
+       style="fill:#000000" />
+    <path
+       d="m 0.39,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1079"
+       style="fill:#000000" />
+    <path
+       d="m 0.45,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1080"
+       style="fill:#000000" />
+    <path
+       d="m 0.52,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1081"
+       style="fill:#000000" />
+    <path
+       d="m 0.58,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1082"
+       style="fill:#000000" />
+    <path
+       d="m 0.64,0.075 0.03,0 0,0.025 -0.03,0 z"
+       id="SvgjsPath1083"
+       style="fill:#000000" />
+    <path
+       d="m 0.3,0.1 0.4,0 0,0.05 -0.4,0 z"
+       id="SvgjsPath1084"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.4,0.15 0.2,0 0,0.05 -0.2,0 z"
+       id="SvgjsPath1085"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.3,0.2 0.4,0 0,0.5 -0.4,0 z"
+       id="SvgjsPath1086"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.3,0.7 a 0.5,0.5 0 0 0 0.4,0"
+       id="SvgjsPath1087"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.25,0.25 0.05,0 0,0.1 -0.05,0 z"
+       id="SvgjsPath1088"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.7,0.25 0.05,0 0,0.1 -0.05,0 z"
+       id="SvgjsPath1089"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.2,0.175 0.05,0 0,0.25 -0.05,0 z"
+       id="SvgjsPath1090"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.75,0.175 0.05,0 0,0.25 -0.05,0 z"
+       id="SvgjsPath1091"
+       style="stroke:#000000;stroke-width:0.009" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_ch">
+    <path
+       d="m 0.35,0.1 0.1,0 0,0.325 -0.1,0 z"
+       id="SvgjsPath1093"
+       style="stroke:#000000;stroke-width:0.009" />
+    <ellipse
+       cx="0.40000001"
+       cy="0.2"
+       rx="0.15000001"
+       ry="0.02"
+       id="SvgjsEllipse1094"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.35,0.18 a 0.3,0.5 0 0 0 0.1,0"
+       id="SvgjsPath1095"
+       style="fill:#000000;stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.225,0.35 0.35,0 0,0.075 -0.35,0 z"
+       id="SvgjsPath1096"
+       style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.3,0.425 0.2,0 0,0.275 -0.2,0 z"
+       id="SvgjsPath1097"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.3,0.7 a 0.3,0.5 0 0 0 0.2,0"
+       id="SvgjsPath1098"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.2,0.55 0.1,0 0,0.15 -0.1,0 z"
+       id="SvgjsPath1099"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.5,0.55 0.1,0 0,0.15 -0.1,0 z"
+       id="SvgjsPath1100"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.125,0.45 0.075,0 0,0.35 -0.075,0 z"
+       id="SvgjsPath1101"
+       style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.6,0.45 0.075,0 0,0.35 -0.075,0 z"
+       id="SvgjsPath1102"
+       style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_big_ch">
+    <path
+       d="m 0.3,0.115 0.08,0 0,0.145 -0.08,0 z"
+       id="SvgjsPath1104"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.34"
+       cy="0.18000001"
+       r="0.025"
+       id="SvgjsCircle1105"
+       style="fill:none;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.38,0.15 0.24,0 0,0.1 -0.24,0 z"
+       id="SvgjsPath1106"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.52499998"
+       cy="0.115"
+       r="0.0625"
+       id="SvgjsCircle1107"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.52499998"
+       cy="0.115"
+       r="0.029999999"
+       id="SvgjsCircle1108"
+       style="fill:none;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.4,0.25 0.2,0 0,0.05 -0.2,0 z"
+       id="SvgjsPath1109"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.475,0.3 0.05,0 0,0.3 L 0.51,0.7 0.49,0.7 0.475,0.6 z"
+       id="SvgjsPath1110"
+       style="fill:#c5c5c5;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.57999998"
+       cy="0.22499999"
+       r="0.11"
+       id="SvgjsCircle1111"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.57999998"
+       cy="0.22499999"
+       r="0.090000004"
+       id="SvgjsCircle1112"
+       style="fill:none;stroke:#000000;stroke-width:0.002" />
+    <circle
+       cx="0.57999998"
+       cy="0.22499999"
+       r="0.02"
+       id="SvgjsCircle1113"
+       style="fill:none;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.576,0.135 0,0.07"
+       id="SvgjsPath1114"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.584,0.135 0,0.07"
+       id="SvgjsPath1115"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.6,0.23 0.665,0.26"
+       id="SvgjsPath1116"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.595,0.238 0.66,0.27"
+       id="SvgjsPath1117"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.562,0.23 0.5,0.26"
+       id="SvgjsPath1118"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.565,0.24 0.504,0.274"
+       id="SvgjsPath1119"
+       style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.425,0.7 a 0.3,0.65 0 0 1 0.15,0"
+       id="SvgjsPath1120"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.35,0.75 0.05,0 0,0.2 -0.05,0 z"
+       id="SvgjsPath1121"
+       style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.4,0.8 0.025,0 0,0.1 -0.025,0 z"
+       id="SvgjsPath1122"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.4,0.7 0.2,0 0,0.04 -0.2,0 z"
+       id="SvgjsPath1123"
+       style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.425,0.74 0.15,0 0,0.16 -0.15,0 z"
+       id="SvgjsPath1124"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.575,0.8 0.025,0 0,0.1 -0.025,0 z"
+       id="SvgjsPath1125"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.6,0.75 0.05,0 0,0.2 -0.05,0 z"
+       id="SvgjsPath1126"
+       style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.425,0.9 a 0.3,0.65 0 0 0 0.15,0"
+       id="SvgjsPath1127"
+       style="stroke:#000000;stroke-width:0.002" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="round_button">
+    <circle
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       id="SvgjsCircle1129"
+       style="stroke:#000000;stroke-width:0.002" />
+    <line
+       id="SvgjsLine1130"
+       x1="0.2"
+       y1="0.2"
+       x2="0.80000001"
+       y2="0.80000001"
+       x="0"
+       y="0"
+       stroke-width=".09"
+       stroke="yellow"
+       style="stroke:#ffff00;stroke-width:0.09" />
+    <line
+       id="SvgjsLine1131"
+       x1="0.80000001"
+       y1="0.2"
+       x2="0.2"
+       y2="0.80000001"
+       x="0"
+       y="0"
+       stroke-width=".09"
+       stroke="yellow"
+       style="stroke:#ffff00;stroke-width:0.09" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="electric_motor">
+    <path
+       d="m 0.2,0.25 0.05,0 0,-0.025 0.475,0 0,0.425 -0.475,0 0,-0.025 -0.05,0 z"
+       id="SvgjsPath1133"
+       style="stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.725,0.25 0.05,0.05 0,0.275 -0.05,0.05 z"
+       id="SvgjsPath1134"
+       style="stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.775,0.35 0.05,0 0,0.175 -0.05,0 z"
+       id="SvgjsPath1135"
+       style="fill:#000000;stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.325,0.65 0.375,0 0,0.05 -0.375,0"
+       id="SvgjsPath1136"
+       style="fill:#000000;stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.375,0.475 0.15,0 0,0.2 -0.15,0 z"
+       id="SvgjsPath1137"
+       style="fill:#bfbfbf;stroke:#000000;stroke-width:0.005" />
+    <path
+       d="m 0.4,0.55 0.1,0 0,0.09 -0.1,0 z"
+       id="SvgjsPath1138"
+       style="fill:#bfbfbf;stroke:#686868;stroke-width:0.005" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="door">
+    <path
+       d="m 0.29,0.09 0.47,0 0,0.62 -0.47,0 z"
+       id="SvgjsPath1140"
+       style="fill:#b4b4b4;stroke:#fcfcfb;stroke-width:0.01" />
+    <path
+       d="m 0.3,0.1 0.45,0 0,0.6 -0.45,0 z"
+       id="SvgjsPath1141"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.28,0.175 0.04,0 0,0.1 -0.04,0 z"
+       id="SvgjsPath1142"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.31,0.225 0.02,0 0,0.015 -0.02,0 z"
+       id="SvgjsPath1143"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.28,0.51 0.04,0 0,0.11 -0.04,0 z"
+       id="SvgjsPath1144"
+       style="stroke:#000000;stroke-width:0.009" />
+    <path
+       d="m 0.31,0.56 0.02,0 0,0.015 -0.02,0 z"
+       id="SvgjsPath1145"
+       style="stroke:#000000;stroke-width:0.009" />
+    <line
+       id="SvgjsLine1146"
+       x1="0.625"
+       y1="0.42500001"
+       x2="0.69999999"
+       y2="0.42500001"
+       stroke-width=".01"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.01" />
+    <line
+       id="SvgjsLine1147"
+       x1="0.63999999"
+       y1="0.38999999"
+       x2="0.63999999"
+       y2="0.44999999"
+       stroke-width=".01"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.01" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="platform">
+    <path
+       d="m 0.4,0.075 a 0.3,0.5 0 0 1 0.2,0"
+       id="SvgjsPath1149"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.375,0.075 0.25,0 0,0.025 -0.25,0 z"
+       id="SvgjsPath1150"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.4,0.1 0.2,0 0,0.7 -0.2,0 z"
+       id="SvgjsPath1151"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.6,0.8 0.55,0.95 0.45,0.95 0.4,0.8 z"
+       id="SvgjsPath1152"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.375,0.2 0.025,0 0,0.05 -0.025,0 z"
+       id="SvgjsPath1153"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.6,0.2 0.025,0 0,0.05 -0.025,0 z"
+       id="SvgjsPath1154"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.4,0.65 0,0.05 -0.025,0 0,-0.05 z"
+       id="SvgjsPath1155"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="m 0.6,0.65 0.025,0 0,0.05 -0.025,0 z"
+       id="SvgjsPath1156"
+       style="stroke:#000000;stroke-width:0.002" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="booth">
+    <path
+       d="m 0.5,0.4 0.4,0 0,0.5 -0.4,0 z"
+       id="SvgjsPath1158"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="M 0.35,0.25 0.5,0.4 0.5,0.9 0.35,0.75 z"
+       id="SvgjsPath1159"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="m 0.35,0.25 0.4,0 0.15,0.15 -0.4,0 z"
+       id="SvgjsPath1160"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="m 0.6,0.45 0.2,0 0,0.4 -0.2,0 z"
+       id="SvgjsPath1161"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.004" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="big_booth">
+    <path
+       d="M 0.35,0.4 0.5,0.55 0.5,0.9 0.35,0.75 z"
+       id="SvgjsPath1163"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="m 0.35,0.4 0.45,0 0.15,0.15 -0.45,0 z"
+       id="SvgjsPath1164"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="m 0.5,0.55 0.45,0 0,0.35 -0.45,0 z"
+       id="SvgjsPath1165"
+       style="stroke:#000000;stroke-width:0.004" />
+    <path
+       d="m 0.65,0.575 0.15,0 0,0.3 -0.15,0 z"
+       id="SvgjsPath1166"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1167"
+       x1="0.44999999"
+       y1="0.44999999"
+       x2="0.44999999"
+       y2="0.2"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1168"
+       x1="0.44999999"
+       y1="0.2"
+       x2="0.60000002"
+       y2="0.2"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1169"
+       x1="0.5"
+       y1="0.2"
+       x2="0.57499999"
+       y2="0.125"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1170"
+       x1="0.5"
+       y1="0.2"
+       x2="0.57499999"
+       y2="0.27500001"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1171"
+       x1="0.55000001"
+       y1="0.2"
+       x2="0.60000002"
+       y2="0.15000001"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1172"
+       x1="0.55000001"
+       y1="0.2"
+       x2="0.60000002"
+       y2="0.25"
+       stroke-width=".004"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.004" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="direct">
+    <path
+       d="m 0.25,0.25 0.5,0 0,0.05 -0.5,0 z"
+       id="SvgjsPath1182"
+       style="stroke:#000000;stroke-width:0.002" />
+    <path
+       d="M 0.25,0.75 0.5,0.3 0.75,0.75 z"
+       id="SvgjsPath1183"
+       style="stroke:#000000;stroke-width:0.002" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="pressure_sensor">
+    <circle
+       cx="0.5"
+       cy="0.40000001"
+       r="0.30000001"
+       id="SvgjsCircle1176"
+       style="stroke:#000000;stroke-width:0.02" />
+    <path
+       d="m 0.35,0.55 0.3,-0.3 z"
+       id="SvgjsPath1177"
+       style="stroke:#000000;stroke-width:0.02" />
+    <path
+       d="M 0.55,0.3 0.65,0.25 z"
+       id="SvgjsPath1178"
+       style="stroke:#000000;stroke-width:0.02" />
+    <path
+       d="M 0.6,0.35 0.65,0.25 z"
+       id="SvgjsPath1179"
+       style="stroke:#000000;stroke-width:0.02" />
+    <path
+       d="m 0.475,0.7 0.05,0 0,0.175 -0.05,0 z"
+       id="SvgjsPath1180"
+       style="fill:#000000" />
+    <path
+       d="m 0.2,0.875 0.6,0 0,0.05 -0.6,0 z"
+       id="SvgjsPath1181"
+       style="fill:#000000" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="flame">
+    <path
+       d="m 0.55,0.075 c 0.05,0.275 0.35,0.575 0,0.85 0,-0.275 -0.275,-0.5 0,-0.85"
+       id="path187"
+       style="stroke:#000000;stroke-width:0.01" />
+    <path
+       d="M 0.3,0.425 C 0.5,0.6 0.525,0.8 0.5,0.95 0.35,0.9 0.2,0.7 0.3,0.425"
+       id="SvgjsPath1184"
+       style="stroke:#000000;stroke-width:0.01" />
+    <path
+       d="M 0.7,0.15 C 0.85,0.3 0.95,0.65 0.65,0.9 0.85,0.65 0.65,0.35 0.7,0.15"
+       id="SvgjsPath1185"
+       style="stroke:#000000;stroke-width:0.01" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="thermometer">
+    <path
+       d="m 0.65,0.6 0.075,0 0,0.2 -0.025,0.025 0,0.055 -0.02,0 0,-0.055 L 0.65,0.8 z"
+       id="SvgjsPath1187"
+       style="stroke:#000000;stroke-width:0.004" />
+    <line
+       id="SvgjsLine1188"
+       x1="0.64999998"
+       y1="0.63"
+       x2="0.69"
+       y2="0.63"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1189"
+       x1="0.64999998"
+       y1="0.66000003"
+       x2="0.69"
+       y2="0.66000003"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1190"
+       x1="0.64999998"
+       y1="0.69"
+       x2="0.69"
+       y2="0.69"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1191"
+       x1="0.64999998"
+       y1="0.72000003"
+       x2="0.69"
+       y2="0.72000003"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1192"
+       x1="0.64999998"
+       y1="0.75"
+       x2="0.69"
+       y2="0.75"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1193"
+       x1="0.64999998"
+       y1="0.77999997"
+       x2="0.69"
+       y2="0.77999997"
+       stroke-width=".008"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.008" />
+    <line
+       id="SvgjsLine1194"
+       x1="0.69"
+       y1="0.61000001"
+       x2="0.69"
+       y2="0.875"
+       stroke-width=".01"
+       stroke="red"
+       style="stroke:#ff0000;stroke-width:0.01" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="door_opened">
+    <path
+       d="m 0.2,0.05 0.6,0 0,0.75 -0.6,0 z"
+       id="SvgjsPath1196"
+       style="stroke:#000000;stroke-width:0.02" />
+    <path
+       d="M 0.2,0.05 0.65,0.2 0.65,0.95 0.2,0.8 z"
+       id="SvgjsPath1197"
+       style="stroke:#000000;stroke-width:0.02" />
+    <line
+       id="SvgjsLine1198"
+       x1="0.55000001"
+       y1="0.56999999"
+       x2="0.60000002"
+       y2="0.58499998"
+       stroke-width=".02"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="door_closed">
+    <path
+       d="m 0.2,0.05 0.6,0 0,0.9 -0.6,0 z"
+       id="SvgjsPath1200"
+       style="stroke:#000000;stroke-width:0.02" />
+    <line
+       id="SvgjsLine1201"
+       x1="0.60000002"
+       y1="0.5"
+       x2="0.69999999"
+       y2="0.5"
+       stroke-width=".02"
+       stroke="black"
+       style="stroke:#000000;stroke-width:0.02" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_l">
+    <rect
+       width="0.5"
+       height="0.5"
+       x="0"
+       y="0"
+       id="SvgjsRect1203"
+       style="fill:none" />
+    <path
+       d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+       id="SvgjsPath1204"
+       style="fill:#008000;stroke:#000000;stroke-width:0.05" />
+    <path
+       d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+       id="SvgjsPath1205"
+       style="stroke:#000000;stroke-width:0.05" />
+  </symbol>
+  <symbol
+     viewBox="0 0 1 1"
+     preserveAspectRatio="xMidYMid meet"
+     id="valve_r">
+    <rect
+       width="0.5"
+       height="0.5"
+       x="0"
+       y="0"
+       id="SvgjsRect1207"
+       style="fill:none" />
+    <path
+       d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+       id="SvgjsPath1208"
+       style="stroke:#000000;stroke-width:0.05" />
+    <path
+       d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+       id="SvgjsPath1209"
+       style="fill:#008000;stroke:#000000;stroke-width:0.05" />
+  </symbol>
+  <linearGradient
+     id="SvgjsLinearGradient22355">
+    <stop
+       id="SvgjsStop22356"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop22357"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop22358"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient29064">
+    <stop
+       id="SvgjsStop29065"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop29066"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop29067"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient29081"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop29082"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop29083"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop29084"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient29098"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop29099"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop29100"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop29101"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient29115"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop29116"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop29117"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop29118"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient34544">
+    <stop
+       id="SvgjsStop34545"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop34546"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop34547"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient52029"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop52030"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop52031"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop52032"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient52981">
+    <stop
+       id="SvgjsStop52982"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop52983"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop52984"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient66385"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop66386"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop66387"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop66388"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient66391">
+    <stop
+       id="SvgjsStop66392"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop66393"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop66394"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient79234">
+    <stop
+       id="SvgjsStop79235"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop79236"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop79237"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient79251">
+    <stop
+       id="SvgjsStop79252"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop79253"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop79254"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient80203"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop80204"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop80205"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop80206"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient80220"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop80221"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop80222"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop80223"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient91622">
+    <stop
+       id="SvgjsStop91623"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop91624"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop91625"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient98778">
+    <stop
+       id="SvgjsStop98779"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop98780"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop98781"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient98795">
+    <stop
+       id="SvgjsStop98796"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop98797"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop98798"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient98812">
+    <stop
+       id="SvgjsStop98813"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop98814"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop98815"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient98829">
+    <stop
+       id="SvgjsStop98830"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop98831"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop98832"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <linearGradient
+     id="SvgjsLinearGradient103076">
+    <stop
+       id="SvgjsStop103077"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop103078"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop103079"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient103104"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop103105"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop103106"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop103107"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient103121">
+    <stop
+       id="SvgjsStop103122"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop103123"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop103124"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient103138">
+    <stop
+       id="SvgjsStop103139"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop103140"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop103141"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient103155"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop103156"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop103157"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop103158"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient110179"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop110180"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop110181"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop110182"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient112550">
+    <stop
+       id="SvgjsStop112551"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop112552"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop112553"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient112578"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop112579"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop112580"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop112581"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient112595"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop112596"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop112597"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop112598"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient112755">
+    <stop
+       id="SvgjsStop112756"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop112757"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop112758"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient138032">
+    <stop
+       id="SvgjsStop138033"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop138034"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop138035"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient138049">
+    <stop
+       id="SvgjsStop138050"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop138051"
+       style="stop-color:#e5e129;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop138052"
+       style="stop-color:#a5a022;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <linearGradient
+     id="SvgjsLinearGradient1219">
+    <stop
+       id="SvgjsStop1251"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop1252"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop1253"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2488">
+    <stop
+       id="SvgjsStop2489"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2490"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2491"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2758">
+    <stop
+       id="SvgjsStop2759"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2760"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2761"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient3028">
+    <stop
+       id="SvgjsStop3029"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop3030"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop3031"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient3221">
+    <stop
+       id="SvgjsStop3222"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop3223"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop3224"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient3810">
+    <stop
+       id="SvgjsStop3811"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop3812"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop3813"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient3827">
+    <stop
+       id="SvgjsStop3828"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop3829"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop3830"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2513">
+    <stop
+       id="SvgjsStop2552"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2553"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2554"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2579">
+    <stop
+       id="SvgjsStop2580"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2581"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2582"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2596">
+    <stop
+       id="SvgjsStop2597"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2598"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2599"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2613">
+    <stop
+       id="SvgjsStop2614"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2615"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2616"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2630">
+    <stop
+       id="SvgjsStop2631"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2632"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2633"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient5561">
+    <stop
+       id="SvgjsStop5562"
+       style="stop-color:#00a7a7;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop5563"
+       style="stop-color:#00eaea;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop5564"
+       style="stop-color:#006b6b;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient5598">
+    <stop
+       id="SvgjsStop5599"
+       style="stop-color:#00a7a7;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop5600"
+       style="stop-color:#00eaea;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop5601"
+       style="stop-color:#006b6b;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient5602">
+    <stop
+       id="SvgjsStop5603"
+       style="stop-color:#00a7a7;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop5604"
+       style="stop-color:#00eaea;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop5605"
+       style="stop-color:#006b6b;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient6872"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop6873"
+       style="stop-color:#767676;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop6874"
+       style="stop-color:#b9b9b9;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop6875"
+       style="stop-color:#6d6d6d;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2614">
+    <stop
+       id="SvgjsStop2662"
+       style="stop-color:#522f2a;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2663"
+       style="stop-color:#94544d;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2664"
+       style="stop-color:#462724;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2711">
+    <stop
+       id="SvgjsStop2712"
+       style="stop-color:#522f2a;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2713"
+       style="stop-color:#94544d;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2714"
+       style="stop-color:#462724;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient2717">
+    <stop
+       id="SvgjsStop2718"
+       style="stop-color:#522f2a;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop2719"
+       style="stop-color:#94544d;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop2720"
+       style="stop-color:#462724;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient33932"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop33933"
+       style="stop-color:#767676;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop33934"
+       style="stop-color:#b9b9b9;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop33935"
+       style="stop-color:#6d6d6d;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient34180"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop34181"
+       style="stop-color:#767676;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop34182"
+       style="stop-color:#b9b9b9;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop34183"
+       style="stop-color:#6d6d6d;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient34197"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop34198"
+       style="stop-color:#767676;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop34199"
+       style="stop-color:#b9b9b9;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop34200"
+       style="stop-color:#6d6d6d;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient36149"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop36150"
+       style="stop-color:#744141;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop36151"
+       style="stop-color:#916968;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop36152"
+       style="stop-color:#6b3533;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient36153"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop36154"
+       style="stop-color:#744141;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop36155"
+       style="stop-color:#916968;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop36156"
+       style="stop-color:#6b3533;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient36157"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop36158"
+       style="stop-color:#744141;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop36159"
+       style="stop-color:#916968;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop36160"
+       style="stop-color:#6b3533;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient156837">
+    <stop
+       id="SvgjsStop156838"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop156839"
+       style="stop-color:#a78382;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop156840"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient156841">
+    <stop
+       id="SvgjsStop156842"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop156843"
+       style="stop-color:#bdbdbd;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop156844"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient156845">
+    <stop
+       id="SvgjsStop156846"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop156847"
+       style="stop-color:#a78382;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop156848"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient158686"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop158687"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop158688"
+       style="stop-color:#a78382;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop158689"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient160538">
+    <stop
+       id="SvgjsStop160539"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop160540"
+       style="stop-color:#a78382;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop160541"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient162379"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop162380"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop162381"
+       style="stop-color:#a78382;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop162382"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient162383"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop162384"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop162385"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop162386"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166303"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166304"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166305"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166306"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166307"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166308"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166309"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166310"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166311"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166312"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166313"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166314"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166315"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166316"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166317"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166318"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166319"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166320"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166321"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166322"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166323"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166324"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166325"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166326"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="583.00323"
+     y1="1184.4467"
+     x2="604.29333"
+     y2="1184.4467"
+     id="SvgjsLinearGradient166327"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(1.7530246,0.57044266)">
+    <stop
+       id="SvgjsStop166328"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166329"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166330"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient166331"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop166332"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop166333"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop166334"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient168381">
+    <stop
+       id="SvgjsStop168382"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop168383"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop168384"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient168385">
+    <stop
+       id="SvgjsStop168386"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop168387"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop168388"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient168389">
+    <stop
+       id="SvgjsStop168390"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop168391"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop168392"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient168393">
+    <stop
+       id="SvgjsStop168394"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop168395"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop168396"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient168397">
+    <stop
+       id="SvgjsStop168398"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop168399"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop168400"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient172196">
+    <stop
+       id="SvgjsStop172197"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop172198"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop172199"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient173971">
+    <stop
+       id="SvgjsStop173972"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop173973"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop173974"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient175746">
+    <stop
+       id="SvgjsStop175747"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop175748"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop175749"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient177521">
+    <stop
+       id="SvgjsStop177522"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop177523"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop177524"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient179318">
+    <stop
+       id="SvgjsStop179319"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop179320"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop179321"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient179322">
+    <stop
+       id="SvgjsStop179323"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop179324"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop179325"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient181130"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop181131"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop181132"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop181133"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="0"
+     id="SvgjsRadialGradient181134"
+     gradientTransform="matrix(0,1,-1,0,0,0)">
+    <stop
+       id="SvgjsStop181135"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop181136"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop181137"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient182964">
+    <stop
+       id="SvgjsStop182965"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop182966"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop182967"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient182968">
+    <stop
+       id="SvgjsStop182969"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop182970"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop182971"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient184842">
+    <stop
+       id="SvgjsStop184843"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop184844"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop184845"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient184846">
+    <stop
+       id="SvgjsStop184847"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop184848"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop184849"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient184850">
+    <stop
+       id="SvgjsStop184851"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop184852"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop184853"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <radialGradient
+     cx="0"
+     cy="0"
+     r="1"
+     id="SvgjsRadialGradient184854">
+    <stop
+       id="SvgjsStop184855"
+       style="stop-color:#88443b;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop184856"
+       style="stop-color:#a5807e;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop184857"
+       style="stop-color:#915d57;stop-opacity:1"
+       offset="1" />
+  </radialGradient>
+  <linearGradient
+     id="SvgjsLinearGradient15607">
+    <stop
+       id="SvgjsStop15698"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop15699"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop15700"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient33109">
+    <stop
+       id="SvgjsStop33110"
+       style="stop-color:#8c8c8c;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop33111"
+       style="stop-color:#e5e5e5;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop33112"
+       style="stop-color:#727272;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient77641">
+    <stop
+       id="SvgjsStop77734"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="619.52826"
+     y1="206.53734"
+     x2="659.15796"
+     y2="206.53734"
+     id="SvgjsLinearGradient77641-9"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(0.8141701,1.2282446)">
+    <stop
+       id="SvgjsStop77734-2"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-7"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-9"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5091">
+    <stop
+       id="stop5093"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5095"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5097"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5099">
+    <stop
+       id="stop5101"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5103"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5105"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5107">
+    <stop
+       id="stop5109"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5111"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5113"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5115">
+    <stop
+       id="stop5117"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5119"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5121"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="619.52826"
+     y1="206.53734"
+     x2="659.15796"
+     y2="206.53734"
+     id="SvgjsLinearGradient77641-3"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(0.8141701,1.2282446)">
+    <stop
+       id="SvgjsStop77734-1"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-2"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-3"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5188">
+    <stop
+       id="stop5190"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5192"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5194"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5196">
+    <stop
+       id="stop5198"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5200"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5202"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5204">
+    <stop
+       id="stop5206"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5208"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5210"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5212">
+    <stop
+       id="stop5214"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5216"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5218"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="619.52826"
+     y1="206.53734"
+     x2="659.15796"
+     y2="206.53734"
+     id="SvgjsLinearGradient77641-4"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(0.8141701,1.2282446)">
+    <stop
+       id="SvgjsStop77734-11"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-3"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-8"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5282">
+    <stop
+       id="stop5284"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5286"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5288"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5290">
+    <stop
+       id="stop5292"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5294"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5296"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5298">
+    <stop
+       id="stop5300"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5302"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5304"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5306">
+    <stop
+       id="stop5308"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5310"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5312"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="619.52826"
+     y1="206.53734"
+     x2="659.15796"
+     y2="206.53734"
+     id="linearGradient5367"
+     xlink:href="#SvgjsLinearGradient77641"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(0.8141701,1.2282446)" />
+  <linearGradient
+     x1="619.52826"
+     y1="206.53734"
+     x2="659.15796"
+     y2="206.53734"
+     id="SvgjsLinearGradient77641-7"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="scale(0.8141701,1.2282446)">
+    <stop
+       id="SvgjsStop77734-7"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-9"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-31"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5385">
+    <stop
+       id="stop5387"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5389"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5391"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5393">
+    <stop
+       id="stop5395"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5397"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5399"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5401">
+    <stop
+       id="stop5403"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5405"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5407"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5409">
+    <stop
+       id="stop5411"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5413"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5415"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="SvgjsLinearGradient77641-8">
+    <stop
+       id="SvgjsStop77734-6"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-5"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-0"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5479">
+    <stop
+       id="stop5481"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5483"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5485"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5487">
+    <stop
+       id="stop5489"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5491"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5493"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5495">
+    <stop
+       id="stop5497"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5499"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5501"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5503">
+    <stop
+       id="stop5505"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5507"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5509"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="0"
+     y1="0"
+     x2="1"
+     y2="0"
+     id="linearGradient5557"
+     xlink:href="#SvgjsLinearGradient77641-8"
+     gradientUnits="userSpaceOnUse" />
+  <linearGradient
+     id="SvgjsLinearGradient77641-6">
+    <stop
+       id="SvgjsStop77734-15"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="SvgjsStop77735-4"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="SvgjsStop77736-2"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5479-0">
+    <stop
+       id="stop5481-9"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5483-7"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5485-3"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5487-7">
+    <stop
+       id="stop5489-2"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5491-6"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5493-0"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5495-1">
+    <stop
+       id="stop5497-6"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5499-5"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5501-7"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient5503-5">
+    <stop
+       id="stop5505-4"
+       style="stop-color:#ffcf87;stop-opacity:1"
+       offset="0" />
+    <stop
+       id="stop5507-1"
+       style="stop-color:#e52600;stop-opacity:1"
+       offset="0.5" />
+    <stop
+       id="stop5509-2"
+       style="stop-color:#fa8500;stop-opacity:1"
+       offset="1" />
+  </linearGradient>
+  <linearGradient
+     x1="0"
+     y1="0"
+     x2="1"
+     y2="0"
+     id="linearGradient5557-0"
+     xlink:href="#SvgjsLinearGradient77641-6"
+     gradientUnits="userSpaceOnUse" />
+</defs>
+<text
+   x="144.29172"
+   y="108.50389"
+   id="SvgjsText1064"
+   style="font-size:18px;font-weight:bold;text-anchor:middle;fill:#8a0886;font-family:Arial">Площадка устройства</text>
+<text
+   x="103.77352"
+   y="126.60457"
+   id="SvgjsText1076"
+   style="font-size:18px;font-weight:bold;text-anchor:middle;fill:#8a0886;font-family:Arial">запуска СОД</text>
+<text
+   x="142.76106"
+   y="75.53701"
+   id="SvgjsText1100"
+   style="font-size:22px;font-weight:bold;text-anchor:middle;fill:#000080;font-family:Arial">НСП &quot;Чегодаево&quot;</text>
+<text
+   x="542.35968"
+   y="57.444019"
+   id="SvgjsText1112"
+   style="font-size:25px;font-weight:bold;text-anchor:middle;fill:#a52a2a;font-family:Arial">Нефтепровод</text>
+<text
+   x="551.12244"
+   y="86.192017"
+   id="SvgjsText1124"
+   style="font-size:25px;font-weight:bold;text-anchor:middle;fill:#a52a2a;font-family:Arial">НСП &quot;Чегодаево&quot; - ПОН &quot;Шкапово&quot;</text>
+<g
+   id="SvgjsG3858">
+  <rect
+     width="217"
+     height="54"
+     x="14"
+     y="662"
+     id="SvgjsRect3857"
+     style="fill:none;stroke:#808080;stroke-width:2" />
+</g>
+<text
+   x="123.24185"
+   y="683.98187"
+   id="SvgjsText4140"
+   style="font-size:16px;text-anchor:middle;fill:#000000;font-family:Arial">Подсказка по отображению</text>
+<text
+   x="127.28093"
+   y="705.25629"
+   id="SvgjsText4152"
+   style="font-size:16px;text-anchor:middle;fill:#000000;font-family:Arial">сигналов задвижек</text>
+<text
+   x="881.49078"
+   y="642.49518"
+   id="SvgjsText4246"
+   style="font-size:22px;font-weight:bold;text-anchor:middle;fill:#000080;font-family:Arial">ТСП нефти ПОН</text>
+<text
+   x="891.36371"
+   y="669.09143"
+   id="SvgjsText4282"
+   style="font-size:18px;font-weight:bold;text-anchor:middle;fill:#8a0886;font-family:Arial">Площадка устройства</text>
+<text
+   x="850.24994"
+   y="690.35297"
+   id="SvgjsText4294"
+   style="font-size:18px;font-weight:bold;text-anchor:middle;fill:#8a0886;font-family:Arial">приема СОД</text>
+<g
+   id="SvgjsG7413" />
+<g
+   id="SvgjsG7909">
+  <rect
+     width="52"
+     height="29"
+     x="535.04706"
+     y="464.8421"
+     id="SvgjsRect7908"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2" />
+</g>
+<g
+   id="SvgjsG7922">
+  <rect
+     width="52"
+     height="29"
+     x="871.17993"
+     y="464.8421"
+     id="SvgjsRect7921"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2" />
+</g>
+<g
+   id="SvgjsG8935">
+  <rect
+     width="52"
+     height="29"
+     x="744.60675"
+     y="552.06622"
+     id="SvgjsRect8934"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2" />
+</g>
+<g
+   transform="translate(0,66)"
+   id="SvgjsG8948">
+  <rect
+     width="52"
+     height="29"
+     x="65.946304"
+     y="548.87506"
+     id="SvgjsRect8947"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2" />
+</g>
+<g
+   id="SvgjsG8961">
+  <rect
+     width="52"
+     height="29"
+     x="409.52893"
+     y="548.87512"
+     id="SvgjsRect8960"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2" />
+</g>
+<text
+   x="601.5885"
+   y="484.00183"
+   id="SvgjsText10842"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">В</text>
+<text
+   x="937.26025"
+   y="481.87744"
+   id="SvgjsText10854"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">В</text>
+<text
+   x="768.38092"
+   y="549.9361"
+   id="SvgjsText14057"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Т, °C</text>
+<text
+   x="91.373619"
+   y="608.5094"
+   id="SvgjsText14069"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Т, °C</text>
+<text
+   x="434.89166"
+   y="544.60046"
+   id="SvgjsText14081"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Т, °C</text>
+<text
+   x="770.44067"
+   y="572.28009"
+   id="SvgjsText16196"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="91.041649"
+   y="636.16785"
+   id="SvgjsText16208"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="65.843239"
+   y="410.25177"
+   id="Mitsubishi.BIK.HeatTemp"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="437.3721"
+   y="571.25635"
+   id="SvgjsText16232"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="560.81641"
+   y="483.98996"
+   id="SvgjsText16289"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="897.19067"
+   y="482.9296"
+   id="SvgjsText16301"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<g
+   id="SvgjsG22359">
+  <use
+     id="SvgjsUse22354"
+     style="fill:url(#SvgjsLinearGradient168381)"
+     x="15"
+     y="182"
+     width="7.0637112"
+     height="273"
+     xlink:href="#vtube" />
+</g>
+<g
+   id="SvgjsG24869">
+  <rect
+     width="12.29917"
+     height="3.1994324"
+     x="11.70083"
+     y="263.80057"
+     id="SvgjsRect24868"
+     style="fill:#ffb66c;stroke:#953100;stroke-width:1" />
+</g>
+<g
+   id="SvgjsG27379">
+  <rect
+     width="12.3"
+     height="3.2"
+     x="11.700832"
+     y="266.99167"
+     id="SvgjsRect27378"
+     style="fill:#ffb66c;stroke:#953100;stroke-width:1" />
+</g>
+<g
+   id="SvgjsG29068">
+  <use
+     id="SvgjsUse29063"
+     style="fill:url(#SvgjsLinearGradient160538)"
+     x="-27.65097"
+     y="67"
+     width="6.6509705"
+     height="167.127"
+     xlink:href="#vtube" />
+</g>
+<g
+   id="SvgjsG29102">
+  <use
+     id="SvgjsUse29097"
+     style="fill:url(#SvgjsRadialGradient182968)"
+     x="21"
+     y="455.27426"
+     width="988"
+     height="6.7894592"
+     xlink:href="#htube" />
+</g>
+<g
+   id="SvgjsG52033">
+  <use
+     id="SvgjsUse52028"
+     style="fill:url(#SvgjsLinearGradient166311)"
+     x="-57"
+     y="232"
+     width="72"
+     height="7.0637255"
+     xlink:href="#htube" />
+</g>
+<g
+   id="SvgjsG66389">
+  <use
+     id="SvgjsUse66384"
+     style="fill:url(#SvgjsLinearGradient166315)"
+     x="-22"
+     y="60.637131"
+     width="32.1912"
+     height="7.42659"
+     xlink:href="#htube" />
+</g>
+<g
+   id="SvgjsG98782">
+  <use
+     transform="matrix(-0.99978068,-0.02094242,0.02094242,-0.99978068,-70.364561,117.34068)"
+     id="SvgjsUse98777"
+     style="fill:url(#SvgjsRadialGradient182964)"
+     x="-49.250557"
+     y="49.981079"
+     width="8.1013222"
+     height="8.7053413"
+     xlink:href="#ctube" />
+</g>
+<g
+   id="SvgjsG98799">
+  <use
+     transform="matrix(-0.02617695,0.99965732,-0.99965732,-0.02617695,478.61061,483.65833)"
+     id="SvgjsUse98794"
+     style="fill:url(#SvgjsRadialGradient182968)"
+     x="-17.480013"
+     y="456.93665"
+     width="8.4521809"
+     height="7.4808621"
+     xlink:href="#ctube" />
+</g>
+<g
+   id="SvgjsG103080">
+  <use
+     id="SvgjsUse103075"
+     style="fill:url(#SvgjsLinearGradient168393)"
+     x="1008.4043"
+     y="461"
+     width="6.5957031"
+     height="104"
+     xlink:href="#vtube" />
+</g>
+<g
+   transform="translate(-1.1005473,-1.6508209)"
+   id="SvgjsG112582">
+  <use
+     id="SvgjsUse112577"
+     style="fill:url(#SvgjsLinearGradient166327)"
+     x="1024.3601"
+     y="678"
+     width="32.639893"
+     height="7.4626465"
+     xlink:href="#htube" />
+</g>
+<g
+   id="SvgjsG112599">
+  <use
+     id="SvgjsUse112594"
+     style="fill:url(#SvgjsLinearGradient166331)"
+     x="1014"
+     y="505"
+     width="70.8088"
+     height="7"
+     xlink:href="#htube" />
+</g>
+<g
+   id="SvgjsG112759">
+  <use
+     id="SvgjsUse112754"
+     style="fill:url(#SvgjsLinearGradient168397)"
+     x="1056"
+     y="511"
+     width="7.0637245"
+     height="167"
+     xlink:href="#vtube" />
+</g>
+<g
+   id="SvgjsG133474">
+  <rect
+     width="12.3"
+     height="3.2"
+     x="1005.2078"
+     y="477.60666"
+     id="SvgjsRect133473"
+     style="fill:#ffb66c;stroke:#953100;stroke-width:2" />
+</g>
+<g
+   id="SvgjsG133487">
+  <rect
+     width="12.3"
+     height="3.2"
+     x="1005.2078"
+     y="473.35181"
+     id="SvgjsRect133486"
+     style="fill:#ffb66c;stroke:#953100;stroke-width:2" />
+</g>
+<g
+   id="SvgjsG138036">
+  <use
+     transform="matrix(-0.00523596,-0.99998629,0.99998629,-0.00523596,584.08196,1492.6384)"
+     id="SvgjsUse138031"
+     style="fill:url(#SvgjsRadialGradient184850)"
+     x="1027.9363"
+     y="429.51819"
+     width="8.3773241"
+     height="7.4761963"
+     xlink:href="#ctube" />
+</g>
+<g
+   id="SvgjsG138053">
+  <use
+     id="SvgjsUse138048"
+     style="fill:url(#SvgjsRadialGradient184854)"
+     x="1055.4904"
+     y="677.37384"
+     width="7.3740234"
+     height="8.2438354"
+     xlink:href="#ctube" />
+</g>
+<g
+   id="SvgjsG2492">
+  <use
+     id="SvgjsUse2487"
+     style="fill:url(#SvgjsLinearGradient2488)"
+     x="-16.585829"
+     y="213.48549"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<g
+   id="SvgjsG2762">
+  <use
+     transform="matrix(-0.00698126,-0.99997563,0.99997563,-0.00698126,-54.718435,135.66224)"
+     id="SvgjsUse2757"
+     style="fill:url(#SvgjsLinearGradient2758)"
+     x="-29.329693"
+     y="8.1531067"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<g
+   id="SvgjsG3814">
+  <use
+     id="SvgjsUse3809"
+     style="fill:url(#SvgjsLinearGradient3810)"
+     x="1023.0263"
+     y="486.54858"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<g
+   id="SvgjsG3831">
+  <use
+     transform="matrix(0.00872654,0.99996192,-0.99996192,0.00872654,1508.0829,159.62063)"
+     id="SvgjsUse3826"
+     style="fill:url(#SvgjsLinearGradient3827)"
+     x="419.57611"
+     y="430.22968"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<g
+   id="SvgjsG2583">
+  <use
+     id="SvgjsUse2578"
+     style="fill:url(#SvgjsLinearGradient2596)"
+     x="122.32442"
+     y="404.21042"
+     width="90"
+     height="65"
+     xlink:href="#valve_big_ch" />
+</g>
+<g
+   id="SvgjsG2600">
+  <use
+     id="SvgjsUse2595"
+     style="fill:url(#SvgjsLinearGradient2596)"
+     x="463.77838"
+     y="403.14685"
+     width="90"
+     height="65"
+     xlink:href="#valve_big_ch" />
+</g>
+<g
+   id="SvgjsG2617">
+  <use
+     id="SvgjsUse2612"
+     style="fill:url(#SvgjsLinearGradient2613)"
+     x="794.59283"
+     y="403.14679"
+     width="90"
+     height="65"
+     xlink:href="#valve_big_ch" />
+</g>
+<g
+   id="SvgjsG2665">
+  <use
+     id="SvgjsUse2613"
+     style="fill:url(#SvgjsLinearGradient2614)"
+     x="-55.037388"
+     y="30.327682"
+     width="148"
+     height="170"
+     xlink:href="#platform" />
+</g>
+<g
+   id="SvgjsG2721">
+  <use
+     transform="matrix(-0.99992537,0.012217,-0.012217,-0.99992537,1604.7918,1146.4032)"
+     id="SvgjsUse2716"
+     style="fill:url(#SvgjsLinearGradient2717)"
+     x="511.19818"
+     y="437.90729"
+     width="148"
+     height="170"
+     xlink:href="#platform" />
+</g>
+<g
+   id="SvgjsG28591">
+  <use
+     id="SvgjsUse28590"
+     style="fill:#ffffff"
+     x="729.7124"
+     y="493.56213"
+     width="200"
+     height="100"
+     xlink:href="#big_booth" />
+</g>
+<g
+   transform="translate(-20.543549,23.445507)"
+   id="SvgjsG28604">
+  <use
+     transform="matrix(1.3036886,0,0,1.0612469,-164.59278,-19.549817)"
+     id="SvgjsUse28603"
+     style="fill:#ffffff"
+     x="51.052345"
+     y="490.3707"
+     width="200"
+     height="100"
+     xlink:href="#big_booth" />
+  <text
+     x="79.798988"
+     y="527.41705"
+     id="SvgjsText10794-1-7-1"
+     style="font-size:15.99999905px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">КП</text>
+  <g
+     transform="translate(-343.3978,-1.1655315)"
+     id="SvgjsG73019-0"
+     style="fill:#00ff00;fill-opacity:1">
+    <use
+       id="SvgjsUse73018-7"
+       style="fill:#00ff00;fill-opacity:1"
+       x="499.74164"
+       y="538.99658"
+       width="34"
+       height="51"
+       xlink:href="#door_closed" />
+  </g>
+  <g
+     transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,317.72168,291.41484)"
+     id="g11969-7-7-9-5-3-1-7-8-3">
+    <title
+       id="title2347-7-1-8-4">Положение клапана</title>
+    <rect
+       width="51.105999"
+       height="19.752001"
+       x="-199.28999"
+       y="119.1"
+       id="rect11971-7-7-4-2-4-4-1-0-9"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-186.65077"
+       y="130.01744"
+       transform="scale(0.97728115,1.023247)"
+       id="text11975-3-7-8-6-6-9-7-87-6"
+       xml:space="preserve"
+       style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+    <g
+       transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+       id="g36530-22-2-1-0-4-83-1"
+       style="display:none">
+      <ellipse
+         cx="-211.37"
+         cy="938.21002"
+         rx="10.554"
+         ry="8.5950003"
+         id="ellipse36532-1-7-7-9-2-8-0"
+         style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="-231.6203"
+         y="987.56171"
+         transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+         id="text36534-6-6-1-7-3-3-9"
+         xml:space="preserve"
+         style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+           x="-231.6203"
+           y="987.56171"
+           id="tspan36536-8-1-1-3-2-7-9">И</tspan></text>
+    </g>
+    <text
+       x="-168.05841"
+       y="116.9441"
+       transform="scale(1.0214255,0.97902392)"
+       id="SvgjsText14069-6"
+       style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Т, °C</text>
+  </g>
+</g>
+<g
+   id="SvgjsG28617">
+  <use
+     id="SvgjsUse28616"
+     style="fill:#ffffff"
+     x="394.63458"
+     y="490.37091"
+     width="200"
+     height="100"
+     xlink:href="#big_booth" />
+</g>
+<g
+   id="SvgjsG34184">
+  <use
+     id="SvgjsUse34179"
+     style="fill:url(#SvgjsLinearGradient36153)"
+     x="-63.822712"
+     y="221.2522"
+     width="21"
+     height="28"
+     xlink:href="#pointer" />
+</g>
+<g
+   id="SvgjsG34201">
+  <use
+     id="SvgjsUse34196"
+     style="fill:url(#SvgjsLinearGradient36157)"
+     x="1073.2853"
+     y="494.62604"
+     width="21"
+     height="28"
+     xlink:href="#pointer" />
+</g>
+<g
+   transform="matrix(1.3372219,0,0,1.1297007,-62.07226,-20.513561)"
+   id="SvgjsG41155">
+  <rect
+     width="10"
+     height="2"
+     x="191.76178"
+     y="470.16071"
+     id="SvgjsRect41154"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="g5879">
+  <g
+     transform="matrix(1,0,0,3.9133576,2.2429009,-1344.5865)"
+     id="SvgjsG41142">
+    <rect
+       width="2"
+       height="9.3490601"
+       x="191.88918"
+       y="461.65088"
+       id="SvgjsRect41141"
+       style="fill:#000000;stroke:none" />
+  </g>
+  <g
+     transform="translate(4.409825,17.120497)"
+     id="SvgjsG41168">
+    <rect
+       width="13"
+       height="2"
+       x="189.76176"
+       y="479.73407"
+       id="SvgjsRect41167"
+       style="fill:#000000;stroke:none" />
+  </g>
+  <g
+     transform="translate(4.4858019,30.609374)"
+     id="SvgjsG41181">
+    <rect
+       width="2"
+       height="9.0637207"
+       x="189.82549"
+       y="481.93628"
+       id="SvgjsRect41180"
+       style="fill:#000000;stroke:none" />
+  </g>
+  <g
+     transform="translate(4.6692265,30.609374)"
+     id="SvgjsG41194">
+    <rect
+       width="16.867065"
+       height="2"
+       x="182.9584"
+       y="491"
+       id="SvgjsRect41193"
+       style="fill:#000000;stroke:none" />
+  </g>
+  <g
+     transform="translate(4.409825,30.609374)"
+     id="SvgjsG41207">
+    <rect
+       width="12.739563"
+       height="2"
+       x="185.08591"
+       y="495.06372"
+       id="SvgjsRect41206"
+       style="fill:#000000;stroke:none" />
+  </g>
+  <g
+     transform="translate(4.409825,30.609374)"
+     id="SvgjsG41220">
+    <rect
+       width="8.6121521"
+       height="2"
+       x="187.21333"
+       y="499.06372"
+       id="SvgjsRect41219"
+       style="fill:#000000;stroke:none" />
+  </g>
+</g>
+<g
+   id="SvgjsG72957">
+  <rect
+     width="2"
+     height="9.3490601"
+     x="524.40997"
+     y="461.65094"
+     id="SvgjsRect72956"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72959">
+  <rect
+     width="2"
+     height="8"
+     x="524.40991"
+     y="482"
+     id="SvgjsRect72958"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72961">
+  <rect
+     width="10"
+     height="2"
+     x="526"
+     y="469.09692"
+     id="SvgjsRect72960"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72963">
+  <rect
+     width="11"
+     height="2"
+     x="525"
+     y="480.79779"
+     id="SvgjsRect72962"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72965">
+  <rect
+     width="8.7285614"
+     height="2"
+     x="521"
+     y="497.81708"
+     id="SvgjsRect72964"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72967">
+  <rect
+     width="14"
+     height="2"
+     x="518"
+     y="493.56241"
+     id="SvgjsRect72966"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG72969">
+  <rect
+     width="17.983353"
+     height="2"
+     x="516"
+     y="489.30746"
+     id="SvgjsRect72968"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112351">
+  <rect
+     width="13"
+     height="2"
+     x="857.17444"
+     y="468.03326"
+     id="SvgjsRect112350"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112353">
+  <rect
+     width="11"
+     height="2"
+     x="859.17444"
+     y="480.79779"
+     id="SvgjsRect112352"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112355">
+  <rect
+     width="18.814434"
+     height="2"
+     x="851.302"
+     y="491.43497"
+     id="SvgjsRect112354"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112357">
+  <rect
+     width="13.687115"
+     height="2"
+     x="854.302"
+     y="495.68976"
+     id="SvgjsRect112356"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112359">
+  <rect
+     width="9.4321709"
+     height="2"
+     x="856.42932"
+     y="499.94467"
+     id="SvgjsRect112358"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112361">
+  <rect
+     width="2"
+     height="8.3490295"
+     x="856.28815"
+     y="461.65097"
+     id="SvgjsRect112360"
+     style="fill:#000000;stroke:none" />
+</g>
+<g
+   id="SvgjsG112363">
+  <rect
+     width="2"
+     height="9.2022095"
+     x="859.47955"
+     y="482.92511"
+     id="SvgjsRect112362"
+     style="fill:#000000;stroke:none" />
+</g>
+<text
+   x="19.593311"
+   y="111.70084"
+   id="SvgjsText49573"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">УЗ</text>
+<text
+   x="1013.7668"
+   y="641.43372"
+   id="SvgjsText49597"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">УП</text>
+<text
+   x="184.42151"
+   y="209.57837"
+   id="SvgjsText80641"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#ffffff;font-family:Arial">####</text>
+<text
+   x="279.36041"
+   y="583.98035"
+   id="SvgjsText4789"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Загазованность, %</text>
+<g
+   transform="translate(0,66)"
+   id="SvgjsG4868">
+  <rect
+     width="52"
+     height="29"
+     x="203.16898"
+     y="551.00281"
+     id="SvgjsRect4867"
+     style="fill:#00ff00;stroke:#000000;stroke-width:1" />
+</g>
+<text
+   x="589.09991"
+   y="524.42554"
+   id="SvgjsText32986"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Загазованность, %</text>
+<g
+   id="SvgjsG32999">
+  <rect
+     width="52"
+     height="29"
+     x="548.96613"
+     y="550.76324"
+     transform="matrix(0.99999848,0.00174533,-0.00174533,0.99999848,0.89668477,-0.76307237)"
+     id="SvgjsRect32998"
+     style="fill:#00ff00;stroke:#000000;stroke-width:1" />
+</g>
+<g
+   id="SvgjsG33012">
+  <rect
+     width="52"
+     height="29"
+     x="883.9447"
+     y="552.06647"
+     id="SvgjsRect33011"
+     style="fill:#00ff00;stroke:#000000;stroke-width:1" />
+</g>
+<text
+   x="921.86072"
+   y="522.27191"
+   id="SvgjsText33189"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Загазованность, %</text>
+<g
+   id="SvgjsG15701">
+  <use
+     transform="matrix(-0.00698126,0.99997563,-0.99997563,-0.00698126,461.08722,-14.715991)"
+     id="SvgjsUse15606"
+     style="fill:url(#SvgjsLinearGradient15607)"
+     x="212.38622"
+     y="419.62503"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<text
+   x="229.95889"
+   y="640.41565"
+   id="SvgjsText21422"
+   style="font-size:15.8125px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">&lt; 20</text>
+<text
+   x="908.85364"
+   y="571.22784"
+   id="SvgjsText24294"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">&lt; 20</text>
+&gt;<text
+   x="571.60126"
+   y="572.28723"
+   id="SvgjsText24306"
+   style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">&lt; 20</text>
+<g
+   id="SvgjsG33113">
+  <use
+     transform="matrix(0.01570732,-0.99987663,0.99987663,0.01570732,400.69739,754.47087)"
+     id="SvgjsUse33108"
+     style="fill:url(#SvgjsLinearGradient33109)"
+     x="215.79979"
+     y="585.88153"
+     width="33"
+     height="35"
+     xlink:href="#valve_ch" />
+</g>
+<g
+   transform="translate(16,0)"
+   id="SvgjsG1389">
+  <use
+     id="SvgjsUse1388"
+     style="fill:#ffffff"
+     x="70.848045"
+     y="425.34372"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   transform="translate(-6,0)"
+   id="SvgjsG2977">
+  <use
+     id="SvgjsUse2976"
+     style="fill:#ffffff"
+     x="217.64253"
+     y="424.78439"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   transform="translate(10,0)"
+   id="SvgjsG3001">
+  <use
+     id="SvgjsUse3000"
+     style="fill:#ffffff"
+     x="418.6871"
+     y="425.34332"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   id="SvgjsG3025">
+  <use
+     id="SvgjsUse3024"
+     style="fill:#ffffff"
+     x="553.78088"
+     y="425.08307"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   transform="translate(14,0)"
+   id="SvgjsG4479">
+  <use
+     id="SvgjsUse4478"
+     style="fill:#ffffff"
+     x="745.25171"
+     y="425.21054"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   transform="translate(-8,0)"
+   id="SvgjsG4503">
+  <use
+     id="SvgjsUse4502"
+     style="fill:#ffffff"
+     x="889.91907"
+     y="425.15216"
+     width="40"
+     height="33"
+     xlink:href="#pressure_sensor" />
+</g>
+<g
+   id="SvgjsG73006">
+  <use
+     id="SvgjsUse73005"
+     style="fill:#ffffff"
+     x="834.81622"
+     y="541.12396"
+     width="34"
+     height="51"
+     xlink:href="#door_closed" />
+</g>
+<g
+   transform="matrix(1.9436994,0.00764252,-0.01766538,1.6957305,1117.616,-758.19866)"
+   id="g4109-9-1-9">
+  <g
+     id="g4131-8-0-0">
+    <g
+       id="g4135-2-9-7"
+       style="fill-rule:evenodd;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter">
+      <path
+         d="m -482.7,649.67 20.16,-11.382 0.1344,21.315 z"
+         id="path36518-2-4-4-6"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+      <path
+         d="m -482.76,649.68 -20.16,-11.382 -0.1344,21.315 z"
+         id="path36520-7-5-8-3"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+    </g>
+  </g>
+  <ellipse
+     cx="876.53998"
+     cy="399.38"
+     rx="9.0481005"
+     ry="7.4162998"
+     transform="matrix(0,0.53804867,-0.34944648,0,-343.88087,177.72842)"
+     id="ellipse36522-6-5-8-6"
+     style="fill:#07010c;stroke:#000101;stroke-width:1.26559997;stroke-miterlimit:4;stroke-opacity:0.79650999;stroke-dasharray:none" />
+  <path
+     d="m -483.39,656.44 0,-14.49"
+     id="path36528-3-15-5-2"
+     style="fill:#01010a;fill-rule:evenodd;stroke:#000000;stroke-width:0.56339949;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="matrix(0.5407468,0.02464653,-0.01565472,0.68476981,-373.95599,21.453241)"
+     id="g36530-22-2-1-0">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-232.08986"
+       y="987.57452"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-232.08986"
+         y="987.57452"
+         id="tspan36536-8-1-1-3">U</tspan></text>
+  </g>
+  <g
+     transform="matrix(0.63341433,-0.00825367,0.00681283,0.78725527,-313.11891,-51.296425)"
+     id="g36538-57-42-5-7">
+    <rect
+       width="18.761"
+       height="15.681"
+       x="-255.14999"
+       y="891.07001"
+       id="rect36540-61-3-2-2"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.77995926;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-214.77249"
+       y="1069.609"
+       transform="scale(1.1840976,0.84452498)"
+       id="text36542-89-2-7-6"
+       xml:space="preserve"
+       style="font-size:15.5921936px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.97863243;font-family:sans-serif">M</text>
+  </g>
+  <g
+     transform="matrix(0.78660145,-0.00354515,0.00854938,0.94067676,-346.8482,554.39289)"
+     id="g11969-7-7-9-5-3-1">
+    <title
+       id="title2347-7">Положение клапана</title>
+    <rect
+       width="51.105999"
+       height="19.752001"
+       x="-199.28999"
+       y="119.1"
+       id="rect11971-7-7-4-2-4-4"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="33.442921"
+       height="15.315"
+       x="-196.56142"
+       y="121.71"
+       id="rect11973-8-7-8-7-4-0"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.42328426;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-193.942"
+       y="130.01744"
+       transform="scale(0.97728115,1.023247)"
+       id="text11975-3-7-8-6-6-9"
+       xml:space="preserve"
+       style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+    <text
+       x="-152.59319"
+       y="135.33557"
+       transform="scale(1.0214255,0.97902392)"
+       id="SvgjsText10794-8"
+       style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">%</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-570.05875,454.19866)"
+     id="g4752">
+    <g
+       transform="translate(-5.1358872,-25.679436)"
+       id="SvgjsG7426">
+      <rect
+         width="121.26316"
+         height="25.529085"
+         x="108.4959"
+         y="306.34906"
+         id="SvgjsRect7425"
+         style="fill:#31b404;stroke:#ffffff;stroke-width:2" />
+    </g>
+    <text
+       x="164.59525"
+       y="299.82852"
+       id="SvgjsText10096"
+       style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Задвижка №1</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-575.13044,442.53119)"
+     id="SvgjsG71497"
+     style="display:none">
+    <text
+       x="251.47232"
+       y="322.31543"
+       id="SvgjsText71496"
+       style="font-size:35px;font-weight:bold;text-anchor:middle;fill:#ff0000;font-family:Arial">(!)</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-751.48521,440.24492)"
+     id="SvgjsG77737-5" />
+  <use
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-752.28037,440.8604)"
+     id="use5369-9"
+     style="fill:url(#SvgjsLinearGradient77641);display:none"
+     x="489.95721"
+     y="249.82837"
+     width="55"
+     height="55"
+     xlink:href="#flame" />
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,521.863,202.20829)"
+   id="g11969-7-7-9-5-3-1-7">
+  <title
+     id="title2347-7-1">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,347.67417,202.55724)"
+   id="g11969-7-7-9-5-3-1-7-2">
+  <title
+     id="title2347-7-1-1">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-6"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-8"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-5"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-7"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-6"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-1"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-8">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.9436994,0.00764252,-0.01766538,1.6957305,1459.9983,-759.0537)"
+   id="g4109-9-1-9-2">
+  <g
+     id="g4131-8-0-0-8">
+    <g
+       id="g4135-2-9-7-6"
+       style="fill-rule:evenodd;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter">
+      <path
+         d="m -482.7,649.67 20.16,-11.382 0.1344,21.315 z"
+         id="path36518-2-4-4-6-0"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+      <path
+         d="m -482.76,649.68 -20.16,-11.382 -0.1344,21.315 z"
+         id="path36520-7-5-8-3-2"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+    </g>
+  </g>
+  <ellipse
+     cx="876.53998"
+     cy="399.38"
+     rx="9.0481005"
+     ry="7.4162998"
+     transform="matrix(0,0.53804867,-0.34944648,0,-343.88087,177.72842)"
+     id="ellipse36522-6-5-8-6-4"
+     style="fill:#07010c;stroke:#000101;stroke-width:1.26559997;stroke-miterlimit:4;stroke-opacity:0.79650999;stroke-dasharray:none" />
+  <path
+     d="m -483.39,656.44 0,-14.49"
+     id="path36528-3-15-5-2-8"
+     style="fill:#01010a;fill-rule:evenodd;stroke:#000000;stroke-width:0.56339949;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="matrix(0.5407468,0.02464653,-0.01565472,0.68476981,-373.95599,21.453241)"
+     id="g36530-22-2-1-0-6">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-5"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-232.08986"
+       y="987.57452"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-0"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-232.08986"
+         y="987.57452"
+         id="tspan36536-8-1-1-3-9">U</tspan></text>
+  </g>
+  <g
+     transform="matrix(0.63341433,-0.00825367,0.00681283,0.78725527,-313.11891,-51.296425)"
+     id="g36538-57-42-5-7-0">
+    <rect
+       width="18.761"
+       height="15.681"
+       x="-255.14999"
+       y="891.07001"
+       id="rect36540-61-3-2-2-0"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.77995926;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-214.77249"
+       y="1069.609"
+       transform="scale(1.1840976,0.84452498)"
+       id="text36542-89-2-7-6-6"
+       xml:space="preserve"
+       style="font-size:15.5921936px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.97863243;font-family:sans-serif">M</text>
+  </g>
+  <g
+     transform="matrix(0.78660145,-0.00354515,0.00854938,0.94067676,-346.8482,554.39289)"
+     id="g11969-7-7-9-5-3-1-1">
+    <title
+       id="title2347-7-3">Положение клапана</title>
+    <rect
+       width="51.105999"
+       height="19.752001"
+       x="-199.28999"
+       y="119.1"
+       id="rect11971-7-7-4-2-4-4-8"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="33.442921"
+       height="15.315"
+       x="-196.56142"
+       y="121.71"
+       id="rect11973-8-7-8-7-4-0-9"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.42328426;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-193.942"
+       y="130.01744"
+       transform="scale(0.97728115,1.023247)"
+       id="text11975-3-7-8-6-6-9-3"
+       xml:space="preserve"
+       style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+    <text
+       x="-152.59319"
+       y="135.33557"
+       transform="scale(1.0214255,0.97902392)"
+       id="SvgjsText10794-8-4"
+       style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">%</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-570.05875,454.19866)"
+     id="g4752-4">
+    <g
+       transform="translate(-5.1358872,-25.679436)"
+       id="SvgjsG7426-6">
+      <rect
+         width="121.26316"
+         height="25.529085"
+         x="108.4959"
+         y="306.34906"
+         id="SvgjsRect7425-0"
+         style="fill:#31b404;stroke:#ffffff;stroke-width:2" />
+    </g>
+    <text
+       x="164.59525"
+       y="299.82852"
+       id="SvgjsText10096-6"
+       style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Задвижка №1</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-575.13044,442.53119)"
+     id="SvgjsG71497-6"
+     style="display:none">
+    <text
+       x="251.47232"
+       y="322.31543"
+       id="SvgjsText71496-1"
+       style="font-size:35px;font-weight:bold;text-anchor:middle;fill:#ff0000;font-family:Arial">(!)</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-751.48521,440.24492)"
+     id="SvgjsG77737-5-8" />
+  <use
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-752.28037,440.8604)"
+     id="use5369-9-4"
+     style="fill:url(#linearGradient5557);display:none"
+     x="489.95721"
+     y="249.82837"
+     width="55"
+     height="55"
+     xlink:href="#flame" />
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,864.24528,201.35329)"
+   id="g11969-7-7-9-5-3-1-7-9">
+  <title
+     id="title2347-7-1-6">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-3"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-7"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-8"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-8"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-2"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-9"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-1">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,690.05645,201.70224)"
+   id="g11969-7-7-9-5-3-1-7-2-3">
+  <title
+     id="title2347-7-1-1-5">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-6-9"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-8-8"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-5-4"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-7-0"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-6-7"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-1-6"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-8-3">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.9436994,0.00764252,-0.01766538,1.6957305,1792.1243,-759.05371)"
+   id="g4109-9-1-9-0">
+  <g
+     id="g4131-8-0-0-1">
+    <g
+       id="g4135-2-9-7-4"
+       style="fill-rule:evenodd;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter">
+      <path
+         d="m -482.7,649.67 20.16,-11.382 0.1344,21.315 z"
+         id="path36518-2-4-4-6-6"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+      <path
+         d="m -482.76,649.68 -20.16,-11.382 -0.1344,21.315 z"
+         id="path36520-7-5-8-3-0"
+         style="fill:#7c7c7c;fill-opacity:1;stroke-width:0.43361181px" />
+    </g>
+  </g>
+  <ellipse
+     cx="876.53998"
+     cy="399.38"
+     rx="9.0481005"
+     ry="7.4162998"
+     transform="matrix(0,0.53804867,-0.34944648,0,-343.88087,177.72842)"
+     id="ellipse36522-6-5-8-6-7"
+     style="fill:#07010c;stroke:#000101;stroke-width:1.26559997;stroke-miterlimit:4;stroke-opacity:0.79650999;stroke-dasharray:none" />
+  <path
+     d="m -483.39,656.44 0,-14.49"
+     id="path36528-3-15-5-2-1"
+     style="fill:#01010a;fill-rule:evenodd;stroke:#000000;stroke-width:0.56339949;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="matrix(0.5407468,0.02464653,-0.01565472,0.68476981,-373.95599,21.453241)"
+     id="g36530-22-2-1-0-7">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-7"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-232.08986"
+       y="987.57452"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-7"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-232.08986"
+         y="987.57452"
+         id="tspan36536-8-1-1-3-7">U</tspan></text>
+  </g>
+  <g
+     transform="matrix(0.63341433,-0.00825367,0.00681283,0.78725527,-313.11891,-51.296425)"
+     id="g36538-57-42-5-7-3">
+    <rect
+       width="18.761"
+       height="15.681"
+       x="-255.14999"
+       y="891.07001"
+       id="rect36540-61-3-2-2-3"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#000000;stroke-width:0.77995926;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-214.77249"
+       y="1069.609"
+       transform="scale(1.1840976,0.84452498)"
+       id="text36542-89-2-7-6-5"
+       xml:space="preserve"
+       style="font-size:15.5921936px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.97863243;font-family:sans-serif">M</text>
+  </g>
+  <g
+     transform="matrix(0.78660145,-0.00354515,0.00854938,0.94067676,-346.8482,554.39289)"
+     id="g11969-7-7-9-5-3-1-9">
+    <title
+       id="title2347-7-9">Положение клапана</title>
+    <rect
+       width="51.105999"
+       height="19.752001"
+       x="-199.28999"
+       y="119.1"
+       id="rect11971-7-7-4-2-4-4-81"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="33.442921"
+       height="15.315"
+       x="-196.56142"
+       y="121.71"
+       id="rect11973-8-7-8-7-4-0-8"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.42328426;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-193.942"
+       y="130.01744"
+       transform="scale(0.97728115,1.023247)"
+       id="text11975-3-7-8-6-6-9-2"
+       xml:space="preserve"
+       style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+    <text
+       x="-152.59319"
+       y="135.33557"
+       transform="scale(1.0214255,0.97902392)"
+       id="SvgjsText10794-8-6"
+       style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">%</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-570.05875,454.19866)"
+     id="g4752-6">
+    <g
+       transform="translate(-5.1358872,-25.679436)"
+       id="SvgjsG7426-0">
+      <rect
+         width="121.26316"
+         height="25.529085"
+         x="108.4959"
+         y="306.34906"
+         id="SvgjsRect7425-3"
+         style="fill:#31b404;stroke:#ffffff;stroke-width:2" />
+    </g>
+    <text
+       x="164.59525"
+       y="299.82852"
+       id="SvgjsText10096-8"
+       style="font-size:16px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Задвижка №1</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-575.13044,442.53119)"
+     id="SvgjsG71497-0"
+     style="display:none">
+    <text
+       x="251.47232"
+       y="322.31543"
+       id="SvgjsText71496-12"
+       style="font-size:35px;font-weight:bold;text-anchor:middle;fill:#ff0000;font-family:Arial">(!)</text>
+  </g>
+  <g
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-751.48521,440.24492)"
+     id="SvgjsG77737-5-5" />
+  <use
+     transform="matrix(0.51446177,-0.00231864,0.00535944,0.58969219,-752.28037,440.8604)"
+     id="use5369-9-0"
+     style="fill:url(#linearGradient5557-0);display:none"
+     x="489.95721"
+     y="249.82837"
+     width="55"
+     height="55"
+     xlink:href="#flame" />
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,1196.3713,201.35328)"
+   id="g11969-7-7-9-5-3-1-7-94">
+  <title
+     id="title2347-7-1-7">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-8"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-3"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-51"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-2"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-0"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-16"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-4">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,1022.1825,201.70223)"
+   id="g11969-7-7-9-5-3-1-7-2-0">
+  <title
+     id="title2347-7-1-1-6">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-6-1"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-8-89"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-171.28687"
+     y="116.31749"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-5-8"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">Р, МПа</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-7-4"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-6-1"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-1-4"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-8-39">И</tspan></text>
+  </g>
+</g>
+<g
+   transform="matrix(1.5289794,0,1.2353803e-8,1.5951996,512.1347,297.49818)"
+   id="g11969-7-7-9-5-3-1-7-8">
+  <title
+     id="title2347-7-1-8">Положение клапана</title>
+  <rect
+     width="51.105999"
+     height="19.752001"
+     x="-199.28999"
+     y="119.1"
+     id="rect11971-7-7-4-2-4-4-1-0"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.52385998;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  <text
+     x="-186.65077"
+     y="130.01744"
+     transform="scale(0.97728115,1.023247)"
+     id="text11975-3-7-8-6-6-9-7-87"
+     xml:space="preserve"
+     style="font-size:13.12440014px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:sans-serif">----</text>
+  <text
+     x="-169.62589"
+     y="115.98529"
+     transform="scale(1.0214255,0.97902392)"
+     id="SvgjsText10794-1-7"
+     style="font-size:10.24499226px;font-weight:bold;text-anchor:middle;fill:#000000;font-family:Arial">ЭХЗ, В</text>
+  <g
+     transform="matrix(0.68713404,0.02879047,-0.02781254,0.72784961,22.366391,-539.68367)"
+     id="g36530-22-2-1-0-4-83"
+     style="display:none">
+    <ellipse
+       cx="-211.37"
+       cy="938.21002"
+       rx="10.554"
+       ry="8.5950003"
+       id="ellipse36532-1-7-7-9-2-8"
+       style="fill:#ff00ff;fill-opacity:1;stroke:#000000;stroke-width:0.90469611;stroke-miterlimit:4;stroke-opacity:0.79607999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-231.6203"
+       y="987.56171"
+       transform="matrix(1.0506789,-0.01561131,0.0267378,0.95136828,0,0)"
+       id="text36534-6-6-1-7-3-3"
+       xml:space="preserve"
+       style="font-size:15.15565109px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;font-family:sans-serif"><tspan
+         x="-231.6203"
+         y="987.56171"
+         id="tspan36536-8-1-1-3-2-7">И</tspan></text>
+  </g>
+</g>
+<g
+   id="g6084">
+  <g
+     transform="translate(149.53033,116.50562)"
+     id="SvgjsG69944">
+    <use
+       transform="translate(0,-43.288192)"
+       id="SvgjsUse69943"
+       style="fill:#ff0000;fill-opacity:1"
+       x="151.0495"
+       y="543.56537"
+       width="40"
+       height="45"
+       xlink:href="#door_opened" />
+  </g>
+  <g
+     transform="translate(-147.60292,114.11613)"
+     id="SvgjsG73019"
+     style="fill:#c0c0c0;fill-opacity:1">
+    <use
+       transform="translate(33.203389,-3.1128177)"
+       id="SvgjsUse73018"
+       style="fill:#c0c0c0;fill-opacity:1"
+       x="499.74164"
+       y="538.99658"
+       width="34"
+       height="51"
+       xlink:href="#door_closed" />
+  </g>
+  <g
+     transform="translate(-147.80972,115.82572)"
+     id="SvgjsG73019-0-8"
+     style="fill:#00ff00;fill-opacity:1">
+    <use
+       id="SvgjsUse73018-7-3"
+       style="fill:#00ff00;fill-opacity:1"
+       x="499.74164"
+       y="538.99658"
+       width="34"
+       height="51"
+       xlink:href="#door_closed" />
+  </g>
+</g>
+</svg>

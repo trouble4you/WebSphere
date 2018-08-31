@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic; 
-using System.Web.Http; 
- 
+using System.Collections.Generic;
+using System.Web.Http;
+
 using System.Net.Http.Formatting;
 using WebSphere.Domain.Abstract;
-using WebSphere.Domain.Concrete; 
+using WebSphere.Domain.Concrete;
 
 namespace WebSphere.WebUI.Controllers.API
 {
     public class TrendController : ApiController
-    { 
-         
+    {
         [HttpPost]
         public MyTrendData GetData(FormDataCollection data)
         {
@@ -19,9 +18,15 @@ namespace WebSphere.WebUI.Controllers.API
             //конец тренда
             string ed1 = data.Get("end_date");
             //список сигналов тренда
-            string signalId = data.Get("signal_id"); 
+            string signalId = data.Get("signal_id");
             return MvcApplication.Trends.GetTrend(sd1, ed1, signalId);
-
-        } 
+        }
+        [HttpPost]
+        public List<MyTrend> GetDataOpc(FormDataCollection data)
+        {
+            //список сигналов тренда
+            string signalId = data.Get("signal_id");
+            return MvcApplication.Trends.GetTrendOpc(signalId);
+        }
     }
 }

@@ -2,9 +2,9 @@
  
 
 <!-- Styles --> 
-<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" />
-<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/zerozam.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" /> 
 <link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" /> 
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/Reports.css" />
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' /> 
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
@@ -17,16 +17,40 @@
 <script type="text/javascript" src="/Scripts/_JS/main.js"></script>
 <script type="text/javascript" src="/Scripts/_JS/jqGrid/jquery.jqGrid.min.js"></script> 
 <script type="text/javascript" src="/Scripts/_JS/AdditionalFunctions.js"></script> 
-
-   
-<div id='alarms_div_head' class='div_lastmess_head' style=" position: absolute; z-index: 0; right: 0px; min-width: 887px; left: 0px; top: 203px; bottom: 10px;">
-    Журнал тревог
-    <input type="button" value="Квитировать все" class=" kvit_it_all" onclick="kvitirovanie_all()" />
+<div id="journal" class="container " style="width: 100%;">
+    
+    
+    
+    <div class="row">
+        <div class="col-md-9">
+            <h4>Журнал тревог</h4> 
+        </div> 
+        <div class="col-md-1">
+            <h4>
+                <select class="form-control" id="agzu" name="agzu">
+                    <option value="0">Все</option>
+                        <option value="136">Задвижка №14</option>
+                        <option value="4274">Задвижка №15</option>
+                        <option value="4307">Задвижка №18</option>
+                </select>
+                </h4>
 </div>
-<div id='mess_div' style=" position: absolute; z-index: 0; right: 0px; min-width: 887px; left: 2px; top: 233px; bottom: 10px;">
-    <table style='margin-bottom:0px;'   id='lastalarms_table'></table>
+        <div class="col-md-1">
+            <h4>
+                <input type="button" class="btn btn-default" id="obnov" style=" width 100%;" value="Обновить" onclick="getlastalarms()" />
+            </h4>
+        </div>
+        <div class="col-md-1">
+            <h4>
+                <input type="button" class="btn btn-default" style="width 100%;" value="Квитировать все" onclick="kvitirovanie_all()" />
+            </h4> 
 </div>
-  
+    </div>
+    <div id='mess_div' class="row div_events">
+        <table style='margin-bottom:0px;' id='lastalarms_table'></table>
+    </div>
+</div>
+    
 
 <script type="text/javascript">
     $(function () {
@@ -107,13 +131,24 @@
     function errkvit() {
       ErrMessage("Не квитировано");
     }
-    function getlastalarms() {
-        //читаем алармы
-        $.ajax({ type: "POST", url: "/api/Alarms/GetCurrentAlarms", async: true, success: page_drawAlarms });
+    function getlastalarms(AgzuId) {
+        if (AgzuId == undefined || AgzuId == true) { 
+            AgzuId = document.getElementById("agzu").value;
+        }
+        else if (AgzuId != 0)
+            document.getElementById("agzu").value = AgzuId;
+        
+        LoadPageOn();
+        //читаем алармы 
+        $.ajax({ type: "POST", url: "/Alarms/GetCurrentAlarms", data: { id: AgzuId }, async: true, success: page_drawAlarms, error: page_nodraw });
     }
-    getlastalarms();
+    getlastalarms(@Html.Raw(ViewBag.id));
     setInterval('getlastalarms()',30000);
-
+    
+    function page_nodraw(data) {
+        ErrMessage("Не удалось обновить события");
+        LoadPageOff();
+    }
     function page_drawAlarms(data) {
         //рисуем алармы
         var scrollPosition;
@@ -155,6 +190,7 @@
         // $("#lastalarms_table").setGridParam({ rowNum: countmess }).trigger("reloadGrid");
 
         jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop(scrollPosition);
+        LoadPageOff();
     }
     function kvitirovanie(rowid, id, tag, ack, active) {
         //if (!ack)
@@ -169,10 +205,10 @@
       //if (kvit) {
           if (active == 'true') {
               //getlastalarms();
-                  $.ajax({ type: "POST", url: "/api/Alarms/KvitAlarm", data: { Tag: tag, Id: id }, async: true, success: getlastalarms });
+              $.ajax({ type: "POST", url: "/Alarms/SetAlarmAck", data: { Tag: tag, Id: id }, async: true, success: getlastalarms });
           }
           else {
-              $.ajax({ type: "POST", url: "/api/Alarms/KvitAlarm", data: { Tag: tag, Id: id }, async: true });
+              $.ajax({ type: "POST", url: "/Alarms/SetAlarmAck", data: { Tag: tag, Id: id }, async: true });
               $('#lastalarms_table').delRowData(rowid);
               getlastalarms();
           }

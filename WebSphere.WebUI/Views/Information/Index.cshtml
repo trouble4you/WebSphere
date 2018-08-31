@@ -1,0 +1,44 @@
+﻿<h4>Последние обновления</h4> 
+<ul class="Link_hui font12 noUnderl">
+    <li>
+        <span class="sep"> Добавление действий пользователя в журнал событий</span>
+    </li>
+    <li>
+        <span class="sep">Добавлено состояние опроса</span>
+    </li>
+    <li>
+        <span class="sep">Добавлено окно справки и последних изменений</span>
+    </li>
+    <li>
+        <span class="sep">Последние события на мнемокадрах</span>
+    </li>
+    <li>
+        <span class="sep">Выгрузка трендов в Excel</span>
+    </li>
+    <li>
+        <span class="sep">Изменение отображения сигнала аварии задвижки</span>
+    </li>
+    <li>
+        <span class="sep">Скрытие элементов управления во время перекачки</span>
+    </li>
+    </ul>
+    <h4>Текущие версии руководств пользователя и программиста</h4>
+    <div style="margin-left:10px;">
+        @{
+            var Files = (ViewBag.Files as string[]);
+
+            if (Files != null && Files.Any())
+            {
+                foreach (var file in Files)
+                {
+                    <br />
+                    @Html.ActionLink(file, "DownloadFile", new { fileName = file })
+                    <br />
+                }
+            }
+            else
+            {
+                <label>Нет файлов для загрузки</label>
+            }
+        }
+    </div>

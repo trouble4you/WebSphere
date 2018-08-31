@@ -1,0 +1,120 @@
+﻿@model WebSphere.WebUI.Models.AddNodeModel
+
+@*//добавить поле соответствующее типу узла, в которым будет добавлен новый и в зависимости от этого добавлять в словарь только нужные для этого типа значения*@
+@{
+    Dictionary<int, string> nodeNameDict = new Dictionary<int, string>
+    {
+        {1, "OPC-сервер"},
+        {2, "Тег"},
+        {5, "Контроллер"},
+        {17, "GPRS канал"},
+        {18, "Радиоканал"},
+        {21, "Папка"},
+        {22, "Группа опроса"}
+    };
+
+    var specializedNodeList = new Dictionary<int, string>();
+    switch (Model.typeParentNode)
+    {
+        //OPC
+        case 1:
+            {
+                specializedNodeList.Add(5, nodeNameDict[5]);
+                specializedNodeList.Add(21, nodeNameDict[21]);
+                break;
+            }
+        //папка
+        case 21:
+            {
+                specializedNodeList.Add(2, nodeNameDict[2]);
+                specializedNodeList.Add(17, nodeNameDict[17]);
+                specializedNodeList.Add(18, nodeNameDict[18]);
+                specializedNodeList.Add(21, nodeNameDict[21]);
+                specializedNodeList.Add(22, nodeNameDict[22]);
+                break;
+            }
+        //Контроллер
+        case 5:
+            {
+                specializedNodeList.Add(2, nodeNameDict[2]);
+                specializedNodeList.Add(17, nodeNameDict[17]);
+                specializedNodeList.Add(18, nodeNameDict[18]);
+                specializedNodeList.Add(21, nodeNameDict[21]);
+                specializedNodeList.Add(22, nodeNameDict[22]);
+                break;
+            }
+        //Корневой узел дерева
+        case 23:
+            {
+                specializedNodeList.Add(1, nodeNameDict[1]);
+                break;
+            }
+    }
+}
+
+
+@using (Ajax.BeginForm("AddNode", new AjaxOptions { UpdateTargetId = "nodeAddForm", OnSuccess = "checkPaste" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.idNodeToAdd)
+    @Html.HiddenFor(m => m.typeParentNode)
+    <br />
+    @Html.LabelFor(m => m.Name, "Название узла", new { @class = "control-label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
+    <br />
+    <p>
+        @Html.LabelFor(m => m.nodeType2, "Тип узла", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.nodeType2, new SelectList(specializedNodeList, "Key", "Value"), new { @class = "form-control" })
+    </p>
+    <p>
+        <button type="submit" class="btn btn-success" id="addNewNode">Добавить</button>
+    </p>
+}
+
+<script type="text/javascript">
+    //callback функция. Проверяет валидность возвращаемых данных
+    function checkPaste(data) {
+        //если данные валидны
+        if (data.valid == true) {
+            $('#addNodeModal').modal("hide");
+
+            //sel у нас вроде как глобальная переменная. Получаем в нее текущий выбранный узел.
+            sel = refCreateNode.get_selected();
+            if (!sel.length) { return false; }
+            //берем нулевой. Может быть потому что выбранных узлов теоретически может быть много, а у нас он всегда один.
+            sel = sel[0];
+            //ну и вызываем функцию jstree, которая тут же вставит узел без перезагрузки
+            if (data.type == "17" || data.type == "18")
+            {
+                
+                //если добавили канал связи прямо в корень контроллера, то чтобы он после добавления в дерево был виден в списке доступных каналов
+                //обновим частичное представление узла-контроллера
+                var nodeJSON = { "id": data.id, "text": data.name, "icon": "jstree-type_" + data.type, "li_attr": { "name": "channelNode" } };
+                var currentClickontroller = $('[aria-selected="true"] .jstree-type_5');//ищем выбранный узел с типом Контроллер
+                if (currentClickontroller.length > 0) {//если он есть, то обновляем
+                    var currentClickId = $('[aria-selected="true"]');
+                    var currentClickId1 = currentClickId.attr('id');
+                    $('#tagInfo').empty();
+                    $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
+                }
+            }
+            else if (data.type == "21")
+            {
+                var nodeJSON = { "id": data.id, "text": data.name, "icon": "jstree-type_" + data.type, "li_attr": { "name": "folder" } };
+
+            }
+            else {
+
+                var nodeJSON = { "id": data.id, "text": data.name, "icon": "jstree-type_" + data.type };
+            }
+            sel = refCreateNode.create_node(sel, nodeJSON);
+
+        }
+
+    }
+    $(document).ready(function () {
+        checkCreateNode = 0;//обнулим флаг создания узла
+    });
+
+</script>

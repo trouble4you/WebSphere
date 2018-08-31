@@ -148,19 +148,9 @@
                                                 @{ // если не Суперпользователь, показываем роли
                                                     if (user.IsSuperuser == 0)
                                                     {
-
-                                                        int roleCount = 0;
-                                                        string roleSep = ", ";
-
-                                                        foreach (var role in user.Roles)
-                                                        {
-                                                            @role.Name
-                                                            if (roleCount + 1 != user.Roles.Count())
-                                                            {
-                                                                @roleSep
-                                                            }
-                                                            roleCount++;
-                                                        }
+                                                        if (user.Role != null)
+                                                        {@user.Role.Name}
+                                                      
                                                     }
                                                 }
 

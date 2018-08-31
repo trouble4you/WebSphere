@@ -25,5 +25,9 @@ namespace WebSphere.Domain.Concrete
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<dynamic>>(str);
         }
+        public object DeserializeObj(string str)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(str);
+        }
     }
 }

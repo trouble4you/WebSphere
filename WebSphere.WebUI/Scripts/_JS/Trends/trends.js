@@ -35,8 +35,7 @@ function page_UpdateTrend(obj) {
 
     //var obj = JSON.parse(data);
     last_data = obj;
-
-    document.getElementById("loading").style.display = 'none';
+     
 
     start_date = obj.date_min_sec;
     end_date = obj.date_max_sec;
@@ -48,7 +47,7 @@ function page_UpdateTrend(obj) {
         all_data[obj.trends[i].id] = [];
         var points = obj.trends[i].Points;
         for (var j = 0; j < points.length; j++) {
-            all_data[obj.trends[i].id].push([points[j].dt - 21600, points[j].v]);
+            all_data[obj.trends[i].id].push([points[j].dt , points[j].v]);
     }
 }
 
@@ -94,6 +93,8 @@ global_current_trends_ids = [];
 
         document.getElementById("trend_color_" + signal_id).style.backgroundColor = trends_colors[i % trends_colors.length];
     }
+
+    LoadPageOff();
 }
 
 function no_UpdateTrend(obj) {
@@ -151,8 +152,7 @@ function Switch_Y() {
 
 
 function UpdateTrends() {
-    var loading = document.getElementById("loading");
-    if (loading != null) loading.style.display = 'block';
+    LoadPageOn();
     var reset_cach = "1";
 
     var auto_update_range = "0";
@@ -161,7 +161,7 @@ function UpdateTrends() {
         auto_update_range = 5 * 60;
     }
 
- 
+
     var _d = {
         "start_date": parseInt(start_date),
         "end_date": parseInt(end_date),
@@ -169,8 +169,43 @@ function UpdateTrends() {
         "reset_cach": reset_cach,
         "object_id": global_object_id,
         "auto_update": auto_update_range
-    }; 
-    $.ajax({ type: "POST", url: "/api/Trend/GetData", data: _d, async: true, success: page_UpdateTrend, Error: no_UpdateTrend }); 
+    }; $.ajax({
+        type: "POST", url: "/Trends/GetData", data: _d, async: true,
+        success: page_UpdateTrend, Error: no_UpdateTrend
+    });
+
+    //$.ajax({ type: "POST", url: "/api/Trend/GetData", data: _d, async: true, success: page_UpdateTrend, Error: no_UpdateTrend }); 
+}
+function GetExcelTrends(id) {
+    if (id == 0) return parseInt(start_date);
+    else if (id == 1) return parseInt(end_date);
+    else if (id == 2) return GetStrCurrentTrends();
+
+    }
+function GetExcelTrends1() {
+
+    var reset_cach = "1";
+
+    var auto_update_range = "0";
+
+    if (global_auto_update) {
+        auto_update_range = 5 * 60;
+    }
+
+    var _d = {
+        "start_date": parseInt(start_date),
+        "end_date": parseInt(end_date),
+        "signal_id": GetStrCurrentTrends(),
+        "reset_cach": reset_cach,
+        "object_id": global_object_id,
+        "auto_update": auto_update_range
+    };
+    $.ajax({
+        type: "POST", url: '@Url.Action("GetExcel", "Trends")?start_date=' + parseInt(start_date) + '&?end_date=' + parseInt(end_date) + '&signal_id=' + GetStrCurrentTrends(), async: false
+    });
+    //$.ajax({ type: "POST", url: "/Trends/GetExcel", data: _d, async: false });
+
+    //$.ajax({ type: "POST", url: "/api/Trend/GetData", data: _d, async: true, success: page_UpdateTrend, Error: no_UpdateTrend }); 
 }
 
 function updateLegend() {
@@ -255,8 +290,8 @@ $(function () {
     plot = $.plot(placeholder, [{ data: trend_1 }], {
 
         canvas: true,
-        series: { lines: { show: true }, points: { show: false } },
-       
+        series: { lines: { show: true }, points: { show: true } },
+ 
         xaxis: {
             mode: "time" 
         },
@@ -354,9 +389,9 @@ function RangeRight() {
 
 function RangeCustom(s) {
     global_auto_update = false;
-    var d = (end_date + start_date) / 2;
-    start_date = d - s / 2;
-    end_date = d + s / 2;
+    //var d = (end_date + start_date) / 2;
+    start_date = end_date - s;
+    //end_date = start_date - s;
     UpdateTrends();
 }
 
@@ -382,6 +417,7 @@ function Last5Mins(s) {
     UpdateTrends();
 }
 
+function RangeCustomMin(x) { RangeCustom(x * 60); }
 function Range5min() { RangeCustom(5 * 60); }
 function Range30min() { RangeCustom(30 * 60); }
 function Range60mins() { RangeCustom(60 * 60); }

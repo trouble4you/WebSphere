@@ -1,15 +1,13 @@
-﻿@{
-    ViewBag.Title = "Web Telemetry System «WebSphere»";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}  <!-- Styles -->
+﻿ <!-- Styles -->
 <link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
 <link type="text/css" rel="stylesheet" href="/Content/_CSS/Developer/Index.css" />
-<!-- 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+<!--
     <link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.css' />
     END -->
 <!-- Scripts -->
 <script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/Scripts/_JS/main.js"></script>  
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
 
 <style>
     .eButton {
@@ -29,30 +27,82 @@
             background-color: #66e;
         }
 </style>
-<!--<input type="button" onclick=UpdateThreadsStates() value="update"/>-->
+<h1>&nbsp;</h1>
+<div class="grid clearL">
+    <!--<input type="button" onclick=UpdateThreadsStates() value="update"/>-->
+    <div class="list_outBox">
+
+        <div id="id_tbl">
+            <div class="data-table">
+
+                <table id="OPC_table" class="table table-striped table-bordered table-condensed table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="class_select_col">
+                                <div>
+                                    <input type="checkbox" class="chk_selected_all" />
+                                </div>
+                            </th>
+                            <th>
+                                <div>Id</div>
+                            </th>
+                            <th>
+                                <div>Имя</div>
+                            </th>
+                            <th>
+                                <div>Строка подключения</div>
+                            </th>
+                            <th>
+                                <div>Кол-во тегов</div>
+                            </th>
+                            <th>
+                                <div>Подключение</div>
+                            </th>
+                            <th>
+                                <div>Пуск</div>
+                            </th>
+                            <th>
+                                <div>Останов</div>
+                            </th>
+                            <th>
+                                <div>Перезапуск</div>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 <div id="threadStateTableId"></div>
 
-<div onclick=WriteTag() class="eButton">
-    <span> Write</span>
-</div> 
+
 <script type="text/javascript">
     CreateOpcStateTable("threadStateTableId");
     CreateThreadStateTable("threadStateTableId");
     var threadStateTableElement;
     var opcStateTableElement;
 
-    setInterval(function () {
+    setInterval(function() {
         UpdateOPCsStates();
         UpdateThreadsStates();
     }, 1000);
+
     function CreateThreadStateTable(parentId) {
         var parentElement = document.getElementById(parentId);
         if (parentElement == null)
             return;
         threadStateTableElement = document.createElement("table");
-        threadStateTableElement.className = "tagsTable";
+        threadStateTableElement.className = "table table-striped table-bordered table-condensed table-responsive    ";
         parentElement.appendChild(threadStateTableElement);
     }
+
     function CreateOpcStateTable(parentId) {
         var parentElement = document.getElementById(parentId);
         if (parentElement == null)
@@ -61,13 +111,14 @@
         opcStateTableElement.className = "tagsTable";
         parentElement.appendChild(opcStateTableElement);
     }
- 
-    function ClearThreadStateTable () {
+
+    function ClearThreadStateTable() {
         if (threadStateTableElement == null)
             return;
         while (threadStateTableElement.firstChild)
             threadStateTableElement.removeChild(threadStateTableElement.firstChild);
     }
+
     function ClearOpcStateTable() {
         if (opcStateTableElement == null)
             return;
@@ -75,128 +126,181 @@
             opcStateTableElement.removeChild(opcStateTableElement.firstChild);
     }
 
-    function AddThreadStateTableItemHeader(opc, tag,value, time,qual) {
+    function AddThreadStateTableItemHeader(opcid, tagid, tag, value, realvalue, time, qual, imit, setimit, write) {
         if (threadStateTableElement == null)
             return;
         var row = threadStateTableElement.insertRow();
-        var cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = opc; cell.style.width = "70px";
-        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = tag; cell.style.width = "100px";
-        cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = value; cell.style.width = "100px";
-        cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = time; cell.style.width = "100px";
-        cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = qual; cell.style.width = "100px";
-        
-    }
-    function AddOpcStateTableItemHeader(id, name, connstring, tagsCount, connected,start,stop,rest) {
-        if (opcStateTableElement == null)
-            return; 
-        var row = opcStateTableElement.insertRow();
-        var cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = id; cell.style.width = "70px";
-        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = name; cell.style.width = "100px";
-        cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = connstring; cell.style.width = "100px";
-        cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = tagsCount; cell.style.width = "100px";
-        cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = connected; cell.style.width = "100px";
-
-        cell = row.insertCell(5); cell.className = "tagsTableCell"; cell.innerHTML = start; cell.style.width = "100px";
-        cell = row.insertCell(6); cell.className = "tagsTableCell"; cell.innerHTML = stop; cell.style.width = "100px";
-        cell = row.insertCell(7); cell.className = "tagsTableCell"; cell.innerHTML = rest; cell.style.width = "100px";
+     var cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.style.width = "50px"; cell.innerHTML = opcid;
+        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.style.width = "50px"; cell.innerHTML = tagid;
+        cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.style.width = "100px"; cell.innerHTML = tag;
+        cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.style.width = "100px"; cell.innerHTML = value;
+        cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.style.width = "100px"; cell.innerHTML = realvalue;
+        cell = row.insertCell(5); cell.className = "tagsTableCell"; cell.style.width = "100px"; cell.innerHTML = time ;
+        cell = row.insertCell(6); cell.className = "tagsTableCell"; cell.style.width = "100px"; cell.innerHTML = qual;
+        cell = row.insertCell(7); cell.className = "tagsTableCell"; cell.style.width = "50px"; cell.innerHTML = imit;
+        cell = row.insertCell(8); cell.className = "tagsTableCell"; cell.style.width = "50px"; cell.innerHTML = setimit;
+        cell = row.insertCell(9); cell.className = "tagsTableCell"; cell.style.width = "50px"; cell.innerHTML = write;
 
     }
 
-    function AddThreadStateTableItem(opc, tag, value, time, qual) {
+
+
+    function AddThreadStateTableItem(opcid, tagid, tag, value, realvalue, time, qual,imit) {
         if (threadStateTableElement == null)
             return;
         var row = threadStateTableElement.insertRow();
-        var cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = opc;
-        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = tag;
-        cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = value;
-        cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = time;
-        cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = qual;
+        var cell = row.insertCell(0);cell.className = "tagsTableCell"; cell.innerHTML = opcid;
+        cell = row.insertCell(1);cell.className = "tagsTableCell";cell.innerHTML = tagid;
+        cell = row.insertCell(2);cell.className = "tagsTableCell";cell.innerHTML = tag;
+        cell = row.insertCell(3);cell.className = "tagsTableCell";cell.innerHTML = value;
+        cell = row.insertCell(4);cell.className = "tagsTableCell";cell.innerHTML = realvalue;
+        cell = row.insertCell(5);cell.className = "tagsTableCell";cell.innerHTML = time;
+        cell = row.insertCell(6); cell.className = "tagsTableCell"; cell.innerHTML = qual;
+        cell = row.insertCell(7); cell.className = "tagsTableCell"; cell.innerHTML = imit;
+
+        //cell = row.insertCell(7); cell.className = "tagsTableCell"; cell.innerHTML = imit;
+        //cell = row.insertCell(7); cell.className = "tagsTableCell"; cell.innerHTML = write;
+
+        cell = row.insertCell(8);
+        cell.className = "  tagsTableCell";
+        var div = document.createElement("div");
+        div.className = "eButton";
+        div.innerHTML = "Imitation";
+        div.setAttribute("onclick", "OpcTagImitation(0,'" + tag + "','" + opcid + "')");
+        cell.appendChild(div);
+
+        cell = row.insertCell(9);
+        cell.className = "  tagsTableCell";
+        div = document.createElement("div");
+        div.className = "eButton";
+        div.innerHTML = "Write";
+        div.setAttribute("onclick", "set_tag({opcid: '" + opcid + "',tagid: '" + tagid + "',type: 'input', tag: '" + tag + "', value: 'default', messageText: 'Введите значение'})");
+        cell.appendChild(div);
+        //
+        //   cell = row.insertCell(9); cell.className = "  tagsTableCell";
+        //   div = document.createElement("div");
+        //   div.className = "eButton";
+        //   div.innerHTML = "Restart";
+        //   div.setAttribute("onclick", "OpcState(3,'" + id + "')");
+        //   cell.appendChild(div);
 
     }
+
     function AddOpcStateTableItem(id, name, connstring, tagsCount, connected) {
+        opcStateTableElement = document.getElementById("OPC_table");
         if (opcStateTableElement == null)
             return;
         var row = opcStateTableElement.insertRow();
-        var cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = id;
-        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = name;
-        cell = row.insertCell(2); cell.className = "tagsTableCell"; cell.innerHTML = connstring;
-        cell = row.insertCell(3); cell.className = "tagsTableCell"; cell.innerHTML = tagsCount;
-        cell = row.insertCell(4); cell.className = "tagsTableCell"; cell.innerHTML = connected;
+        var cell = row.insertCell(0);
+        cell.className = "tagsTableCell";
+        cell.innerHTML = id;
+        cell = row.insertCell(1);
+        cell.className = "tagsTableCell";
+        cell.innerHTML = name;
+        cell = row.insertCell(2);
+        cell.className = "tagsTableCell";
+        cell.innerHTML = connstring;
+        cell = row.insertCell(3);
+        cell.className = "tagsTableCell";
+        cell.innerHTML = tagsCount;
+        cell = row.insertCell(4);
+        cell.className = "tagsTableCell";
+        cell.innerHTML = connected;
 
-        cell = row.insertCell(5); cell.className = "  tagsTableCell";
+        cell = row.insertCell(5);
+        cell.className = "  tagsTableCell";
         var div = document.createElement("div");
         div.className = "eButton";
         div.innerHTML = "Start";
         div.setAttribute("onclick", "OpcState(1,'" + id + "')");
         cell.appendChild(div);
 
-        cell = row.insertCell(6); cell.className = "  tagsTableCell"; 
-          div = document.createElement("div");
-          div.className = "eButton";
-          div.innerHTML = "Stop";
-          div.setAttribute("onclick", "OpcState(0,'" + id + "')");
+        cell = row.insertCell(6);
+        cell.className = "  tagsTableCell";
+        div = document.createElement("div");
+        div.className = "eButton";
+        div.innerHTML = "Stop";
+        div.setAttribute("onclick", "OpcState(0,'" + id + "')");
         cell.appendChild(div);
 
-        cell = row.insertCell(7); cell.className = "  tagsTableCell"; 
-          div = document.createElement("div");
-          div.className = "eButton";
-          div.innerHTML = "Restart";
-          div.setAttribute("onclick", "OpcState(3,'" + id + "')");
+        cell = row.insertCell(7);
+        cell.className = "  tagsTableCell";
+        div = document.createElement("div");
+        div.className = "eButton";
+        div.innerHTML = "Windows";
+        div.setAttribute("onclick", "OpcState(10,'" + id + "')");
+        //div.setAttribute("onclick", "OpcTagImitation('" + id + "','" + connstring + "','" + connstring + "')");
         cell.appendChild(div);
 
     }
- 
+
     function UpdateThreadsStates() {
         $.ajax({ type: "POST", url: "/Opc/GetAllOpcTagsValues", async: false, success: after_UpdateThreadsStates });
         //$.ajax({ type: "POST", url: "/Opc/GetAllOpcTagsValues", async: false, success: after_UpdateOpcStates });
         //$.ajax({ type: "POST", url: "/api/developer/GetThreadsStates", async: true, success: after_UpdateThreadsStates2 });
     }
+
     function UpdateOPCsStates() {
         $.ajax({ type: "POST", url: "/Opc/GetOpcInfo", async: false, success: after_UpdateOpcStates });
         //$.ajax({ type: "POST", url: "/api/developer/GetOpcServersInfo", async: true, success: after_UpdateThreadsStates2 });
     }
-     
+
     function OpcState(cmd, pollerId) {
+        $.ajax({
+            type: "POST",
+            url: "/Opc/ServerChangeState",
+            async:
+                false,
+            data: { cmd: cmd, pollerId: pollerId },
+            success: after_WriteTag
+        });
+    }
+
+    function OpcTagImitation(tagId, tagName, pollerId) {
 
         $.ajax({
-            type: "POST", url: "/Opc/ServerChangeState", async:
-                false, data: { cmd: cmd, pollerId: pollerId }, success: after_WriteTag
-        }); 
+            type: "POST",
+            url: "/Opc/OpcTagSetImitation",
+            async:
+                false,
+            data: { tagName: tagName, tagId: tagId, pollerId: pollerId },
+            success: after_WriteTag
+        });
+    }
+
+    function OpcTagWrite(tagId, tagName, pollerId) {
+        $.ajax({
+            type: "POST",
+            url: "/Opc/OpcTagWriteValue",
+            async:
+                false,
+            data: { tagName: tagName, tagId: tagId, pollerId: pollerId, val: value },
+            success: after_WriteTag
+        });
     }
 
     function after_WriteTag(data) { alert(data); }
 
     function after_UpdateThreadsStates(data) {
         ClearThreadStateTable();
-        AddThreadStateTableItemHeader(
-            "Opc",
-            "Tag",
-            "Value",
-            "Time"
-            );
+        AddThreadStateTableItemHeader("OpcId", "TagId", "Tag", "Value", "RealValue", "Time", "Quality", "Imitation", "SetImitation", "SetValue");
         for (var dataIndex = 0; dataIndex < data.length; dataIndex++) {
+            var dt = (data[dataIndex].LastLogged) / 100;
             AddThreadStateTableItem(
                 data[dataIndex].Tag.PollerId,
+                data[dataIndex].Tag.Id,
                 data[dataIndex].Tag.TagName,
                 data[dataIndex].LastValue,
-                data[dataIndex].LastLogged,
-                data[dataIndex].Quality
-                );
+                data[dataIndex].RealLastValue,
+                  dt,
+                data[dataIndex].Quality,
+                data[dataIndex].Imitation
+            );
         }
     }
 
     function after_UpdateOpcStates(data) {
         ClearOpcStateTable();
-        AddOpcStateTableItemHeader(
-            "Id",
-            "Name",
-            "ConnString",
-            "TagsCount",
-            "Connected",
-            "Start",
-            "Stop",
-            "Restart"
-            );
         for (var dataIndex = 0; dataIndex < data.length; dataIndex++) {
             AddOpcStateTableItem(
                 data[dataIndex].Id,
@@ -207,8 +311,72 @@
                 data[dataIndex].Connected,
                 data[dataIndex].Connected,
                 data[dataIndex].Connected
-                );
+            );
         }
     }
-    
+
+    function set_tag(options) {
+        var deferredObject = $.Deferred();
+        var defaults = {
+            type: "forced", //alert, boolean,input
+            tag: "default", //alert, boolean,input
+            value: 'default', //modal-sm, modal-lg
+            messageText: 'Сообщение'
+        }
+        $.extend(defaults, options);
+
+
+        $('BODY').append(
+            '<div id="ezAlerts" style="position:fixed;top: 150px;right: 0;bottom: 0;left: 0;">' +
+            '<div class="modal-dialog" class="modal-sm">' +
+            '<div class="modal-content">' +
+            '<div id="ezAlerts-body" class="modal-body">' +
+            '<div id="ezAlerts-message" ></div>' +
+            '</div>' +
+            '<div id="ezAlerts-footer" class="modal-footer">' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>'
+        );
+
+        switch (defaults.type) {
+        case 'forced':
+            setTimeout(ElDel, 2000, document.getElementById("ezAlerts"));
+            $('#ezAlerts-message').html(defaults.messageText);
+            break;
+
+        case 'boolean':
+            $('#ezAlerts-message').html(defaults.messageText);
+            var btnhtml = '<button id="ezok-btn" class="btn btn-primary"onclick="alert(1);CloseBSAlert();">Ok</button><button id="ezclose-btn" class="btn btn-default" onclick="CloseBSAlert()">Отмена</button>';
+            $('#ezAlerts-footer').html(btnhtml);
+            break;
+
+        case 'input':
+            $('#ezAlerts-message').html(defaults.messageText + '<br /><br /><div class="form-group"><input type="text" class="form-control" id="prompt" /></div>');
+            var btnhtml = "<button id='ezok-btn' class='btn btn-primary'>Ok</button><button id='ezclose-btn' class='btn btn-default' onclick='CloseBSAlert()'>Отмена</button>";
+            $('#ezAlerts-footer').html(btnhtml);
+            //defaults.opcid: '" + opcid + "', defaults.tagid
+            document.getElementById("ezok-btn").setAttribute("onclick", "OpcModalWrite( '" + defaults.tag + "','" + defaults.tagid + "','" + defaults.opcid + "');CloseBSAlert();");
+        }
+        //document.getElementById("ezok-btn").onclick= OpcWrite(defaults.tag, document.getElementById("prompt").value);
+    }
+
+    function OpcWrite(tag, value) {
+        var data = false;
+        $.ajax({ type: "POST", url: "/api/Opc/WriteOpcTagValue", data: { tag: tag, value: value }, async: false, success: function(_data) { data = _data; } });
+        return data;
+    }
+
+    function OpcModalWrite(tagName, tagId, pollerId) {
+        var value = document.getElementById("prompt").value;
+        var data = false;
+        $.ajax({ type: "POST", url: "/Opc/OpcTagWriteValue",
+            data: { tagName: tagName, tagId: tagId, pollerId: pollerId , val: value }, async: false, success: function (_data) { data = _data; } });
+        return data;
+    }
+
+    function CloseBSAlert() {
+        ElDel(document.getElementById("ezAlerts"));
+    }
 </script>

@@ -2,15 +2,13 @@
     ViewBag.Title = "Web Telemetry System «WebSphere»";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
 <link rel="stylesheet" href="/Content/_CSS/jstree_style.css" />
-<link rel="stylesheet" href="/Content/_CSS/Mnemo/MnemoMass.css" />
 
 
-<script type="text/javascript" src="/_JS/jquery/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="/_JS/main.js"></script>  
-<script src="/_JS/jstree/jstree.min.js"></script>
-<script src="/_JS/Template/Templates.js"></script>
+<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>
+<script src="/Scripts/_JS/jstree/jstree.js"></script>
 
 <div>
     <table>
@@ -29,7 +27,7 @@
         $.ajax({
             type: "POST", url: "/api/Opc/GetAllOpcTagsValues", async: false, dataType: 'json', success: show });
     }
-    
+
     function show(str) {
        var jsonData2 = JSON.parse(str);
 

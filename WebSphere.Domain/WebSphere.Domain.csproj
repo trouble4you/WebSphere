@@ -11,6 +11,8 @@
     <AssemblyName>WebSphere.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,10 +31,20 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.BulkInsert">
+      <HintPath>..\packages\EntityFramework.BulkInsert-ef6-ext.6.0.3.1\lib\net45\EntityFramework.BulkInsert.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -131,11 +144,29 @@
     <Compile Include="Migrations\201609280400511_update.Designer.cs">
       <DependentUpon>201609280400511_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612290653079_Events.cs" />
+    <Compile Include="Migrations\201612290653079_Events.Designer.cs">
+      <DependentUpon>201612290653079_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612291128079_Events_upd.cs" />
+    <Compile Include="Migrations\201612291128079_Events_upd.Designer.cs">
+      <DependentUpon>201612291128079_Events_upd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612300316294_Events_upd2.cs" />
+    <Compile Include="Migrations\201612300316294_Events_upd2.Designer.cs">
+      <DependentUpon>201612300316294_Events_upd2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701090350576_Event_upd3.cs" />
+    <Compile Include="Migrations\201701090350576_Event_upd3.Designer.cs">
+      <DependentUpon>201701090350576_Event_upd3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +175,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609280400511_update.resx">
       <DependentUpon>201609280400511_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612290653079_Events.resx">
+      <DependentUpon>201612290653079_Events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612291128079_Events_upd.resx">
+      <DependentUpon>201612291128079_Events_upd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612300316294_Events_upd2.resx">
+      <DependentUpon>201612300316294_Events_upd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701090350576_Event_upd3.resx">
+      <DependentUpon>201701090350576_Event_upd3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -40,10 +40,10 @@ namespace WebSphere.WebUI
 
             OpcPoller = new OpcPoller();
             AlarmServer = new AlarmServer();
-            Trends = new Trend(); 
-          OpcPoller.Init();
-          AlarmServer.Init();
-          AlarmServer.Run(); 
+            Trends = new Trend();
+            OpcPoller.Init();
+            if (AlarmServer.Init())
+                AlarmServer.Run();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

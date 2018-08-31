@@ -1,81 +1,27 @@
-﻿/*html, body {
+﻿html, body {
     height: 100vh;
-}*/
-/*#configuratorContainer{
+}
+#configuratorContainer{
     height:80vh;
-}*/
+}
 
-.modulePanel{
+/*.modulePanel{
     text-align:center;
     background-color:green;
-}
+}*/
 /*подсветка активных модулей в списке модулей*/
 .activeModule{
 background-color:#01DF74;
 }
 /*подсветка строки при нажатии в списке модулей*/
-.markedRow{
+/*.markedRow{
 background-color: mintcream; 
-}
-/*подсветка строки при нажатии в списке доступных модулей*/
-.highlightClickModule{
-    background-color:#98FB98;
-    font:#556B2F;
-    cursor:pointer;
-   }
+}*/
 
-/*всплывающее окно с вертикльными вкладками модулей для подлкючения Уже не нужно, но пусть пока будет*/
-.tabs-left, .tabs-right {
-  border-bottom: none;
-  padding-top: 2px;
-}
-.tabs-left {
-  border-right: 1px solid #ddd;
-}
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
-.tabs-left>li, .tabs-right>li {
-  float: none;
-  margin-bottom: 2px;
-}
-.tabs-left>li {
-  margin-right: -1px;
-}
-.tabs-right>li {
-  margin-left: -1px;
-}
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
-}
 
-.tabs-right>li.active>a,
-.tabs-right>li.active>a:hover,
-.tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
-  border-left-color: transparent;
-}
-.tabs-left>li>a {
-  border-radius: 4px 0 0 4px;
-  margin-right: 0;
-  display:block;
-}
-.tabs-right>li>a {
-  border-radius: 0 4px 4px 0;
-  margin-right: 0;
-}
-/*всплывающее окно с вертикльными вкладками модулей для подлкючения*/
 .selectedModule{
     background-color:mintcream;
 }
-/*для таблицы общих свойств*/
-/*#commonPropsTable tbody{
-    height:300px;
-    overflow:auto;
-}*/
 
 /*для окошка ожидания*/
 .wrap_back {
@@ -100,21 +46,19 @@ background-color: mintcream;
     z-index: 200;
 }
 /*для оповещения пользователя об успешности и неуспешности сохранения свойств по submitу*/
-.savePropsAlertMain{
+/*.savePropsAlertMain{
           height:20px;
           line-height:20px;
-}
+}*/
 
 .alert-error{
-
-    background:red;
+    background:#FF5959;
 }
-
-.forConnectionStr{
+/*.forConnectionStr{
     width:400px;
-}
+}*/
 /*для оповещения пользователя об успешности и неуспешности добавления свойств*/
-#feedback-box{
+/*#feedback-box{
      background: url(http://subtlepatterns.com/patterns/paper_fibers.png);
      width: 400px;
      margin: 20px auto;
@@ -122,7 +66,7 @@ background-color: mintcream;
      border-radius: 5px;
      -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
-}​
+}
 
 #feedback-box h2{
     text-align: center;
@@ -178,73 +122,83 @@ background-color: mintcream;
 #feedback-form .msg label{
    display: inline-block;
    margin-bottom: 6px;
-}
+}*/
 
-.error-box{
+/*.error-box{
     color: red;
-    font-size: 12px;
-}
+    font-size: 13px;
+}*/
 
 label.error {
-	color: red;
-	font-style: italic;
+	color: #b94a48;
+	/*font-style: italic;*/
 }
 input.error {
-	border: 1px dotted #f00;
+	border: 1px solid #b94a48;
 }
 /*Конфигуратор*/
 .right-boxConfig {
-    position: absolute;
-    /*/z-index: 0;*/
-    right: 0px;
-    min-width: 887px;
+    top: 55px;
     left: 300px;
-    top: 200px;
-    height:60%;
+    min-width: 700px;
+    right: 0px;
+
+    position: absolute;
+    min-height:200px;
+
     
 }
 .FloatLConfig{
-    height:inherit;
+    /*height:inherit;*/
 }
 .left-boxConfig {
     position: absolute;
-    /*/z-index: 1;*/
-    top: 205px;
+    /*z-index: 1;*/
+    top: 55px;
     width: 300px;
-    height:70%;
+    /*height:100%;*/
     /*border:dashed;*/
     overflow:auto;
+    min-height:200px;
 }
 /*отступ до табов до свойствами*/
 .tagInfo{
     position: absolute;
     margin-top:20px;
     top:100px;
+
     /*height:90%;*/
 
 }
-/*.tabConfigurator
-{
-  max-height: 600px;
 
-}*/
 /*переопределяю бутстраповский стиль, чтобы не было нижнего марджина у таблицы*/
 .modulesTable{
     margin-bottom:0px;
     width:800px;
 }
 /*переопределяю бутстраповский стиль, чтобы уменьшить высоту строки талицы с модулями*/
-#moduleConnectedTable>tbody>tr>td{
+.dialogPopUpWindow tbody>tr>td{
     line-height:10px;
 }
 /*переопределяю бутстраповский стиль, чтобы уменьшить высоту строки талицы с модулями*/
-#moduleConnectedTable>thead>tr>th{
+.dialogPopUpWindow thead>tr>th{
     line-height:10px;
 }
 /*переопределяю бутстраповский стиль, чтобы уменьшить высоту чекбокса*/
-#moduleConnectedTable>tbody>tr>td>div>input[type=checkbox]{
+.dialogPopUpWindow tbody>tr>td>div>input[type=checkbox]{
     margin:0px 0 0;
 
+}
+.dialogPopUpWindow .modal-header{
+    background-color:khaki;
+}
+
+.dialogPopUpWindow .modal-title{
+    color:DarkGoldenRod;
+}
+.dialogPopUpWindow #scrollTable{
+    max-height:200px;
+    overflow-y:auto;
 }
 /*для скрытия по умолчанию списка модулей*/
 .tableWrap{
@@ -255,31 +209,49 @@ input.error {
     display: inline;
     padding: 0px 7px 5px 0px;
 }
-/*сдвиг лейблов относительно чекбокса дл удаления*/
-#commonPropTab form fieldset label{
-    margin-left:20px;
 
+#commonPropTab {
+    min-width:900px;
+}
+#commonPropTab .col-xs-3{
+    width:560px;
+    text-align:right;
+    padding-right:0px;
+}
+#commonPropTab .col-xs-3 label{
+margin-top:8px;
+}
+#commonPropTab .col-xs-9{
+    width:300px;
+}
+#commonPropTab .col-xs-9 input[type="text"], select{
+    width:90%;
+}
+#commonPropTab .col-xs-9 .deleteProp{
+    position:absolute;
+    left:270px;
+}
+.row{
+    margin-right:0px;
+    margin-left:-15px;
+}
+.nav-tabs, .tab-content{
+    width:100% !important;
+    /*padding-top:5px;*/
 }
 
+.nav-tabs{
+    border-color:#1186b3;
+}
+#addPropModal .nav-tabs>li.active>a{
+    border-color:#1186b3;
+    border-bottom-color: transparent;
+}
+#tagInfo .nav-tabs>li.active>a{
+    border-color:#1186b3;
+    border-bottom-color: transparent;
+}
 
-#commonPropTab select{
-    margin-left:8px;
-    left:0px;
-    width:200px;
-}
-#commonPropTab input:not(.deleteProp){
-    margin-left:8px;
-    left:0px;
-    width:200px;
-}
-#commonPropTab input[disabled="disabled"]{
-    margin-left:8px;
-    left:0px;
-}
-#commonPropTab form fieldset input[disabled="disabled"]{
-    margin-left:20px;
-    left:0px;
-}
 /*Делаем чекбоксы для удаления невидимыми на вкладках модулей, чтобы удалять можно было только из общей вкладки*/
 #AlarmTab .deleteProp{
 display:none;
@@ -313,9 +285,248 @@ input[type="checkbox"].input-validation-error {
 }
    /* styles for validation helpers */
 
-/*.tab-content {
-    
-}*/
-.pullTabProps{
-    position:relative;
+/*#ModuleInfoHelp{
+
 }
+
+#tagInfo{
+
+
+}
+
+#tagInfo .tabs{
+
+}
+#tagInfo .tab-content {
+
+}*/
+#propBody{
+    overflow:auto;
+    padding-top:0px;
+    /*padding-top:35px;*/
+}
+
+/*кнопки формы свойств*/
+#tabButtons{
+  padding-bottom: 5px;
+}
+/*.pullTabProps{
+    position:relative;
+}*/
+.feedBackAboutSaving{
+    position:absolute;
+    height:60px;
+
+    width:99%;
+    text-align:center;
+    z-index:1;
+    font-size:20px;
+    top: 50%;
+    margin-top: -50px;
+    
+}
+input[type="checkbox"]{
+    line-height: normal;
+}
+.infoRegister{
+    width:300px !important;
+    font-size:12px;
+    font-style:italic;
+}
+
+#accordion .panel-heading{
+    background-color:azure!important;
+}
+.ac-container{
+    width:100%;
+}
+/*background-image: url(../Content/images/accordion/arrow_up.png);*/
+
+.ac-container .accLabel{
+    margin-left:10px;
+	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	text-align:center;
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 30px;
+	cursor: pointer;
+	color: #777;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	line-height: 33px;
+	font-size: 19px;
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
+	background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container .accLabel:hover{
+	background: #fff;
+}
+
+.ac-container .accInput:checked + .accLabel,
+.ac-container .accInput:checked + .accLabel:hover{
+	/*background: #c9e0bf;*/
+    background: #e3b14c;
+    
+	/*color: #348c1f;*/
+    color: #3c8ed3;
+    
+	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container .accLabel:hover:after,
+.ac-container .accInput:checked + .accLabel:hover:after{
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	/*right: 13px;*/
+	top: 5px;
+
+	background: transparent url(../Content/images/accordion/arrow_down.png) no-repeat center center;	
+}
+.ac-container .accInput:checked + .accLabel:hover:after{
+	background-image: url(../Content/images/accordion/arrow_up.png);
+}
+.ac-container .accInput{
+	display: none;
+}
+.ac-container .help{
+	background: rgba(255, 255, 255, 0.5);
+	margin-top: -1px;
+	overflow: hidden;
+	height: 0px;
+	position: relative;
+	z-index: 10;
+	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+}
+
+.ac-container .accInput:checked ~ .help{
+	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	/*box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);*/
+}
+.ac-container .accInput:checked ~ .help.ac-small{
+	height: inherit;
+    margin-left: 10px;
+}
+#AttensionSave{
+    color: blue;
+    font-style: oblique;
+    font-weight: bold;
+    margin-bottom:5px;
+    display:none;
+}
+.vakata-context, .vakata-context ul {
+    z-index: 20;
+}
+#bg_layer{
+    /*position: absolute;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    display:none;*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    opacity:0.5;
+    display:none;
+}
+#commonPropTab .col-xs-9 table{
+    margin: 5px 0;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    border-spacing: 10px;
+    border-radius: 3px;
+    /*background: #fdfdfd;*/
+    font-size: 14px;
+    width:90%;
+  
+}
+#commonPropTab .col-xs-9 table tr th{
+    border: 1px solid DarkKhaki;
+    padding: 5px;
+    border-radius: 3px;
+    background:Khaki;
+}
+#commonPropTab .col-xs-9 table td:first-child{
+width:20px;
+}
+#commonPropTab .col-xs-9 table td:nth-child(2){
+width:70px;
+}
+#commonPropTab .col-xs-9 table tr td{
+    /*border: 1px solid DarkKhaki;*/
+    padding-right: 1px;
+    border-radius: 3px;
+}
+#commonPropTab .col-xs-9 table input{
+    width:100% !important;
+}
+
+#commonPropTab .col-xs-4{
+    padding-left:5px;
+    padding-right:5px;
+}
+#commonPropTab .col-xs-4 input:not([type='checkbox']){
+    width:100px;
+
+}
+#commonPropTab .col-xs-4 label{
+    margin-top:0px;
+    color:#e3b14c;
+}
+#commonPropTab .col-xs-3 .col-xs-4:last-child label{
+    color:#3c8ed3 !important;
+}
+#commonPropTab .col-xs-9 label{
+    color:#3c8ed3;
+}
+#EventContainer .col-xs-12{
+    text-align:right;
+    /*float:right;*/
+        width:760px;
+}
+.helpErrorInfo{
+    margin-bottom:5px;
+}
+#AttensionSave img{
+    height: 20px;
+    padding-left:5px;
+    padding-right:5px; 
+}
+#AttensionSave span{
+color:black;
+}
+
+
+
+
+
+
+

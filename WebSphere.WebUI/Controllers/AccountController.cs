@@ -161,7 +161,7 @@ namespace WebSphere.WebUI.Controllers
                     Email = model.Email,
                     IsActive = model.IsActive ? 1 : 0,
                     IsSuperuser = model.Superuser ? 1 : 0,
-                    Roles = model.Roles
+                    Role = model.Roles.FirstOrDefault(x => x.Selected == true)
                 };
 
                 // получилось ли зарегистрировать нового пользователя
@@ -232,16 +232,16 @@ namespace WebSphere.WebUI.Controllers
                         Selected = false
                     };
 
-                    // ищем роль в ролях пользователя
-                    foreach (var j in user[0].Roles)
+                    if ((user[0].Role) != null)
                     {
                         // если у пользователя эта роль есть, то отмечаем ее
-                        if (allRoles[i].Name == j.Name)
+                        if (allRoles[i].Name == user[0].Role.Name)
                         {
                             role.Selected = true;
-                            break;
                         }
                     }
+
+
 
                     roles.Add(role); // в общий список ролей
                 }
@@ -259,6 +259,9 @@ namespace WebSphere.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                Role role = null;
+                if (model.Roles != null)
+                    role = model.Roles.FirstOrDefault(x => x.Selected == true);
                 // наполняем объект данными
                 User user = new User()
                 {
@@ -271,7 +274,7 @@ namespace WebSphere.WebUI.Controllers
                     Email = model.Email,
                     IsActive = model.IsActive ? 1 : 0,
                     IsSuperuser = model.Superuser ? 1 : 0,
-                    Roles = model.Roles
+                    Role = role
                 };
 
                 // обновление данных пользователя
@@ -296,7 +299,7 @@ namespace WebSphere.WebUI.Controllers
             {
                 ModelState.AddModelError("", "Ошибка, пожалуйста проверьте данные");
             }
-            
+
             return PartialView(model);
         }
 
@@ -361,7 +364,7 @@ namespace WebSphere.WebUI.Controllers
             {
                 ModelState.AddModelError("", "Ошибка, пожалуйста проверьте данные");
             }
-            
+
             return PartialView(model);
         }
 
@@ -385,5 +388,5 @@ namespace WebSphere.WebUI.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-	}
+    }
 }

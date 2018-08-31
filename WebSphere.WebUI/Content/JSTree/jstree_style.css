@@ -1,13 +1,5 @@
 ﻿.jstree-default .jstree-type_1 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
-    .jstree-default .jstree-type_2 {
-        background: url("/Content/images/JSTree/tag.png");
+        background: url("/Content/images/JSTree/UA.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -15,8 +7,17 @@
         position: relative;
     }
 
-    .jstree-default .jstree-type_4 {
-        background: url("/Content/images/JSTree/fileIcon.png");
+    .jstree-default .jstree-type_2 {
+        background: url("/Content/images/JSTree/tag.jpg");
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+
+    .jstree-default .jstree-type_23 {
+        background: url("/Content/images/JSTree/root.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -24,7 +25,7 @@
         position: relative;
     }
         .jstree-default .jstree-type_5 {
-        background: url("/Content/images/JSTree/fileIcon.png");
+        background: url("/Content/images/JSTree/controller.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -32,40 +33,9 @@
         position: relative;
     }
 
-    .jstree-default .jstree-type_6 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
-        .jstree-default .jstree-type_7 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
-            .jstree-default .jstree-type_8 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
-        /*.jstree-default .jstree-type_9 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }*/
+
         .jstree-default .jstree-type_17 {
-        background: url("/Content/images/JSTree/tag.png");
+        background: url("/Content/images/JSTree/gprs.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -73,31 +43,16 @@
         position: relative;
     }
         .jstree-default .jstree-type_18 {
-        background: url("/Content/images/JSTree/tag.png");
+        background: url("/Content/images/JSTree/Serial.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
         left: 2px;
         position: relative;
     }
-        .jstree-default .jstree-type_19 {
-        background: url("/Content/images/JSTree/tag.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
-        .jstree-default .jstree-type_20 {
-        background: url("/Content/images/JSTree/fileIcon.png");
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        top: 3px;
-        left: 2px;
-        position: relative;
-    }
+
         .jstree-default .jstree-type_21 {
-        background: url("/Content/images/JSTree/fileIcon.png");
+        background: url("/Content/images/JSTree/folder.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -105,7 +60,7 @@
         position: relative;
     }
         .jstree-default .jstree-type_22 {
-        background: url("/Content/images/JSTree/tag.png");
+        background: url("/Content/images/JSTree/pollingGroup.jpg");
         background-size: 20px 20px;
         background-repeat: no-repeat;
         top: 3px;
@@ -268,7 +223,63 @@
         left: 2px;
         position: relative;
     }
-
+    .jstree-default .jstree-neftisa {
+        background: url("/Content/_Img/neftisa.jpg");
+        background-size: 25px 25px;
+        background-repeat: no-repeat;
+        background-color: red;
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }   
+	.jstree-default .jstree-nodata {
+        background: url("/Content/_Img/p_nodata.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }    
+	.jstree-default .jstree-ok {
+        background: url("/Content/_Img/p_ok.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }  
+    	.jstree-default .jstree-off {
+        background: url("/Content/_Img/p_off.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }    
+	.jstree-default .jstree-error {
+        background: url("/Content/_Img/p_error.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }	
+	.jstree-default .jstree-local {
+        background: url("/Content/_Img/p_local.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
+	.jstree-default .jstree-mr {
+        background: url("/Content/_Img/p_local.png");
+        background-size: 20px 20px;
+        background-repeat: no-repeat; 
+        top: 3px;
+        left: 2px;
+        position: relative;
+    }
 .jstree-anchor {
     font-size: 13px;
     font-weight: bold;

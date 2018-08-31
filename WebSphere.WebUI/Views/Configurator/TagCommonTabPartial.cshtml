@@ -1,121 +1,41 @@
-﻿@model WebSphere.Domain.Entities.TagProps
+﻿@using WebSphere.Domain.Entities;
+@model WebSphere.Domain.Entities.TagProps
+
 @{
-    var serversName = ViewBag.OPCservers;
-    string serverName = serversName[Model.Opc];
+    int OPCID = Model.Opc;
+    var OPCserver = ViewBag.OPCservers;
+    string OPCserverName = OPCserver[OPCID];
 }
-@{
-    List<string> dictStdProps = ViewBag.ForPartial;
-    //var stdPropsNames = dictStdProps.Keys;
-    //var stdPropsModel = Model;
+<div id="Opc" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => m.Opc, "OPC сервер", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @*Opc11 чтобы не перетиралось значение поля*@
+        @Html.TextBox("Opc11", OPCserverName, new { disabled = "disabled", @readonly = "readonly" })
+        @Html.HiddenFor(m => m.Opc)
+    </div>
+</div>
 
+<div id="Connection" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.Connection, "Connection", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => Model.Connection)
+        @Html.ValidationMessageFor(m => Model.Connection)
 
-}
-
-@*@foreach (var prop in dictStdProps)
-{
-    switch (prop)
-    {*@
-
-                <div id="Opc">
-                    @Html.LabelFor(m => m.Opc, "OPC сервер")
-                    <br />
-                    @{
-                        int OPCID = (int)Model.Opc;
-                        var OPCserver = ViewBag.OPCservers;
-                        string OPCserverName = OPCserver[OPCID];                
-                    }
-
-                    @Html.TextBox("Opc", OPCserverName, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.HiddenFor(m => m.Opc)
-                    <br />
-                </div>
-
-        <div id="Connection">
-            @Html.LabelFor(m => Model.Connection, "Connection")
-            <br />
-            @Html.TextBoxFor(m => Model.Connection)
-            @Html.ValidationMessageFor(m => Model.Connection)
-            <br />
-        </div>
-
-        <div id="Alarm_IsPermit">
-            @Html.LabelFor(m => Model.Alarm_IsPermit, "Alarm_IsPermit")
-            <br />
-            @Html.CheckBoxFor(m => m.Alarm_IsPermit, new { @id = "Alarm_IsPermit", @name = "chBoxAlarm_IsPermit" })
-            <br />
-        </div>
-
-        <div id="HiHiText">
-            @Html.LabelFor(m => Model.HiHiText, "HiHiText")
-            <br />
-            @Html.TextBoxFor(m => Model.HiHiText)
-            @Html.ValidationMessageFor(m => Model.HiHiText)
-            <br />
-        </div>
-
-        <div id="HiText">
-            @Html.LabelFor(m => Model.HiText, "HiText")
-            <br />
-            @Html.TextBoxFor(m => Model.HiText)
-            @Html.ValidationMessageFor(m => Model.HiText)
-            <br />
-        </div>
-
-        <div id="NormalText">
-            @Html.LabelFor(m => Model.NormalText, "NormalText")
-            <br />
-            @Html.TextBoxFor(m => Model.NormalText)
-            @Html.ValidationMessageFor(m => Model.NormalText)
-            <br />
-        </div>
-
-        <div id="LoText">
-            @Html.LabelFor(m => Model.LoText, "LoText")
-            <br />
-            @Html.TextBoxFor(m => Model.LoText)
-            @Html.ValidationMessageFor(m => Model.LoText)
-            <br />
-        </div>
-
-        <div id="LoLoText">
-            @Html.LabelFor(m => Model.LoLoText, "LoLoText")
-            <br />
-            @Html.TextBoxFor(m => Model.LoLoText)
-            @Html.ValidationMessageFor(m => Model.LoLoText)
-            <br />
-        </div>
-
-        <div id="HiHiSeverity">
-            @Html.LabelFor(m => Model.HiHiSeverity, "HiHiSeverity")
-            <br />
-            @Html.TextBoxFor(m => Model.HiHiSeverity)
-            @Html.ValidationMessageFor(m => Model.HiHiSeverity)
-            <br />
-        </div>
-
-        <div id="HiSeverity">
-            @Html.LabelFor(m => Model.HiSeverity, "HiSeverity")
-            <br />
-            @Html.TextBoxFor(m => Model.HiSeverity)
-            @Html.ValidationMessageFor(m => Model.HiSeverity)
-            <br />
-        </div>
-
-        <div id="LoSeverity">
-            @Html.LabelFor(m => Model.LoSeverity, "LoSeverity")
-            <br />
-            @Html.TextBoxFor(m => Model.LoSeverity)
-            @Html.ValidationMessageFor(m => Model.LoSeverity)
-            <br />
-        </div>
-
-        <div id="LoLoSeverity">
-            @Html.LabelFor(m => m.LoLoSeverity, "LoLoSeverity")
-            <br />
-            @Html.TextBoxFor(m => m.LoLoSeverity)
-            @Html.ValidationMessageFor(m => m.LoLoSeverity)
-            <br />
-        </div>
+    </div>
+</div>
+<div id="Description" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.Description, "Description", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => Model.Description)
+        @Html.ValidationMessageFor(m => Model.Description)
+    </div>
+</div>
 
 @{
     Dictionary<int, string> realTypes = new Dictionary<int, string>
@@ -153,21 +73,45 @@
                 };
 }
 
+<div id="RealType" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.RealType, "RealType", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.DropDownListFor(m => m.RealType, new SelectList(realTypes, "Key", "Value"))
+    </div>
+</div>
 
-        <div id="RealType">
-            @Html.LabelFor(m => m.RealType, "RealType")
-            <br />
-            @Html.DropDownListFor(m => m.RealType, new SelectList(realTypes, "Key", "Value"))
-            <br />
+
+<div id="ControllerType" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.ControllerType, "ControllerType", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.DropDownListFor(m => m.ControllerType, new SelectList(realTypes, "Key", "Value"))
+    </div>
+</div>
+
+<div id="Register">
+    <div class="form-group row">
+        <div class="col-xs-3">
         </div>
-
-        <div id="Register">
-            @Html.LabelFor(m => m.Register, "Register")
-            <br />
+        <div class="col-xs-9 infoRegister">
+            <p>H[функция][адрес]</p>
+            <p>[функция].[адрес]</p>
+            <p>[функция].[адрес].[бит].[смещение]</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            @Html.LabelFor(m => Model.Register, "Register", new { @class = "control-label" })
+        </div>
+        <div class="col-xs-9">
             @Html.TextBoxFor(m => m.Register)
             @Html.ValidationMessageFor(m => m.Register)
-            <br />
         </div>
+    </div>
+</div>
 
 @{
     var accessTypeDict = new Dictionary<int, string>
@@ -177,75 +121,328 @@
           {3, "запись и чтение"}
         };
 }
-        <div id="AccessType">
-            @Html.LabelFor(m => m.AccessType, "Права доступа")
-            <br />
-            @Html.DropDownListFor(m => m.AccessType, new SelectList(accessTypeDict, "Key", "Value"))
-            <br />
-        </div>
+<div id="AccessType" class="form-group row">
 
-        <div id="Order">
-            @Html.LabelFor(m => m.Order, "Order")
-            <br />
-            @Html.TextBoxFor(m => m.Order)
-            @Html.ValidationMessageFor(m => m.Order)
-            <br />
-        </div>
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.AccessType, "Права доступа", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.DropDownListFor(m => m.AccessType, new SelectList(accessTypeDict, "Key", "Value"))
+    </div>
+</div>
 
-        <div id="InMin">
-            @Html.LabelFor(m => m.InMin, "InMin")
-            <br />
-            @Html.TextBoxFor(m => m.InMin)
-            @Html.ValidationMessageFor(m => m.InMin)
-            <br />
-        </div>
+<div id="Order" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.Order, "Order", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.Order)
+        @Html.ValidationMessageFor(m => m.Order)
+    </div>
+</div>
 
-        <div id="InMax">
-            @Html.LabelFor(m => m.InMax, "InMax")
-            <br />
-            @Html.TextBoxFor(m => m.InMax)
-            @Html.ValidationMessageFor(m => m.InMax)
-            <br />
-        </div>
+<div id="InMin" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.InMin, "InMin", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.InMin)
+        @Html.ValidationMessageFor(m => m.InMin)
+    </div>
+</div>
 
-        <div id="OutMin">
-            @Html.LabelFor(m => m.OutMin, "OutMin")
-            <br />
-            @Html.TextBoxFor(m => m.OutMin)
-            @Html.ValidationMessageFor(m => m.OutMin)
-            <br />
-        </div>
 
-        <div id="OutMax">
-            @Html.LabelFor(m => m.OutMax, "OutMax")
-            <br />
-            @Html.TextBoxFor(m => m.OutMax)
-            @Html.ValidationMessageFor(m => m.OutMax)
-            <br />
-        </div>
+<div id="InMax" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.InMax, "InMax", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.InMax)
+        @Html.ValidationMessageFor(m => m.InMax)
+    </div>
+</div>
 
-        <div id="History_IsPermit">
-            @Html.LabelFor(m => m.History_IsPermit, "History_IsPermit")
-            <br />
-            @Html.CheckBoxFor(m => m.History_IsPermit, new { @id = "History_IsPermit" })
-            <br />
-        </div>
+<div id="OutMin" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.OutMin, "OutMin", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.OutMin)
+        @Html.ValidationMessageFor(m => m.OutMin)
+    </div>
+</div>
 
-        <div id="RegPeriod">
-            @Html.LabelFor(m => m.RegPeriod, "RegPeriod")
-            <br />
-            @Html.TextBoxFor(m => m.RegPeriod)
-            @Html.ValidationMessageFor(m => m.RegPeriod)
-            <br />
-        </div>
+<div id="OutMax" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.OutMax, "OutMax", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.OutMax)
+        @Html.ValidationMessageFor(m => m.OutMax)
+    </div>
+</div>
 
-        <div id="Deadbend">
-            @Html.LabelFor(m => m.Deadbend, "Deadbend")
-            <br />
-            @Html.TextBoxFor(m => m.Deadbend)
-            @Html.ValidationMessageFor(m => m.Deadbend)
-            <br />
+<div id="History_IsPermit" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.History_IsPermit, "History_IsPermit", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.CheckBoxFor(m => m.History_IsPermit, new { @id = "History_IsPermit", @class = "chkBoxPropsDisable" })
+        <div style="clear:right;"></div>
+    </div>
+
+</div>
+
+<div id="RegPeriod1" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.RegPeriod, "RegPeriod", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.RegPeriod)
+        @Html.HiddenFor(m => m.RegPeriod)
+        @Html.ValidationMessageFor(m => m.RegPeriod)
+    </div>
+</div>
+
+<div id="Deadbend1" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.Deadbend, "Deadbend", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.Deadbend)
+        @Html.HiddenFor(m => m.Deadbend)
+        @Html.ValidationMessageFor(m => m.Deadbend)
+    </div>
+</div>
+<div id="IsSpecialTag" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.IsSpecialTag, "IsSpecialTag", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.IsSpecialTag)
+        @Html.ValidationMessageFor(m => m.IsSpecialTag)
+    </div>
+</div>
+<div id="UpdateAnyway" class="form-group row">
+    <div class="col-xs-3">
+        @Html.LabelFor(m => Model.UpdateAnyway, "UpdateAnyway", new { @class = "control-label" })
+    </div>
+    <div class="col-xs-9">
+        @Html.CheckBoxFor(m => m.UpdateAnyway, new { @id = "UpdateAnyway", @class = "chkBoxPropsDisable" })
+        <div style="clear: both;"></div>
+    </div>
+</div>
+<div id="Events">
+    <div class="form-group row">
+        <div class="col-xs-3">@Html.Label("Events:", new { @class = "control-label" })</div>
+        <div class="col-xs-9"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
         </div>
+        <div class="col-xs-9">
+            <div class="col-xs-4">
+                <div>@Html.LabelFor(m => m.Events.Enabled)</div>
+                <div>@Html.CheckBoxFor(m => m.Events.Enabled)</div>
+            </div>
+            <div class="col-xs-4">
+            </div>
+            <div class="col-xs-4">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-xs-3">
+
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("Уставка", new { @class = "control-label" })</div>
+        </div>
+        <div class="col-xs-9">
+            @Html.Label("Сообщение", new { @class = "control-label" })
+        </div>
+    </div>
+    <div id="EventContainer">
+
+        @if (Model.Events != null)
+        {
+            if (Model.Events.EventMessages != null)
+            {
+                for (int i = 0; i < Model.Events.EventMessages.Count; i++)
+                {
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                @Html.TextBoxFor(m => m.Events.EventMessages[i].Value)
+
+                            </div>
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.Events.EventMessages[i].Message)
+
+                            <img id="removeEvent" src="~/Content/images/tabs/stopdmol06.jpg" style="width:20px; height:20px;" />
+                        </div>
+                    </div>
+                    <div class="form-group row helpErrorInfo">
+                        <div class="col-xs-12">
+                            @Html.ValidationMessageFor(m => m.Events.EventMessages[i].Message)
+                            @Html.ValidationMessageFor(m => m.Events.EventMessages[i].Value)
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div id="addEventDiv" class="form-group row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-9">
+            <button id="addEvent" type="button" class="btn btn-default"><img src="~/Content/images/tabs/Plus_64.png" style="width:20px; height:20px" /> Добавить событие</button>
+        </div>
+    </div>
+
+</div>
+<div id="Alarms">
+    <div class="form-group row"></div>
+    <div class="form-group row">
+        <div class="col-xs-3">@Html.Label("Alarms:", new { @class = "control-label" })</div>
+        <div class="col-xs-9"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+        </div>
+        <div class="col-xs-9">
+            <div class="col-xs-4">
+                <div>@Html.LabelFor(m => m.Alarms.Enabled)</div>
+                <div>
+                    @Html.CheckBoxFor(m => m.Alarms.Enabled)
+                    @*@Html.HiddenFor(m => m.Alarms.Enabled)*@
+                 </div>
+            </div>
+            <div class="col-xs-4">
+                <div>@Html.LabelFor(m => m.Alarms.Permit)</div>
+                <div>@Html.CheckBoxFor(m => m.Alarms.Permit, new { @class = "chkBoxPropsDisable" })</div>
+            </div>
+            <div class="col-xs-4">
+                <div>@Html.LabelFor(m => Model.Alarms.Sound, "Sound", new { @class = "control-label" })</div>
+                <div>
+                    @Html.CheckBoxFor(m => m.Alarms.Sound, new { @name = "Sound" })
+                    @*@Html.HiddenFor(m => m.Alarms.Sound)*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row"></div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("Значение", new { @class = "control-label" })</div>
+
+        </div>
+        <div class="col-xs-9">
+            @Html.Label("Сообщение", new { @class = "control-label" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("HiHi")</div>
+            <div class="col-xs-4">
+                @Html.TextBoxFor(m => m.Alarms.HiHiSeverity)
+                @Html.HiddenFor(m => m.Alarms.HiHiSeverity)
+            </div>
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Alarms.HiHiText)
+            @Html.HiddenFor(m => m.Alarms.HiHiText)
+            @Html.ValidationMessageFor(m => m.Alarms.HiHiSeverity)
+            @Html.ValidationMessageFor(m => m.Alarms.HiHiText)
+            
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("Hi")</div>
+            <div class="col-xs-4">
+                @Html.TextBoxFor(m => m.Alarms.HiSeverity)
+                @Html.HiddenFor(m => m.Alarms.HiSeverity)
+
+            </div>
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Alarms.HiText)
+            @Html.HiddenFor(m => m.Alarms.HiText)
+            @Html.ValidationMessageFor(m => m.Alarms.HiSeverity)
+            @Html.ValidationMessageFor(m => m.Alarms.HiText)
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("Normal")</div>
+            <div class="col-xs-4"></div>
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Alarms.NormalText)
+            @Html.HiddenFor(m => m.Alarms.NormalText)
+            @Html.ValidationMessageFor(m => m.Alarms.NormalText)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("Lo")</div>
+            <div class="col-xs-4">
+                @Html.TextBoxFor(m => m.Alarms.LoSeverity)
+                @Html.HiddenFor(m => m.Alarms.LoSeverity)
+            </div>
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Alarms.LoText)
+            @Html.HiddenFor(m => m.Alarms.LoText)
+            @Html.ValidationMessageFor(m => m.Alarms.LoSeverity)
+            @Html.ValidationMessageFor(m => m.Alarms.LoText)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-3">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">@Html.Label("LoLo")</div>
+            <div class="col-xs-4">
+                @Html.TextBoxFor(m => m.Alarms.LoLoSeverity)
+                @Html.HiddenFor(m => m.Alarms.LoLoSeverity)
+            </div>
+        </div>
+        <div class="col-xs-9">
+            @Html.TextBoxFor(m => m.Alarms.LoLoText)
+            @Html.HiddenFor(m => m.Alarms.LoLoText)
+            @Html.ValidationMessageFor(m => m.Alarms.LoLoSeverity)
+            @Html.ValidationMessageFor(m => m.Alarms.LoLoText)
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 

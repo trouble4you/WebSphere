@@ -11,7 +11,8 @@
     <AssemblyName>WebSphere.Alarms</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,18 +61,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WebSphere\WebSphere.ClientOPC\WebSphere.ClientOPC.csproj">
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebSphere.ClientOPC\WebSphere.ClientOPC.csproj">
       <Project>{4af1867d-2d4e-4f19-abcb-36885b897aca}</Project>
       <Name>WebSphere.ClientOPC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\WebSphere\WebSphere.Domain\WebSphere.Domain.csproj">
+    <ProjectReference Include="..\WebSphere.Domain\WebSphere.Domain.csproj">
       <Project>{6554204f-748f-4000-941a-011f2c1ed884}</Project>
       <Name>WebSphere.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

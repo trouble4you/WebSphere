@@ -9,6 +9,14 @@ using System.Web.Mvc;
 
 namespace WebSphere.Domain.Entities
 {
+    public class MetaObject
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
+        public int? ParentId { get; set; }
+        public List<MetaObject> Children { get; set; }
+    }
     public class NoTypeNodeHelp
     {
 
@@ -24,7 +32,9 @@ namespace WebSphere.Domain.Entities
         //public bool Alarm_IsPermitHelp { get; set; }
         //[RequiredIfTrue("Alarm_IsPermitHelp")]
         //[Required(ErrorMessage = "Поле обязательно для ввода")]
+        public bool? Sound { get; set; }
         public bool? Alarm_IsPermit { get; set; }
+
 
         public string HiHiText { get; set; }
 
@@ -48,7 +58,7 @@ namespace WebSphere.Domain.Entities
 
         public int? RealType { get; set; }
 
-        [RegularExpression("(H[34]{1}[0-9]{5}\\.[0-9]{1}(\\.[0-9])?)|([34]{1}\\.[0-9]{2}((\\.[0-9]{1})|(\\.[0-9]{1}\\.[0-9]{1}))?)", ErrorMessage = "Выражение не соотвествует шаблону")]
+        [RegularExpression("(H[0-9]{1,2}[0-9a-fA-F]{4})|([0-9]{1,2}\\.[0-9a-fA-F]{4}\\.[0-9]{1,2}\\.[0-9]{1,2})|([0-9]{1,2}\\.[0-9a-fA-F]{4})", ErrorMessage = "Выражение не соотвествует шаблону")]
         public string Register { get; set; }
 
         public int? AccessType { get; set; }
@@ -62,7 +72,7 @@ namespace WebSphere.Domain.Entities
         public float? OutMin { get; set; }
 
         public float? OutMax { get; set; }
-        public bool? IsSpecialTag { get; set; }
+        public string IsSpecialTag { get; set; }
         public bool? History_IsPermit { get; set; }
 
         public int? RegPeriod { get; set; }
@@ -112,73 +122,17 @@ namespace WebSphere.Domain.Entities
     }
     public class NoTypesPropsHelp
     {
-        //public  static MvcHtmlString CustomTextBoxFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
-        //{
-        //    var name = ExpressionHelper.GetExpressionText(expression);
-        //    var metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-        //    TagBuilder tb = new TagBuilder("input");
-        //    tb.Attributes.Add("type", "checkbox");
-        //    tb.Attributes.Add("name", name);
-        //    if (metadata.Model == "true")
-        //    {
-        //        tb.Attributes.Add("value", "true");
-        //    }
-        //    else
-        //    {
-        //        tb.Attributes.Add("value", "false");
-        //    }
-
-
-        //    tb.Attributes.Add("style", "color:red");
-        //    return new MvcHtmlString(tb.ToString());
-        //}  
         public NoTypesProps notypesforSave { get; set; }
         public NoTypeNodeHelp notypesModel { get; set; }
-
-        //public string getWriteStr (string str, int index)
-        //{
-
-        //int index=propValue.IndexOf("\\");
-        //if(index=!-1)
-        //{
-        //    return 
-        //}
-        //}
-
 
     }
     public class NoTypesProps
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        //public bool? Alarm_IsPermit { get; set; }
-
-        //public string HiHiText { get; set; }
-
-        //public string HiText { get; set; }
-
-        //public string NormalText { get; set; }
-
-        //public double? HiSeverity { get; set; }
-
         public string special { get; set; }
-
-        //public string ChannelType { get; set; }
-        //public int InterPollPause { get; set; }
-        //public int MaxErrorsToSwitchChannel { get; set; }
-        //public int MaxErrorsToBadQuality { get; set; }
-        //public int TimeTryGoBackToPrimary { get; set; }
-        //public string IpAddress { get; set; }
-        //public int? Port { get; set; }
-        //public int WriteTimeout { get; set; }
-        //public int ReadTimeout { get; set; }
-
-        //занести сюда все свойства
-
-        //public List<NewProp> newProps { get; set; }
-        //public TagProps tagProp { get; set; }
     }
+
     public class TagProps
     {
         [Required(ErrorMessage = "Поле должно быть установлено")]
@@ -189,45 +143,23 @@ namespace WebSphere.Domain.Entities
         public int Opc { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public string Connection { get; set; }
-        [Required(ErrorMessage = "Поле должно быть установлено")]
-        public bool Alarm_IsPermit { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        //[RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Могут быть введены только текстовые значения")]
-        public string HiHiText { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        //[RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Могут быть введены только текстовые значения")]
-        public string HiText { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        //[RegularExpression(@"^[0-9a-zA-Zа-яА-Я]+$", ErrorMessage = "Могут быть введены только текстовые значения")]
-        public string NormalText { get; set; }
+        public string Description { get; set; }
 
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        //[RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Могут быть введены только текстовые значения")]
-        public string LoText { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        //[RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Могут быть введены только текстовые значения")]
-        public string LoLoText { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        public double? HiHiSeverity { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        public double? HiSeverity { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        public double? LoSeverity { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
-        public double? LoLoSeverity { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
-        //public IEnumerable<SelectListItem> ControllerType {get; set;}
         public int ControllerType { get; set; }
+
         [Required(ErrorMessage = "Поле должно быть установлено")]
-        //public IEnumerable<SelectListItem> RealType { get; set; }
         public int RealType { get; set; }
+
         [Required(ErrorMessage = "Поле должно быть установлено")]
+        [RegularExpression("(H[0-9]{1,2}[0-9a-fA-F]{4})|([0-9]{1,2}\\.[0-9a-fA-F]{4}\\.[0-9]{1,2}\\.[0-9]{1,2})|([0-9]{1,2}\\.[0-9a-fA-F]{4})", ErrorMessage = "Выражение не соотвествует шаблону")]
         public string Register { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int AccessType { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int Order { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
+        //[RegularExpression("[0-9,]{0,15}", ErrorMessage = "Введено более 15 символов")]
         public float InMin { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public float InMax { get; set; }
@@ -235,18 +167,69 @@ namespace WebSphere.Domain.Entities
         public float OutMin { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public float OutMax { get; set; }
-        [Required(ErrorMessage = "Выберите true или false")]
-        public bool IsSpecialTag { get; set; }
+        public string IsSpecialTag { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public bool History_IsPermit { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int RegPeriod { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public double Deadbend { get; set; }
-        //public List<string> AdditionalProps { get; set; }
-        //public Dictionary<Object, object>;
-        public string special { get; set; }
+        public bool UpdateAnyway { get; set; }//поменяет метку времени 
+        public Alarms Alarms { get; set; }
+        public Event Events { get; set; }
 
+    }
+    public class Alarms
+    {
+        //[Required(ErrorMessage = "Поле должно быть установлено")]
+        [Display(Name = "Включить")]
+        public bool Permit { get; set; }
+        [Display(Name = "Следить")]
+        public bool Enabled { get; set; }
+        [Display(Name = "Звук")]
+        public bool Sound { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        [RegularExpression("[^'<>]*", ErrorMessage = "Символы ' , < и > не допустимы")]
+        public string HiHiText { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        [RegularExpression("[^'<>]*", ErrorMessage = "Символы ' , < и > не допустимы")]
+        public string HiText { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        [RegularExpression("[^'<>]*", ErrorMessage = "Символы ' , < и > не допустимы")]
+        public string NormalText { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        [RegularExpression("[^'<>]*", ErrorMessage = "Символы ' , < и > не допустимы")]
+        public string LoText { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        [RegularExpression("[^'<>]*", ErrorMessage = "Символы ' , < и > не допустимы")]
+        public string LoLoText { get; set; }
+        //[RegularExpression("[\\w\\d,]{0,15}", ErrorMessage = "Введено более 15 символов")]
+        //[GreaterThan("HiSeverity")]
+        public double? HiHiSeverity { get; set; }
+        //[RegularExpression("[0-9,]{0,15}", ErrorMessage = "Введено более 15 символов")]
+        //[GreaterThan("LoSeverity")]
+        public double? HiSeverity { get; set; }
+        //[RegularExpression("[0-9,]{0,15}", ErrorMessage = "Введено более 15 символов")]
+        //[GreaterThan("LoLoSeverity")]
+        public double? LoSeverity { get; set; }
+        //[RegularExpression("[0-9,]{0,15}", ErrorMessage = "Введено более 15 символов")]
+        //[LessThan("LoSeverity")]
+        public double? LoLoSeverity { get; set; }
+    }
+
+    public class Event
+    {
+        [Display(Name = "Следить")]
+        public bool Enabled { get; set; }
+        public List<EventValMessage> EventMessages { get; set; }
+    }
+
+    public class EventValMessage
+    {
+        [RegularExpression("[0-9,]{0,15}", ErrorMessage = "Введено более 15 символов")]
+        public float Value { get; set; }
+        [StringLength(50, ErrorMessage = "Превышена длина сообщения")]
+        public string Message { get; set; }
     }
     public class RadioChannelProps
     {
@@ -265,6 +248,7 @@ namespace WebSphere.Domain.Entities
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int TimeTryGoBackToPrimary { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
+        [RegularExpression(@"COM\d{1,3}", ErrorMessage = "Не соотвествует шаблону COMxxx")]
         public string PortName { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int BaudRate { get; set; }
@@ -276,12 +260,10 @@ namespace WebSphere.Domain.Entities
         public int WriteTimeout { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int ReadTimeout { get; set; }
-        public string special { get; set; }
     }
 
     public class GPRSChannelProps
     {
-        [Required(ErrorMessage = "Поле должно быть установлено")]
         public int Id { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public string Name { get; set; }
@@ -303,18 +285,14 @@ namespace WebSphere.Domain.Entities
         public int WriteTimeout { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int ReadTimeout { get; set; }
-        public string special { get; set; }
+
     }
 
     public class ObjectProps
     {
-        [Required(ErrorMessage = "Поле должно быть установлено")]
         public int Id { get; set; }
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
         //[RegularExpression(@"^[0-9a-zA-Zа-яА-Я]+$", ErrorMessage = "Некорректное название")]
-        //[Required(ErrorMessage = "Поле должно быть установлено")]
         public string Name { get; set; }
-        //[DataType(DataType.Custom)] Как ЭТИМ ПОЛЬЗОВАТЬСЯ???
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int Address { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
@@ -327,7 +305,7 @@ namespace WebSphere.Domain.Entities
         public int PrimaryChannel { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int SecondaryChannel { get; set; }
-        public string special { get; set; }
+        public int PgPause { get; set; } //паузы между группами опроса ++++
 
     }
     public class PollingGroupProps
@@ -341,8 +319,7 @@ namespace WebSphere.Domain.Entities
         public int Count { get; set; }
         [Required(ErrorMessage = "Поле должно быть установлено")]
         public int Function { get; set; }
-        public string special { get; set; }
-
+        public string UserData { get; set; } //вспомогательная штука
     }
     public class ErrorUserProp
     {
@@ -351,17 +328,7 @@ namespace WebSphere.Domain.Entities
         public dynamic Value { get; set; }
     }
 
-    public class NewProp
-    {
-        public string Name { get; set; }
-        public int Type { get; set; }
-        public string Value { get; set; }
-    }
 
-    public class NewPropList
-    {
-        public List<NewProp> newProps { get; set; }
-    }
     public class OPCProps
     {
         [Required(ErrorMessage = "Поле должно быть установлено")]
@@ -374,17 +341,6 @@ namespace WebSphere.Domain.Entities
         public string Connection { get; set; }
         [Required(ErrorMessage = "Выберите true или false")]
         public bool Connect { get; set; }
-        public string special { get; set; }
-
-    }
-    public class CommonProps
-    {
-        public List<TagProps> tagProp { get; set; }
-        public List<RadioChannelProps> radioChannelProp { get; set; }
-        public List<GPRSChannelProps> GPRSChannelProp { get; set; }
-        public List<ObjectProps> objectProp { get; set; }
-        public List<PollingGroupProps> pollingGroupProp { get; set; }
-        public List<OPCProps> OPCProp { get; set; }
     }
 }
 

@@ -35,6 +35,7 @@ namespace WebSphere.Domain.Concrete
                         Id = t1.Id,
                         Name = t1.Name,
                         Type = t1.Type,
+                        ContentGroupId = t1.ParentId,
                         Props = t3.Value
                     };
 
@@ -55,6 +56,8 @@ namespace WebSphere.Domain.Concrete
 
                 contenttype.Id = i.Id; // Id
                 contenttype.Name = i.Name; // имя
+                contenttype.contentGroup = new ContentGroup();
+                contenttype.contentGroup.Id = (int)i.ContentGroupId; // имя
                 contenttype.Controller = rootobject[0].Name; // имя контроллера
 
                 // удаляем контроллер из списка, оставляем только экшены
@@ -65,9 +68,9 @@ namespace WebSphere.Domain.Concrete
             }
 
             // имя группы, в кот. входит контент
-            foreach(var i in ContentTypes)
+            foreach (var i in ContentTypes)
             {
-                var ctg = GetContentTypeGroups(i.Id);
+                var ctg = GetContentTypeGroups(i.contentGroup.Id);
 
                 foreach (var j in ctg)
                 {
@@ -100,12 +103,18 @@ namespace WebSphere.Domain.Concrete
             }
             else
             { // группа контента
+
                 q = from t1 in context.Objects
                     join t2 in context.ObjectTypes on t1.Type equals t2.Id
-                    join t3 in context.Objects on t1.Id equals t3.ParentId
-                    join t4 in context.ObjectTypes on t3.Type equals t4.Id
-                    where t2.Name == "ContentGroup" && t3.Name == id.ToString() && t4.Name == "ContentGroupContentTypes"
+                    where t2.Name == "ContentGroup" && t1.Id == id
                     select t1;
+
+                // q = from t1 in context.Objects
+                //     join t2 in context.ObjectTypes on t1.Type equals t2.Id
+                //     join t3 in context.Objects on t1.Id equals t3.ParentId
+                //     join t4 in context.ObjectTypes on t3.Type equals t4.Id
+                //     where t2.Name == "ContentGroup" && t3.Name == id.ToString() && t4.Name == "ContentGroupContentTypes"
+                //     select t1;
             }
 
             foreach (var i in q)
@@ -301,21 +310,21 @@ namespace WebSphere.Domain.Concrete
                 new_ct.Name = ct.Name; // тип контента
                 new_ct.Type = context.ObjectTypes.FirstOrDefault(c => c.Name == "ContentType").Id; // тип объекта
 
+                new_ct.ParentId = ct.contentGroup.Id; // id группы
                 // добавляем в Objects
                 context.Objects.Add(new_ct);
                 // сохраняем
                 context.SaveChanges();
 
                 // добавление нового типа контента в группу
-                var new_cg = context.Objects.Create();
-                new_cg.Name = new_ct.Id.ToString(); // id нового типа контента (узнаем с помощью new_ct.Id - это как Last Inserted Id)
-                new_cg.Type = context.ObjectTypes.FirstOrDefault(c => c.Name == "ContentGroupContentTypes").Id; // тип объекта
-                new_cg.ParentId = ct.contentGroup.Id; // id группы
+                //var new_cg = context.Objects.Create();
+                //new_cg.Name = new_ct.Id.ToString(); // id нового типа контента (узнаем с помощью new_ct.Id - это как Last Inserted Id)
+                //new_cg.Type = context.ObjectTypes.FirstOrDefault(c => c.Name == "ContentGroupContentTypes").Id; // тип объекта
 
                 // добавляем в Objects
-                context.Objects.Add(new_cg);
+                // context.Objects.Add(new_cg);
                 // сохраняем
-                context.SaveChanges();
+                //context.SaveChanges();
 
                 // создание разрешений
                 var new_perms = context.Properties.Create();
@@ -358,7 +367,7 @@ namespace WebSphere.Domain.Concrete
 
                 // обновляем группу типа контента
                 q2.FirstOrDefault().ParentId = ct.contentGroup.Id;
-                
+
                 // выборка разрешений
                 var q3 = from t1 in context.Properties
                          join t2 in context.PropTypes on t1.PropId equals t2.Id
@@ -411,7 +420,7 @@ namespace WebSphere.Domain.Concrete
 
             return false;
         }
-    
+
         // удаление типа контента
         public bool DeleteContentType(List<ContentType> ct)
         {
@@ -422,7 +431,7 @@ namespace WebSphere.Domain.Concrete
                 var contentType = ContentTypeList(i.Id, "");
 
                 // обновление всех ролей, содержащих разрешения данного типа контента
-                if(GetUpdateAllRoles(contentType[0].Actions, contentType[0].Actions[0].Name))
+                if (GetUpdateAllRoles(contentType[0].Actions, contentType[0].Actions[0].Name))
                 {
                     // удаление типа контента из группы
                     var q = from t1 in context.Objects

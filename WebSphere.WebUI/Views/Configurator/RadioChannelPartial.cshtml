@@ -2,298 +2,183 @@
 @{
     var tt = Model;
 }
-@if (ViewBag.Notification != null)
-{
-    if (ViewBag.Notification == 1)
-    {
-        <div class="alert alert-success">Данные успешно сохранены</div>
-    }
-    else
-    {
-        <div class="alert alert-error">Введенные данные некорректны </div>
-    }
-}
+
 <div class="tabs">
+    @if (ViewBag.Notification != null)
+    {
+        if (ViewBag.Notification == 1)
+        {
+            <div id="aboutSaveNotification" class="alert alert-success feedBackAboutSaving">Данные успешно сохранены</div>
+        }
+        else
+        {
+            <div id="aboutSaveNotification" class="alert alert-error feedBackAboutSaving">Данные некорректны</div>
+        }
+    }
     <ul class="nav nav-tabs smile-tabs">
-        <li class="active"><a href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
+        <li class="active"><a class="liTab" href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
     </ul>
     <div class="tab-content">
+        <div id="attensionSaveWrapper" style="height:30px; padding-top:3px">
+            <div id="AttensionSave" class="alert-danger" role="alert"><img src="~/Content/images/additional/atts.png" />Внимание: имеются несохраненные данные!</div>
+        </div>
         <div class="tab-pane active" id="commonPropTab">
-            @using (Ajax.BeginForm("EditRadioChannelProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnFailure = "OnFailure" }, new { @id = "RadioChannelPropsTab" }))
+            @using (Ajax.BeginForm("EditRadioChannelProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnFailure = "OnFailure"}, new { @id = "RadioChannelPropsTab" }))
             {
                 @*@Html.AntiForgeryToken()*@
-                @Html.ValidationSummary(true)
-                <fieldset>
+
+                <div id="propBody">
                     @Html.HiddenFor(m => m.Id)
                     @Html.HiddenFor(m => m.Name)
-                    @Html.HiddenFor(m => m.special, new { @class = "ignoreValid", @id = "specialInput" })
-                    <p>
-                        @Html.LabelFor(m => m.Id, "ID")
-                        <br />
-                        @Html.TextBoxFor(m => m.Id, new { disabled = "disabled", @readonly = "readonly" })
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.ChannelType, "Тип")
-                        <br />
-                        @Html.TextBoxFor(m => m.ChannelType)
-                        @Html.ValidationMessageFor(m => m.ChannelType)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.InterPollPause, "InterPollPause, мсек")
-                        <br />
-                        @Html.TextBoxFor(m => m.InterPollPause)
-                        @Html.ValidationMessageFor(m => m.InterPollPause)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.MaxErrorsToSwitchChannel, "Максимальное число ошибок при включении канала")
-                        <br />
-                        @Html.TextBoxFor(m => m.MaxErrorsToSwitchChannel)
-                        @Html.ValidationMessageFor(m => m.MaxErrorsToSwitchChannel)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.MaxErrorsToBadQuality, "Максимальное число ошибок при некачественном сигнале")
-                        <br />
-                        @Html.TextBoxFor(m => m.MaxErrorsToBadQuality)
-                        @Html.ValidationMessageFor(m => m.MaxErrorsToBadQuality)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.TimeTryGoBackToPrimary, "Время переключения на основной канал, сек")
-                        <br />
-                        @Html.TextBoxFor(m => m.TimeTryGoBackToPrimary)
-                        @Html.ValidationMessageFor(m => m.TimeTryGoBackToPrimary)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.PortName, "Название порта")
-                        <br />
-                        @{
-                var portDict = new Dictionary<string, string>{
-                               {"COM0", "COM0"},
-                               {"COM1", "COM1"},
-                               {"COM2", "COM2"}
-                           };
-                        }
-                        @Html.DropDownListFor(m => m.PortName, new SelectList(portDict, "Key", "Value"))
-                        @*@Html.TextBoxFor(m => m.PortName)*@
-                        @Html.ValidationMessageFor(m => m.PortName)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.BaudRate, "Количество символов в секунду")
-                        <br />
-                        @Html.TextBoxFor(m => m.BaudRate)
-                        @Html.ValidationMessageFor(m => m.BaudRate)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.Parity, "Бит четности")
-                        <br />
-                        @{
-                var parityDict = new Dictionary<int, string>{
-                               {0, "Не установлен"},
-                               {1, "Установлен"}
-                           };
-                        }
-                        @Html.DropDownListFor(m => m.Parity, new SelectList(parityDict, "Key", "Value"))
-                        @*@Html.TextBoxFor(m => m.Parity)*@
-                        @Html.ValidationMessageFor(m => m.Parity)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.StopBits, "Kоличество стоповых битов ")
-                        <br />
-                        @Html.TextBoxFor(m => m.StopBits)
-                        @Html.ValidationMessageFor(m => m.StopBits)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.WriteTimeout, "Таймаут при записи, мсек")
-                        <br />
-                        @Html.TextBoxFor(m => m.WriteTimeout)
-                        @Html.ValidationMessageFor(m => m.WriteTimeout)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.ReadTimeout, "Таймаут при чтении, мсек")
-                        <br />
-                        @Html.TextBoxFor(m => m.ReadTimeout)
-                        @Html.ValidationMessageFor(m => m.ReadTimeout)
-                    </p>
-                    @if (ViewBag.UserProps != null)
-                    {
-                        foreach (var prop in ViewBag.UserProps)
+
+                    <div class="form-group row">
+                        <div class="col-xs-3 ">
+                            @Html.LabelFor(m => m.Id, "ID", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.Id, new { disabled = "disabled", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.ChannelType, "Тип", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.ChannelType)
+                            @Html.ValidationMessageFor(m => m.ChannelType)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.InterPollPause, "InterPollPause, мсек", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.InterPollPause)
+                            @Html.ValidationMessageFor(m => m.InterPollPause)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.MaxErrorsToSwitchChannel, "Макс. число ошибок при включении канала", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.MaxErrorsToSwitchChannel)
+                            @Html.ValidationMessageFor(m => m.MaxErrorsToSwitchChannel)
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.MaxErrorsToBadQuality, "Максимальное число ошибок при некачественном сигнале", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.MaxErrorsToBadQuality)
+                            @Html.ValidationMessageFor(m => m.MaxErrorsToBadQuality)
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.TimeTryGoBackToPrimary, "Время переключения на основной канал, сек", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.TimeTryGoBackToPrimary)
+                            @Html.ValidationMessageFor(m => m.TimeTryGoBackToPrimary)
+                        </div>
+
+                    </div>
+
+                    @{var portDict = new Dictionary<string, string>
                         {
-                            var propValue = prop.Value;
-                            string propKey = prop.Key;
-
-                            var typeNameIndex = propKey.LastIndexOf("_");
-                            var typeName = propKey.Substring(typeNameIndex + 1);
-                            int typeProp = 0;
-
-
-                            switch (typeName)
-                            {
-                                case "byte":
-                                    typeProp = 1;
-                                    break;
-                                case "word":
-                                    typeProp = 2;
-                                    break;
-                                case "dword":
-                                    typeProp = 3;
-                                    break;
-                                case "shortInt":
-                                    typeProp = 4;
-                                    break;
-                                case "smallInt":
-                                    typeProp = 5;
-                                    break;
-                                case "longInt":
-                                    typeProp = 6;
-                                    break;
-                                case "float":
-                                    typeProp = 7;
-                                    break;
-                                case "double":
-                                    typeProp = 8;
-                                    break;
-                                case "bool":
-                                    typeProp = 9;
-                                    break;
-                                case "string":
-                                    typeProp = 10;
-                                    break;
-                            }
-                            string propForDelete = "";
-                            switch (typeName)
-                            {
-                                case "string":
-                                    propForDelete = "\"" + propKey + "\":\"" + propValue + "\"";
-                                    break;
-                                case "float":
-                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
-                                    break;
-                                case "double":
-                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
-                                    break;
-                                case "bool":
-                                    propForDelete = "\"" + propKey + "\":" + propValue.ToString().ToLower();
-                                    break;
-                                default:
-                                    propForDelete = "\"" + propKey + "\":" + propValue;
-                                    break;
-
-                            }
-
-                            @*<label>@prop.Key </label>
-                            <br />
-                            @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
-                            <input type="text" name="@prop.Key" data-type=@typeProp value="@Convert.ToString(prop.Value)" data-description="userProp" />
-                            <br />*@
-                            if (typeName == "bool")
-                            {
-                                <label>@prop.Key </label>
-                                <br />
-                                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
-                                @*if (prop.Value == true)
-                                {
-                                 <input type="checkbox" name="@prop.Key" data-description="userProp" checked />
-                                }
-                                else
-                                {
-                                 <input type="checkbox" name="@prop.Key" data-description="userProp" checked />
-                                }*@
-                                var boolVal = Convert.ToString(prop.Value);
-                                <input type="text" name="@prop.Key" data-type=@typeProp value=@boolVal.ToLower() data-description="userProp" />
-                                <br />
-                            }
-                            else
-                            {
-                                <label>@prop.Key </label>
-                                <br />
-                                @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
-                                <input type="text" name="@prop.Key" data-type=@typeProp value="@Convert.ToString(prop.Value)" data-description="userProp" />
-                                <br />
-                            }
-                        }
+                        {"COM0", "COM0"},
+                        {"COM1", "COM1"},
+                        {"COM2", "COM2"}
+                        };
                     }
-                    <input id="saveObjPropsBtn" type="submit" class="btn btn-success" value="Сохранить" />
-                    <input id="addObjPropsBtn" type="button" class="btn btn-info" value="Добавить свойство" />
-                    <input id="deleteObjPropsBtn" type="button" class="btn btn-info" value="Удалить свойства" style="display: none;" />
-                </fieldset>
+
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.PortName, "Название порта", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(m => m.PortName, new SelectList(portDict, "Key", "Value"))
+                            @Html.ValidationMessageFor(m => m.PortName)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.BaudRate, "Количество символов в секунду", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.BaudRate)
+                            @Html.ValidationMessageFor(m => m.BaudRate)
+                        </div>
+
+                    </div>
+
+                    @{var parityDict = new Dictionary<int, string>
+                            {
+                            {0, "Не установлен"},
+                            {1, "Установлен"}
+                            };
+                    }
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.Parity, "Бит четности", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(m => m.Parity, new SelectList(parityDict, "Key", "Value"))
+                            @Html.ValidationMessageFor(m => m.Parity)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.StopBits, "Kоличество стоповых битов ", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.StopBits)
+                            @Html.ValidationMessageFor(m => m.StopBits)
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.WriteTimeout, "Таймаут при записи, мсек", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.WriteTimeout)
+                            @Html.ValidationMessageFor(m => m.WriteTimeout)
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.ReadTimeout, "Таймаут при чтении, мсек", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.ReadTimeout)
+                            @Html.ValidationMessageFor(m => m.ReadTimeout)
+                        </div>
+
+                    </div>
+                </div>
+                <div id="tabButtons">
+                    <button id="saveObjPropsBtn" type="submit" class="btn btn-success"> Сохранить </button>
+                </div>
+                @Html.ValidationSummary(true)
             }
-
         </div>
-
-
-
     </div>
 </div>
+
 <script type="text/javascript">
-    //function getAdditionalProps() {
-    //    var toHiddenInput = "";
-    //    var userCounter = 0;
-    //    var propsArr = new Object();
-    //    //собираем строку для пользовательских свойств
-    //    $('[data-description="userProp"]').each(function () {
-    //        var Name = $(this).attr("name");
-    //        //propsArr[Name] = $(this).val();
-    //        var propStr = "";
-    //        if ($(this).attr("data-type") == 10) {
-    //            propStr = ",\"" + $(this).attr("name") + "\":\"" + $(this).val() + "\"";
-    //        }
-    //        else if ($(this).attr("data-type") == 7 || $(this).attr("data-type") == 8) {
-    //            var replComma = ($(this).val()).replace(",", ".");
-    //            propStr = ",\"" + $(this).attr("name") + "\":" + replComma;
-    //            //alert(propStr);
-    //        }
-    //        else {
-    //            propStr = ",\"" + $(this).attr("name") + "\":" + $(this).val();
-    //        }
-    //        //поскольку в документе всегда будет 2 input'а с одним именем,т.к. стандарное свойство может содержаться
-    //        //как в общей вкладке, так и во вкладке модулей, то предотвратим повторную запись свойства в строку со свойствами
 
-    //        var repeatChecker = ",\"" + $(this).attr("name") + "\":";
-    //        if (toHiddenInput.indexOf(repeatChecker) == -1)
-    //            toHiddenInput += propStr;
-    //    });
-    //    //Раскидываем строку по инпутам. Так как формы разные, то кажется каждой форме нужен свой input
-    //    $('#specialInput').val(toHiddenInput);
-    //}
-    ////собирает все свойства в строку, которую закидывает в Value для скрытого input #special
-    //getAdditionalProps();
-
-    //$('#RadioChannelPropsTab [data-description="userProp"]').on("change", function () {
-    //    getAdditionalProps();
-    //});
     $(document).ready(function () {
-        getAdditionalProps();
-        LoadPageOff();
-        @*$('.deleteProp').change(function () {
-            if ($('.deleteProp:checked').length > 0) {
-                $('#deleteObjPropsBtn').show();
-            }
-            else {
-                $('#deleteObjPropsBtn').hide();
-            }
-        });
-        $('#deleteObjPropsBtn').on("click", function () {
-            var deletePropsArr = new Array();
-            $('.deleteProp:checked').each(function (i, elem) {
-                var propName = $(this).attr("name");
-                deletePropsArr.push($(this).attr("name"));
-            });
-            //alert(deletePropsArr[0]);
-            $.ajax({
-                type: "POST",
-                url: '/Configurator/DeleteProps',
-                data: { deletePropsArr: deletePropsArr, id: '@Model.Id' },
-                async: true,
-                success: function (data) { $('#tagInfo').html(data); },
-                error: function () {
-                    alert("Неудача при отправке аякс запроса при удалении свойства");
-                }
-            });
-            return false;
-        });*@
-
-        //$('#saveObjPropsBtn').on("mouseup", function () {
-        //    saveFlag = 0;
-        //});
-
+        $("#ac-1").prop('checked', true);
+        calculateHeight();
+        //LoadPageOff();
+        if ($("#aboutSaveNotification").length > 0) {
+            setTimeout(hideAboutSaveNotification, 2000);
+        }
     });
 </script>

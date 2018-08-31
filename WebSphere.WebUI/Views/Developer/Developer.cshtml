@@ -32,6 +32,9 @@
 <div onclick=ShowDeveloperPage4() class="eButton">
     <span> Состояние тревог</span>
 </div> 
+<div onclick=ShowDeveloperPage5() class="eButton">
+    <span> Сумматоры</span>
+</div> 
 <div onclick=alarm() class="eButton">
     <span> Состояние тревог</span>
 </div> 
@@ -53,6 +56,9 @@
         location.replace("/Developer/AlarmStates");
         
     }   
+    function ShowDeveloperPage5() {
+        location.replace("/Developer/Summ");
+    }
  function alarm() {
         var el = screen.height;
         $("#tree_objects").height=el-380;

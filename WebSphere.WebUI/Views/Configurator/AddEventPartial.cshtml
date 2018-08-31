@@ -1,0 +1,19 @@
+﻿@using WebSphere.Domain.Entities;
+@model WebSphere.Domain.Entities.TagProps
+    @{
+        int max = Model.Events.EventMessages.Count;
+    }
+
+    <div class="col-xs-3">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            @Html.TextBoxFor(m => m.Events.EventMessages[max-1].Value)
+            @Html.ValidationMessageFor(m => m.Events.EventMessages[max-1].Value)
+        </div>
+    </div>
+    <div class="col-xs-9">
+        @Html.TextBoxFor(m => m.Events.EventMessages[max-1].Message)
+        @Html.ValidationMessageFor(m => m.Events.EventMessages[max-1].Message)
+        <img id="removeEvent" src="~/Content/images/tabs/stopdmol06.jpg" style="width:20px; height:20px;" />
+    </div>

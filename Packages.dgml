@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="WebSphere.Trends" Label="WebSphere.Trends" Category="Project" />
+    <Node Id="EntityFramework 6.1.3" Label="EntityFramework 6.1.3" Category="Package" />
+    <Node Id="WebSphere.Reports" Label="WebSphere.Reports" Category="Project" />
+    <Node Id="EntityFramework 6.1.3" Label="EntityFramework 6.1.3" Category="Package" />
+    <Node Id="WebSphere.Alarms" Label="WebSphere.Alarms" Category="Project" />
+    <Node Id="EntityFramework 6.1.3" Label="EntityFramework 6.1.3" Category="Package" />
+    <Node Id="WebSphere.ClientOPC" Label="WebSphere.ClientOPC" Category="Project" />
+    <Node Id="EntityFramework 6.1.3" Label="EntityFramework 6.1.3" Category="Package" />
+    <Node Id="WebSphere.WebUI" Label="WebSphere.WebUI" Category="Project" />
+    <Node Id="bootstrap 3.3.7" Label="bootstrap 3.3.7" Category="Package" />
+    <Node Id="EntityFramework 6.1.2" Label="EntityFramework 6.1.2" Category="Package" />
+    <Node Id="Foolproof 0.9.4518" Label="Foolproof 0.9.4518" Category="Package" />
+    <Node Id="jQuery 1.10.2" Label="jQuery 1.10.2" Category="Package" />
+    <Node Id="jQuery.Validation 1.11.1" Label="jQuery.Validation 1.11.1" Category="Package" />
+    <Node Id="log4net 2.0.5" Label="log4net 2.0.5" Category="Package" />
+    <Node Id="Microsoft.AspNet.Mvc 5.2.3" Label="Microsoft.AspNet.Mvc 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.Razor 3.2.3" Label="Microsoft.AspNet.Razor 3.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi 5.2.3" Label="Microsoft.AspNet.WebApi 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.Client 5.2.3" Label="Microsoft.AspNet.WebApi.Client 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.Core 5.2.3" Label="Microsoft.AspNet.WebApi.Core 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.WebHost 5.2.3" Label="Microsoft.AspNet.WebApi.WebHost 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebPages 3.2.3" Label="Microsoft.AspNet.WebPages 3.2.3" Category="Package" />
+    <Node Id="Microsoft.jQuery.Unobtrusive.Ajax 3.2.3" Label="Microsoft.jQuery.Unobtrusive.Ajax 3.2.3" Category="Package" />
+    <Node Id="Microsoft.jQuery.Unobtrusive.Validation 3.0.0" Label="Microsoft.jQuery.Unobtrusive.Validation 3.0.0" Category="Package" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
+    <Node Id="Newtonsoft.Json 9.0.1" Label="Newtonsoft.Json 9.0.1" Category="Package" />
+    <Node Id="Ninject 3.2.2.0" Label="Ninject 3.2.2.0" Category="Package" />
+    <Node Id="Ninject.MVC5 3.2.1.0" Label="Ninject.MVC5 3.2.1.0" Category="Package" />
+    <Node Id="Ninject.Web.Common 3.2.3.0" Label="Ninject.Web.Common 3.2.3.0" Category="Package" />
+    <Node Id="Ninject.Web.Common.WebHost 3.2.3.0" Label="Ninject.Web.Common.WebHost 3.2.3.0" Category="Package" />
+    <Node Id="Serilog 1.5.14" Label="Serilog 1.5.14" Category="Package" />
+    <Node Id="SimpleCrypto 0.3.30.26" Label="SimpleCrypto 0.3.30.26" Category="Package" />
+    <Node Id="WebActivatorEx 2.0.6" Label="WebActivatorEx 2.0.6" Category="Package" />
+    <Node Id="WebSphere.Domain" Label="WebSphere.Domain" Category="Project" />
+    <Node Id="EntityFramework 6.1.3" Label="EntityFramework 6.1.3" Category="Package" />
+    <Node Id="log4net 2.0.5" Label="log4net 2.0.5" Category="Package" />
+    <Node Id="Microsoft.AspNet.Mvc 5.2.3" Label="Microsoft.AspNet.Mvc 5.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.Razor 3.2.3" Label="Microsoft.AspNet.Razor 3.2.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebPages 3.2.3" Label="Microsoft.AspNet.WebPages 3.2.3" Category="Package" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
+    <Node Id="Newtonsoft.Json 9.0.1" Label="Newtonsoft.Json 9.0.1" Category="Package" />
+    <Node Id="Serilog 1.5.14" Label="Serilog 1.5.14" Category="Package" />
+    <Node Id="SimpleCrypto 0.3.30.26" Label="SimpleCrypto 0.3.30.26" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="WebSphere.Trends" Target="EntityFramework 6.1.3" Category="Installed Package" />
+    <Link Source="WebSphere.Reports" Target="EntityFramework 6.1.3" Category="Installed Package" />
+    <Link Source="WebSphere.Alarms" Target="EntityFramework 6.1.3" Category="Installed Package" />
+    <Link Source="WebSphere.ClientOPC" Target="EntityFramework 6.1.3" Category="Installed Package" />
+    <Link Source="bootstrap 3.3.7" Target="jQuery 1.10.2" Category="Package Dependency" />
+    <Link Source="Foolproof 0.9.4518" Target="Microsoft.AspNet.Mvc 5.2.3" Category="Package Dependency" />
+    <Link Source="jQuery.Validation 1.11.1" Target="jQuery 1.10.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.3" Target="Microsoft.AspNet.WebPages 3.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.3" Target="Microsoft.AspNet.Razor 3.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi 5.2.3" Target="Microsoft.AspNet.WebApi.WebHost 5.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 5.2.3" Target="Newtonsoft.Json 9.0.1" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 5.2.3" Target="Newtonsoft.Json 9.0.1" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Core 5.2.3" Target="Microsoft.AspNet.WebApi.Client 5.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.WebHost 5.2.3" Target="Microsoft.AspNet.WebApi.Core 5.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.3" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.3" Target="Microsoft.AspNet.Razor 3.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.jQuery.Unobtrusive.Ajax 3.2.3" Target="jQuery 1.10.2" Category="Package Dependency" />
+    <Link Source="Microsoft.jQuery.Unobtrusive.Validation 3.0.0" Target="jQuery.Validation 1.11.1" Category="Package Dependency" />
+    <Link Source="Ninject.MVC5 3.2.1.0" Target="Ninject 3.2.2.0" Category="Package Dependency" />
+    <Link Source="Ninject.MVC5 3.2.1.0" Target="Ninject.Web.Common.WebHost 3.2.3.0" Category="Package Dependency" />
+    <Link Source="Ninject.Web.Common 3.2.3.0" Target="Ninject 3.2.2.0" Category="Package Dependency" />
+    <Link Source="Ninject.Web.Common.WebHost 3.2.3.0" Target="Ninject.Web.Common 3.2.3.0" Category="Package Dependency" />
+    <Link Source="Ninject.Web.Common.WebHost 3.2.3.0" Target="WebActivatorEx 2.0.6" Category="Package Dependency" />
+    <Link Source="WebActivatorEx 2.0.6" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="WebSphere.WebUI" Target="bootstrap 3.3.7" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="EntityFramework 6.1.2" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Foolproof 0.9.4518" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="log4net 2.0.5" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Microsoft.AspNet.WebApi 5.2.3" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Microsoft.jQuery.Unobtrusive.Ajax 3.2.3" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Microsoft.jQuery.Unobtrusive.Validation 3.0.0" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Ninject.MVC5 3.2.1.0" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="Serilog 1.5.14" Category="Installed Package" />
+    <Link Source="WebSphere.WebUI" Target="SimpleCrypto 0.3.30.26" Category="Installed Package" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.3" Target="Microsoft.AspNet.WebPages 3.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.3" Target="Microsoft.AspNet.Razor 3.2.3" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.3" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.3" Target="Microsoft.AspNet.Razor 3.2.3" Category="Package Dependency" />
+    <Link Source="WebSphere.Domain" Target="EntityFramework 6.1.3" Category="Installed Package" />
+    <Link Source="WebSphere.Domain" Target="log4net 2.0.5" Category="Installed Package" />
+    <Link Source="WebSphere.Domain" Target="Microsoft.AspNet.Mvc 5.2.3" Category="Installed Package" />
+    <Link Source="WebSphere.Domain" Target="Newtonsoft.Json 9.0.1" Category="Installed Package" />
+    <Link Source="WebSphere.Domain" Target="Serilog 1.5.14" Category="Installed Package" />
+    <Link Source="WebSphere.Domain" Target="SimpleCrypto 0.3.30.26" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

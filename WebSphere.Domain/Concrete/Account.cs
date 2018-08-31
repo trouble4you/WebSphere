@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -13,6 +14,10 @@ namespace WebSphere.Domain.Concrete
 {
     public class Account : IAccount
     {
+
+        private Object userLock = new Object();
+        private Object roleLock = new Object();
+
         #region настройки
 
         // коннект к репозиторию данных
@@ -96,6 +101,11 @@ namespace WebSphere.Domain.Concrete
             // получаем данные пользователя по 'username'
             users = UsersList(username);
 
+            if (users.Count == 0)
+            {
+                return false;
+            }
+
             // экзепляр 'User'
             User u = users[0];
 
@@ -114,80 +124,54 @@ namespace WebSphere.Domain.Concrete
             // роли пользователя
             var q = GetUserRoles(username);
 
-            // роли пользователя
-            foreach (var i in q)
-            {
-                // все роли
-                foreach (var j in roles)
-                {
-                    // поиск роли
-                    if (i.Name == j.Name)
-                    {
-                        // свойства роли
-                        foreach (var f in j.Permissions)
-                        {
-                            // поиск контроллера
-                            if (f.Name == controller)
-                            {
-                                // разрешения роли
-                                foreach (var g in f.Permission)
-                                {
-                                    // поиск экшена
-                                    if (g.Name == action && g.Selected)
-                                    {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
 
-            return false;
+            // все роли
+            return roles.Where(j => q.Name == j.Name).Any(j => j.Permissions.Where(f => f.Name == controller).Any(f => f.Permission.Any(g => g.Name == action && g.Selected)));
         }
 
         // help - список всех пользователей
         public List<User> UsersList(string username = "")
         {
-            // список
-            List<User> users = new List<User>();
-
-            // выборка
-            var q = (from t in context.Objects
-                    join t1 in context.ObjectTypes on t.Type equals t1.Id
-                    join t2 in context.Properties on t.Id equals t2.ObjectId
-                    where t1.Name == "User" && (string.IsNullOrEmpty(username) || t.Name == username)
-                    select new 
-                    {
-                        Id = t.Id,
-                        Name = t.Name,
-                        Type = t.Type,
-                        Props = t2.Value
-                    }).ToList();
-
-            // список пользователей
-            foreach (var i in q)
+            lock (userLock)
             {
-                var user = new User(); // пользователь
-                user = (User)json.Deserialize(i.Props, user.GetType()); // наполняем свойствами
-                user.Id = i.Id; // id
-                user.UserName = i.Name; // логин
-                user.Type = i.Type; // тип объекта
-                users.Add(user); // в список
-            }
+                // список
+                List<User> users = new List<User>();
 
-            // роли пользователей
-            foreach (var i in users)
-            {
-                // если не Суперпользователь, то берем роли
-                if (i.IsSuperuser == 0)
+                var q = (from t in context.Objects
+                             //join t1 in context.ObjectTypes on t.Type equals t1.Id
+                         join t2 in context.Properties on t.Id equals t2.ObjectId
+                         where t.Type == 9 && t2.PropId == 0 && (string.IsNullOrEmpty(username) || t.Name == username)
+                         select new
+                         {
+                             Id = t.Id,
+                             Name = t.Name,
+                             Type = t.Type,
+                             Props = t2.Value
+                         }).ToList();
+
+                // список пользователей
+                foreach (var i in q)
                 {
-                    i.Roles = GetUserRoles(i.UserName);
+                    //var props = context.Properties.FirstOrDefault(x => x.ObjectId == i.Id && x.PropId == 0).Value;
+                    var user = new User(); // пользователь
+                    user = (User)json.Deserialize(i.Props, user.GetType()); // наполняем свойствами
+                    user.Id = i.Id; // id
+                    user.UserName = i.Name; // логин
+                    user.Type = i.Type; // тип объекта
+                    users.Add(user); // в список
                 }
-            }
 
-            return users;
+                // роли пользователей
+                foreach (var i in users)
+                {
+                    // если не Суперпользователь, то берем роли
+                    if (i.IsSuperuser == 0)
+                    {
+                        i.Role = GetUserRoles(i.UserName);
+                    }
+                }
+                return users;
+            }
         }
 
         // регистрация пользователя
@@ -203,9 +187,9 @@ namespace WebSphere.Domain.Concrete
             if (userExists == null)
             {
                 // сначала добавляем роли пользователя, если не 'Superadmin' и если роли вообще есть
-                if (user.IsSuperuser != 1 && user.Roles != null)
+                if (user.IsSuperuser != 1 && user.Role != null)
                 {
-                    AddUserToRole(user.UserName, user.Roles);
+                    AddUserToRole(user.UserName, user.Role);
                 }
 
                 // создание нового пользователя
@@ -263,10 +247,10 @@ namespace WebSphere.Domain.Concrete
             var currentUser = context.Objects.FirstOrDefault(u => u.Id == user.Id);
 
             // добавляем роли только не для 'admin' и если роли вообще есть
-            if (currentUser.Name != "admin" && user.Roles != null)
+            if (currentUser.Name != "admin" && user.Role != null)
             {
                 // сначала добавляем роли пользователя
-                AddUserToRole(currentUser.Name, user.Roles);
+                AddUserToRole(currentUser.Name, user.Role);
             }
 
             ///
@@ -326,7 +310,7 @@ namespace WebSphere.Domain.Concrete
                     RemoveRolesFromUser(user.UserName);
                 }
             }
-            
+
             // если пароль null или empty, то значит пользователь сменил пароль
             if (!string.IsNullOrEmpty(user.Password))
             {
@@ -421,42 +405,27 @@ namespace WebSphere.Domain.Concrete
 
         // роли пользователя
 
-        public List<Role> GetUserRoles(string username)
+        public Role GetUserRoles(string username)
         {
             // список
-            List<Role> Roles = new List<Role>();
+            Role Role = new Role();
 
-            // выборка
-            var q = (from t1 in context.Objects
-                     join t2 in context.Objects on t1.Id equals t2.ParentId
-                     join t3 in context.ObjectTypes on t2.Type equals t3.Id
-                     where t2.Name == username && t3.Name == "UserGroups"
-                     select new
-                     {
-                         Id = t1.Id,
-                         Name = t1.Name,
-                         Type = t1.Type,
-                         Selected = true
+            Role = (from t1 in context.Objects
+                    join t2 in context.Objects on t1.Id equals t2.ParentId
+                    where t2.Name == username && t1.Type == 10
+                    select new Role()
+                    {
+                        Id = t1.Id,
+                        Name = t1.Name,
+                        Type = t1.Type,
+                        Selected = true
 
-                     }).ToList();
+                    }).FirstOrDefault();
 
-            // наполняем список
-            foreach (var i in q)
-            {
-                // роль
-                Role role = new Role()
-                {
-                    Id = i.Id,
-                    Name = i.Name,
-                    Type = i.Type,
-                    Selected = i.Selected
-                };
 
-                // в список
-                Roles.Add(role);
-            }
 
-            return Roles;
+            return Role;
+
         }
 
         // добавление роли
@@ -496,7 +465,7 @@ namespace WebSphere.Domain.Concrete
 
                 return true;
             }
-            
+
             return false;
         }
 
@@ -630,60 +599,31 @@ namespace WebSphere.Domain.Concrete
         }
 
         // добавление пользователя к ролям
-        public bool AddUserToRole(string username, List<Role> roles)
+        public bool AddUserToRole(string username, Role role)
         {
-            // сначала удаляем все роли у пользователя
-            if (RemoveRolesFromUser(username))
+            var _user = context.Objects.FirstOrDefault(t => t.Name == username);
+
+            if (_user != null)
             {
-                // новые роли
-                List<Objects> objs = new List<Objects>();
-
-                // тип объекта
-                var typeObj = context.ObjectTypes.FirstOrDefault(t => t.Name == "UserGroups").Id;
-
-                // поиск отмеченных ролей
-                foreach (var i in roles)
-                {
-                    // если роль отмечена
-                    if (i.Selected)
-                    {
-                        // объект
-                        Objects obj = new Objects()
-                        {
-                            Name = username, // username
-                            Type = typeObj, // тип объекта
-                            ParentId = i.Id // роль
-                        };
-
-                        objs.Add(obj); // в список
-                    }
-                }
-
-                // если список не пустой, то сохраняем данные
-                if (objs.Count() > 0)
-                {
-                    context.Objects.AddRange(objs); // добавляем
-                    context.SaveChanges(); // сохраняем
-                }
-
+                _user.ParentId = role.Id;
+                context.SaveChanges();
                 return true;
             }
-
             return false;
         }
 
         // удаление ролей пользователя
         public bool RemoveRolesFromUser(string username)
         {
-            var q = from t1 in context.Objects
-                    join t2 in context.ObjectTypes on t1.Type equals t2.Id
-                    where t1.Name == username && t2.Name == "UserGroups"
-                    select t1;
+            var _user = context.Objects.FirstOrDefault(t => t.Name == username);
 
-            context.Objects.RemoveRange(q);
-            context.SaveChanges();
-
-            return true;
+            if (_user != null)
+            {
+                _user.ParentId = null;
+                context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         // удаление разрешений роли

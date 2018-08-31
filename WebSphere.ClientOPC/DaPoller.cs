@@ -34,7 +34,10 @@ namespace WebSphere.ClientOPC
             LastPoll = DateTime.Now;
             for (int i = 0; i < items.GetLength(0); i++)
             {
-                var tag = new TagId { TagName = items[i].ItemName, PollerId = PollerId };
+                var tag = new TagId();
+                //Найдем тег с списке 
+                tag = TagListBackup.FirstOrDefault(x => x.TagName == items[i].ItemName) ??
+                      new TagId { TagName = items[i].ItemName, PollerId = PollerId };
 
                 if (items[i].Quality.GetCode() >= 192)
                 {
@@ -102,40 +105,31 @@ namespace WebSphere.ClientOPC
         public override void AddTags(List<TagId> taglist)
         {
             TagListBackup = taglist;
-            var subList = new List<Opc.Da.Item>();
-            foreach (var tag in taglist)
-            {
-
-                if (_tags.Exists(d => d.ItemName == tag.TagName))
-                {   // TagListBackup.Add(tag);
-                    subList.Add(new Opc.Da.Item { ItemName = tag.TagName });
-                    logger.Logged("Info", "#" + PollerId + ": добавляем тег '" + tag.TagName + "' в подписку", "OpcDaPoller", "AddTags");
-                }
-                else
-                {
-                    logger.Logged("Error", "#" + PollerId + ": тег '" + tag.TagName + "' не обнаружен на сервере", "OpcUaPoller", "AddTags");
-                }
-            }
             if (!Activated) return;
+            var subList = new List<Opc.Da.Item>();
+            if (!SubAll)
+                foreach (var tag in taglist)
+                {
+
+                    if (_tags.Exists(d => d.ItemName == tag.TagName))
+                    {   // TagListBackup.Add(tag);
+                        subList.Add(new Opc.Da.Item { ItemName = tag.TagName });
+                        logger.Logged("Info", "#" + PollerId + ": добавляем тег '" + tag.TagName + "' в подписку", "OpcDaPoller", "AddTags");
+                    }
+                    else
+                    {
+                        logger.Logged("Error", "#" + PollerId + ": тег '" + tag.TagName + "' не обнаружен на сервере", "OpcUaPoller", "AddTags");
+                    }
+                }
+            else
+            {
+                logger.Logged("Info", "#" + PollerId + ": добавляем все теги сервера в подписку", "OpcDaPoller", "AddTags");
+                subList = _tags;
+            }
             try
             {
                 var groupState = new Opc.Da.SubscriptionState { Name = "Group", Active = true };
                 var @group = (Opc.Da.Subscription)server.CreateSubscription(groupState);
-
-
-
-
-                /* 
-                int tagCounter = 0;
-                var items = new Opc.Da.Item[taglist.Count()];
-                foreach (TagId tag in taglist)
-                {
-                    var item = new Opc.Da.Item {ItemName = tag.TagName};
-                    items[tagCounter] = item;
-                    tagCounter++;
-                }*/
-
-
                 @group.AddItems(subList.ToArray());
                 @group.DataChanged += new Opc.Da.DataChangedEventHandler(OnNotification);
                 logger.Logged("Info", "Добавлено {" + subList.Count() + "}  тегов для контроля с OPC DA сервера #{" + PollerId + "}", "", "");
@@ -178,7 +172,7 @@ namespace WebSphere.ClientOPC
                 _groupWriteState.Name = "GroupWrite";
                 _groupWriteState.Active = false;
 
-                groupWrite = (Opc.Da.Subscription)server.CreateSubscription(_groupWriteState); 
+                groupWrite = (Opc.Da.Subscription)server.CreateSubscription(_groupWriteState);
                 Activated = true;
                 logger.Logged("Info", "Состояние сервера: " + server.GetStatus().StatusInfo, "", "");
                 result = true;
@@ -186,8 +180,8 @@ namespace WebSphere.ClientOPC
             catch (Exception ex)
             {
                 logger.Logged("Error", "Не удалось подключиться к OPC DA серверу " + connectionString + ": " + ex.Message, "", "");
-                logger.Logged("Warn", "Повторная попытка через 5 секунд...", "", "");
-                Thread.Sleep(5000);
+                // logger.Logged("Warn", "Повторная попытка через 5 секунд...", "", "");
+                //Thread.Sleep(5000);
             }
 
             return result;
@@ -215,26 +209,23 @@ namespace WebSphere.ClientOPC
         }
         public override bool WriteTag(TagId tag, string value)
         {
-            groupWrite.RemoveItems(groupWrite.Items);
-            List<Item> writeList = new List<Item>();
-            List<ItemValue> valueList = new List<ItemValue>();
-
-            Item itemToWrite = new Item();
-            itemToWrite.ItemName = tag.TagName;
-            ItemValue itemValue = new ItemValue(itemToWrite);
-            itemValue.Value = value;
-
-            writeList.Add(itemToWrite);
-            valueList.Add(itemValue);
-            //IMPORTANT:
-            //#1: assign the item to the group so the items gets a ServerHandle
-            groupWrite.AddItems(writeList.ToArray());
-            // #2: assign the server handle to the ItemValue
-            for (int i = 0; i < valueList.Count; i++)
-                valueList[i].ServerHandle = groupWrite.Items[i].ServerHandle;
-            // #3: write
             try
             {
+                groupWrite.RemoveItems(groupWrite.Items);
+                List<Item> writeList = new List<Item>();
+                List<ItemValue> valueList = new List<ItemValue>();
+
+                Item itemToWrite = new Item();
+                itemToWrite.ItemName = tag.TagName;
+                ItemValue itemValue = new ItemValue(itemToWrite);
+                itemValue.Value = value;
+
+                writeList.Add(itemToWrite);
+                valueList.Add(itemValue);
+                groupWrite.AddItems(writeList.ToArray());
+                for (int i = 0; i < valueList.Count; i++)
+                    valueList[i].ServerHandle = groupWrite.Items[i].ServerHandle;
+
                 groupWrite.Write(valueList.ToArray());
                 return true;
             }

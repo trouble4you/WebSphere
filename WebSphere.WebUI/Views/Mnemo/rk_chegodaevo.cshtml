@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model WebSphere.WebUI.Models.Obj
+<link href="~/Content/_CSS/Reports/zerozam.css" rel="stylesheet" />
+<link href="~/Content/_CSS/Mnemo/MnemoSingle.css" rel="stylesheet" /> 
+<script type="text/javascript" src="~/Scripts/_JS/common/OpcReadWrite.js"></script> 
+<script type="text/javascript" src="~/Scripts/_JS/AdditionalFunctions.js"></script> 
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/_JS/common/MyTime.js"></script>
+<script type="text/javascript" src="~/Scripts/_JS/main.js"></script> 
+<script type="text/javascript" src="~/Scripts/snap/snap.svg.js"></script> 
+<script type="text/javascript" src="~/Scripts/SVG/Main.js"></script>
+<script type="text/javascript" src="~/Scripts/SVG/Tag_types_update.js"></script>
+  
+
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
+<!-- END -->
+<!-- Scripts-->
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/grid.locale-ru.js"></script>
+<script type="text/javascript" src="/Scripts/_JS/jqGrid/jquery.jqGrid.min.js"></script>
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/ui.jqgrid.css' />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.min.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/datetimepicker/jquery.datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="/Content/_CSS/Reports/Reports.css" />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/Reports/zerozam.css' />
+
+<object id="svg" data="~/Content/_svg/rk_chegodaevo.svg" type="image/svg+xml" width="100%" height="80%"></object>
+ <div id='mess_div' class="row div_events" style="top: 70%; margin: 5px;overflow:hidden;width:99%">
+    <table style='margin-bottom:0px;' id='lastalarms_table'></table>
+
+</div>
+
+<script type="text/javascript">
+    var modelId = '@Model.Id';
+    var modelname = '@Model.Name';
+    function openLink(link) {
+        window.open(link.replace('idModel', modelId), '_self');
+    }
+    window.addEventListener("load",function (){InitMnemoSVG('@Model.Name');});
+        $(function () {
+
+            $('#lastalarms_table').jqGrid({
+                caption: "",
+                datatype: 'local',
+                colNames: ['id', 'tag', 'Время ', 'Cобытие'],
+                colModel: [{ name: 'Id', index: 'Id', hidden: true },
+                    { name: 'Tag', index: 'Tag', hidden: true },
+                    {
+                        name: 'Time', index: 'Time', width: '40%', sortable: true, classes: 'lambda_zam_col',
+                        sorttype: 'datetime', formatter: "date", formatoptions: { srcformat: "Y-m-d H:i:s", newformat: "d.m.Y  H:i:s" }
+                    },
+                    { name: 'Message', index: 'Message', width: '150%', sortable: false, classes: 'lambda_zam_col', }
+                ],
+
+                viewrecords: true,
+                height: '100%',
+                width: '900px',
+                scroll: true,
+                sortname: ' Time',
+                sortorder: "asc",
+            });
+
+            var lastalarmsW = document.getElementById('mess_div').offsetWidth;
+            var lastalarmsH = document.getElementById('mess_div').offsetHeight;
+            var journal = document.getElementById('svg').offsetWidth;
+            $("#lastalarms_table").setGridWidth(journal );
+            //$("#lastalarms_table").setGridWidth(lastalarmsW);
+            //$("#lastalarms_table").setGridHeight(lastalarmsH - 30);
+
+
+        });
+
+        function getlastevents() {
+            LoadPageOn();
+            //читаем алармы
+            $.ajax({ type: "POST", url: "/Alarms/GetCurrentEvents", data: { id: 0 }, async: true, success: page_drawEvents, error: page_nodraw });
+        }
+        getlastevents();
+        setInterval('getlastevents()', 30000);
+
+        function page_drawEvents(data) {
+            //рисуем алармы
+            var scrollPosition;
+            scrollPosition = jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop();
+            $("#lastalarms_table").jqGrid('clearGridData');
+            var countmess = data.length;
+            //  $("#lastalarms_table").setGridParam({ data: data });
+
+            for (var i = data.length - 1; i >= 0 ; i--) {
+                $('#lastalarms_table').jqGrid('addRowData', data[i].Id,
+                {
+                    Id: data[i].Id,
+                    Time: data[i].Time,
+                    Message: data[i].Message,
+                });
+            }
+            jQuery("#lastalarms_table").closest(".ui-jqgrid-bdiv").scrollTop(scrollPosition);
+
+            LoadPageOff();
+        }
+
+        function page_nodraw(data) {
+            ErrMessage("Не удалось обновить события");
+            LoadPageOff();
+        }
+</script>

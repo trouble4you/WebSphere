@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Threading;
 using WebSphere.Domain.Abstract;
-using WebSphere.Domain.Concrete; 
+using WebSphere.Domain.Concrete;
 using Opc.Ua;
 using Opc.Ua.Client;
 using Subscription = Opc.Ua.Client.Subscription;
@@ -15,13 +15,21 @@ namespace WebSphere.ClientOPC
         private Dictionary<string, string> discoveredTags = new Dictionary<string, string>();
         private static ApplicationConfiguration config = null;
         private Session session;
-        private static bool stackInitialized = false; 
+        private static bool stackInitialized = false;
         /// <summary>
         /// Проверка наличия подключения
         /// </summary>
         public override bool IsConnected()
         {
-            return session.Connected;
+            try
+            {
+                return session.Connected;
+            }
+            catch (Exception ex)
+            {
+                logger.Logged("Err", "Скорее всего сервер не подключен #" + PollerId, "OpcUaPoller", "IsConnected");
+                return false;
+            }
         }
 
         /// <summary>
@@ -34,7 +42,7 @@ namespace WebSphere.ClientOPC
                 logger.Logged("Info", "Инициализируем OPC UA стэк...", "OpcUaPoller", "InitializeStack");
                 config = new ApplicationConfiguration()
                 {
-                    ApplicationName = "kDataLogger",
+                    ApplicationName = "WebSfera",
                     ApplicationType = ApplicationType.Client,
                     SecurityConfiguration =
                         new SecurityConfiguration
@@ -58,8 +66,8 @@ namespace WebSphere.ClientOPC
                             AutoAcceptUntrustedCertificates = true
                         },
                     TransportConfigurations = new TransportConfigurationCollection(),
-                    TransportQuotas = new TransportQuotas {OperationTimeout = 15000},
-                    ClientConfiguration = new ClientConfiguration {DefaultSessionTimeout = 60000}
+                    TransportQuotas = new TransportQuotas { OperationTimeout = 15000 },
+                    ClientConfiguration = new ClientConfiguration { DefaultSessionTimeout = 6000 }
                 };
                 config.ApplicationUri = "urn:Eksiton:Sfera";
                 config.Validate(ApplicationType.Client);
@@ -97,13 +105,18 @@ namespace WebSphere.ClientOPC
             if (!stackInitialized)
                 InitializeStack();
 
+            PollerId = new_poller_id;
+            logger.Logged("Info", "Открываем сессию к серверу OPC UA #" + PollerId, "OpcUaPoller", "Initialize");
             try
             {
-                PollerId = new_poller_id;
-                logger.Logged("Info", "Открываем сессию к серверу OPC UA #" + PollerId, "OpcUaPoller", "Initialize");
                 session = Session.Create(config,
                     new ConfiguredEndpoint(null, new EndpointDescription(connection_string)), true,
-                    "kDataLogger #" + PollerId, 60000, null, null);
+                    "WebSfera #" + PollerId, 6000, null, null);
+
+
+                session.KeepAlive += new KeepAliveEventHandler(StandardClient_KeepAlive);
+                StandardClient_KeepAlive(session, null);
+
                 if (session.Connected)
                     logger.Logged("Info", "Соединены с сервером OPC UA #{0}" + PollerId, "OpcUaPoller", "Initialize");
                 else
@@ -117,14 +130,93 @@ namespace WebSphere.ClientOPC
             catch (Exception ex)
             {
                 session = null;
-                logger.Logged("Error",
-                    "Не удалось подключиться к OPC UA серверу " + connection_string + ": " + ex.Message, "OpcUaPoller",
-                    "Initialize");
-                logger.Logged("Warn", "Повторная попытка через 5 секунд...", "OpcUaPoller", "Initialize");
-                Thread.Sleep(5000);
+                logger.Logged("Error", "Не удалось подключиться к OPC UA серверу " + connection_string + ": " + ex.Message, "OpcUaPoller", "Initialize");
             }
 
             return result;
+        }
+        /// <summary>
+        /// Updates the status control when a keep alive event occurs.
+        /// </summary>
+        void StandardClient_KeepAlive(Session sender, KeepAliveEventArgs e)
+        {
+            // if (InvokeRequired)
+            // {
+            //     BeginInvoke(new KeepAliveEventHandler(StandardClient_KeepAlive), sender, e);
+            //     return;
+            // }
+            // else if (!IsHandleCreated)
+            // {
+            //     return;
+            // }
+
+            if (sender != null && sender.Endpoint != null)
+            {
+                logger.Logged("ServerUrlLB", sender.Endpoint.EndpointUrl +
+                    " (" + sender.Endpoint.SecurityMode + ") " +
+                    ((sender.EndpointConfiguration.UseBinaryEncoding) ? "UABinary" : "XML"),
+                    "OpcUaPoller", "StandardClient_KeepAlive");
+
+                //  ServerUrlLB.Text = Utils.Format(
+                //      "{0} ({1}) {2}",
+                //      sender.Endpoint.EndpointUrl,
+                //      sender.Endpoint.SecurityMode,
+                //      (sender.EndpointConfiguration.UseBinaryEncoding) ? "UABinary" : "XML");
+            }
+            else
+            {
+                logger.Logged("ServerUrlLB", "None",
+                    "OpcUaPoller", "StandardClient_KeepAlive");
+
+                //ServerUrlLB.Text = "None";
+            }
+
+            if (e != null && session != null)
+            {
+                if (ServiceResult.IsGood(e.Status))
+                {
+                    logger.Logged("ServerUrlLB", "Server Status:" + e.CurrentState +
+                        " (" + e.CurrentTime.ToLocalTime() + ") " +
+                         session.OutstandingRequestCount + "/" + session.DefunctRequestCount,
+                        "OpcUaPoller", "StandardClient_KeepAlive");
+
+                    //ServerStatusLB.Text = Utils.Format(
+                    //    "Server Status: {0} {1:yyyy-MM-dd HH:mm:ss} {2}/{3}",
+                    //    e.CurrentState,
+                    //    e.CurrentTime.ToLocalTime(),
+                    //    m_session.OutstandingRequestCount,
+                    //    m_session.DefunctRequestCount);
+
+                    //ServerStatusLB.ForeColor = Color.Empty;
+                    //ServerStatusLB.Font = new Font(ServerStatusLB.Font, FontStyle.Regular);
+                }
+                else
+                {
+                    logger.Logged("ServerUrlLB", "Server Status:" + e.CurrentState +
+                        " (" + e.CurrentTime.ToLocalTime() + ") " +
+                         session.OutstandingRequestCount + "/" + session.DefunctRequestCount,
+                        "OpcUaPoller", "StandardClient_KeepAlive");
+
+                    //ServerStatusLB.Text = String.Format(
+                    //    "{0} {1}/{2}", e.Status,
+                    //    m_session.OutstandingRequestCount,
+                    //    m_session.DefunctRequestCount);
+
+                    //ServerStatusLB.ForeColor = Color.Red;
+                    //ServerStatusLB.Font = new Font(ServerStatusLB.Font, FontStyle.Bold);
+                    ///
+                    //   if (m_reconnectPeriod <= 0)
+                    //   {
+                    //       return;
+                    //   }
+                    //
+                    //   if (m_reconnectHandler == null && m_reconnectPeriod > 0)
+                    //   {
+                    //       m_reconnectHandler = new SessionReconnectHandler();
+                    //       m_reconnectHandler.BeginReconnect(m_session, m_reconnectPeriod * 1000, StandardClient_Server_ReconnectComplete);
+                    //   }
+                }
+            }
         }
 
         /// <summary>
@@ -166,12 +258,12 @@ namespace WebSphere.ClientOPC
                 if (refd == null)
                     session.Browse(null, null, ObjectIds.ObjectsFolder, 0u, BrowseDirection.Forward,
                         ReferenceTypeIds.HierarchicalReferences, true,
-                        (uint) NodeClass.Variable | (uint) NodeClass.Object | (uint) NodeClass.Method, out cp,
+                        (uint)NodeClass.Variable | (uint)NodeClass.Object | (uint)NodeClass.Method, out cp,
                         out references);
                 else
                     session.Browse(null, null, ExpandedNodeId.ToNodeId(refd.NodeId, session.NamespaceUris), 0u,
                         BrowseDirection.Forward, ReferenceTypeIds.HierarchicalReferences, true,
-                        (uint) NodeClass.Variable | (uint) NodeClass.Object | (uint) NodeClass.Method, out cp,
+                        (uint)NodeClass.Variable | (uint)NodeClass.Object | (uint)NodeClass.Method, out cp,
                         out references);
 
                 foreach (var rd in references)
@@ -181,14 +273,16 @@ namespace WebSphere.ClientOPC
                         full_name = rd.DisplayName.ToString();
                     else
                         full_name = upper_node + "." + rd.DisplayName;
-
-                    DiscoverTags(session, rd, full_name);
-
-                    if (rd.NodeClass == NodeClass.Variable)
+                    if (full_name.Contains("Sfera"))
                     {
-                        discoveredTags[full_name] = rd.NodeId.ToString();
-                        logger.Logged("Info", "#" + PollerId + ": обнаружен тег " + full_name, "OpcUaPoller",
-                            "DiscoverTags");
+                        DiscoverTags(session, rd, full_name);
+
+                        if (rd.NodeClass == NodeClass.Variable)
+                        {
+                            discoveredTags[full_name] = rd.NodeId.ToString();
+                            logger.Logged("Info", "#" + PollerId + ": обнаружен тег " + full_name, "OpcUaPoller",
+                                "DiscoverTags");
+                        }
                     }
                 }
             }
@@ -241,7 +335,7 @@ namespace WebSphere.ClientOPC
             {
                 try
                 {
-                    var subscription = new Subscription(session.DefaultSubscription) {PublishingInterval = 1};
+                    var subscription = new Subscription(session.DefaultSubscription) { PublishingInterval = 1 };
 
                     int tag_counter = 0;
                     var list = new List<MonitoredItem>();
@@ -249,11 +343,12 @@ namespace WebSphere.ClientOPC
                     //foreach (TagId tag in taglist)
                     //пока конфигуратор пуст поиск делаем по всей сфере
                     foreach (var tag in discoveredTags)
-                        {
+                    {
                         string identifier = "";
                         //if (discoveredTags.ContainsKey(tag.TagName))
                         //пока конфигуратор пуст поиск делаем по всей сфере
-                         if (tag.Key.Contains("Sfera"))
+
+                        if (tag.Key.Contains("Sfera"))
                         {
                             //logger.Logged("Info", "#" + PollerId + ": добавляем тег '" + tag.TagName + "' в подписку",
                             logger.Logged("Info", "#" + PollerId + ": добавляем тег '" + tag.Key + "' в подписку",
@@ -264,18 +359,17 @@ namespace WebSphere.ClientOPC
                             tag_counter++;
                             var item = new MonitoredItem(subscription.DefaultItem)
                             {
-                               // DisplayName = tag.TagName,
                                 DisplayName = tag.Key,
                                 StartNodeId = identifier
                             };
                             list.Add(item);
                         }
+
+
+
                         else
                         {
-                            logger.Logged("Error",
-                                //"#" + PollerId + ": тег '" + tag.TagName + "' не обнаружен на сервере", "OpcUaPoller",
-                                "#" + PollerId + ": тег '" + tag.Key + "' не обнаружен на сервере", "OpcUaPoller",
-                                "AddTags");
+                            logger.Logged("Error", "#" + PollerId + ": тег '" + tag.Key + "' не обнаружен на сервере", "OpcUaPoller", "AddTags");
                         }
                     }
 
@@ -320,12 +414,13 @@ namespace WebSphere.ClientOPC
 
                 DateTime timestamp = DateTime.SpecifyKind(value.SourceTimestamp, DateTimeKind.Utc);
                 timestamp = timestamp.ToLocalTime();
-                if (value.Value != null) {
+                if (value.Value != null)
+                {
                     string signal = value.Value.ToString();
-                OnUpdate(tag, signal, timestamp, (int) value.StatusCode.Code);
+                    OnUpdate(tag, signal, timestamp, (int)value.StatusCode.Code);
                 }
                 else
-                OnUpdate(tag, null, timestamp, (int) value.StatusCode.Code);
+                    OnUpdate(tag, null, timestamp, (int)value.StatusCode.Code);
                 // проверка на то, что качество у нас Good или его производные
                 // if ((value.StatusCode.Code & 0xFF000000) == 0)
                 // {
@@ -362,14 +457,15 @@ namespace WebSphere.ClientOPC
         {
             var identifier = "";
             if (discoveredTags.ContainsKey(tag.TagName))
-                  identifier = discoveredTags[tag.TagName];
-            else {
+                identifier = discoveredTags[tag.TagName];
+            else
+            {
                 logger.Logged("Error", "#" + PollerId + ": тег '" + tag.TagName + "' не обнаружен на сервере",
                     "OpcUaPoller", "WriteTag");
                 return null;
-            } 
-            return session.ReadValue(identifier).ToString(); 
-             
+            }
+            return session.ReadValue(identifier).ToString();
+
         }
 
         /*    private List<object> OnReadOpcTags(List<TagId> tags)
@@ -387,4 +483,4 @@ namespace WebSphere.ClientOPC
     }
 }
 
- 
+

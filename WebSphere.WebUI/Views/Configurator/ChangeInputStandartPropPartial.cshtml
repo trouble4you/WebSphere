@@ -1,10 +1,10 @@
-﻿@model WebSphere.WebUI.Models.AddStandartPropModelHelp
+﻿@model WebSphere.WebUI.Models.AddStandartPropModel
 
 @{
     var ff = Model;
     var saveOpcServers = ViewBag.OpcServers;
 }
-    @{Dictionary<int, string>
+@{Dictionary<int, string>
     standartPropTypes = new Dictionary<int, string>
         {
         {1, "Opc"},
@@ -57,144 +57,112 @@
         {46,"Count"},
         {47,"Function"},
         {48,"Type"},
-        {49,"Connect"}
+        {49,"Connect"},
+        {50, "Sound"}
         };
-        }
+}
 <p>
-    @*@Html.LabelFor(m => m.selectValueStd, "Выберите свойство", new { @class = "control-label" })*@
     @Html.LabelFor(m => m.selectValueStd, "Выберите свойство")
-    <br />
-    @*@Html.DropDownListFor(m => m.selectValueStd, new SelectList(standartPropTypes, "Key", "Value"), new { @class = "form-control" })*@
-    @Html.DropDownListFor(m => m.selectValueStd, new SelectList(standartPropTypes, "Key", "Value"), new { @class="form-control"})
+    @Html.DropDownListFor(m => m.selectValueStd, new SelectList(standartPropTypes, "Key", "Value"), new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.selectValueStd)
 </p>
-    <br />
 
+@Html.HiddenFor(m => m.Id)
 
+@switch (Model.selectValueStd)
+{
+    case 1:
+        {
 
-    @Html.HiddenFor(m => m.Id)
+            @Html.LabelFor(m => m.Opc, "OPC сервер")
+            var OPCID = Model.Opc;
+            var OPCserver = ViewBag.OPCservers;
+            string OPCserverName = OPCserver[OPCID];
+            @Html.HiddenFor(m => m.Opc)
+            @Html.TextBox("Opc", OPCserverName, new { @class = "form-control" })
+            break;
+        }
+    case 2:
+        {
+            @Html.LabelFor(m => m.Connection, "Значение")
+            @Html.TextBoxFor(m => m.Connection, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Connection)
+            break;
+        }
+    case 3:
+        {
+            @Html.LabelFor(m => m.Alarm_IsPermit, "Значение")
+            @Html.CheckBoxFor(m => m.Alarm_IsPermit, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Alarm_IsPermit)
+            break;
+        }
+    case 4:
+        {
+            @Html.LabelFor(m => m.HiHiText, "Значение")
+            @Html.TextBoxFor(m => m.HiHiText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.HiHiText)
+            break;
+        }
+    case 5:
+        {
+            @Html.LabelFor(m => m.HiText, "Значение")
+            @Html.TextBoxFor(m => m.HiText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.HiText)
+            break;
+        }
+    case 6:
+        {
+            @Html.LabelFor(m => m.NormalText, "Значение")
+            @Html.TextBoxFor(m => m.NormalText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.NormalText)
+            break;
+        }
+    case 7:
+        {
+            @Html.LabelFor(m => m.LoText, "Значение")
+            @Html.TextBoxFor(m => m.LoText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LoText)
+            break;
+        }
+    case 8:
+        {
+            @Html.LabelFor(m => m.LoLoText, "Значение")
+            @Html.TextBoxFor(m => m.LoLoText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LoLoText)
+            break;
+        }
+    case 9:
+        {
+            @Html.LabelFor(m => m.HiHiSeverity, "Значение")
+            @Html.TextBoxFor(m => m.HiHiSeverity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.HiHiSeverity)
+            break;
+        }
+    case 10:
+        {
+            @Html.LabelFor(m => m.HiSeverity, "Значение")
+            @Html.TextBoxFor(m => m.HiSeverity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.HiSeverity)
+            break;
+        }
+    case 11:
+        {
+            @Html.LabelFor(m => m.LoSeverity, "Значение")
+            @Html.TextBoxFor(m => m.LoSeverity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LoSeverity)
+            break;
+        }
+    case 12:
+        {
+            @Html.LabelFor(m => m.LoLoSeverity, "Значение")
+            @Html.TextBoxFor(m => m.LoLoSeverity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LoLoSeverity)
+            break;
+        }
 
-
-
-    @*@Html.HiddenFor(m => m.Opc)*@
-    @*@Html.HiddenFor(m => m.ParentGroup)*@
-    @*<p>*@
-    @*<div class="col-sm-10">*@
-    @switch (Model.selectValueStd)
-    {
-        case 1:
-            {
-
-                @Html.LabelFor(m => m.Opc, "OPC сервер")
-                <br />
-                @*@{*@
-                var OPCID = Model.Opc;
-                var OPCserver = ViewBag.OPCservers;
-                string OPCserverName = OPCserver[OPCID];
-                //}
-                @Html.HiddenFor(m => m.Opc)
-                @Html.TextBox("Opc11", OPCserverName, new { @class = "form-control" })
-
-
-                @*@{
-                      var opcServers = ViewBag.OpcServers;
-                    }
-                    @Html.DropDownListFor(m => m.Opc, new SelectList(ViewBag.OpcServers, "Key", "Value"))*@
-
-                break;
-            }
-        case 2:
-            {
-                @Html.LabelFor(m => m.Connection, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Connection, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Connection)
-                break;
-            }
-        case 3:
-            {
-                @Html.LabelFor(m => m.Alarm_IsPermit, "Значение")
-                <br />
-                @Html.CheckBoxFor(m => m.Alarm_IsPermit, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Alarm_IsPermit)
-                break;
-            }
-        case 4:
-            {
-                @Html.LabelFor(m => m.HiHiText, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.HiHiText, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.HiHiText)
-                break;
-            }
-        case 5:
-            {
-                @Html.LabelFor(m => m.HiText, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.HiText, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.HiText)
-                break;
-            }
-        case 6:
-            {
-                @Html.LabelFor(m => m.NormalText, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.NormalText, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.NormalText)
-                break;
-            }
-        case 7:
-            {
-                @Html.LabelFor(m => m.LoText, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.LoText, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.LoText)
-                break;
-            }
-        case 8:
-            {
-                @Html.LabelFor(m => m.LoLoText, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.LoLoText, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.LoLoText)
-                break;
-            }
-        case 9:
-            {
-                @Html.LabelFor(m => m.HiHiSeverity, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.HiHiSeverity, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.HiHiSeverity)
-                break;
-            }
-        case 10:
-            {
-                @Html.LabelFor(m => m.HiSeverity, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.HiSeverity, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.HiSeverity)
-                break;
-            }
-        case 11:
-            {
-                @Html.LabelFor(m => m.LoSeverity, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.LoSeverity, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.LoSeverity)
-                break;
-            }
-        case 12:
-            {
-                @Html.LabelFor(m => m.LoLoSeverity, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.LoLoSeverity, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.LoLoSeverity)
-                break;
-            }
-
-        case 13:
-            {
-                Dictionary<int, string> realTypes = new Dictionary<int, string>
+    case 13:
+        {
+            Dictionary<int, string> realTypes = new Dictionary<int, string>
                 { {0,"Null"},
                 {1, "Boolean"},
                 {2, "SByte"},
@@ -228,16 +196,15 @@
 
                 };
 
-<p>
-                    @Html.LabelFor(m => m.ControllerType, "Значение")
-                    <br />
-                    @Html.DropDownListFor(m => m.ControllerType, new SelectList(realTypes, "Key", "Value"), new { @class = "form-control" })
-                </p>
-                break;
-            }
-        case 14:
-            {
-                Dictionary<int, string> realTypes = new Dictionary<int, string>
+            <p>
+                @Html.LabelFor(m => m.ControllerType, "Значение")
+                @Html.DropDownListFor(m => m.ControllerType, new SelectList(realTypes, "Key", "Value"), new { @class = "form-control" })
+            </p>
+            break;
+        }
+    case 14:
+        {
+            Dictionary<int, string> realTypes = new Dictionary<int, string>
                 { {0,"Null"},
                 {1, "Boolean"},
                 {2, "SByte"},
@@ -271,341 +238,300 @@
 
                 };
 
-                <p>
-                    @Html.LabelFor(m => m.RealType, "Значение")
-                    <br />
-                    @Html.DropDownListFor(m => m.RealType, new SelectList(realTypes, "Key", "Value"), new { @class = "form-control" })
-                </p>
-                break;
-            }
+            <p>
+                @Html.LabelFor(m => m.RealType, "Значение")
+                @Html.DropDownListFor(m => m.RealType, new SelectList(realTypes, "Key", "Value"), new { @class = "form-control" })
+            </p>
+            break;
+        }
 
-        case 15:
-            {
-                @Html.LabelFor(m => m.Register, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Register, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Register)
-                break;
-            }
-        case 16:
-            {
-                var accessTypeDict = new Dictionary<int, string>
+    case 15:
+        {
+            <p>H[функция][адрес]</p>
+            <p>[функция].[адрес]</p>
+            <p>[функция].[адрес].[бит].[смещение]</p>
+            @Html.LabelFor(m => m.Register, "Значение")
+            @Html.TextBoxFor(m => m.Register, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Register)
+            break;
+        }
+    case 16:
+        {
+            var accessTypeDict = new Dictionary<int, string>
                    {
                      {1, "запись"},
                      {2, "чтение"},
                      {3, "запись и чтение"}
                    };
-                @Html.LabelFor(m => m.AccessType, "Значение")
-                        <br />
-                @Html.DropDownListFor(m => m.AccessType, new SelectList(accessTypeDict, "Key", "Value"), new { @class = "form-control" })
+            @Html.LabelFor(m => m.AccessType, "Значение")
+            @Html.DropDownListFor(m => m.AccessType, new SelectList(accessTypeDict, "Key", "Value"), new { @class = "form-control" })
 
-                break;
-            }
-        case 17:
-            {
-                @Html.LabelFor(m => m.Order, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Order, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Order)
-                break;
-            }
-        case 18:
-            {
-                @Html.LabelFor(m => m.InMin, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.InMin, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.InMin)
-                break;
-            }
-        case 19:
-            {
-                @Html.LabelFor(m => m.InMax, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.InMax, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.InMax)
-                break;
-            }
-        case 20:
-            {
-                @Html.LabelFor(m => m.OutMin, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.OutMin, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.OutMin)
-                break;
-            }
-        case 21:
-            {
-                @Html.LabelFor(m => m.OutMax, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.OutMax, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.OutMax)
-                break;
-            }
+            break;
+        }
+    case 17:
+        {
+            @Html.LabelFor(m => m.Order, "Значение")
+            @Html.TextBoxFor(m => m.Order, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Order)
+            break;
+        }
+    case 18:
+        {
+            @Html.LabelFor(m => m.InMin, "Значение")
+            @Html.TextBoxFor(m => m.InMin, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.InMin)
+            break;
+        }
+    case 19:
+        {
+            @Html.LabelFor(m => m.InMax, "Значение")
+            @Html.TextBoxFor(m => m.InMax, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.InMax)
+            break;
+        }
+    case 20:
+        {
+            @Html.LabelFor(m => m.OutMin, "Значение")
+            @Html.TextBoxFor(m => m.OutMin, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OutMin)
+            break;
+        }
+    case 21:
+        {
+            @Html.LabelFor(m => m.OutMax, "Значение")
+            @Html.TextBoxFor(m => m.OutMax, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.OutMax)
+            break;
+        }
 
 
-        case 22:
-            {
-                @Html.LabelFor(m => m.History_IsPermit, "Значение")
-                <br />
-                @Html.CheckBoxFor(m => m.History_IsPermit, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.History_IsPermit)
-                break;
-            }
-        case 23:
-            {
-                @Html.LabelFor(m => m.RegPeriod, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.RegPeriod, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.RegPeriod)
-                break;
-            }
-        case 24:
-            {
-                @Html.LabelFor(m => m.Deadbend, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Deadbend, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Deadbend)
-                break;
-            }
-        case 25:
-            {
-                @Html.LabelFor(m => m.IsSpecialTag, "Значение")
-                <br />
-                @Html.CheckBoxFor(m => m.IsSpecialTag, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.IsSpecialTag)
-                break;
-            }
+    case 22:
+        {
+            @Html.LabelFor(m => m.History_IsPermit, "Значение")
+            @Html.CheckBoxFor(m => m.History_IsPermit, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.History_IsPermit)
+            break;
+        }
+    case 23:
+        {
+            @Html.LabelFor(m => m.RegPeriod, "Значение")
+            @Html.TextBoxFor(m => m.RegPeriod, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RegPeriod)
+            break;
+        }
+    case 24:
+        {
+            @Html.LabelFor(m => m.Deadbend, "Значение")
+            @Html.TextBoxFor(m => m.Deadbend, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Deadbend)
+            break;
+        }
+    case 25:
+        {
+            @Html.LabelFor(m => m.IsSpecialTag, "Значение")
+            @Html.TextBoxFor(m => m.IsSpecialTag, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IsSpecialTag)
+            break;
+        }
 
-        case 26:
-            {
-                var channelType = new Dictionary<int, string>
+    case 26:
+        {
+            var channelType = new Dictionary<int, string>
         {
           {1, "tcp"},
           {2, "tcp2"}
         };
-                @Html.LabelFor(m => m.ChannelType, "Значение")
-                @Html.DropDownListFor(m => m.ChannelType, new SelectList(channelType, "Key", "Value"), new { @class = "form-control" })
-                break;
-            }
-        case 27:
-            {
-                @Html.LabelFor(m => m.InterPollPause, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.InterPollPause, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.InterPollPause)
-                break;
-            }
-        case 28:
-            {
-                @Html.LabelFor(m => m.MaxErrorsToSwitchChannel, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.MaxErrorsToSwitchChannel, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.MaxErrorsToSwitchChannel)
-                break;
-            }
-        case 29:
-            {
-                @Html.LabelFor(m => m.MaxErrorsToBadQuality, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.MaxErrorsToBadQuality, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.MaxErrorsToBadQuality)
-                break;
-            }
-        case 30:
-            {
-                @Html.LabelFor(m => m.TimeTryGoBackToPrimary, "Значение, с")
-                <br />
-                @Html.TextBoxFor(m => m.TimeTryGoBackToPrimary, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.TimeTryGoBackToPrimary)
-                break;
-            }
-        case 31:
-            {
-                @Html.LabelFor(m => m.IpAddress, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.IpAddress, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.IpAddress)
-                break;
-            }
-        case 32:
-            {
-                @Html.LabelFor(m => m.Port, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Port, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Port)
-                break;
-            }
-        case 33:
-            {
-                @Html.LabelFor(m => m.ReadTimeout, "Значение, мс")
-                <br />
-                @Html.TextBoxFor(m => m.ReadTimeout, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.ReadTimeout)
-                break;
-            }
-        case 34:
-            {
-                @Html.LabelFor(m => m.WriteTimeout, "Значение, мс")
-                <br />
-                @Html.TextBoxFor(m => m.WriteTimeout, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.WriteTimeout)
-                break;
-            }
+            @Html.LabelFor(m => m.ChannelType, "Значение")
+            @Html.DropDownListFor(m => m.ChannelType, new SelectList(channelType, "Key", "Value"), new { @class = "form-control" })
+            break;
+        }
+    case 27:
+        {
+            @Html.LabelFor(m => m.InterPollPause, "Значение")
+            @Html.TextBoxFor(m => m.InterPollPause, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.InterPollPause)
+            break;
+        }
+    case 28:
+        {
+            @Html.LabelFor(m => m.MaxErrorsToSwitchChannel, "Значение")
+            @Html.TextBoxFor(m => m.MaxErrorsToSwitchChannel, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MaxErrorsToSwitchChannel)
+            break;
+        }
+    case 29:
+        {
+            @Html.LabelFor(m => m.MaxErrorsToBadQuality, "Значение")
+            @Html.TextBoxFor(m => m.MaxErrorsToBadQuality, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MaxErrorsToBadQuality)
+            break;
+        }
+    case 30:
+        {
+            @Html.LabelFor(m => m.TimeTryGoBackToPrimary, "Значение, с")
+            @Html.TextBoxFor(m => m.TimeTryGoBackToPrimary, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.TimeTryGoBackToPrimary)
+            break;
+        }
+    case 31:
+        {
+            @Html.LabelFor(m => m.IpAddress, "Значение")
+            @Html.TextBoxFor(m => m.IpAddress, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.IpAddress)
+            break;
+        }
+    case 32:
+        {
+            @Html.LabelFor(m => m.Port, "Значение")
+            @Html.TextBoxFor(m => m.Port, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Port)
+            break;
+        }
+    case 33:
+        {
+            @Html.LabelFor(m => m.ReadTimeout, "Значение, мс")
+            @Html.TextBoxFor(m => m.ReadTimeout, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ReadTimeout)
+            break;
+        }
+    case 34:
+        {
+            @Html.LabelFor(m => m.WriteTimeout, "Значение, мс")
+            @Html.TextBoxFor(m => m.WriteTimeout, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.WriteTimeout)
+            break;
+        }
 
-        case 35:
-            {
-                @Html.LabelFor(m => m.PortName, "Значение")
-                <br />
-                         var portDict = new Dictionary<string, string>{
+    case 35:
+        {
+            @Html.LabelFor(m => m.PortName, "Значение")
+            var portDict = new Dictionary<string, string>{
                                {"COM0", "COM0"},
                                {"COM1", "COM1"},
                                {"COM2", "COM2"}
                            };
-                @Html.DropDownListFor(m => m.PortName, new SelectList(portDict, "Key", "Value"))
-                @*@Html.TextBoxFor(m => m.PortName, new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(m => m.PortName)
-                break;
-            }
-        case 36:
-            {
-                @Html.LabelFor(m => m.BaudRate, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.BaudRate, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.BaudRate)
-                break;
-            }
-        case 37:
-            {
-             
-                
-                
-                @Html.LabelFor(m => m.Parity, "Значение")
-                <br />
-                        var parityDict = new Dictionary<int, string>{
+                        @Html.DropDownListFor(m => m.PortName, new SelectList(portDict, "Key", "Value"))
+                        @Html.ValidationMessageFor(m => m.PortName)
+            break;
+        }
+    case 36:
+        {
+            @Html.LabelFor(m => m.BaudRate, "Значение")
+            @Html.TextBoxFor(m => m.BaudRate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BaudRate)
+            break;
+        }
+    case 37:
+        {
+            @Html.LabelFor(m => m.Parity, "Значение")
+            var parityDict = new Dictionary<int, string>{
                                {0, "Не установлен"},
                                {1, "Установлен"}
-                           }; 
-                @Html.DropDownListFor(m => m.Parity, new SelectList(parityDict, "Key", "Value"), new { @class = "form-control" })
-                @*@Html.TextBoxFor(m => m.Parity, new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(m => m.Parity)
-                break;
-            }
-        case 38:
+                           };
+                        @Html.DropDownListFor(m => m.Parity, new SelectList(parityDict, "Key", "Value"), new { @class = "form-control" })
+                        @*@Html.TextBoxFor(m => m.Parity, new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(m => m.Parity)
+            break;
+        }
+    case 38:
+        {
+            @Html.LabelFor(m => m.StopBits, "Значение")
+            @Html.TextBoxFor(m => m.StopBits, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.StopBits)
+            break;
+        }
+    case 39:
+        {
+            @Html.LabelFor(m => m.Address, "Значение")
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Address)
+            break;
+        }
+    case 40:
+        {
+            @Html.LabelFor(m => m.Driver, "Значение")
+            @Html.TextBoxFor(m => m.Driver, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Driver)
+            break;
+        }
+    case 41:
+        {
+            @Html.LabelFor(m => m.RetrCount, "Значение")
+            @Html.TextBoxFor(m => m.RetrCount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RetrCount)
+            break;
+        }
+    case 42:
+        {
+            //предусмотреть фнкционал по перестройке дерева и изменения базы
+            @Html.LabelFor(m => m.ParentGroup, "Значение")
+            @Html.TextBoxFor(m => m.ParentGroup, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ParentGroup)
+            break;
+        }
+    case 43:
+        {
+            @Html.LabelFor(m => m.PrimaryChannel, "Значение")
+            var gg = ViewBag.SelectChannel;
+            @Html.DropDownListFor(m => m.PrimaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PrimaryChannel)
+            break;
+        }
+    case 44:
+        {
+            @Html.LabelFor(m => m.SecondaryChannel, "Значение")
+            var gg = ViewBag.SelectChannel;
+            @Html.DropDownListFor(m => m.SecondaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SecondaryChannel)
+            break;
+        }
+    case 45:
+        {
+            @Html.LabelFor(m => m.Start, "Значение")
+            @Html.TextBoxFor(m => m.Start, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Start)
+            break;
+        }
+    case 46:
+        {
+            @Html.LabelFor(m => m.Count, "Значение")
+            @Html.TextBoxFor(m => m.Count, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Count)
+            break;
+        }
+    case 47:
+        {
+            @Html.LabelFor(m => m.Function, "Значение")
+            @Html.TextBoxFor(m => m.Function, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Function)
+            break;
+        }
+    case 48:
+        {
+            @Html.LabelFor(m => m.Type, "Значение")
+            var typeOPCDictionary = new Dictionary<string, string>
             {
-                @Html.LabelFor(m => m.StopBits, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.StopBits, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.StopBits)
-                break;
-            }
-        case 39:
-            {
-                @Html.LabelFor(m => m.Address, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Address)
-                break;
-            }
-            @*case 40:
-                {
-                @Html.LabelFor(m => m.Address, "Значение")
-                <br />
-                @Html.EditorFor(m => m.Address)
-                @Html.ValidationMessageFor(m => m.Address)
-                    break;
-                }*@
-        case 40:
-            {
-                @Html.LabelFor(m => m.Driver, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Driver, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Driver)
-                break;
-            }
-        case 41:
-            {
-                @Html.LabelFor(m => m.RetrCount, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.RetrCount, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.RetrCount)
-                break;
-            }
-        case 42:
-            {
-                //предусмотреть фнкционал по перестройке дерева и изменения базы
-                @Html.LabelFor(m => m.ParentGroup, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.ParentGroup, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.ParentGroup)
-                break;
-            }
-        case 43:
-            {
-                @Html.LabelFor(m => m.PrimaryChannel, "Значение")
-                <br />
-                
-                  var gg = ViewBag.SelectChannel;
-                 
-                @Html.DropDownListFor(m => m.PrimaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"), new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.PrimaryChannel)
-                break;
-            }
-        case 44:
-            {
-                @Html.LabelFor(m => m.SecondaryChannel, "Значение")
-                <br />
-        
-                var gg = ViewBag.SelectChannel;
-
-                @Html.DropDownListFor(m => m.SecondaryChannel, new SelectList(ViewBag.SelectChannel, "Key", "Value"), new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.SecondaryChannel)
-                break;
-            }
-        case 45:
-            {
-                @Html.LabelFor(m => m.Start, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Start, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Start)
-                break;
-            }
-        case 46:
-            {
-                @Html.LabelFor(m => m.Count, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Count, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Count)
-                break;
-            }
-        case 47:
-            {
-                @Html.LabelFor(m => m.Function, "Значение")
-                <br />
-                @Html.TextBoxFor(m => m.Function, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Function)
-                break;
-            }
-        case 48:
-            {
-                @Html.LabelFor(m => m.Type, "Значение")
-                <br />
-                var typeOPCDictionary = new Dictionary<string, string>
-    {
-        {"UA","UA"},
-        {"DA","DA"}
-    };
+                {"UA","UA"},
+                {"DA","DA"}
+            };
     @Html.DropDownListFor(m => m.Type, new SelectList(typeOPCDictionary, "Key", "Value"), new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Type)
-                break;
-            }
-        case 49:
-            {
-                @Html.LabelFor(m => m.Connect, "Значение")
-                <br />
-                @Html.CheckBoxFor(m => m.Connect, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Connect)
-                break;
-            }
+    @Html.ValidationMessageFor(m => m.Type)
+            break;
+        }
+    case 49:
+        {
+            @Html.LabelFor(m => m.Connect, "Значение")
+            @Html.CheckBoxFor(m => m.Connect, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Connect)
+            break;
+        }
+    case 50:
+        {
+            @Html.LabelFor(m => m.Sound, "Значение")
+            @Html.CheckBoxFor(m => m.Sound, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Sound)
+            break;
+        }
 
-    }
-@*</div>*@
+
+}

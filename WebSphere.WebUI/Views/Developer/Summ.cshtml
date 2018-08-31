@@ -1,0 +1,128 @@
+﻿ @{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} <!-- Styles --> 
+<link rel="stylesheet" type='text/css' href='/Content/_CSS/main.css' />
+<link type="text/css" rel="stylesheet" href="/Content/_CSS/Developer/Index.css" />
+<!-- 
+    <link rel="stylesheet" type='text/css' href='/Content/_CSS/jqueryUI Theme/jquery-ui-1.10.4.custom.css' /> 
+    END -->
+<!-- Scripts -->
+<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="/Scripts/_JS/main.js"></script>  
+
+<!--<input type="button" onclick=UpdateThreadsStates() value="update"/>-->
+<div id="threadStateTableId"></div>
+
+<script type="text/javascript">
+    CreateThreadStateTable("threadStateTableId");
+    var threadStateTableElement;
+
+    //setInterval(function () { UpdateThreadsStates(); }, 1000);
+
+    function CreateThreadStateTable(parentId) {
+        var parentElement = document.getElementById(parentId);
+        if (parentElement == null)
+            return;
+        threadStateTableElement = document.createElement("table");
+        threadStateTableElement.className = "tagsTable";
+        parentElement.appendChild(threadStateTableElement);
+    }
+
+    function ClearThreadStateTable() {
+        if (threadStateTableElement == null)
+            return;
+        while (threadStateTableElement.firstChild)
+            threadStateTableElement.removeChild(threadStateTableElement.firstChild);
+    }
+
+ 
+
+    function AddThreadStateTableItem(el,v1, v2, v3, v4 ) {
+        if (threadStateTableElement == null)
+            return;
+        var row = threadStateTableElement.insertRow();
+        var
+        cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = el + ".lastDay";
+        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = v1;
+        
+          row = threadStateTableElement.insertRow();
+        cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = el + ".toDay";
+        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = v2;
+
+        row = threadStateTableElement.insertRow();
+        cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = el + ".last2H";
+        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = v3;
+        
+          row = threadStateTableElement.insertRow();
+        cell = row.insertCell(0); cell.className = "tagsTableCell"; cell.innerHTML = el + ".to2H"; 
+        cell = row.insertCell(1); cell.className = "tagsTableCell"; cell.innerHTML = v4; 
+
+        GM_OPC_TAGS1.push(el + ".lastDay");
+        GM_OPC_TAGS1.push(el + ".last2H");
+        GM_OPC_TAGS1.push(el + ".toDay");
+        GM_OPC_TAGS1.push(el + ".to2H");
+    }
+ 
+
+    function after_UpdateOpcStates() {
+        ClearThreadStateTable(); 
+        //for (var dataIndex = 0; dataIndex < data.length; dataIndex++) {
+
+        for (var i = 1; i <3; i++) { 
+            var el = "fit0" + i;
+        AddThreadStateTableItem(
+            el,
+             GM_OPC_VALS[el + ".lastDay"],
+             GM_OPC_VALS[el + ".toDay"],
+             GM_OPC_VALS[el + ".last2H"], 
+             GM_OPC_VALS[el + ".to2H"])
+         }
+    }
+    var GM_OPC_VALS;
+    var GM_OPC_TAGS1 = new Array();
+    window.addEventListener("load", function () {
+         
+       
+
+        for (var i = 1; i <3; i++) {
+             
+        var el = "fit0"+i;
+            GM_OPC_TAGS1.push(el + ".lastDay");
+            GM_OPC_TAGS1.push(el + ".last2H");
+            GM_OPC_TAGS1.push(el + ".toDay");
+            GM_OPC_TAGS1.push(el + ".to2H");
+
+            }
+       
+
+        //PrepareTags(tags);
+        RequestOPC();
+        setInterval(function () { RequestOPC(); }, 2000);
+
+
+    });
+    function RequestOPC(id) {
+        var a = {};
+        for (var i = 0; i < GM_OPC_TAGS1.length; i++) a[i] = GM_OPC_TAGS1[i];
+        $.ajax({
+            type: "POST",
+            url: "/api/Opc/GetOpcTagsVals",
+            data: { Tags: a, TagsCount: GM_OPC_TAGS1.length, Sender: id },
+            async: false,
+            success: s_RequestOPC,
+            error: e_RequestOPC
+        });
+    }
+
+    function s_RequestOPC(data) {
+        GM_OPC_VALS = new Array();
+        for (var i = 0; i < data.length; i++)
+            if (data[i].OpcVals != null)
+                GM_OPC_VALS[data[i].Tag] = data[i].OpcVals.LastValue;
+            else GM_OPC_VALS[data[i].Tag] = null;
+        after_UpdateOpcStates();
+    }
+    function e_RequestOPC() { ErrMessage("Не удалось получить значения OPC тегов."); }
+
+</script>

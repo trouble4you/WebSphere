@@ -12,11 +12,12 @@ function SetValue(ei, t, d) { var e = document.getElementById(ei); if (e != null
 function GetValue(ei) { var e = document.getElementById(ei); if (e != null) {return e.value ;} else return null; }
 function ParseToBool(val) {
     if (null==val) return null;
-    if (isNaN(val)) {
-        
+    if (isNaN(val)) { 
         val = val.replace(',','.');
         if (val.toLowerCase() == "true") return true;
         else if (val.toLowerCase() == "false") return false;
+        else if (val == "1") return true;
+        else if (val == "0") return false;
         else return null;
     } 
     else if (parseInt(val) % 2 == 1) return true;

@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Web Telemetry System «WebSphere»";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/_CSS/Reports/zerozam.css" rel="stylesheet" />
+<link href="~/Content/_CSS/Mnemo/MnemoSingle.css" rel="stylesheet" /> 
+<script type="text/javascript" src="~/Scripts/_JS/common/OpcReadWrite.js"></script> 
+<script type="text/javascript" src="~/Scripts/_JS/AdditionalFunctions.js"></script> 
+<script type="text/javascript" src="~/Scripts/_JS/jquery/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/_JS/common/MyTime.js"></script>
+<script type="text/javascript" src="~/Scripts/_JS/main.js"></script> 
+<script type="text/javascript" src="~/Scripts/snap/snap.svg.js"></script> 
+<script type="text/javascript" src="~/Scripts/SVG/Main.js"></script>
+<script type="text/javascript" src="~/Scripts/SVG/Tag_types_update.js"></script>
+  
+<object id="svg" data="~/Content/_svg/chegodaevo_shkapovo_new_gen.svg" type="image/svg+xml" width="100%" height="80%"></object>
+ 
+<script type="text/javascript">
+ 
+    function update_textbox(svg,object) {
+        var val = Fixed(parseFloat(object.LastValue),1);
+        if (!isNaN(val))
+            svg.textContent = val; //SetInnerTextSVG(object.Tag.TagName, val);
+        else svg.textContent = DHS; //SetInnerTextSVG(object.Tag.TagName, DHS);
+        svg.setAttribute("onmouseover", "top.OkMessage('" + object.Tag.TagName.toString() + "';'" + object.LastLogged.toString() + "')");
+    }
+  
+    // загрузка svg - файла
+    window.addEventListener("load", InitMnemoSVG());
+     
+     
+</script>
+ 

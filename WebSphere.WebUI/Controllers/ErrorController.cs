@@ -13,5 +13,9 @@ namespace WebSphere.WebUI.Controllers
         {
             return View("403");
         }
-	}
+        public ActionResult Error_404()
+        {
+            return View("404");
+        }
+    }
 }

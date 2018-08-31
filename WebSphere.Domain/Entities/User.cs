@@ -35,6 +35,6 @@ namespace WebSphere.Domain.Entities
 
         public string DateJoined { get; set; }
 
-        public List<Role> Roles { get; set; }
+        public Role Role { get; set; }
     }
 }

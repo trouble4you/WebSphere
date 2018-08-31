@@ -1,13 +1,12 @@
 ﻿
 /****************************AddStructs****************************************/
-
+ 
 var colorset_rg_grey = ['bad', 'good', 'unk'];
 var colorset_rg_grey = ['off', 'good', 'unk'];
 
 function PrepareTags() {
 
-    for (var i = 0; i < tags.length; i++) {
-
+    for (var i = 0; i < tags.length; i++) { 
         switch (tags[i].type) {
             // тревоги
             case "wind":
@@ -167,7 +166,17 @@ function UpdateTags() {
 
             case "wind":
                 animateWind(tags[i].id, tags[i].tag);
+            case "discreteChange":
+                discreteChange(tags[i].id, GM_OPC_VALS[tags[i].tag]);// tags[i].tag);
                 break;
+            case "analogChange":
+                analogChange(tags[i].id, ProcFl(GM_OPC_VALS[tags[i].tag], 2));// tags[i].tag);
+                break;
+            case "discreteColor":
+                discreteColor(tags[i].id, GM_OPC_VALS[tags[i].tag]);// tags[i].tag);
+                break;
+
+                
             case "heat":
                 animateHeat(tags[i].id, tags[i].tag);
                 break;
@@ -217,14 +226,13 @@ function UpdateTags() {
     }
      
 }
-
-
-/****************************AddStructs****************************************/
-
+ 
+/****************************AddStructs****************************************/ 
 function F_alarm(id, alarm) {
     var state = 0;
     if (alarm == true) state = 2;
     else if (alarm == false) state = 1;
+    else  state = 0;
     var svg = Snap('#svg');
     var element = svg.select(id);
     var group = element.select("#" + element.node.getElementsByClassName("gStateAlarm")[0].id);
@@ -254,6 +262,7 @@ function SetProcent(id, value, al) {
     var svg = Snap('#svg');
     var group = svg.select('#' + id);  
     var list = group.node.getElementsByClassName("stateColor");
+    if (!isNaN(value))
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].attributes.width.nodeValue = value / 2;
     } 
@@ -568,12 +577,21 @@ function showZDPowerState(zd, power) {
 }
 
 /****************************ZD****************************************/
+function animateXlink(z, tagsname) {
+    var zd = '#' + z;
+
+    var svg = Snap('#svg');
+    var element = svg.select(zd);
+    var group = element.select("#" + element.node.getElementsByClassName("door")[0].id);
+    alert(1);
+}
+
 /****************************Heat****************************************/
 function animateHeat(z, tagsname) {
     var zd = '#' + z;
 
     //if (zd == '#HeatPanel')
-    showWindRegState(zd, GM_OPC_VALS[tagsname + ".ControlState"]);
+    showHeatRegState(zd, GM_OPC_VALS[tagsname + ".ControlState"]);
     showHeatState(zd, GM_OPC_VALS[tagsname + ".State"]); 
     //showHeatRegState(zd, 1);
     //showHeatState(zd, 1);
@@ -627,8 +645,10 @@ function cmdHeatValve(tag) {
         var element = svg.select(zd);
         var group = element.select("#" + element.node.getElementsByClassName("gStateMode")[0].id);
 
-        var statesColor = ['unk', 'remote', 'local'];
-        var statesText = ['Р', 'А', 'М'];
+        var statesColor = ['unk', 'remote', 'local','unk'];
+        var statesText = ['Р', 'А', 'М','?'];
+        if (state == null || 0 > state || state > 3)
+            state = 3;
         var list = group.node.getElementsByClassName("stateColor");
         for (var i = 0, len = list.length; i < len; i++) {
             list[i].classList = 'stateColor ' + statesColor[state];
@@ -693,8 +713,10 @@ function showWindRegState(zd, state) {
     var element = svg.select(zd);
     var group = element.select("#" + element.node.getElementsByClassName("gStateMode")[0].id);
 
-    var statesColor = ['unk', 'remote', 'local'];
-    var statesText = ['Р', 'А', 'М'];
+    var statesColor = ['unk', 'remote', 'local','unk'];
+    var statesText = ['Р', 'А', 'М','?'];
+    if (state == null || state < 0 || state>3)
+        state=3;
     var list = group.node.getElementsByClassName("stateColor");
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].classList = 'stateColor ' + statesColor[state];
@@ -858,7 +880,7 @@ function OpcWrite(tag, value) {
 function WriteTag() {
     $.ajax({
         type: "POST", url: "/api/Opc/WriteOpcTagValue", async:
-                false, data: { tag: "Sfera.TestChannel.State", value: "1az" }, success: after_WriteTag
+                false, data: { tag: "Sfera.TestChannel.State", value: "1az" },  success: OkMessage("Команда принята")
     });
 }
 
@@ -1017,12 +1039,12 @@ function showKLState(zd, state, alarm) {
     */ 
 
     //F_alarm(zd, alarm);
-      
+    if (state == undefined || state == null) state = 7;
     var svg = Snap('#svg');
     var element = svg.select(zd);
     var group = element.select("#" + element.node.getElementsByClassName("gState")[0].id);
-    var states = ['unk', 'DoOpen', 'Open', 'DoClose', 'Close', 'bad', 'bad'];
-    var statesText = ['Исходное состояние ', 'Открывается ', 'Открыт', 'Закрывается ', 'Закрыт', 'Ошибка', 'Заблокирован'];
+    var states = ['unk', 'DoOpen', 'Open', 'DoClose', 'Close', 'bad', 'bad','unk'];
+    var statesText = ['Исходное состояние ', 'Открывается ', 'Открыт', 'Закрывается ', 'Закрыт', 'Ошибка', 'Заблокирован', '?????'];
     var list = group.node.getElementsByClassName("stateColor");
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].classList = 'stateColor ' + states[state];
@@ -1039,8 +1061,10 @@ function showKLRegState(zd, state) {
     var element = svg.select(zd);
     var group = element.select("#" + element.node.getElementsByClassName("gStateMode")[0].id);
 
-    var statesColor = ['remote', 'remote', 'local'];
-    var statesText = ['Р', 'А', 'М'];
+    var statesColor = ['remote', 'remote', 'local','unk'];
+    var statesText = ['Р', 'А', 'М', '?'];
+    if (state == null || 0 > state > 3)
+        state = 3;
     var list = group.node.getElementsByClassName("stateColor");
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].classList = 'stateColor ' + statesColor[state];

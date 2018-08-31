@@ -1,0 +1,159 @@
+﻿@model WebSphere.WebUI.Models.RegisterViewModel
+
+<div class="form_help">Если флажок "активный" не выбран, то пользователь будет отключен и не сможет войти в систему!</div>
+
+@{
+    AjaxOptions ajaxoptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "OnBegin",
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnFailure"
+    };
+}
+
+@using (Ajax.BeginForm("Register", ajaxoptions))
+{
+    @Html.AntiForgeryToken()
+    <div class="account-form">
+
+        <div class="account-wrapper">
+
+            <div class="update_target_id">
+
+                @Html.ValidationSummary(true)
+
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(u => u.UserName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "Логин" })
+                        @Html.ValidationMessageFor(u => u.UserName)
+                        <br />Обязательное поле. Допустимы буквы А-Я, A-Z, цифры 0-9, . диапазон от 2 до 50 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(u => u.Password, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.PasswordFor(u => u.Password, new { @class = "form-control", @placeholder = "Пароль" })
+                        @Html.ValidationMessageFor(u => u.Password)
+                        <br />Обязательное поле. Диапазон от 6 до 20 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        <span class="color_red">*</span>
+                        @Html.LabelFor(u => u.ConfirmPassword, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.PasswordFor(u => u.ConfirmPassword, new { @class = "form-control", @placeholder = "Подтвердите пароль" })
+                        @Html.ValidationMessageFor(u => u.ConfirmPassword)
+                        <br />Обязательное поле. Диапазон от 6 до 20 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.Name, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @placeholder = "Имя" })
+                        @Html.ValidationMessageFor(u => u.Name)
+                        <br />Допустимы буквы А-Я, A-Z, -, диапазон от 2 до 50 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.LastName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(u => u.LastName, new { @class = "form-control", @placeholder = "Фамилия" })
+                        @Html.ValidationMessageFor(u => u.LastName)
+                        <br />Допустимы буквы А-Я, A-Z, -, диапазон от 2 до 50 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.MiddleName, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(u => u.MiddleName, new { @class = "form-control", @placeholder = "Отчество" })
+                        @Html.ValidationMessageFor(u => u.MiddleName)
+                        <br />Допустимы буквы А-Я, A-Z, -, диапазон от 2 до 50 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.Email, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @placeholder = "E-mail адрес" })
+                        @Html.ValidationMessageFor(u => u.Email)
+                        <br />Допустимы буквы A-Z, цифры и /@@ - _ ./ диапазон от 2 до 50 символов
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.IsActive, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.CheckBoxFor(u => u.IsActive)
+                        <br />Обозначает, что этот пользователь имеет разрешение на вход в систему.
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.Superuser, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 color_gray font12 nowrap">
+                        @Html.CheckBoxFor(u => u.Superuser)
+                        <br />Обозначает, что этот пользователь имеет все разрешения без явного их назначения.
+                    </div>
+                </div>
+                @{ // проверка состояния checkbox-а суперпользователя
+                    ViewBag.su_check = Model.Superuser == true ? "display: none;" : "";
+                }
+                <div id="user-groups" class="form-group row" style="@ViewBag.su_check">
+                    <div class="col-xs-1">
+                        @Html.LabelFor(u => u.Roles, new { @class = "control-label" })
+                    </div>
+                    <div class="col-xs-10 user_groups" id="id_groups">
+
+                        <ul>
+                            @{
+                                // если есть роли
+                                if (Model.Roles != null) {
+                                    for (var i = 0; i < Model.Roles.Count(); i++)
+                                    {
+                                        var role = Model.Roles[i];
+                                        <li>
+                                            @Html.HiddenFor(u => u.Roles[i].Id)
+                                            @Html.HiddenFor(u => u.Roles[i].Name)
+                                            @Html.CheckBoxFor(u => u.Roles[i].Selected)
+                                            @Html.LabelFor(u => u.Roles[i].Selected, role.Name)
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row edit_form_btn">
+                <div class="col-xs-10 col-xs-offset-0">
+                    <div class="cover"><div class="load"></div></div>
+                    <button id="submit_button" type="submit" class="btn_ok">OK</button>
+                    <button id="btn_cancel" class="btn_cancel" type="button">Отмена</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

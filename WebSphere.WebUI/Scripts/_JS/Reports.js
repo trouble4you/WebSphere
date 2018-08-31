@@ -6,11 +6,28 @@ function journal_list_(data) {
         var option = document.createElement('option');
         option.text = data[i].Name;
             option.value = data[i].Id;
-        select.add(option, 0);
+        select.add(option);
     }
 }
+function agzu_child_list_(data) {
+    data = data;
+    var select = document.getElementById("well");
+    $("#well").empty();
+    var option = document.createElement('option');
+    option.text = "Все";
+    option.value = "0";
+    select.add(option);
+    for (var i = 0; i < data.length; i++) {
+        var option = document.createElement('option');
+        option.text = data[i].Name;
+        option.value = data[i].Id;
+        select.add(option);
+    }
 
+
+}
 function page_(data) {
+    LoadPageOff();
     var Head = data.Head;
     var Rows = data.Rows;
     var colsCount = Head.length;

@@ -31,7 +31,7 @@ namespace WebSphere.Domain.Abstract
         //List<Role> GetAllRoles();
 
         // список всех ролей пользователя
-        List<Role> GetUserRoles(string username);
+        Role GetUserRoles(string username);
 
         // создание роли
         bool CreateRole(string name, List<ContentType> ct);
@@ -46,7 +46,7 @@ namespace WebSphere.Domain.Abstract
         Role GetRoleData(string name, List<Role> roles);
 
         // добавить роль пользователю
-        bool AddUserToRole(string username, List<Role> roles);
+        bool AddUserToRole(string username, Role role);
 
         // удалить роли пользователя
         bool RemoveRolesFromUser(string username);

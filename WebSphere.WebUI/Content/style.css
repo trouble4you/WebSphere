@@ -710,7 +710,7 @@ a.go_page{ background-image:url(../images/images_icon.gif);background-position:-
     width: 500px;
 }
 .tab-content {
-    max-height: 400px;
+    /*max-height: 400px;*/
     overflow: auto;
 }
 

@@ -1,0 +1,4594 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg"
+   width="100%"
+   height="100%"
+   version="1.1"
+   viewBox="-300 0 1600 600"
+   preserveAspectRatio="xMidYMid meet"
+   style="enable-background:new"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="diag.svg">
+  <metadata
+     id="metadata699">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     id="namedview697"
+     showgrid="false"
+     inkscape:zoom="0.69447542"
+     inkscape:cx="-1.6590733"
+     inkscape:cy="314.73472"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg" />
+  <style
+     id="style2">
+    .gState .DoOpen {
+    -webkit-animation:    colorset .5s ease infinite alternate;
+    animation:    DoOpen .5s ease infinite alternate;
+    }
+    @keyframes DoOpen {
+    0% { fill: #000; }
+    100% { fill: #0f0; }
+    }
+    .gState .DoClose {
+    -webkit-animation:    colorset .5s ease infinite alternate;
+    animation:    DoClose .5s ease infinite alternate;
+    }
+    @keyframes DoClose {
+    0% { fill: #000; }
+    100% { fill: #ff0; }
+    }
+    .gState .Open { fill: #0f0 !important; }
+    .gState .Close { fill: #ff0 !important; }
+
+    .gStateAlarm .Alarm { fill: #f00 !important;; }
+    .gStateAlarm .NoAlarm { fill: #0f0 !important;; }
+
+    .unk { fill: #7c7c7c !important;; }
+    .bad { fill: #f00 !important;; }
+    .good { fill: #0f0 !important;; }
+
+    .local { fill: #0f0 !important;; }
+    .remote { fill: #00f !important;; }
+
+
+    .und { fill: #fff !important;; }
+
+    .gDiscrete .Open { fill: #0f0 !important; }
+    .gDiscrete .Close { fill: #ff0 !important; }
+  </style>
+  <style
+     id="style3">
+    @import url(svg.css);
+  </style>
+  <defs
+     id="defs">
+    <symbol
+       id="tank"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1009"
+         width="1"
+         height="0.5"
+         x="0"
+         y="0"
+         rx="0.1"
+         ry="0.25"
+         style="stroke:none" />
+    </symbol>
+    <symbol
+       id="valve"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1011"
+         width="0.5"
+         height="0.5"
+         x="0"
+         y="0"
+         style="fill:none" />
+      <path
+         id="SvgjsPath1012"
+         d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1013"
+         d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1014"
+         d="M 0.5,0 V 1"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.1" />
+    </symbol>
+    <symbol
+       id="valve_rd"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1016"
+         width="1"
+         height="1"
+         x="0"
+         y="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1017"
+         d="M 0,0.5 1,0 1,1 z"
+         inkscape:connector-curvature="0"
+         style="stroke:none" />
+    </symbol>
+    <symbol
+       id="valve_no"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1019"
+         width="0.5"
+         height="0.5"
+         x="0"
+         y="0"
+         style="fill:none" />
+      <path
+         id="SvgjsPath1020"
+         d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1021"
+         d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+    </symbol>
+    <symbol
+       id="plate"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1023"
+         width="1"
+         height="0.33000001"
+         x="0"
+         y="0"
+         style="fill:#c0c0c0;stroke:none" />
+      <rect
+         id="SvgjsRect1024"
+         width="1"
+         height="0.33000001"
+         x="0"
+         y="0.33000001"
+         style="fill:#c0c0c0;stroke:#9a9893;stroke-width:0.01" />
+      <rect
+         id="SvgjsRect1025"
+         width="1"
+         height="0.33000001"
+         x="0"
+         y="0.66000003"
+         style="fill:#c0c0c0;stroke:none" />
+    </symbol>
+    <symbol
+       id="text"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1027"
+         width="1"
+         height="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:none" />
+    </symbol>
+    <symbol
+       id="holder"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1029"
+         d="M 0,0 0.4,0 0.4,1 0,1 z"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1030"
+         d="m 0.4,0.5 0.6,0 0,0.1 -0.6,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1031"
+         d="m 0.6,0.4 0.1,0 0,0.3 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#7b3700;stroke:#000000;stroke-width:0.05" />
+    </symbol>
+    <symbol
+       id="arrow"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1033"
+         d="m 0.5,0.4 0.1,-0.3 0.1,0.3 -0.05,0 0,0.5 -0.1,0 0,-0.5 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="vtube"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1035"
+         width="1"
+         height="1"
+         x="0"
+         y="0" />
+      <line
+         id="SvgjsLine1036"
+         x1="0"
+         y1="0"
+         x2="0"
+         y2="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.30000001" />
+      <line
+         id="SvgjsLine1037"
+         x1="1"
+         y1="0"
+         x2="1"
+         y2="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.30000001" />
+    </symbol>
+    <symbol
+       id="htube"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1039"
+         width="1"
+         height="1"
+         x="0"
+         y="0" />
+      <line
+         id="SvgjsLine1040"
+         x1="0"
+         y1="0"
+         x2="1"
+         y2="0"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.02" />
+      <line
+         id="SvgjsLine1041"
+         x1="0"
+         y1="1"
+         x2="1"
+         y2="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="ctube"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1043"
+         d="M 0,0 1,0 A 1,1 0 0 1 0,1 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="SvgjsPath1044"
+         d="M 0.92,0 A 0.92,0.92 0 0 1 0,0.92"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.15000001" />
+      <rect
+         id="SvgjsRect1045"
+         width="0.02"
+         height="0.02"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.25" />
+    </symbol>
+    <symbol
+       id="ttube"
+       viewBox="0 0 1 1"
+       preservSvgjsText24793eAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1047"
+         width="1"
+         height="1"
+         x="0"
+         y="0" />
+      <polygon
+         id="SvgjsPolygon1048"
+         points="1,0 0,0 0.5,0.5 "
+         transform="matrix(0,1,-1,0,1,0)" />
+      <line
+         id="SvgjsLine1049"
+         x1="0"
+         y1="0"
+         x2="0"
+         y2="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.30000001" />
+    </symbol>
+    <symbol
+       id="xtube"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1051"
+         width="1"
+         height="1"
+         x="0"
+         y="0" />
+      <polygon
+         id="SvgjsPolygon1052"
+         points="1,0 0,0 0.5,0.5 "
+         transform="matrix(0,1,-1,0,1,0)" />
+      <polygon
+         id="SvgjsPolygon1053"
+         points="1,0 0,0 0.5,0.5 "
+         transform="matrix(0,-1,1,0,0,1)" />
+    </symbol>
+    <symbol
+       id="unit"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <circle
+         id="SvgjsCircle1055"
+         r="0.5"
+         cx="0.5"
+         cy="0.5"
+         x="0"
+         y="0"
+         sodipodi:cx="0.5"
+         sodipodi:cy="0.5"
+         sodipodi:rx="0.5"
+         sodipodi:ry="0.5"
+         style="fill:#000000" />
+      <line
+         id="SvgjsLine1056"
+         x1="0.2"
+         y1="0.2"
+         x2="0.80000001"
+         y2="0.80000001"
+         x="0"
+         y="0"
+         style="stroke:#ffffff;stroke-width:0.05" />
+      <line
+         id="SvgjsLine1057"
+         x1="0.80000001"
+         y1="0.2"
+         x2="0.2"
+         y2="0.80000001"
+         x="0"
+         y="0"
+         style="stroke:#ffffff;stroke-width:0.05" />
+    </symbol>
+    <symbol
+       id="frame"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1059"
+         width="1"
+         height="1"
+         x="0"
+         y="0"
+         style="fill:none;stroke:#000000;stroke-width:0.01;stroke-dasharray:0.02" />
+    </symbol>
+    <symbol
+       id="info_field"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1061"
+         width="1"
+         height="1"
+         x="0"
+         y="0"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="radio"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <circle
+         id="SvgjsCircle1063"
+         r="0.5"
+         cx="0.5"
+         cy="0.5"
+         x="0"
+         y="0"
+         sodipodi:cx="0.5"
+         sodipodi:cy="0.5"
+         sodipodi:rx="0.5"
+         sodipodi:ry="0.5"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="button"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="none">
+      <rect
+         id="SvgjsRect1066"
+         width="1"
+         height="1"
+         x="0"
+         y="0"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="ball_valve"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1068"
+         d="m 0.2,0.3 0.1,0 0.2,0.15 -0.2,0.15 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1069"
+         d="m 0.3,0.3 0,0.3"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1070"
+         d="m 0.8,0.3 -0.1,0 -0.2,0.15 0.2,0.15 0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1071"
+         d="m 0.7,0.3 0,0.3"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.005" />
+    </symbol>
+    <symbol
+       id="elliptic_curve"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1073"
+         d="M 0,0.2 A 0.15,0.3 0 0 1 0,0.8"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1074"
+         d="m 0,0.225 a 0.12790698,0.275 0 0 1 0,0.55"
+         inkscape:connector-curvature="0"
+         style="fill:#1d7670;stroke:#000000;stroke-width:0.005" />
+    </symbol>
+    <symbol
+       id="pointer"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1076"
+         d="M 0.1,0.1 0.9,0.5 0.1,0.9 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#700170;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="filter"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1078"
+         d="m 0.33,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1079"
+         d="m 0.39,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1080"
+         d="m 0.45,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1081"
+         d="m 0.52,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1082"
+         d="m 0.58,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1083"
+         d="m 0.64,0.075 0.03,0 0,0.025 -0.03,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1084"
+         d="m 0.3,0.1 0.4,0 0,0.05 -0.4,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1085"
+         d="m 0.4,0.15 0.2,0 0,0.05 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1086"
+         d="m 0.3,0.2 0.4,0 0,0.5 -0.4,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1087"
+         d="m 0.3,0.7 a 0.5,0.5 0 0 0 0.4,0"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1088"
+         d="m 0.25,0.25 0.05,0 0,0.1 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1089"
+         d="m 0.7,0.25 0.05,0 0,0.1 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1090"
+         d="m 0.2,0.175 0.05,0 0,0.25 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1091"
+         d="m 0.75,0.175 0.05,0 0,0.25 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+    </symbol>
+    <symbol
+       id="valve_ch"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1093"
+         d="m 0.35,0.1 0.1,0 0,0.325 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <ellipse
+         id="SvgjsEllipse1094"
+         rx="0.15000001"
+         ry="0.02"
+         cx="0.40000001"
+         cy="0.2"
+         sodipodi:cx="0.40000001"
+         sodipodi:cy="0.2"
+         sodipodi:rx="0.15000001"
+         sodipodi:ry="0.02"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1095"
+         d="m 0.35,0.18 a 0.3,0.5 0 0 0 0.1,0"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1096"
+         d="m 0.225,0.35 0.35,0 0,0.075 -0.35,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1097"
+         d="m 0.3,0.425 0.2,0 0,0.275 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1098"
+         d="m 0.3,0.7 a 0.3,0.5 0 0 0 0.2,0"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1099"
+         d="m 0.2,0.55 0.1,0 0,0.15 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1100"
+         d="m 0.5,0.55 0.1,0 0,0.15 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1101"
+         d="m 0.125,0.45 0.075,0 0,0.35 -0.075,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1102"
+         d="m 0.6,0.45 0.075,0 0,0.35 -0.075,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#a30000;stroke:#000000;stroke-width:0.009" />
+    </symbol>
+    <symbol
+       id="valve_big_ch"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1104"
+         d="m 0.3,0.115 0.08,0 0,0.145 -0.08,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1105"
+         r="0.025"
+         cx="0.34"
+         cy="0.18000001"
+         d="m 0.365,0.18000001 c 0,0.0138071 -0.0111929,0.025 -0.025,0.025 -0.0138071,0 -0.025,-0.0111929 -0.025,-0.025 0,-0.0138071 0.0111929,-0.025 0.025,-0.025 0.0138071,0 0.025,0.0111929 0.025,0.025 z"
+         sodipodi:cx="0.34"
+         sodipodi:cy="0.18000001"
+         sodipodi:rx="0.025"
+         sodipodi:ry="0.025"
+         style="fill:none;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1106"
+         d="m 0.38,0.15 0.24,0 0,0.1 -0.24,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1107"
+         r="0.0625"
+         cx="0.52499998"
+         cy="0.115"
+         d="m 0.58749998,0.115 c 0,0.0345178 -0.0279822,0.0625 -0.0625,0.0625 -0.0345178,0 -0.0625,-0.0279822 -0.0625,-0.0625 0,-0.03451779 0.0279822,-0.0625 0.0625,-0.0625 0.0345178,0 0.0625,0.02798221 0.0625,0.0625 z"
+         sodipodi:cx="0.52499998"
+         sodipodi:cy="0.115"
+         sodipodi:rx="0.0625"
+         sodipodi:ry="0.0625"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1108"
+         r="0.029999999"
+         cx="0.52499998"
+         cy="0.115"
+         d="m 0.55499998,0.115 c 0,0.0165685 -0.0134315,0.03 -0.03,0.03 -0.0165686,0 -0.03,-0.0134315 -0.03,-0.03 0,-0.01656854 0.0134315,-0.03 0.03,-0.03 0.0165685,0 0.03,0.01343146 0.03,0.03 z"
+         sodipodi:cx="0.52499998"
+         sodipodi:cy="0.115"
+         sodipodi:rx="0.029999999"
+         sodipodi:ry="0.029999999"
+         style="fill:none;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1109"
+         d="m 0.4,0.25 0.2,0 0,0.05 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1110"
+         d="m 0.475,0.3 0.05,0 0,0.3 L 0.51,0.7 0.49,0.7 0.475,0.6 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1111"
+         r="0.11"
+         cx="0.57999998"
+         cy="0.22499999"
+         d="m 0.68999998,0.22499999 c 0,0.0607513 -0.0492487,0.11 -0.11,0.11 -0.0607513,0 -0.11,-0.0492487 -0.11,-0.11 0,-0.0607513 0.0492487,-0.11 0.11,-0.11 0.0607513,0 0.11,0.0492487 0.11,0.11 z"
+         sodipodi:cx="0.57999998"
+         sodipodi:cy="0.22499999"
+         sodipodi:rx="0.11"
+         sodipodi:ry="0.11"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1112"
+         r="0.090000004"
+         cx="0.57999998"
+         cy="0.22499999"
+         d="m 0.66999999,0.22499999 c 0,0.0497056 -0.0402944,0.09 -0.09,0.09 -0.0497056,0 -0.09,-0.0402944 -0.09,-0.09 0,-0.0497056 0.0402944,-0.09 0.09,-0.09 0.0497056,0 0.09,0.0402944 0.09,0.09 z"
+         sodipodi:cx="0.57999998"
+         sodipodi:cy="0.22499999"
+         sodipodi:rx="0.090000004"
+         sodipodi:ry="0.090000004"
+         style="fill:none;stroke:#000000;stroke-width:0.002" />
+      <circle
+         id="SvgjsCircle1113"
+         r="0.02"
+         cx="0.57999998"
+         cy="0.22499999"
+         d="m 0.59999998,0.22499999 c 0,0.0110457 -0.008954,0.02 -0.02,0.02 -0.0110457,0 -0.02,-0.008954 -0.02,-0.02 0,-0.0110457 0.008954,-0.02 0.02,-0.02 0.0110457,0 0.02,0.008954 0.02,0.02 z"
+         sodipodi:cx="0.57999998"
+         sodipodi:cy="0.22499999"
+         sodipodi:rx="0.02"
+         sodipodi:ry="0.02"
+         style="fill:none;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1114"
+         d="m 0.576,0.135 0,0.07"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1115"
+         d="m 0.584,0.135 0,0.07"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1116"
+         d="M 0.6,0.23 0.665,0.26"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1117"
+         d="M 0.595,0.238 0.66,0.27"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1118"
+         d="M 0.562,0.23 0.5,0.26"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1119"
+         d="M 0.565,0.24 0.504,0.274"
+         inkscape:connector-curvature="0"
+         style="fill:#ddcfb2;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1120"
+         d="m 0.425,0.7 a 0.3,0.65 0 0 1 0.15,0"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1121"
+         d="m 0.35,0.75 0.05,0 0,0.2 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1122"
+         d="m 0.4,0.8 0.025,0 0,0.1 -0.025,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1123"
+         d="m 0.4,0.7 0.2,0 0,0.04 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1124"
+         d="m 0.425,0.74 0.15,0 0,0.16 -0.15,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1125"
+         d="m 0.575,0.8 0.025,0 0,0.1 -0.025,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1126"
+         d="m 0.6,0.75 0.05,0 0,0.2 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#d34646;stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1127"
+         d="m 0.425,0.9 a 0.3,0.65 0 0 0 0.15,0"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+    </symbol>
+    <symbol
+       id="round_button"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <circle
+         id="SvgjsCircle1129"
+         r="0.5"
+         cx="0.5"
+         cy="0.5"
+         sodipodi:cx="0.5"
+         sodipodi:cy="0.5"
+         sodipodi:rx="0.5"
+         sodipodi:ry="0.5"
+         style="stroke:#000000;stroke-width:0.002" />
+      <line
+         id="SvgjsLine1130"
+         x1="0.2"
+         y1="0.2"
+         x2="0.80000001"
+         y2="0.80000001"
+         x="0"
+         y="0"
+         style="stroke:#ffff00;stroke-width:0.09" />
+      <line
+         id="SvgjsLine1131"
+         x1="0.80000001"
+         y1="0.2"
+         x2="0.2"
+         y2="0.80000001"
+         x="0"
+         y="0"
+         style="stroke:#ffff00;stroke-width:0.09" />
+    </symbol>
+    <symbol
+       id="electric_motor"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1133"
+         d="m 0.2,0.25 0.05,0 0,-0.025 0.475,0 0,0.425 -0.475,0 0,-0.025 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1134"
+         d="m 0.725,0.25 0.05,0.05 0,0.275 -0.05,0.05 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1135"
+         d="m 0.775,0.35 0.05,0 0,0.175 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1136"
+         d="m 0.325,0.65 0.375,0 0,0.05 -0.375,0 L 0,0"
+         inkscape:connector-curvature="0"
+         style="fill:#000000;stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1137"
+         d="m 0.375,0.475 0.15,0 0,0.2 -0.15,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#bfbfbf;stroke:#000000;stroke-width:0.005" />
+      <path
+         id="SvgjsPath1138"
+         d="m 0.4,0.55 0.1,0 0,0.09 -0.1,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#bfbfbf;stroke:#686868;stroke-width:0.005" />
+    </symbol>
+    <symbol
+       id="door"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1140"
+         d="m 0.29,0.09 0.47,0 0,0.62 -0.47,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#b4b4b4;stroke:#fcfcfb;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1141"
+         d="m 0.3,0.1 0.45,0 0,0.6 -0.45,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1142"
+         d="m 0.28,0.175 0.04,0 0,0.1 -0.04,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1143"
+         d="m 0.31,0.225 0.02,0 0,0.015 -0.02,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1144"
+         d="m 0.28,0.51 0.04,0 0,0.11 -0.04,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="SvgjsPath1145"
+         d="m 0.31,0.56 0.02,0 0,0.015 -0.02,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <line
+         id="SvgjsLine1146"
+         x1="0.625"
+         y1="0.42500001"
+         x2="0.69999999"
+         y2="0.42500001"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1147"
+         x1="0.63999999"
+         y1="0.38999999"
+         x2="0.63999999"
+         y2="0.44999999"
+         style="stroke:#000000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="symbol145"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="path147"
+         d="m 0.29,0.09 0.47,0 0,0.62 -0.47,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#b4b4b4;stroke:#fcfcfb;stroke-width:0.01" />
+      <path
+         id="path149"
+         d="m 0.3,0.1 0.45,0 0,0.6 -0.45,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="path151"
+         d="m 0.28,0.175 0.04,0 0,0.1 -0.04,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="path153"
+         d="m 0.31,0.225 0.02,0 0,0.015 -0.02,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="path155"
+         d="m 0.28,0.51 0.04,0 0,0.11 -0.04,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <path
+         id="path157"
+         d="m 0.31,0.56 0.02,0 0,0.015 -0.02,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.009" />
+      <line
+         id="line159"
+         x1="0.625"
+         y1="0.42500001"
+         x2="0.69999999"
+         y2="0.42500001"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="line161"
+         x1="0.63999999"
+         y1="0.38999999"
+         x2="0.63999999"
+         y2="0.44999999"
+         style="stroke:#000000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="platform"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1149"
+         d="m 0.4,0.075 a 0.3,0.5 0 0 1 0.2,0"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1150"
+         d="m 0.375,0.075 0.25,0 0,0.025 -0.25,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1151"
+         d="m 0.4,0.1 0.2,0 0,0.7 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1152"
+         d="M 0.6,0.8 0.55,0.95 0.45,0.95 0.4,0.8 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1153"
+         d="m 0.375,0.2 0.025,0 0,0.05 -0.025,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1154"
+         d="m 0.6,0.2 0.025,0 0,0.05 -0.025,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1155"
+         d="m 0.4,0.65 0,0.05 -0.025,0 0,-0.05 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1156"
+         d="m 0.6,0.65 0.025,0 0,0.05 -0.025,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+    </symbol>
+    <symbol
+       id="booth"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1158"
+         d="m 0.5,0.4 0.4,0 0,0.5 -0.4,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1159"
+         d="M 0.35,0.25 0.5,0.4 0.5,0.9 0.35,0.75 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1160"
+         d="m 0.35,0.25 0.4,0 0.15,0.15 -0.4,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1161"
+         d="m 0.6,0.45 0.2,0 0,0.4 -0.2,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="big_booth"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1163"
+         d="M 0.35,0.4 0.5,0.55 0.5,0.9 0.35,0.75 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1164"
+         d="m 0.35,0.4 0.45,0 0.15,0.15 -0.45,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1165"
+         d="m 0.5,0.55 0.45,0 0,0.35 -0.45,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1166"
+         x1="0.44999999"
+         y1="0.44999999"
+         x2="0.44999999"
+         y2="0.2"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1167"
+         x1="0.44999999"
+         y1="0.2"
+         x2="0.60000002"
+         y2="0.2"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1168"
+         x1="0.5"
+         y1="0.2"
+         x2="0.57499999"
+         y2="0.125"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1169"
+         x1="0.5"
+         y1="0.2"
+         x2="0.57499999"
+         y2="0.27500001"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1170"
+         x1="0.55000001"
+         y1="0.2"
+         x2="0.60000002"
+         y2="0.15000001"
+         style="stroke:#000000;stroke-width:0.01" />
+      <line
+         id="SvgjsLine1171"
+         x1="0.55000001"
+         y1="0.2"
+         x2="0.60000002"
+         y2="0.25"
+         style="stroke:#000000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="direct"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1173"
+         d="m 0.25,0.25 0.5,0 0,0.05 -0.5,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+      <path
+         id="SvgjsPath1174"
+         d="M 0.25,0.75 0.5,0.3 0.75,0.75 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.002" />
+    </symbol>
+    <symbol
+       id="pressure_sensor"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <circle
+         id="SvgjsCircle1176"
+         r="0.30000001"
+         cx="0.5"
+         cy="0.40000001"
+         sodipodi:cx="0.5"
+         sodipodi:cy="0.40000001"
+         sodipodi:rx="0.30000001"
+         sodipodi:ry="0.30000001"
+         style="stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1177"
+         d="m 0.35,0.55 0.3,-0.3 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1178"
+         d="M 0.55,0.3 0.65,0.25 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1179"
+         d="M 0.6,0.35 0.65,0.25 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1180"
+         d="m 0.475,0.7 0.05,0 0,0.175 -0.05,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+      <path
+         id="SvgjsPath1181"
+         d="m 0.2,0.875 0.6,0 0,0.05 -0.6,0 z"
+         inkscape:connector-curvature="0"
+         style="fill:#000000" />
+    </symbol>
+    <symbol
+       id="flame"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1183"
+         d="m 0.55,0.075 c 0.05,0.275 0.35,0.575 0,0.85 0,-0.275 -0.275,-0.5 0,-0.85"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1184"
+         d="M 0.3,0.425 C 0.5,0.6 0.525,0.8 0.5,0.95 0.35,0.9 0.2,0.7 0.3,0.425"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+      <path
+         id="SvgjsPath1185"
+         d="M 0.7,0.15 C 0.85,0.3 0.95,0.65 0.65,0.9 0.85,0.65 0.65,0.35 0.7,0.15"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="thermometer"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1187"
+         d="m 0.65,0.6 0.075,0 0,0.2 -0.025,0.025 0,0.055 -0.02,0 0,-0.055 L 0.65,0.8 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.004" />
+      <line
+         id="SvgjsLine1188"
+         x1="0.64999998"
+         y1="0.63"
+         x2="0.69"
+         y2="0.63"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1189"
+         x1="0.64999998"
+         y1="0.66000003"
+         x2="0.69"
+         y2="0.66000003"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1190"
+         x1="0.64999998"
+         y1="0.69"
+         x2="0.69"
+         y2="0.69"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1191"
+         x1="0.64999998"
+         y1="0.72000003"
+         x2="0.69"
+         y2="0.72000003"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1192"
+         x1="0.64999998"
+         y1="0.75"
+         x2="0.69"
+         y2="0.75"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1193"
+         x1="0.64999998"
+         y1="0.77999997"
+         x2="0.69"
+         y2="0.77999997"
+         style="stroke:#000000;stroke-width:0.008" />
+      <line
+         id="SvgjsLine1194"
+         x1="0.69"
+         y1="0.61000001"
+         x2="0.69"
+         y2="0.875"
+         style="stroke:#ff0000;stroke-width:0.01" />
+    </symbol>
+    <symbol
+       id="door_opened"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1196"
+         d="m 0.2,0.05 0.6,0 0,0.75 -0.6,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <path
+         id="SvgjsPath1197"
+         d="M 0.2,0.05 0.65,0.2 0.65,0.95 0.2,0.8 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <line
+         id="SvgjsLine1198"
+         x1="0.55000001"
+         y1="0.56999999"
+         x2="0.60000002"
+         y2="0.58499998"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="door_closed"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <path
+         id="SvgjsPath1200"
+         d="m 0.2,0.05 0.6,0 0,0.9 -0.6,0 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.02" />
+      <line
+         id="SvgjsLine1201"
+         x1="0.60000002"
+         y1="0.5"
+         x2="0.69999999"
+         y2="0.5"
+         style="stroke:#000000;stroke-width:0.02" />
+    </symbol>
+    <symbol
+       id="valve_l"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1203"
+         width="0.5"
+         height="0.5"
+         x="0"
+         y="0"
+         style="fill:none" />
+      <path
+         id="SvgjsPath1204"
+         d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+         inkscape:connector-curvature="0"
+         style="fill:#008000;stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1205"
+         d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+    </symbol>
+    <symbol
+       id="valve_r"
+       viewBox="0 0 1 1"
+       preserveAspectRatio="xMidYMid meet">
+      <rect
+         id="SvgjsRect1207"
+         width="0.5"
+         height="0.5"
+         x="0"
+         y="0"
+         style="fill:none" />
+      <path
+         id="SvgjsPath1208"
+         d="m 0.1,0.1 0,0.8 0.4,-0.4 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#000000;stroke-width:0.05" />
+      <path
+         id="SvgjsPath1209"
+         d="M 0.9,0.1 0.9,0.9 0.5,0.5 z"
+         inkscape:connector-curvature="0"
+         style="fill:#008000;stroke:#000000;stroke-width:0.05" />
+    </symbol>
+    <linearGradient
+       id="SvgjsLinearGradient3802"
+       gradientTransform="scale(1.0850368,0.92162769)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="448.93027"
+       y1="501.59573"
+       x2="514.88"
+       y2="501.59573"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="SvgjsStop3803"
+         stop-opacity="1"
+         stop-color="#969696"
+         offset="0" />
+      <stop
+         id="SvgjsStop3804"
+         stop-opacity="1"
+         stop-color="#fcfcfc"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop3805"
+         stop-opacity="1"
+         stop-color="#808080"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient6515"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop6516"
+         stop-opacity="1"
+         stop-color="#cecece"
+         offset="0" />
+      <stop
+         id="SvgjsStop6517"
+         stop-opacity="1"
+         stop-color="#9c9c9c"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop6518"
+         stop-opacity="1"
+         stop-color="#595959"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient6519"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop6520"
+         stop-opacity="1"
+         stop-color="#cecece"
+         offset="0" />
+      <stop
+         id="SvgjsStop6521"
+         stop-opacity="1"
+         stop-color="#9c9c9c"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop6522"
+         stop-opacity="1"
+         stop-color="#595959"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient10015"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop10016"
+         stop-opacity="1"
+         stop-color="#8c8c8c"
+         offset="0" />
+      <stop
+         id="SvgjsStop10017"
+         stop-opacity="1"
+         stop-color="#e5e5e5"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop10018"
+         stop-opacity="1"
+         stop-color="#727272"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient10142"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop10143"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop10144"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop10145"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient10159"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop10160"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop10161"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop10162"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient13047"
+       gradientTransform="scale(0.66014972,1.5148079)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="59.703362"
+       y1="95.83596"
+       x2="205.73721"
+       y2="95.83596"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="SvgjsStop13048"
+         stop-opacity="1"
+         stop-color="#8c8c8c"
+         offset="0" />
+      <stop
+         id="SvgjsStop13049"
+         stop-opacity="1"
+         stop-color="#e5e5e5"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop13050"
+         stop-opacity="1"
+         stop-color="#727272"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient14482"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop14483"
+         stop-opacity="1"
+         stop-color="#9c9c9c"
+         offset="0" />
+      <stop
+         id="SvgjsStop14484"
+         stop-opacity="1"
+         stop-color="#bdbdbd"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop14485"
+         stop-opacity="1"
+         stop-color="#7a7a7a"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient14486"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop14487"
+         stop-opacity="1"
+         stop-color="#9c9c9c"
+         offset="0" />
+      <stop
+         id="SvgjsStop14488"
+         stop-opacity="1"
+         stop-color="#efefef"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop14489"
+         stop-opacity="1"
+         stop-color="#7a7a7a"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient14490"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop14491"
+         stop-opacity="1"
+         stop-color="#9c9c9c"
+         offset="0" />
+      <stop
+         id="SvgjsStop14492"
+         stop-opacity="1"
+         stop-color="#dfdfdf"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop14493"
+         stop-opacity="1"
+         stop-color="#7a7a7a"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient14494"
+       gradientTransform="scale(3.2366858,0.30895801)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="-13.530853"
+       y1="1069.2318"
+       x2="68.834335"
+       y2="1069.2318"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="SvgjsStop14495"
+         stop-opacity="1"
+         stop-color="#7a7a7a"
+         offset="0" />
+      <stop
+         id="SvgjsStop14496"
+         stop-opacity="1"
+         stop-color="#dfdfdf"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop14497"
+         stop-opacity="1"
+         stop-color="#7a7a7a"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38307"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38319"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38320"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38321"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38322"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38323"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38324"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38325"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38326"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38327"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38328"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38329"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38330"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38331"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38332"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38333"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38334"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38335"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38336"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38337"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38338"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38339"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38340"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38341"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38342"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38343"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38344"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38345"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38346"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38347"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38348"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38349"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38350"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38351"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38352"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38353"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38354"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38355"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38356"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38357"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38358"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38359"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38360"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38361"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38362"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38363"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38364"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38365"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38366"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38367"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38368"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38369"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38370"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38371"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38372"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38373"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38374"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38375"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38376"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38377"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38378"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38379"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38380"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38381"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38382"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38383"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38384"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38385"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38386"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38387"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38388"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38389"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38390"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38391"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38392"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38393"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38394"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38395"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38396"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38397"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38398"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38399"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38400"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38401"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient38402"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop38403"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="0" />
+      <stop
+         id="SvgjsStop38404"
+         stop-opacity="1"
+         stop-color="#e5e129"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop38405"
+         stop-opacity="1"
+         stop-color="#a5a022"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40485"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40486"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40487"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40488"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40489"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40490"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40491"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40492"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40493"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40494"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40495"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40496"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40497"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40498"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40499"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40500"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40501"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40502"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40503"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40504"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40505"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40506"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40507"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40508"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40509"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40510"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40511"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40512"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40513"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40514"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40515"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40516"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40517"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40518"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40519"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40520"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40521"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40522"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40523"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40524"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40525"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40526"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40527"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40528"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40529"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40530"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40531"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40532"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40533"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40534"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40535"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40536"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40537"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40538"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40539"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40540"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40541"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40542"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40543"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40544"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient40545"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop40546"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0" />
+      <stop
+         id="SvgjsStop40547"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop40548"
+         stop-opacity="1"
+         stop-color="#с0с0с0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41539"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41540"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41541"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41542"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41543"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41544"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41545"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41546"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41547"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41548"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41549"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41550"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41551"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41552"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41553"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41554"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41555"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41556"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41557"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41558"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41559"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41560"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41561"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41562"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41563"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41564"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41565"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41566"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41567"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41568"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41569"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41570"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41571"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41572"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41573"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41574"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41575"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41576"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41577"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41578"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41579"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41580"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41581"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41582"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41583"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41584"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41585"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41586"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41587"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41588"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41589"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41590"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41591"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41592"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41593"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41594"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41595"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41596"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41597"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41598"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41665"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41666"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41667"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41668"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41669"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41670"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41671"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41672"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41673"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41674"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41675"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41676"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41677"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41678"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41679"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41680"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41681"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41682"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41683"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41684"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41685"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41686"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41687"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41688"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41689"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41690"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41691"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41692"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41693"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41694"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41695"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41696"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41697"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41698"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41699"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41700"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41701"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41702"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41703"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41704"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41705"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41706"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41707"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41708"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41709"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41710"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41711"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41712"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41713"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41714"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41715"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41716"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41717"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41718"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41719"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41720"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41721"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41722"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41723"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41724"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient41725"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop41726"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0" />
+      <stop
+         id="SvgjsStop41727"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop41728"
+         stop-opacity="1"
+         stop-color="gray"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient46974"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop46975"
+         stop-opacity="1"
+         stop-color="#817f79"
+         offset="0" />
+      <stop
+         id="SvgjsStop46976"
+         stop-opacity="1"
+         stop-color="#fefefe"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop46977"
+         stop-opacity="1"
+         stop-color="#817f79"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient47266"
+       gradientTransform="matrix(0,1,-1,0,0,0)"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop47267"
+         stop-opacity="1"
+         stop-color="#817f79"
+         offset="0" />
+      <stop
+         id="SvgjsStop47268"
+         stop-opacity="1"
+         stop-color="#fefefe"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop47269"
+         stop-opacity="1"
+         stop-color="#817f79"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient12935"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop13018"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="SvgjsStop13019"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop13020"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"
+       id="linearGradient5557"
+       xlink:href="#SvgjsLinearGradient77641-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="SvgjsLinearGradient77641-8"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="SvgjsStop77734-6"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="SvgjsStop77735-5"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop77736-0"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"
+       id="linearGradient4109"
+       xlink:href="#SvgjsLinearGradient77641-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4111"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4113"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4115"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4117"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"
+       id="linearGradient4119"
+       xlink:href="#SvgjsLinearGradient77641-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4121"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4123"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4125"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4127"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"
+       id="linearGradient4129"
+       xlink:href="#SvgjsLinearGradient77641-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4131"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4133"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4135"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4137"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"
+       id="linearGradient4139"
+       xlink:href="#SvgjsLinearGradient77641-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4141"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4143"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4145"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4147"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient77641"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="SvgjsStop77734"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="SvgjsStop77735"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop77736"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4031"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4033"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4035"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4037"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4039"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4041"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4043"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4045"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4047"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4049"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4051"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4053"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4055"
+       cx="0"
+       cy="0"
+       r="0">
+      <stop
+         id="stop4057"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop4059"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop4061"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="SvgjsLinearGradient77641-1"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="SvgjsStop77734-4"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="SvgjsStop77735-2"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="SvgjsStop77736-3"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3921"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3923"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop3925"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop3927"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3929"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3931"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop3933"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop3935"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3937"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3939"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop3941"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop3943"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3945"
+       gradientTransform="scale(0.8141701,1.2282446)"
+       cx="0"
+       cy="0"
+       r="0"
+       x1="619.52826"
+       y1="206.53734"
+       x2="659.15796"
+       y2="206.53734"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         id="stop3947"
+         stop-opacity="1"
+         stop-color="#ffcf87"
+         offset="0" />
+      <stop
+         id="stop3949"
+         stop-opacity="1"
+         stop-color="#e52600"
+         offset="0.5" />
+      <stop
+         id="stop3951"
+         stop-opacity="1"
+         stop-color="#fa8500"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <g
+     id="SvgjsG26798"
+     transform="translate(-14.399359,-5.524296)" />
+  <g
+     id="g3777"
+     transform="translate(-944.08075,-330.12611)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="410.80688"
+       x="659.63031"
+       id="SvgjsText26752">
+      <tspan
+         style="font-size:37.33333206px"
+         id="tspan5584">Каналы</tspan>
+    </text>
+  </g>
+  <g
+     id="g4920"
+     transform="translate(-139.67378,0.36929928)">
+    <text
+       font-weight="bold"
+       font-size="23"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="34.630981"
+       x="130.42047"
+       id="SvgjsText31764"
+       style="font-weight:bold;font-size:23px;font-family:Arial;text-anchor:middle;fill:#000080">
+      <tspan
+         style="font-size:37.33333206px"
+         id="tspan5586">Диагностика состояния связи</tspan>
+    </text>
+    <g
+       style="fill:#c6ff00;fill-opacity:1"
+       class="isDefault"
+       id="SvgjsG3396" />
+  </g>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="78.461014"
+     x="710.49194"
+     id="SvgjsText26752-2">
+    <tspan
+       style="font-size:37.33333206px"
+       id="tspan5582">Объекты</tspan>
+  </text>
+  <g
+     style="enable-background:new"
+     id="g3777-62"
+     transform="translate(-267.82611,-260.82439)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-8">Радио Чегодаево</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20"
+     transform="translate(-235.69581,-143.19488)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11">Текущий объект в опросе</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-25"
+     transform="translate(-236.73096,-166.95464)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-9">Внеочередной опрос</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-3"
+     transform="translate(-236.77003,-212.77984)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-40">Кол-во объектов</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-30"
+     transform="translate(-236.77003,-190.81207)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-7">Циклический опрос</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4"
+     transform="translate(-236.21339,-236.68609)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0">Состояние</text>
+  </g>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="413.77252"
+     x="-244.03485"
+     id="SvgjsText26752-8-0-4">GPRS Задвижка №14</text>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="493.21207"
+     x="-245.36508"
+     id="SvgjsText26752-8-0-4-4">GPRS Задвижка №15</text>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="414.24454"
+     x="197.42332"
+     id="SvgjsText26752-8-0-4-1">GPRS Задвижка №18</text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="-81.390846"
+     y="234.62314"
+     id="text922"><tspan
+       sodipodi:role="line"
+       id="tspan920"
+       x="-81.390846"
+       y="234.62314" /></text>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-3"
+     data-tag="Sfera.Сom3-Чегодаево.CycleObject"
+     data-type="default"
+     transform="translate(-623.23535,-37.9219)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-6"
+     data-tag="Sfera.Сom3-Чегодаево.ActiveObjects"
+     data-type="analog"
+     transform="translate(-623.23535,-61.22268)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-1"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-2"
+     data-tag="Sfera.Сom3-Чегодаево.PoolOnce"
+     data-type="default"
+     transform="translate(-623.23535,-14.62111)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-24"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73"
+     data-tag="Sfera.Задвижка №14.State"
+     data-type="default"
+     transform="translate(-602.91716,162.10818)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8"
+     transform="translate(-233.37763,29.436764)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9">Текущий объект в опросе</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7"
+     transform="translate(-233.8952,7.945545)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4">Состояние</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7"
+     data-tag="Sfera.Задвижка №14.CurrentObject"
+     data-type="default"
+     transform="translate(-602.91716,183.3113)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-2"
+     data-tag="Sfera.Задвижка №15.State"
+     data-type="default"
+     transform="translate(-605.07707,241.62285)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-6"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-2"
+     transform="translate(-235.53754,108.95142)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-3">Текущий объект в опросе</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-8"
+     transform="translate(-236.05511,87.460205)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-5">Состояние</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-3"
+     data-tag="Sfera.Задвижка №15.CurrentObject"
+     data-type="default"
+     transform="translate(-605.07707,262.82597)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-6"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-8"
+     data-tag="Sfera.Задвижка №18.State"
+     data-type="default"
+     transform="translate(-161.56871,163.09628)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-5"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-5"
+     transform="translate(207.97083,30.424865)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-5">Текущий объект в опросе</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-5"
+     transform="translate(207.45326,8.933645)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-2">Состояние</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-32"
+     data-tag="Sfera.Задвижка №18.CurrentObject"
+     data-type="default"
+     transform="translate(-161.56871,184.2994)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="114.33634"
+     x="725.81024"
+     id="SvgjsText26752-8-0-4-6">Задвижка №14</text>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2"
+     transform="translate(734.74513,-27.732417)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4">Последний пакет</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7"
+     transform="translate(735.292,-49.223639)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5">Состояние связи</text>
+  </g>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="356.07928"
+     x="725.81024"
+     id="SvgjsText26752-8-0-4-1-4-1">Задвижка №18</text>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2-9"
+     transform="translate(734.78419,14.872403)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4-3">Резервный канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7-9"
+     transform="translate(735.37013,-6.618817)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5-4">Основной канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-3"
+     data-tag="Sfera.EksitonOpc.Задвижка №14.ObjectLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,-137.2514)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-0-93-5-0"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">На связи</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-5-5-2-6"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Нет связи</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-1"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2-3"
+     transform="translate(735.8096,-269.92283)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4-0">Последний пакет</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7-5"
+     transform="translate(735.292,-291.41405)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5-8">Состояние связи</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-0"
+     data-tag="Sfera.EksitonOpc.Задвижка №14.CurrentLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,-116.04828)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-46-3-3-0-0"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Прочитан</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-2-3-5-9-7"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Потерян</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-1-3"
+     data-tag="Sfera.EksitonOpc.Задвижка №14._linkErrPri"
+     data-type="analog"
+     transform="translate(426.02659,-94.64657)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-9-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2-9-7"
+     transform="translate(734.78419,-227.31801)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4-3-3">Резервный канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7-9-3"
+     transform="translate(735.37013,-248.80923)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5-4-4">Основной канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-2-1"
+     data-tag="Sfera.EksitonOpc.Задвижка №14._linkErrSec"
+     data-type="analog"
+     transform="translate(426.02659,-73.443456)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-7-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2-8"
+     transform="translate(734.74513,-149.68819)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4-9">Последний пакет</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7-8"
+     transform="translate(735.292,-171.17941)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5-3">Состояние связи</text>
+  </g>
+  <text
+     style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="234.12352"
+     x="725.81024"
+     id="SvgjsText26752-8-0-4-1-4-1-6">Задвижка №15</text>
+  <g
+     style="enable-background:new"
+     id="g3777-20-8-58-2-9-0"
+     transform="translate(734.78419,-107.08337)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-11-9-1-4-3-5">Резервный канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="enable-background:new"
+     id="g3777-4-7-1-7-9-8"
+     transform="translate(735.37013,-128.57459)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-0-4-8-5-4-7">Основной канал: кол-во ошибок</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-3-1"
+     data-tag="Sfera.EksitonOpc.Задвижка №15.ObjectLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,-16.576499)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-0-93-5-0-9"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">На связи</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-5-5-2-6-1"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Нет связи</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-1-1"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-0-8"
+     data-tag="Sfera.EksitonOpc.Задвижка №15.CurrentLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,4.626621)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-46-3-3-0-0-2"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Прочитан</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-2-3-5-9-7-6"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Потерян</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-2-9"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-1-3-5"
+     data-tag="Sfera.EksitonOpc.Задвижка №15._linkErrPri"
+     data-type="analog"
+     transform="translate(426.02659,26.028332)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-9-2-3"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-2-1-9"
+     data-tag="Sfera.EksitonOpc.Задвижка №15._linkErrSec"
+     data-type="analog"
+     transform="translate(426.02659,47.231451)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-7-2-4"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-3-2"
+     data-tag="Sfera.EksitonOpc.Задвижка №18.ObjectLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,104.58792)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-0-93-5-0-5"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">На связи</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-5-5-2-6-3"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Нет связи</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-1-0"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-0-0"
+     data-tag="Sfera.EksitonOpc.Задвижка №18.CurrentLink"
+     data-type="discreteChange"
+     transform="translate(426.02659,125.79104)"
+     data-inv="true">
+    <text
+       font-size="20"
+       class="isValue isTrue"
+       height="25"
+       width="100"
+       y="275.60077"
+       x="729.59155"
+       id="text3808-7-46-3-3-0-0-27"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Прочитан</text>
+    <text
+       font-size="20"
+       class="isValue isFalse"
+       height="25"
+       width="100"
+       y="276.86853"
+       x="716.14008"
+       id="text3810-4-2-3-5-9-7-5"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;display:none;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Потерян</text>
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-2-7"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="isValue isDefault">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-7-3-1-3-6"
+     data-tag="Sfera.EksitonOpc.Задвижка №18._linkErrPri"
+     data-type="analog"
+     transform="translate(426.02659,147.19275)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-1-2-9-2-1"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-1-1-2-1-5"
+     data-tag="Sfera.EksitonOpc.Задвижка №18._linkErrSec"
+     data-type="analog"
+     transform="translate(426.02659,168.39587)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-9-5-7-2-0"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-7-7-7"
+     data-tag="Sfera.Сom3-Чегодаево.CurrentObject"
+     data-type="default"
+     transform="translate(-623.34985,9.298143)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-0-0-91"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <g
+     style="stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="g3806-1-73-1"
+     data-tag="Sfera.Сom3-Чегодаево.State"
+     data-type="default"
+     transform="translate(-623.34984,-85.39337)">
+    <text
+       font-size="20"
+       height="25"
+       width="100"
+       y="275.95844"
+       x="726.96393"
+       id="text3812-0-6-54"
+       style="font-size:20px;font-family:Arial;text-anchor:middle;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       class="stateText">Неизвестно</text>
+  </g>
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect5482"
+     width="918.40588"
+     height="192.43761"
+     x="-260.47253"
+     y="377.81631" />
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="rect5482-3"
+     width="918.40588"
+     height="192.43761"
+     x="-264.54529"
+     y="136.17828" />
+  <g
+     style="enable-background:new"
+     id="g3777-62-4"
+     transform="translate(114.88635,-308.25432)">
+    <text
+       style="font-weight:bold;font-size:20px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080"
+       font-weight="bold"
+       font-size="20"
+       class="ctrl"
+       height="25"
+       width="100"
+       y="429.52603"
+       x="21.738752"
+       id="SvgjsText26752-8-3">
+      <tspan
+         style="font-size:29.33333397px"
+         id="tspan5532">Радио</tspan>
+    </text>
+  </g>
+  <text
+     style="font-weight:bold;font-size:37.33333206px;font-family:Arial;text-align:start;text-anchor:start;fill:#000080;enable-background:new"
+     font-weight="bold"
+     font-size="20"
+     class="ctrl"
+     height="25"
+     width="100"
+     y="363.94766"
+     x="141.75661"
+     id="SvgjsText26752-8-0-4-2">
+    <tspan
+       style="font-size:29.33333397px"
+       id="tspan5588">GPRS</tspan>
+  </text>
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.47841614;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="rect5482-3-1"
+     width="517.20148"
+     height="122.20712"
+     x="710.59698"
+     y="93.077217" />
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.47841614;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="rect5482-3-1-6"
+     width="517.20148"
+     height="122.20712"
+     x="710.59698"
+     y="215.28435" />
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.47841614;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+     id="rect5482-3-1-7"
+     width="517.20148"
+     height="122.20712"
+     x="710.59698"
+     y="337.49146" />
+  <rect
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect5590"
+     width="976.27649"
+     height="488.13824"
+     x="-289.92044"
+     y="94.423439" />
+</svg>

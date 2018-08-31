@@ -12,8 +12,9 @@ namespace WebSphere.Domain.Abstract
     {
         public TagId Tag;
         public int TagId;
+        public bool Permit;
         public bool Enabled;
-        public bool Active;
+        public bool Sound;
 
         public string HihiText;
         public string HiText;
@@ -21,10 +22,27 @@ namespace WebSphere.Domain.Abstract
         public string LoText;
         public string LoloText;
 
-        public double HihiSeverity;
-        public double HiSeverity;
-        public double LoSeverity;
-        public double LoloSeverity;
+        public double? HihiSeverity;
+        public double? HiSeverity;
+        public double? LoSeverity;
+        public double? LoloSeverity;
+    }
+    public class EventThreadManagerConfig
+    {
+        public TagId Tag;
+        public int TagId;
+        public bool Enabled;
+        public bool Active;
+        public double LastValue;
+
+        public List<EventValMessage> EventMessages;
+    }
+
+    public class EventValMessage
+    {
+        public float Value;
+        public string Message;
+
     }
 
     public class AlarmThreadManagerAlarm
@@ -40,6 +58,26 @@ namespace WebSphere.Domain.Abstract
         public DateTime QTime;
         public int? Qted;
     }
+    public class EventThreadManagerEvent
+    {
+        public int Id;
+        public int TagId;
+        public DateTime Time;
+        public float Value;
+    }
+
+    public class EventAlertManager
+    {
+        public string Message;
+        public int Id;
+    }
+    public class EventThreadManagerOut
+    {
+        public int Id;
+        public int TagId;
+        public DateTime Time;
+        public string Message;
+    }
 
     public class AlarmThreadManagerOut
     {
@@ -52,23 +90,26 @@ namespace WebSphere.Domain.Abstract
         public DateTime EndTime;
         public double EndValue;
         public DateTime AckTime;
-        public TimeSpan Duration;
+        public string Duration;
         public int? Ack;
         public bool Active;
         public string Message;
     }
-     
+
     public interface IAlarmServer
     {
         bool Init();
         void Run();
-        void Restart();
-        List<AlarmThreadManagerConfig>  GetAlarmStates();
-        List<AlarmThreadManagerOut> GetCurrentAlarms();
-        List<AlarmThreadManagerOut> GetAlarmsReport(string dt1,string dt2);
-        void SetAlarmAck(int alarmId);
-        void SetAlarmAckAll();
-        bool SoundAlarm();
+        bool Restart();
+        List<AlarmThreadManagerConfig> GetAlarmConfig();
+        List<AlarmThreadManagerOut> GetCurrentAlarms(Int32? id);
+
+        List<EventThreadManagerConfig> GetEventConfig();
+        List<EventThreadManagerOut> GetCurrentEvents(Int32? id);
+        List<AlarmThreadManagerOut> GetAlarmsReport(string dt1, string dt2);
+        bool SetAlarmAck(int alarmId);
+        bool SetAlarmAckAll();
+        List<EventAlertManager> SoundAlarm();
     }
-  
+
 }

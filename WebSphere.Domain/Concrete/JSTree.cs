@@ -1,97 +1,168 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebSphere.Domain.Abstract;
 using WebSphere.Domain.Entities;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.SqlClient;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data;
+using System.Reflection;
+using System.Collections;
+using EntityFramework.BulkInsert.Extensions;
+using EntityFramework.MappingAPI;
+using EntityFramework.Extensions;
 
 namespace WebSphere.Domain.Concrete
 {
     public class JSTree : IJSTree
     {
-        private readonly EFDbContext context = new EFDbContext();
+        private readonly EFDbContext context;
         private static readonly JSON json = new JSON();
-        public string CreateJsTree(int parID)
+        public static List<Objects> copyObjects;
+        public static List<Property> propertyList;
+        public static List<Objects> pasteObjects;
+        public static List<Property> pastePropertyList;
+        private static TagProps tagPropsForCopy;
+        public JSTree()
         {
-            string childstring = "";
+            this.context = new EFDbContext();
+        }
+        public int getRootNodeId()
+        {
+            int id = context.Objects.Where(m => m.Type == 23).AsNoTracking().Select(m => m.Id).FirstOrDefault();
+            return id;
+        }
 
+        List<Objects> objList;
 
-            using (var context1 = new EFDbContext())
+        public string CreateJsTreeHelp(int parID)
+        {
+            //Stopwatch sw1 = new Stopwatch();
+            //sw1.Start();
+            objList = context.Objects.AsNoTracking().ToList();
+            //sw1.Stop();
+
+            return CreateJsTree(parID);
+        }
+
+        public MetaObject CreateMetaObject(int parentId, ref Dictionary<int, object> Nodes)
+        {
+
+            MetaObject metaObject = new MetaObject();
+            Objects root = objList.Where(c => c.Id == parentId).FirstOrDefault();
+            var childs = objList.Where(c => c.ParentId == parentId).Select(c => c);
+
+            metaObject.Id = root.Id;
+            metaObject.Name = root.Name;
+            metaObject.ParentId = root.ParentId;
+            metaObject.Type = root.Type;
+            if (childs.Count() != 0)
             {
-                var root = context1.Objects.Where(c => c.Id == parID).Select(c => c).FirstOrDefault();
-                var childs = context1.Objects.Where(c => c.ParentId == parID).ToList();
-                int counter = 0;
                 foreach (var child in childs)
                 {
-                    if (counter != 0)
-                        childstring += ",";
-                    if (child.Id == 0) continue;
-                    childstring += CreateJsTree(child.Id);
-                    counter++;
+                    MetaObject metaObjectChild = CreateMetaObject(child.Id, ref Nodes);
+                    if (metaObject.Children == null)
+                    {
+                        metaObject.Children = new List<MetaObject>();
+                    }
+                    metaObject.Children.Add(metaObjectChild);
                 }
+                Nodes.Add(root.Id, metaObject.Children);
+            }
+            else
+            {
+                metaObject.Children = null;
+                Nodes.Add(metaObject.Id, null);
+            }
+            return metaObject;
+        }
 
+        public string CreateJsTree(int parId)
+        {
+            string childstring = "";
+            Objects root = objList.Where(c => c.Id == parId).FirstOrDefault();
+            List<Objects> childs = objList.Where(c => c.ParentId == parId).Select(c => c).ToList();
+            int counter = 0;
+            int max = childs.Count();
+
+            foreach (var child in childs)
+            {
+                if (counter != 0)
+                    childstring += ",";
+                childstring += CreateJsTree(child.Id);
+                counter++;
+            }
+
+            objList.Remove(root);
+            if (root.Type == 17 || root.Type == 18)
+            {
                 return "{ " +
-                      "'id' : '" + root.Id + "', " +
-                      "'text': '" + root.Name + "', " +
-                      "'icon': 'jstree-type_" + root.Type + "', " +
-                "'children': [" + childstring + "] " +
-                "}";
+                  "\"id\" : \"" + root.Id + "\", " +
+                  "\"text\": \"" + root.Name + "\", " +
+                  "\"icon\": \"jstree-type_" + root.Type + "\", " +
+                  "\"li_attr\":{\"name\":\"channelNode\"}," +
+                  "\"children\": [" + childstring + "] " +
+                  "}";
+            }
+            else if (root.Type == 21)
+            {
+                return "{ " +
+                  "\"id\" : \"" + root.Id + "\", " +
+                  "\"text\": \"" + root.Name + "\", " +
+                  "\"icon\": \"jstree-type_" + root.Type + "\", " +
+                  "\"li_attr\":{\"name\":\"folder\"}," +
+                  "\"children\": [" + childstring + "] " +
+                  "}";
+            }
+            else
+            {
+                return "{ " +
+                   "\"id\" : \"" + root.Id + "\", " +
+                   "\"text\": \"" + root.Name + "\", " +
+                   "\"icon\": \"jstree-type_" + root.Type + "\", " +
+                   "\"children\": [" + childstring + "] " +
+                   "}";
             }
         }
 
-        string connProp = "";
-        int OPCID;
-        //получает строку подключения
-        public string getConnectionProp(int idElemToPaste)
+
+        //string connProp = "";
+        //получает строку подключения и Id OPC сервера
+        public string getConnectionProp(int? idElemToPaste, out int OPCId)
         {
             string connProp = "";
+            int Id = 0;
             using (var context = new EFDbContext())
             {
-                var parent = context.Objects.Where(c => c.Id == idElemToPaste).FirstOrDefault();
-
-                var olderParent = Convert.ToString(parent.ParentId);
-
+                var parent = context.Objects.Where(c => c.Id == idElemToPaste).AsNoTracking().FirstOrDefault();
                 if (parent.Type != 1)
                 {
-                    connProp += getConnectionProp(Convert.ToInt32(olderParent));
+                    connProp += getConnectionProp(parent.ParentId, out OPCId);
                     return connProp += parent.Name + "/";
-
                 }
                 else
                 {
                     if (parent.Type == 1)
                     {
-                        OPCID = parent.Id;
+                        Id = parent.Id;
+
                     }
+                    OPCId = Id;
                     return parent.Name + "/";
                 }
             }
 
         }
-        //дает ID OPC-сервера, к которому относится узел
-        public int getOPCID()
-        {
-            return OPCID;
-        }
 
-        //Находит типы из таблицы ObjectTypes, не относящиеся к стандартным или типа, которые использует ядро
-        public Dictionary<int, string> findObjForDefaultNode()
-        {
-            var defaultObj = new Dictionary<int, string>();
-            var exceptionList=new List<int> {1, 2, 3, 4, 5, 7, 9, 10, 11,12,13,14,15,16,17,18,19,20,21,22};
-            var sql = context.ObjectTypes.Where(m=>!exceptionList.Contains(m.Id)).Select(m => new { m.Id, m.Name }).ToList();
-            foreach(var item in sql)
-            {
-                defaultObj.Add(item.Id, item.Name);
-            }
-            return defaultObj;
-        }
-        public void addNode(string newNodeName, int newNodeType, int idNodeToAdd, int defNodeObjType)
+        public int addNode(string newNodeName, int newNodeType, int idNodeToAdd)
         {
             var nodeType = 0;
-
-
+            int OPCId = 0;
             string jsonPropEnd = "";
             switch (newNodeType)
             {
@@ -100,54 +171,41 @@ namespace WebSphere.Domain.Concrete
                     jsonPropEnd = ",\"Type\":\"\",\"Connection\":\"\",\"Connect\":false}";
                     nodeType = 1;
                     break;
-                //КТПН дальний
+                //Тег
                 case 2:
-                    jsonPropEnd = ",\"Address\":0,\"Driver\":\"\",\"RetrCount\":0,\"ParentGroup\":" + idNodeToAdd + ",\"PrimaryChannel\":0,\"SecondaryChannel\":0}";
-                    nodeType = 7;
+                    string ConnString = getConnectionProp(idNodeToAdd, out OPCId).Trim('/');
+                    jsonPropEnd = ",\"Opc\":" + OPCId + ",\"Connection\":\"" + ConnString + "\",\"Description\":null";
+                    jsonPropEnd += ",\"ControllerType\":0,\"RealType\":0,\"Register\":\"\",\"AccessType\":0";
+                    jsonPropEnd += ",\"Order\":1,\"InMin\":0,\"InMax\":1,\"OutMin\":1,\"OutMax\":1,\"IsSpecialTag\":null,\"History_IsPermit\":false,\"RegPeriod\":0,\"Deadbend\":0.1,\"UpdateAnyway\":false";
+                    jsonPropEnd += ",\"Alarms\":{\"Permit\":false,\"Enabled\":false,\"Sound\":false,\"HiHiText\":null,\"HiText\":null,\"NormalText\":null,\"LoText\":null,\"LoLoText\":null";
+                    jsonPropEnd += ",\"HiHiSeverity\":null,\"HiSeverity\":null,\"LoSeverity\":null,\"LoLoSeverity\":null}";
+                    jsonPropEnd += ",\"Events\":{\"Enabled\":false,\"EventMessages\":[]}}";
+                    nodeType = 2;
                     break;
-                //АГЗУ
-                case 3:
-                    jsonPropEnd = ",\"Address\":0,\"Driver\":\"\",\"RetrCount\":0,\"ParentGroup\":" + idNodeToAdd + ",\"PrimaryChannel\":0,\"SecondaryChannel\":0}";
+                //Контроллер
+                case 5:
+                    jsonPropEnd = ",\"Address\":0,\"Driver\":\"\",\"RetrCount\":0,\"ParentGroup\":" + idNodeToAdd + ",\"PrimaryChannel\":0,\"SecondaryChannel\":0,\"PgPause\":0}";
                     nodeType = 5;
                     break;
-                ////БДР
-                //case 4:
-                //    jsonProp = "{\"Id\":\"\",\"Name\":\"\",\"Address\":0,\"Driver\":\"\",\"RetrCount\":0,\"ParentGroup\":0,\"PrimaryChannel\":0,\"SecondaryChannel\":0}";
-                //    nodeType = 9;
-                //    break;
-                //Радио канал
-                case 5:
-                    jsonPropEnd = ",\"ChannelType\":\"Serial\",\"InterPollPause\":0,\"MaxErrorsToSwitchChannel\":3,\"MaxErrorsToBadQuality\":3,\"TimeTryGoBackToPrimary\":300,\"PortName\":\"COM1\",\"BaudRate\":115200,\"Parity\":0,\"StopBits\":1,\"WriteTimeout\":2000,\"ReadTimeout\":2000}";
-                    nodeType = 18;
-                    break;
                 //GPRS канал
-                case 6:
+                case 17:
                     jsonPropEnd = ",\"ChannelType\":\"Tcp\",\"InterPollPause\":0,\"MaxErrorsToSwitchChannel\":3,\"MaxErrorsToBadQuality\":3,\"TimeTryGoBackToPrimary\":300,\"IpAddress\":\"127.0.0.1\",\"Port\":80,\"WriteTimeout\":2000,\"ReadTimeout\":2000}";
                     nodeType = 17;
                     break;
-                //PollingGroup
-                case 7:
-                    jsonPropEnd = ",\"Start\":0,\"Count\":0,\"Function\":0}";
-                    nodeType = 22;
-                    break;
-
-                //Тег
-                case 8:
-                    string ConnString = getConnectionProp(idNodeToAdd) + newNodeName;
-                    jsonPropEnd = ",\"Opc\":" + OPCID + ",\"Connection\":\"" + ConnString + "\",\"Alarm_IsPermit\":false,\"HiHiText\":null,\"HiText\":null,\"NormalText\":null,\"LoText\":null,\"LoLoText\":null";
-                    jsonPropEnd += ",\"HiHiSeverity\":null,\"HiSeverity\":null,\"LoSeverity\":null,\"LoLoSeverity\":null,\"ControllerType\":0,\"RealType\":0,\"Register\":\"\",\"AccessType\":0,";
-                    jsonPropEnd += "\"Order\":1,\"InMin\":0,\"InMax\":1,\"OutMin\":1,\"OutMax\":1,\"IsSpecialTag\":false,\"History_IsPermit\":false,\"RegPeriod\":0,\"Deadbend\":0.1}";
-                    nodeType = 2;
+                //Радио канал
+                case 18:
+                    jsonPropEnd = ",\"ChannelType\":\"Serial\",\"InterPollPause\":0,\"MaxErrorsToSwitchChannel\":3,\"MaxErrorsToBadQuality\":3,\"TimeTryGoBackToPrimary\":300,\"PortName\":\"COM1\",\"BaudRate\":115200,\"Parity\":0,\"StopBits\":1,\"WriteTimeout\":2000,\"ReadTimeout\":2000}";
+                    nodeType = 18;
                     break;
                 //Папка
-                case 9:
+                case 21:
                     jsonPropEnd = "";
                     nodeType = 21;
                     break;
-                //Другое
-                case 10:
-                    jsonPropEnd = "}";
-                    nodeType = defNodeObjType;
+                //PollingGroup
+                case 22:
+                    jsonPropEnd = ",\"Start\":0,\"Count\":0,\"Function\":0,\"UserData\":null}";
+                    nodeType = 22;
                     break;
             }
             Objects newNode = new Objects
@@ -159,7 +217,7 @@ namespace WebSphere.Domain.Concrete
             context.Objects.Add(newNode);
             context.SaveChanges();
             //найдем ID узла, добавленного в таблицу Objects
-            var newNodeId = context.Objects.Select(c => c.Id).Max();
+            var newNodeId = newNode.Id;
             string jsonPropBegin = "{\"Id\":" + newNodeId + ",\"Name\":\"" + newNodeName + "\"";
 
             Property newNodeProps;
@@ -182,252 +240,226 @@ namespace WebSphere.Domain.Concrete
                     Value = jsonPropBegin + jsonPropEnd
                 };
             }
-
             context.Properties.Add(newNodeProps);
             context.SaveChanges();
+            return newNodeId;
         }
         public void renameNode(int idRenameNode, string newNodeName, int typeProp)
         {
             var renameNode = context.Objects.Where(c => c.Id == idRenameNode).FirstOrDefault();
             renameNode.Name = newNodeName;
-            if (typeProp != 21)
-            {
-                var renameNodeProps = context.Properties.FirstOrDefault(c => c.ObjectId == idRenameNode && c.PropId == 0);
-                var jsonProps = renameNodeProps.Value;
-                var getArrOfProps = jsonProps.Split(',');
-                var oldName = getArrOfProps[1];
-                var newName = "\"Name\":\"" + newNodeName + "\"";
-                var newjsonProps = jsonProps.Replace(oldName, newName);
-                renameNodeProps.Value = newjsonProps;
-            }
-            var Childnodes = context.Objects.Where(c => c.ParentId == idRenameNode && c.Type == 2).ToList();
-            foreach (var child in Childnodes)
-            { 
-                var renameChildNodeProps = context.Properties.FirstOrDefault(c => c.ObjectId == child.Id && c.PropId == 0);
-                if (renameChildNodeProps != null)
-                {
-              var jsonProps = renameChildNodeProps.Value;
-
-                    var getArrOfProps = jsonProps.Split(',');
-               /*   if (getArrOfProps.Contains();
-                    var newName = "\"Name\":\"" + newNodeName + "\"";
-                    var newjsonProps = jsonProps.Replace(oldName, newName);
-                    renameChildNodeProps.Value = newjsonProps;
-              
-            */  }
-            }
+            //if (typeProp != 21)
+            //{
+            //    var renameNodeProps = context.Properties.Where(c => c.ObjectId == idRenameNode && c.PropId == 0).FirstOrDefault();
+            //    var jsonProps = renameNodeProps.Value;
+            //    var getArrOfProps = jsonProps.Split(',');
+            //    var oldName = getArrOfProps[1];
+            //    var newName = "\"Name\":\"" + newNodeName + "\"";
+            //    var newjsonProps = jsonProps.Replace(oldName, newName);
+            //    renameNodeProps.Value = newjsonProps;
+            //}
             context.SaveChanges();
         }
-        public void deleteJsTreeNode(int parID)
+        List<int> IdToDeleteList = new List<int>();
+        List<Objects> obj;
+        public List<int> deleteJsTreeNodeRoot(int parID)
         {
+            //сюда собираем список Id  всех объектов, подлежащих удалению
+            List<int> IdToDeleteList = new List<int>();
+            Objects delElem = context.Objects.FirstOrDefault(o => o.Id == parID);
+            if (delElem != null)
+            {
+                //получаем список объектов из таблицы Objects в глоб перем
+                obj = context.Objects.Where(o => o.Id >= parID).ToList();
+                IdToDeleteList = deleteJsTreeNode(parID);
+            }
+            return IdToDeleteList;
+        }
+
+        public List<int> deleteJsTreeNode(int parID)//сюда собираем список Id  всех объектов, подлежащих удалению
+        {
+            IdToDeleteList.Add(parID);
+            var childs = obj.Where(c => c.ParentId == parID).Select(c => c).ToList();
+            Objects currObj = obj.Where(o => o.Id == parID).FirstOrDefault();
+            obj.Remove(currObj);
+
+            foreach (var child in childs)
+            {
+                deleteJsTreeNode(child.Id);
+            }
+            return IdToDeleteList;
+        }
+
+        public void deleteJsTreeNodeBulk(List<int> IdList)//для быстрого удаления узлов. Использует EntityFramework.Extended
+        {
+            int n = 100;
+            int iterationCount = IdList.Count / n;
+            List<int> IdListSorted = IdList.OrderBy(i => i).ToList();
+
+            for (int i = 0; i < iterationCount + 1; i++)
+            {
+                var some = IdListSorted.Skip(n * i).Take(100);
+                context.Objects.Where(o => some.Contains(o.Id)).Delete();
+                context.Properties.Where(p => some.Contains(p.ObjectId)).Delete();
+            }
+        }
+
+        public List<int> findObjectNodes()//ищет все узлы типа контроллер
+        {
+            List<int> objects = new List<int>();
             using (var context = new EFDbContext())
             {
-
-                //удаление объекта из табл Objects
-                var root = context.Objects.Where(c => c.Id == parID).Select(c => c).FirstOrDefault();
-                var childs = context.Objects.Where(c => c.ParentId == parID).Select(c => c);
-                context.Objects.Remove(root);
-                context.SaveChanges();
-                //удаление связанных с объектом свойств из Properties
-                var rootProp = context.Properties.Where(c => c.ObjectId == parID && c.PropId == 0).Select(c => c).FirstOrDefault();
-                context.Properties.Remove(rootProp);
-                context.SaveChanges();
-                foreach (var child in childs)
+                var root = context.Objects.Where(c => c.Type == 5).Select(c => c).ToList();
+                foreach (var item in root)
                 {
-                    deleteJsTreeNode(child.Id);
+                    objects.Add(item.Id);
                 }
             }
-            return;
+            return objects;
+        }
+
+        int nodePaste;//Хранит Id корневого копируемого узла
+        int baseId = 0;//базовое значение Id, полученное при вставке 1го копируемого элемента. От него будут отсчитываться последующие Id
+        string oldControllerName = "";//для правки свойства Connection
+        string newControllerName = "";//для правки свойства Connection
+        int OPCIDglobal = 0;
+        public string pasteNodeRoot(int idPasteParentElem, int idCopyParentElem, string newContName)
+        {
+            pasteObjects = new List<Objects>();
+            pastePropertyList = new List<Property>();
+            nodePaste = idPasteParentElem;
+            copyObjects = context.Objects.Where(o => o.Id >= idCopyParentElem).AsNoTracking().ToList();//попытка хоть немного уменьшить количество объектов по которым идет перебор
+            propertyList = context.Properties.Where(p => p.PropId == 0 && p.ObjectId >= idCopyParentElem).AsNoTracking().ToList();
+            var rootCopy = copyObjects.Find(m => m.Id == idCopyParentElem);//корневой узел
+            oldControllerName = rootCopy.Name;
+            newControllerName = newContName;//название,которое ввел пользователь
+            string Name = rootCopy.Name;//если узел конечный, то название оставим
+            if (rootCopy.Type == 5 && newContName != "")//если же нет, то заменим на пользовательское
+            {
+                Name = newContName;
+            }
+
+            Property rootPropsCopy = propertyList.Find(p => p.ObjectId == idCopyParentElem);
+
+            Objects newNode = new Objects()
+            {
+                Name = Name,
+                Type = rootCopy.Type,
+                ParentId = idPasteParentElem
+            };
+
+            context.Objects.Add(newNode);
+            context.SaveChanges();
+            baseId = newNode.Id;//От него будут отсчитываться последующие Id
+            string newPropJson = "";
+            if (rootPropsCopy.Value != "")
+            {
+                newPropJson = rootPropsCopy.Value;
+
+                string newConnSrtId = getConnectionProp(idPasteParentElem, out OPCIDglobal).Trim('/');
+                if (rootCopy.Type == 2)
+                {
+
+                    tagPropsForCopy = new TagProps();
+                    tagPropsForCopy = (TagProps)json.Deserialize(rootPropsCopy.Value, tagPropsForCopy.GetType());
+                    tagPropsForCopy.Opc = OPCIDglobal;
+                    tagPropsForCopy.Connection = newConnSrtId;
+                    newPropJson = json.Serialize(tagPropsForCopy);
+                }
+
+            }
+
+            Property objProp = new Property
+            {
+                ObjectId = newNode.Id,
+                PropId = 0,
+                Value = newPropJson
+            };
+            context.Properties.Add(objProp);
+            context.SaveChanges();
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+            pasteNode(idCopyParentElem, newNode.Id);
+            int countPasteNodes = pasteObjects.Count();
+            context.Configuration.AutoDetectChangesEnabled = false;
+            context.BulkInsert(pasteObjects);
+
+            context.SaveChanges();
+            context.BulkInsert(pastePropertyList);
+            context.SaveChanges();
+
+            //sw.Stop();
+
+            return CreateJsTreeHelp(newNode.Id);
         }
 
 
-        int nodePaste;
-        public void pasteNode(int idPasteParentElem, int idCopyParentElem)
+        public void pasteNode(int copyNode, int newNode)
         {
-
-
-            nodePaste = idPasteParentElem;
-            int nodeCopy = idCopyParentElem;
-            int maxID1;
-            //var OPCName = nameOPC;
-            using (var context = new EFDbContext())
+            Objects rootCopy = copyObjects.Where(r => r.Id == copyNode).FirstOrDefault();
+            var rootCopyChilds = copyObjects.Where(r => r.ParentId == copyNode).ToList();
+            int childrenCount = rootCopyChilds.Count();
+            for (int i = 0; i < childrenCount; i++)
             {
-                var rootCopy2 = context.Objects.Where(c => c.Id == nodeCopy).Select(c => c).FirstOrDefault();
+                int currentIdd = ++baseId;
+                copyObjects.Remove(rootCopy);//типа оптимизирую
+                //проверка чтобы избежать бесконечной вставки набора копируемых узлов.
+                if (rootCopyChilds[i].ParentId == nodePaste)
+                    return;
 
-
-                //узел, в который будет произведена вставка
-                var nodePasteName = from o1 in context.Objects
-                                    where o1.Id == nodePaste
-                                    select o1.Name;
-                //Извлечем копируемый корневой узел с его свойствами
-                var rootCopy = from o1 in context.Objects
-                           join o2 in context.Properties on o1.Id equals o2.ObjectId
-                           where o1.Id == nodeCopy && o2.PropId == 0
-                           select new
-                           {
-                               id = o1.Id,
-                               name = o1.Name,
-                               parentID = o1.ParentId,
-                               type = o1.Type,
-                               propValue = o2.Value
-                           };
-                //Преобразуем в список, чтобы не использвать foreach. В дальнейшем избавиться от листа
-                var rootCopyNode = rootCopy.ToList();//корневой для копировани
-                var pasteNode = nodePasteName.ToList();//узел для вставки
-                //подготовим корневую сущность для вставки в таблицу Objects
-                Objects obj = new Objects
+                Objects newPasteNode = new Objects()
                 {
-                    //id = maxID1++,
-                    ParentId = idPasteParentElem,
-                    Type = rootCopyNode[0].type,
-                    Name = rootCopyNode[0].name
+                    Id = currentIdd,
+                    ParentId = newNode,
+                    Type = rootCopyChilds[i].Type,
+                    Name = rootCopyChilds[i].Name
                 };
-                context.Objects.Add(obj);
-                context.SaveChanges();
-
-                string newPropJson;
-                //найдем ID только что вставленного корневого элемента
-                maxID1 = context.Objects.Select(c => c.Id).Max();
-                if (rootCopy2.Type == 21)
+                pasteObjects.Add(newPasteNode);
+                Property rootPropsCopy = propertyList.Where(p => p.ObjectId == rootCopyChilds[i].Id).FirstOrDefault();
+                propertyList.Remove(rootPropsCopy);//типа оптимизирую
+                string newPropJson = "";
+                //если у узла есть свойства
+                if (rootPropsCopy.Value != "")
                 {
-                    newPropJson = "";
-                }
-                else
-                {
-                    //распилим свойства корневого вставляемого элемента
-                    var getNewPropArr = rootCopyNode[0].propValue.Split(',');
+                    //поправим значение OpcID и Connection в строке свойств 
+                    newPropJson = rootPropsCopy.Value;
 
-                    var oldID = getNewPropArr[0];
-                    var newID = "{\"Id\":\"" + maxID1 + "\"";
-                    //Заменим ID на актуальный в свойствах
-                    newPropJson = rootCopyNode[0].propValue.Replace(oldID, newID);
-                    if (rootCopy2.Type == 2)
+                    if (rootCopyChilds[i].Type == 2)
                     {
-                        string newConnSrt = getConnectionProp(idPasteParentElem) + rootCopy2.Name;
-                        var oldConnection = getNewPropArr[3];
-                        var newConnection = "\"Connection\":\"" + newConnSrt + "\"";
-                        var oldOPCID = getNewPropArr[2];
-                        var newOPCID = "\"Opc\":\"" + OPCID + "\"";
-                        newPropJson = newPropJson.Replace(oldOPCID, newOPCID);
-                        newPropJson = newPropJson.Replace(oldConnection, newConnection);
-
+                        tagPropsForCopy = new TagProps();
+                        tagPropsForCopy = (TagProps)json.Deserialize(rootPropsCopy.Value, tagPropsForCopy.GetType());
+                        string newConnStr = tagPropsForCopy.Connection;
+                        string newConnStrRepl = newConnStr.Replace(oldControllerName, newControllerName);
+                        tagPropsForCopy.Opc = OPCIDglobal;
+                        tagPropsForCopy.Connection = newConnStrRepl;
+                        newPropJson = json.Serialize(tagPropsForCopy);
                     }
                 }
-
+                //вставка строки со свойствами в таблицу свойств
                 Property objProp = new Property
                 {
-                    ObjectId = maxID1,
+                    ObjectId = currentIdd,
                     PropId = 0,
                     Value = newPropJson
                 };
-                context.Properties.Add(objProp);
-                context.SaveChanges();
+                pastePropertyList.Add(objProp);
 
+                int nextParentId = 0;
+                if (i == 0)//если это первый потомок, то просто наращиваем на 1 Id
+                    nextParentId = newNode + 1;
+                else // если же последующие, то присваиваем макс Id для родителя
+                    nextParentId = pasteObjects.Last().Id;
+                pasteNode(rootCopyChilds[i].Id, nextParentId);
             }
-            pasteJsTreeNodes(nodeCopy, maxID1);
         }
 
-        int maxIdForProp;
-        public void pasteJsTreeNodes(int parID, int parIDCopy)
+        public bool CheckNodeExists(int Id)
         {
-            using (var context = new EFDbContext())
-            {
-                //Достанем самый верхний копируемый узел
-                var root = context.Objects.Where(c => c.Id == parID).Select(c => c).FirstOrDefault();
-
-                //var childs1 = context.Objects.Where(c => c.ParentId == parID).Select(c => c);
-                //Извлечем все дочерние узлы
-                var childs = from o1 in context.Objects
-                             join o2 in context.Properties on o1.Id equals o2.ObjectId
-                             where o1.ParentId == parID && o2.PropId == 0
-                             select new
-                             {
-                                 id = o1.Id,
-                                 name = o1.Name,
-                                 parentID = o1.ParentId,
-                                 type = o1.Type,
-                                 propValue = o2.Value
-                             };
-
-                int counter = 0;
-
-                foreach (var child in childs)
-                {
-                    //сохранить в базу строку с ID нового узла и его родительским узлом
-                    //а еще скопировать свойства из Properties, но учесть, что в JSON свойствах есть ID старого элемента и его надо менять
-                    //сделать запрос на макс используемый ID в базе
-
-                    using (var context1 = new EFDbContext())
-                    {
-                        //проверка чтобы избежать бесконечной вставки набора копируемых узлов.
-                        // то есть 
-                        if (child.parentID == nodePaste)
-                            return;
-                        //Добавление записи в табл Object
-                        Objects obj1 = new Objects
-                        {
-                            ParentId = parIDCopy,
-                            Type = child.type,
-                            Name = child.name
-                        };
-                        context1.Objects.Add(obj1);
-                        context1.SaveChanges();
-
-                        //ID только что вставленного элемента
-                        using (var context2 = new EFDbContext())
-                        {
-                            maxIdForProp = context2.Objects.Select(c => c.Id).Max();
-                        }
-                        string newPropJson = "";
-                        //если тип узла- папка, то редактировать json свойство не нужно и посылаем пустую строку
-                        if (child.type == 13)
-                        {
-                            newPropJson = "";
-                        }
-                        else
-                        {
-                            //поправим значение ID в строке свойств 
-                            var getNewIDArr = child.propValue.Split(',');
-                            var oldID = getNewIDArr[0];
-                            var newID = "{\"Id\":\"" + maxIdForProp + "\"";
-                            newPropJson = child.propValue.Replace(oldID, newID);
-
-                            if (child.type == 2)
-                            {
-                                string newConnSrt = getConnectionProp(parIDCopy) + child.name;
-                                var oldConnection = getNewIDArr[3];
-                                var newConnection = "\"Connection\":\"" + newConnSrt + "\"";
-                                newPropJson = newPropJson.Replace(oldConnection, newConnection);
-                                var oldOPCID = getNewIDArr[2];
-                                var newOPCID = "\"Opc\":\"" + OPCID + "\"";
-                                newPropJson = newPropJson.Replace(oldOPCID, newOPCID);
-                            }
-
-                        }
-
-                        //вставка строки со свойствами в таблицу свойств
-                        Property objProp = new Property
-                        {
-                            ObjectId = maxIdForProp,
-                            PropId = 0,
-                            Value = newPropJson
-                        };
-                        context1.Properties.Add(objProp);
-                        context1.SaveChanges();
-                        //Сделала новый Using, потому что возникала ошибка. Не знаю верное ли решение
-                        //{System.Data.Entity.Core.EntityException: An error occurred while starting a transaction on the provider connection. See the inner exception for details. --->
-                        //System.InvalidOperationException:
-                        //Существует назначенный этой команде Command открытый DataReader, который требуется предварительно закрыть.
-                        //using (var db2 = new EFDbContext())
-                        //{
-                        //    maxID = db2.Objects.Select(c => c.Id).Max();
-                        //    maxID2 =maxID;
-                        //}
-                    }
-                    pasteJsTreeNodes(child.id, maxIdForProp);
-                    counter++;
-                }
-            }
+            var node = context.Objects.FirstOrDefault(n => n.Id == Id);
+            if (node == null)
+                return false;
+            else
+                return true;
         }
 
     }

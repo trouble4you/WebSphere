@@ -1,0 +1,177 @@
+﻿
+<link href="~/Content/JSTree/themes/default/style.min.css" rel="stylesheet" />
+<link href="~/Content/JSTree/jstree_style.css" rel="stylesheet" />
+<link href="~/Content/Configurator.css" rel="stylesheet" />
+
+@*<link href="~/Content/site.css" rel="stylesheet" />*@
+@*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/configurator.js"></script>
+<script src="~/Scripts/jstree.js"></script>
+<script src="~/Scripts/script.js"></script>
+
+
+@*<script src="~/Scripts/configurator.js"></script>*@
+@*<div class="row">*@
+@*<div id="container" class="col-xs-3" style="height:80vh;"></div>*@
+<div id="container" class="left-boxConfig div-box clearB"></div>
+
+<div class="right-boxConfig">
+    <div class="portlet floatL FloatLConfig">
+        <div class="div_inline FloatLConfig">
+            @*<div id="tagInfo" style="float:left;" class="tagInfo">Выберите узел для просмотра настроек</div>*@
+            <div id="tagInfo">Выберите узел для просмотра настроек</div>  @*class="tagInfo"*@
+
+        </div>
+    </div>
+</div>
+
+@*</div>*@
+
+
+<script type="text/javascript">
+        var checkCopyNode = 0;
+        $(function () {
+            var t = $('#jstree').val();
+
+            $('#container').jstree({
+                @*'core': { 'data': [@Html.Raw(Model.CreateJsTree(1))] },*@
+                'core': {
+                    'data': [@Html.Raw(ViewBag.JStreeStr)],
+                     "check_callback": true
+
+            },
+            "plugins": ["contextmenu", "state", "json_data"],
+            "contextmenu":
+            {
+                "items": function ($node) {
+                    var tree = $('#container').jstree(true);
+                    if ($node.icon === "jstree-type_2" || $node.icon === "jstree - type_17" || $node.icon === "jstree-type_18" || $node.icon === "jstree-type_22") {
+                        return {
+                            "Copy": { "label": "Копировать", "action": function () { checkCopyNode = 1; copyNode($node.id); } },
+                            "Delete": { "label": "Удалить", "action": function () { deleteNode($node.id); } },
+                            "Rename": {
+                                "label": "Переименовать", "action": function (data) {
+                                    var inst = $.jstree.reference(data.reference),
+                                        obj = inst.get_node(data.reference);
+                                    inst.edit(obj);
+                                }
+                            }
+                        };
+                    }
+                    else
+                    {
+                        if (checkCopyNode == 1)
+                        {
+                            return {
+                                "Create": { "label": "Добавить узел", "action": function () { createNode($node.id); } },
+                                "Copy": { "label": "Копировать", "action": function () { checkCopyNode = 1; copyNode($node.id); } },
+                                "Paste": { "label": "Вставить", "action": function () { checkCopyNode = 0; pasteNode($node.id); } },
+                                "Delete": { "label": "Удалить", "action": function () { deleteNode($node.id); } },
+                                "Rename": { "label": "Переименовать", "action": function (obj) { tree.edit($node); } }
+
+                            };
+                        }
+                        else
+                        {
+                            return {
+                                "Create": { "label": "Добавить узел", "action": function () { createNode($node.id); } },
+                                "Copy": { "label": "Копировать", "action": function () { checkCopyNode = 1; copyNode($node.id); } },
+                                "Delete": { "label": "Удалить", "action": function () { deleteNode($node.id); } },
+                                "Rename": { "label": "Переименовать", "action": function (obj) { tree.edit($node); } }
+
+                            };
+                        }
+
+                    }
+
+                }
+            }
+
+            //через вьюбэг получить подключенные модули и в соотств с ними показать вкладки
+        });
+
+            $('#container').bind("select_node.jstree", function (e, data) {
+                var id = data.instance.get_node(data.selected[0]).id;
+                var iconName = data.node.icon;
+                //if (saveFlag = 1)
+                //{
+                //    e.preventDefault();
+                //    $('#dialogToAddModule').load('/Configurator/SaveDialog');
+                //    saveFlag = 0;
+                //}
+                //else {
+                LoadPageOn();
+                    $('#tagInfo').load('@Url.Action("showTabProps","Configurator")?id=' + id);
+                //}
+
+                // tagSelected(id);
+
+            })
+           .bind("rename_node.jstree", function (e, data) {
+                var newName = data.text;
+                var id = data.node.id;
+
+                $.ajax({
+                    type: "GET",
+                    url: '/Configurator/RenameNode',
+                    data: { idRenameNode: id, newNodeName: newName },
+                    //async: true,
+                    async:false,
+                    //НЕ УДАЛЯТЬ ВДРУГ ПОНАДОБИТСЯ
+                    //success: function(data){
+                    //    $('#tagInfo').html(data);
+                    //},
+                    error: function () {
+                        alert("Неудача при отправке аякс запроса при переименовании");
+                    }
+                });
+            });
+
+
+        });
+
+        function updateNameInProps(data)
+        {
+            if (data.result == "Redirect")
+            {
+                window.location = data.URL;
+            }
+            //$.ajax({
+            //    type: "GET",
+            //    url: '/Configurator/showTabProps',
+
+            //    data: { id: id},
+            //    async: true,
+            //    //success: pageAddTemplate,
+            //    error: function () {
+            //        alert("Неудача при отправке аякс запроса при переименовании1");
+            //    }
+            //});
+        }
+
+    $(document).ready(function () {
+
+        $('#AddNewModule').click(function () {
+
+            $('#dialogToAddModule').load('@Url.Action("AddModuleDialog", "Configurator")');
+
+
+        });
+
+        function updateTabsAfterDel(idToDel) {
+            alert('hello');
+            var currentClickId = $('[aria-selected="true"]');
+            var currentClickId1 = currentClickId.attr('id');
+            $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
+
+        }
+
+    });
+
+
+</script>
+@*<div class="wrap_back" style="display: none;" id='loading'><div class="loading_window"><img src="~/Content/images/loadpage.gif" /></div></div>*@
+
+

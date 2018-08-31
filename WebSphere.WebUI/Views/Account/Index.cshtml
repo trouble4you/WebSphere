@@ -20,7 +20,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         LoadPageOn(); // загрузка страницы
 
@@ -29,12 +29,11 @@
             type: 'post',
             url: '/Account/Index',
             data: {},
-            async: false,
-            error: function (num) {
-                LoadPageOff(); // скрываем загрузку страницы
-                alert(num);
+            async: true,
+            error: function(num) {
+                LoadPageOff(); // скрываем загрузку страницы 
             },
-            success: function (data) {
+            success: function(data) {
                 // загружаем данные в контейнер
                 $('#id_datalist').html(data);
                 LoadPageOff(); // скрываем загрузку страницы
@@ -42,7 +41,7 @@
         });
 
     });
-
+     
 </script>
 
 <div class="left-box left-box-add">

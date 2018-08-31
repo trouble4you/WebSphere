@@ -1,112 +1,32 @@
-﻿<table id="moduleConnectedTable" class="table table-bordered">
+﻿@using WebSphere.Domain.Concrete
+@model List<moduleCondition>
+<table id="moduleConnectedTable" class="table table-bordered">
     <thead>
         <tr>
-            <th>
-            </th>
             <th>Название модуля</th>
             <th>Активен</th>
             <th>Доп. действия</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var mod in ViewBag.ActiveModules)
+
+        @if (Model.Count() == 0)
         {
-            if (mod.idModule == -1)
-            {
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            }
-            else
-            {
-                <tr data-idmodule="@mod.idModule">
-                    <td class="class_select_col">
-                        <div>
-                            <input class="select_row" type="checkbox" />
-                        </div>
-                    </td>
-                    <td>@mod.nameModule</td>
-                    <td>
-                        <div>
-                            @if (mod.isRun == "1")
-                            {
-                                <img src="~/Content/images/icon-yes.gif" alt="Yes" />
-                            }
-                            else
-                            {
-                                <img src="~/Content/images/icon-no.gif" alt="No" />
-                            }
-                        </div>
-                    </td>
-                    <td class="td_row_menu Link_blue1">
-                        <div>
-                            <ul class="ul_row_menu">
-                                @if (mod.isRun == "1")
-                                {
-                                    <li>
-                                        @Ajax.ActionLink("Остановить", "ChangeStatus", new { id = mod.idModule, moduleStatus = "0" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
-
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li>
-                                        @Ajax.ActionLink("Запустить", "ChangeStatus", new { id = mod.idModule, moduleStatus = "1" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
-                                    </li>
-                                }
-                                <li>
-                                    @Ajax.ActionLink("Удалить", "DeleteModule", new { id = mod.idModule }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", OnSuccess = "updateTabsAfterDel", LoadingElementId = "progress" })
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-
-                </tr>
-            }
-        }
-    </tbody>
-</table>
-@*<div>
-    <table id="moduleConnectedTable" class="table table-bordered modulesTable">
-        <thead>
             <tr>
-                <th style="width:85.45px;"></th>
-                <th style="width:176.36px;">Название модуля</th>
-                <th style="width:77px;">Активен</th>
-                <th>Доп. действия</th>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
-        </thead>
-    </table>
-</div>
-<div class="tableWrap">
-    <table class="table table-bordered modulesTable">
-        <tbody >
-            @foreach (var mod in ViewBag.ActiveModules)
+        }
+        else
+        {
+            for (int i = 0; i < Model.Count(); i++)
             {
-                if (mod.idModule == -1)
-                {
-                    <tr>
-                        <td></td>
-                        <td>Нет активных модулей</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                }
-                else
-                {
-                    <tr data-idmodule="@mod.idModule">
-                        <td class="class_select_col">
-                            <div>
-                                <input class="select_row" type="checkbox" />
-                            </div>
-                        </td>
-                        <td>@mod.nameModule</td>
+                    <tr data-idmodule="@Model[i].idModule">
+                        <td>@Model[i].nameModule</td>
                         <td>
                             <div>
-                                @if (mod.isRun == "1")
+                                @if (Model[i].isRun == "1")
                                 {
                                     <img src="~/Content/images/icon-yes.gif" alt="Yes" />
                                 }
@@ -119,35 +39,35 @@
                         <td class="td_row_menu Link_blue1">
                             <div>
                                 <ul class="ul_row_menu">
-                                    @if (mod.isRun == "1")
+                                    @if (Model[i].isRun == "1")
                                     {
                                         <li>
-                                            @Ajax.ActionLink("Остановить", "ChangeStatus", new { id = mod.idModule, moduleStatus = "0" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
+                                            @Ajax.ActionLink("Остановить", "ChangeModuleStatus", new { id = Model[i].idModule, moduleStatus = "0" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
 
                                         </li>
                                     }
                                     else
                                     {
                                         <li>
-                                            @Ajax.ActionLink("Запустить", "ChangeStatus", new { id = mod.idModule, moduleStatus = "1" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
+                                            @Ajax.ActionLink("Запустить", "ChangeModuleStatus", new { id = Model[i].idModule, moduleStatus = "1" }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", LoadingElementId = "progress" })
                                         </li>
                                     }
                                     <li>
-                                        @Ajax.ActionLink("Удалить", "DeleteModule", new { id = mod.idModule }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", OnSuccess = "updateTabsAfterDel", LoadingElementId = "progress" })
+                                        @Ajax.ActionLink("Удалить", "DeleteModule", new { id = Model[i].idModule }, new AjaxOptions { UpdateTargetId = "ModuleInfo", HttpMethod = "GET", OnSuccess = "updateTabsAfterDel", LoadingElementId = "progress" })
                                     </li>
                                 </ul>
                             </div>
                         </td>
 
                     </tr>
-                }
             }
-        </tbody>
-    </table>
-</div>*@
+        }
+        @*}*@
+    </tbody>
+</table>
+
 <script type="text/javascript">
     function updateTabsAfterDel(idToDel) {
-        alert('hello');
         $('#ModuleInfo').load('@Url.Action("DeleteModule", "Configurator")?id=' + idToDel)
 
         var currentClickId = $('[aria-selected="true"]');
@@ -156,21 +76,6 @@
 
     }
     $(document).ready(function () {
-        //$("#moduleConnectedTable thead").on("click", function () {
-        //    //alert("hide");
-        //    $(".tableWrap").slideToggle("slow");
-        //});
-                    
-        @*$('#delModule').click(function (e) {
-            e.preventDefault();
-            var idfordel = e.currentTarget.name;
-            var currentClickId = $('[aria-selected="true"]');
-            var currentClickId1 = currentClickId.attr('id');
-            $('#ModuleInfo').load('@Url.Action("DeleteModule", "Configurator")?id=' + idfordel,
-                function () {
-                    $('#tagInfo').load('@Url.Action("showTabProps", "Configurator")?id=' + currentClickId1);
-                });
-        });*@
 
     });
 

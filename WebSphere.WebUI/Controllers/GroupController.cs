@@ -143,7 +143,7 @@ namespace WebSphere.WebUI.Controllers
                 }
 
                 // если выбрано хотя бы одно разрешение
-                if(selected == 1)
+                if (selected == 1)
                 {
                     // создание новой группы пользователей
                     if (account.CreateRole(model.Name, model.ContentTypes))
@@ -228,10 +228,10 @@ namespace WebSphere.WebUI.Controllers
                     j.Selected = false; // по-умолчанию
 
                     // список разрешений 'role'
-                    foreach(var f in role.Permissions)
+                    foreach (var f in role.Permissions)
                     {
                         // ищем контроллер
-                        if(i.Actions[0].Name == f.Name)
+                        if (i.Actions[0].Name == f.Name)
                         {
                             // разрешения роли
                             foreach (var g in f.Permission)
@@ -395,8 +395,8 @@ namespace WebSphere.WebUI.Controllers
             {
                 ModelState.AddModelError("", "Ошибка, пожалуйста проверьте данные");
             }
-            
+
             return PartialView(model);
         }
-	}
+    }
 }

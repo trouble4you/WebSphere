@@ -11,7 +11,7 @@ namespace WebSphere.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Mnemo", "Mnemo", new { mnemo = "Meteli" });
+            return RedirectToAction("Mnemo", "Mnemo", new { mnemo = "Main" });
         }
 
         [HttpPost]

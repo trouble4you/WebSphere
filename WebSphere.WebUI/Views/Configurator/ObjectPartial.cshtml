@@ -3,196 +3,169 @@
     var tt = Model;
 }
 
-@if (ViewBag.Notification != null)
-{
-    if (ViewBag.Notification == 1)
-    {
-        <div class="alert alert-success">Данные успешно сохранены</div>
-    }
-    else
-    {
-        <div class="alert alert-error">Введенные данные некорректны </div>
-    }
-}
-@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
 <div class="tabs">
+    @if (ViewBag.Notification != null)
+    {
+        if (ViewBag.Notification == 1)
+        {
+            <div id="aboutSaveNotification" class="alert alert-success feedBackAboutSaving">Данные успешно сохранены</div>
+        }
+        else
+        {
+            <div id="aboutSaveNotification" class="alert alert-error feedBackAboutSaving">Данные некорректны</div>
+        }
+    }
     <ul class="nav nav-tabs smile-tabs">
 
-        <li class="active"><a href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
+        <li class="active"><a class="liTab" href="#commonPropTab" data-toggle="tab">Общие свойства</a></li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane active" id="commonPropTab">
-            @using (Ajax.BeginForm("EditObjectProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnFailure = "OnFailure" }, new { @id="objectPropsTab"}))
-            {
-                @Html.AntiForgeryToken()
+        <div id="attensionSaveWrapper" style="height:30px; padding-top:3px">
+            <div id="AttensionSave" class="alert-danger" role="alert"><img src="~/Content/images/additional/atts.png" />Внимание: имеются несохраненные данные!</div>
+        </div>
 
-                <fieldset>
+        <div class="tab-pane active" id="commonPropTab">
+            @using (Ajax.BeginForm("EditObjectProps", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "tagInfo", OnFailure = "OnFailure" }, new { @id = "objectPropsTab" }))
+            {
+                @*@Html.AntiForgeryToken()*@
+
+                <div id="propBody">
                     @Html.HiddenFor(m => m.Id)
                     @Html.HiddenFor(m => m.Name)
-                    @Html.HiddenFor(m => m.special, new { @class = "ignoreValid", @id = "specialInput" })
+                    <div class="form-group row">
+                        <div class="col-xs-3 ">
+                            @Html.LabelFor(m => m.Id, "ID", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.Id, new { disabled = "disabled", @readonly = "readonly" })
+                        </div>
+                    </div>
 
-                    <p>
-                        @Html.LabelFor(m => m.Id, "ID")
-                        <br />
-                        @Html.TextBoxFor(m => m.Id, new { disabled = "disabled", @readonly = "readonly" })
-
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.Address, "Адрес")
-                        <br />
-                        @Html.TextBoxFor(m => m.Address)
-                        @Html.ValidationMessageFor(m => m.Address)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.Driver, "Драйвер")
-                        <br />
-                        @Html.TextBoxFor(m => m.Driver)
-                        @Html.ValidationMessageFor(m => m.Address)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.RetrCount, "Количество ретрасляторов")
-                        <br />
-                        @Html.TextBoxFor(m => m.RetrCount)
-                        @Html.ValidationMessageFor(m => m.RetrCount)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.ParentGroup, "Родительская группа")
-                        <br />
-                        @Html.TextBoxFor(m => m.ParentGroup)
-                        @Html.ValidationMessageFor(m => m.ParentGroup)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.PrimaryChannel, "Основной канал связи")
-                        <br />
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.Address, "Адрес", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.Address)
+                            @Html.ValidationMessageFor(m => m.Address)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.Driver, "Драйвер", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.Driver)
+                            @Html.ValidationMessageFor(m => m.Driver)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.RetrCount, "Количество ретрасляторов", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.RetrCount)
+                            @Html.ValidationMessageFor(m => m.RetrCount)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.ParentGroup, "Родительская группа", new { @class = "control-label" })
+                        </div>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(m => m.ParentGroup)
+                            @Html.ValidationMessageFor(m => m.ParentGroup)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.PrimaryChannel, "Основной канал связи", new { @class = "control-label" })
+                        </div>
                         @{
-                Dictionary<int, string> chn = ViewBag.SelectChannel;
-                Dictionary<int, string> forSelectChannel = new Dictionary<int, string>();
-                if(chn.Count ==0)
-                {
-                    forSelectChannel = new Dictionary<int, string>{
-                        {0, "Добавтьте узел канал связи"}
-                    };
-                }
-                else
-                {
-                    forSelectChannel = ViewBag.SelectChannel;
-                }
+                             Dictionary<int, string> chn = ViewBag.SelectChannel;
+                             Dictionary<int, string> forSelectChannelPr = new Dictionary<int, string>();
+                             int primaryChannelId = Model.PrimaryChannel;
+
+                             if (chn.Count == 0)
+                             {
+                                 forSelectChannelPr.Add(0, "Добавьте узел канал связи");
+                                 //forSelectChannel = new Dictionary<int, string>{
+                                 //                {0, "Добавьте узел канал связи"}
+                                 //            };
+                             }
+                             else if (ViewBag.SelectChannel.ContainsKey(primaryChannelId))
+                             {
+                                 forSelectChannelPr = ViewBag.SelectChannel;
+                             }
+                             else
+                             {
+                                 //Dictionary<int, string> helpList = new Dictionary<int, string>();
+                                 forSelectChannelPr.Add(0, "Выберите узел");
+                                 foreach (var item in chn)
+                                 {
+                                     forSelectChannelPr.Add(item.Key, item.Value);
+                                 }
+                             }
                         }
-                        @Html.DropDownListFor(m => m.PrimaryChannel, new SelectList(forSelectChannel, "Key", "Value"))
-                        @Html.ValidationMessageFor(m => m.PrimaryChannel)
-                    </p>
-                    <p>
-                        @Html.LabelFor(m => m.SecondaryChannel, "Дублирующий канал связи")
-                        <br />
-                        @Html.DropDownListFor(m => m.SecondaryChannel, new SelectList(forSelectChannel, "Key", "Value"))
-                        @Html.ValidationMessageFor(m => m.SecondaryChannel)
-                    </p>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(m => m.PrimaryChannel, new SelectList(forSelectChannelPr, "Key", "Value"))
+                            @Html.ValidationMessageFor(m => m.PrimaryChannel)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            @Html.LabelFor(m => m.SecondaryChannel, "Дублирующий канал связи", new { @class = "control-label" })
+                        </div>
+                        @{
 
-                    @if (ViewBag.UserProps != null)
-                    {
-                        foreach (var prop in ViewBag.UserProps)
-                        {
+                             Dictionary<int, string> forSelectChannelSec = new Dictionary<int, string>();
+                             int secondaryChannelId = Model.SecondaryChannel;
 
-                            var propValue = prop.Value;
-                            string propKey = prop.Key;
-
-                            var typeNameIndex = propKey.LastIndexOf("_");
-                            var typeName = propKey.Substring(typeNameIndex + 1);
-                            int typeProp = 0;
-
-
-                            switch (typeName)
-                            {
-                                case "byte":
-                                    typeProp = 1;
-                                    break;
-                                case "word":
-                                    typeProp = 2;
-                                    break;
-                                case "dword":
-                                    typeProp = 3;
-                                    break;
-                                case "shortInt":
-                                    typeProp = 4;
-                                    break;
-                                case "smallInt":
-                                    typeProp = 5;
-                                    break;
-                                case "longInt":
-                                    typeProp = 6;
-                                    break;
-                                case "float":
-                                    typeProp = 7;
-                                    break;
-                                case "double":
-                                    typeProp = 8;
-                                    break;
-                                case "bool":
-                                    typeProp = 9;
-                                    break;
-                                case "string":
-                                    typeProp = 10;
-                                    break;
-                            }
-                            string propForDelete = "";
-                            switch (typeName)
-                            {
-                                case "string":
-                                    propForDelete = "\"" + propKey + "\":\"" + propValue + "\"";
-                                    break;
-                                case "float":
-                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
-                                    break;
-                                case "double":
-                                    propForDelete = "\"" + propKey + "\":" + (propValue.ToString()).Replace(",", ".");
-                                    break;
-                                case "bool":
-                                    propForDelete = "\"" + propKey + "\":" + propValue.ToString().ToLower();
-                                    break;
-                                default:
-                                    propForDelete = "\"" + propKey + "\":" + propValue;
-                                    break;
-
-                            }
-
-                            if (typeName =="bool")
-                            {
-                            <label>@prop.Key </label>
-                            <br />
-                            @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
-                                var boolVal = Convert.ToString(prop.Value);
-                                <input type="text" name="@prop.Key" data-type=@typeProp value=@boolVal.ToLower() data-description="userProp" />
-                            <br />   
-                            }
-                            else
-                            {
-                            <label>@prop.Key </label>
-                            <br />
-                            @Html.CheckBox(propForDelete, false, new { @class = "deleteProp" })
-                            <input type="text" name="@prop.Key" data-type=@typeProp value="@Convert.ToString(prop.Value)" data-description="userProp" />
-                            <br />
-                            }
-
+                             if (chn.Count == 0)
+                             {
+                                 forSelectChannelSec.Add(0, "Добавьте узел канал связи");
+                             }
+                             else if (ViewBag.SelectChannel.ContainsKey(secondaryChannelId))
+                             {
+                                 forSelectChannelSec = ViewBag.SelectChannel;
+                             }
+                             else
+                             {
+                                 forSelectChannelSec.Add(0, "Выберите узел");
+                                 foreach (var item in chn)
+                                 {
+                                     forSelectChannelSec.Add(item.Key, item.Value);
+                                 }
+                             }
                         }
-                    }
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(m => m.SecondaryChannel, new SelectList(forSelectChannelSec, "Key", "Value"))
+                            @Html.ValidationMessageFor(m => m.SecondaryChannel)
+                        </div>
+                    </div>
 
-                    <input id="saveObjPropsBtn" type="submit" class="btn btn-success"  value="Сохранить" />
-                    <input id="addObjPropsBtn" type="button" class="btn btn-info" value="Добавить свойство" />
-                    <input id="deleteObjPropsBtn" type="button" class="btn btn-info" value="Удалить свойства" style="display: none;" />
+                </div>
+                <div id="tabButtons">
+                    <button id="saveObjPropsBtn" type="submit" class="btn btn-success"> Сохранить </button>
+                </div>
 
-
-                </fieldset>
+                @Html.ValidationSummary(true)
             }
 
         </div>
-
     </div>
 </div>
 
 <script type="text/javascript">
+
     $(document).ready(function () {
-        getAdditionalProps();
-        LoadPageOff();
+        $("#ac-1").prop('checked', true);
+        calculateHeight();
+        //LoadPageOff();
+        if ($("#aboutSaveNotification").length > 0) {
+            setTimeout(hideAboutSaveNotification, 2000);
+        }
     });
 </script>
-<link href="~/Content/Configurator.css" rel="stylesheet" />
